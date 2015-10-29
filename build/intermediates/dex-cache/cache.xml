@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.3/36366e460af2c0f224bb8f70b64e3302f638b138/parse-android-1.10.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="36366e460af2c0f224bb8f70b64e3302f638b138">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/parse-android-1.10.3-0dd5232c4a18cce7c770dd246d8f4f6c50721eba.jar" />
+    </item>
+
+</items>
