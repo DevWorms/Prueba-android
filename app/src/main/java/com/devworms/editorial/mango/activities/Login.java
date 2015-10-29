@@ -34,51 +34,46 @@ import java.util.List;
  */
 public class Login extends AppCompatActivity {
 
+    private TextView tCorreo;
+    private boolean registrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+        ///***************Parse***************************************************
 
         try {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    "com.devworms.editorial.mango",
-                    PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+
+            Parse.enableLocalDatastore(this);
+
+            Parse.initialize(this, "Rv2InCwEE4RJowtNJVaYqlLw0VpjPLEePcfpHMsw", "oYALR4CrZhDOYlrOk7zCLszZXixJEXsDtOV4e0zt");
+
+
+            ParseFacebookUtils.initialize(this.getApplicationContext());
+
+            ParseTwitterUtils.initialize("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
+            ///***************Parse***************************************************
+
+            tCorreo = (TextView) findViewById(R.id.correo);
+            registrar = false;
+
+
+            ParseUser currentUser = ParseUser.getCurrentUser();
+            if (currentUser != null) {
+                Intent intent = new Intent(Login.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                // show the signup or login screen
+
+
             }
-        } catch (PackageManager.NameNotFoundException e) {
-
-        } catch (NoSuchAlgorithmException e) {
+        }
+        catch(Exception ex)
+        {
 
         }
-        ///***************Parse***************************************************
-
-
-        Parse.enableLocalDatastore(this);
-
-        Parse.initialize(this, "Rv2InCwEE4RJowtNJVaYqlLw0VpjPLEePcfpHMsw", "tC6M0aKvcylDvNp2N9kmntAqpRUE4N9NUwMFOUwz");
-
-
-        ParseFacebookUtils.initialize(this.getApplicationContext());
-
-        ParseTwitterUtils.initialize("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
-        ///***************Parse***************************************************
-
-
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        if (currentUser != null) {
-            Intent intent = new Intent(Login.this,MainActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            // show the signup or login screen
-
-
-        }
-
     }
 
     public void loguearConMail(View view)
@@ -86,17 +81,46 @@ public class Login extends AppCompatActivity {
         String userName=( (TextView)findViewById(R.id.usuario) ).getText().toString();
         String pass=( (TextView)findViewById(R.id.password) ).getText().toString();
 
-        ParseUser.logInInBackground(userName, pass, new LogInCallback() {
-            public void done(ParseUser user, ParseException e) {
-                if (user != null) {
-                    Intent intent = new Intent(Login.this,MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    // Signup failed. Look at the ParseException to see what happened.
+        if(!registrar) {
+            ParseUser.logInInBackground(userName, pass, new LogInCallback() {
+                public void done(ParseUser user, ParseException e) {
+                    if (user != null) {
+                        Intent intent = new Intent(Login.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG);
+                    }
                 }
-            }
-        });
+            });
+        }
+        else
+        {
+            String mail=( (TextView)findViewById(R.id.correo) ).getText().toString();
+
+            ParseUser user = new ParseUser();
+            user.setUsername(userName);
+            user.setPassword(pass);
+            user.setEmail(mail);
+
+            // other fields can be set just like with ParseObject
+            //user.put("phone", "650-253-0000");
+
+            user.signUpInBackground(new SignUpCallback() {
+                public void done(ParseException e) {
+                    if (e == null) {
+                        Intent intent = new Intent(Login.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                        registrar=false;
+                    } else {
+                        Toast.makeText(getApplicationContext(),"Ocurrio error al registrar",Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+
+        }
     }
 
     public  void continuar(View view)
@@ -108,31 +132,9 @@ public class Login extends AppCompatActivity {
 
     public void registrarUsuario(View view)
     {
-        String userName=( (TextView)findViewById(R.id.usuario) ).getText().toString();
-        String mail=( (TextView)findViewById(R.id.correo) ).getText().toString();
-        String pass=( (TextView)findViewById(R.id.password) ).getText().toString();
+        tCorreo.setVisibility(View.VISIBLE);
 
-        ParseUser user = new ParseUser();
-        user.setUsername(userName);
-        user.setPassword(pass);
-        user.setEmail(mail);
-
-        // other fields can be set just like with ParseObject
-        //user.put("phone", "650-253-0000");
-
-        user.signUpInBackground(new SignUpCallback() {
-            public void done(ParseException e) {
-                if (e == null) {
-                    Intent intent = new Intent(Login.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Toast.makeText(getApplicationContext(),"Ocurrio error al registrar",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-
+        registrar=true;
 
     }
 
