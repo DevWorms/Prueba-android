@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:title="Menu Fijo">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_fijo_1"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="recetario gratis" />
+                <item
+                    android:id="@+id/nav_fijo2"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Entradas y Botanas" />
+                <item
+                    android:id="@+id/nav_fijo3"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Ensaladas" />
+                <item
+                    android:id="@+id/nav_fijo4"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Entradas y Botanas" />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+
+        <item android:title="Menu Especial">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_recetarioGratisEspecial"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="recetario gratis" />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+
+        <item android:title="Menu Viral">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_viral"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="recetario gratis" />
+            </menu>
+        </item>
+    </group>
+</menu>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Applications/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0-79cc02f3cd2fc9525765c657614a9676aa767f4f.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-0c05e82ecebe3ec3eb81eaef4376355ca3d9472a.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/classes-d903362771aa93e6a59303c8e69e5e98adef7a9e.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/classes-25d81ddf36b6354d79782ce9ad64374c66132529.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.10.3-64d60610e8f23a1e9feae0786a653a98d086ec50.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/classes-e451721721126bc919b7579d7443183cb2d17852.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/libs/ParseTwitterUtils-1.10.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/ParseTwitterUtils-1.10.3-a86b86b9f8325d9ae2c3059920f79033cf528e2f.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/classes-7fbc9ecc0c4c62035ace1083b462fc83aa054bbf.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/44780c2cf98f6a3cf4e77f1234d644758b329201/bolts-android-1.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="44780c2cf98f6a3cf4e77f1234d644758b329201">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.1-b44e1a11b79be67cbd905d7d8dc1b4d75811d177.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.7.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/classes-aca48b3576badfccb8d81168325b72be71e76d0a.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.3/36366e460af2c0f224bb8f70b64e3302f638b138/parse-android-1.10.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="36366e460af2c0f224bb8f70b64e3302f638b138">
+        <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos Privados/Mango/app/build/intermediates/pre-dexed/debug/parse-android-1.10.3-0dd5232c4a18cce7c770dd246d8f4f6c50721eba.jar" />
+    </item>
+
+</items>

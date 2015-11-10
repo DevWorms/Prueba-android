@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="INICIO" />
+        <item
+            android:id="@+id/nav_favoritos"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="FAVORITOS" />
+        <item
+            android:id="@+id/nav_consejos"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="CONSEJOS" />
+        <item
+            android:id="@+id/nav_cuenta"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="TU CUENTA" />
+
+    </group>
+
+    <item android:title="Acerca de">
+        <menu>
+
+            <item
+                android:id="@+id/nav_creditos"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="CREDITOS" />
+        </menu>
+    </item>
+
+</menu>
