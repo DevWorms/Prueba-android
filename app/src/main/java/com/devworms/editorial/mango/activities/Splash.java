@@ -1,7 +1,9 @@
 package com.devworms.editorial.mango.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.devworms.editorial.mango.R;
@@ -27,9 +29,28 @@ public class Splash extends AppCompatActivity {
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{
-                    Intent intent = new Intent(Splash.this,Login.class);
-                    startActivity(intent);
-                    finish();
+
+                    //Nos indica siu mostramos el login o si mostramos el tutorial
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Splash.this);
+                    Boolean slider = preferences.getBoolean("MostrarSlider", true );
+                    if(slider)
+                    {
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putBoolean("MostrarSlider",false);
+                        editor.apply();
+
+                        Intent intent = new Intent(Splash.this,ScreenSlider.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else
+                    {
+
+                        Intent intent = new Intent(Splash.this,Login.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 }
             }
         };

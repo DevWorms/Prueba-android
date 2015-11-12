@@ -43,6 +43,7 @@ public class CuentaFragment extends Fragment{
 
 
         View view=null;
+        ParseUser.logOut();
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {

@@ -35,7 +35,6 @@
                 android:hint="Username"
                 android:id="@+id/usuario"
                 android:background="#f3f3f3"
-
                 android:paddingLeft="5dp"
                 android:layout_marginTop="30dp"/>
 

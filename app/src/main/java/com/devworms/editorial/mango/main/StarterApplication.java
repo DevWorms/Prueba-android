@@ -9,6 +9,8 @@
 package com.devworms.editorial.mango.main;
 
 import android.app.Application;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.parse.Parse;
 import com.parse.ParseACL;
@@ -30,7 +32,7 @@ public class StarterApplication extends Application {
     Parse.initialize(this, "Rv2InCwEE4RJowtNJVaYqlLw0VpjPLEePcfpHMsw", "oYALR4CrZhDOYlrOk7zCLszZXixJEXsDtOV4e0zt");
     ParseInstallation.getCurrentInstallation().saveInBackground();
 
-    ParseUser.enableAutomaticUser();
+    //ParseUser.enableAutomaticUser();
     ParseACL defaultACL = new ParseACL();
     // Optionally enable public read access.
     // defaultACL.setPublicReadAccess(true);
@@ -39,6 +41,8 @@ public class StarterApplication extends Application {
     ParseFacebookUtils.initialize(this.getApplicationContext());
 
     ParseTwitterUtils.initialize("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
+
+
 
   }
 }

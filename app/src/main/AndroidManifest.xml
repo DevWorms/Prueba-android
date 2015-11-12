@@ -41,6 +41,10 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
+            android:name=".activities.ScreenSlider"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".activities.Login"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
