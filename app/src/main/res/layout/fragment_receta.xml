@@ -17,13 +17,44 @@
         android:gravity="center"/>
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtreceta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:typeface="sans"
-            android:layout_gravity="center_vertical|right"/>
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtreceta"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:typeface="sans"
+                android:layout_gravity="center_vertical|right"/>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <android.support.design.widget.FloatingActionButton android:id="@+id/compartir"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right|end" android:layout_margin="@dimen/fab_margin"
+
+                android:src="@drawable/compartir" />
+
+            <android.support.design.widget.FloatingActionButton android:id="@+id/favoritos"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="left|bottom|end" android:layout_margin="@dimen/fab_margin"
+
+                android:src="@drawable/like" />
+        </LinearLayout>
+
+
+    </LinearLayout>
     </ScrollView>
+
+
 </LinearLayout>
