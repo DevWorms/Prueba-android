@@ -1,0 +1,36 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.devworms.editorial.mango.fragments.CompartirFragment">
+
+   <RelativeLayout
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent">
+
+
+   </RelativeLayout>
+
+    <Button
+        android:layout_width="109dp"
+        android:layout_height="121dp"
+        android:layout_gravity="left|bottom"
+        android:id="@+id/bFacebook"
+
+        android:background="@drawable/fb" />
+
+    <Button
+        android:layout_width="109dp"
+        android:layout_height="121dp"
+        android:id="@+id/bTwitter"
+        android:background="@drawable/twittert"
+
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <Button
+        android:layout_width="109dp"
+        android:layout_height="121dp"
+        android:id="@+id/bPinterest"
+
+        android:background="@drawable/pinterest"
+        android:layout_gravity="right|bottom" />
+</FrameLayout>

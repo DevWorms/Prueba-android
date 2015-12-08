@@ -211,11 +211,13 @@ public class Login extends AppCompatActivity {
                 if (user == null) {
                     Log.d("MyApp", "Uh oh. The user cancelled the Twitter login.");
                 } else if (user.isNew()) {
-                    Intent intent = new Intent(Login.this,MainActivity.class);
+                    ligarConTwitter(user);
+                    Intent intent = new Intent(Login.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                     Log.d("MyApp", "User signed up and logged in through Twitter!");
                 } else {
+                    ligarConTwitter(user);
                     Intent intent = new Intent(Login.this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -226,9 +228,17 @@ public class Login extends AppCompatActivity {
 
     }
 
-   /* @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
-    }*/
+    private void ligarConTwitter(final ParseUser user)
+    {
+        if (!ParseTwitterUtils.isLinked(user)) {
+            ParseTwitterUtils.link(user, this, new SaveCallback() {
+                @Override
+                public void done(ParseException ex) {
+                    if (ParseTwitterUtils.isLinked(user)) {
+                        Log.d("MyApp", "Woohoo, user logged in with Twitter!");
+                    }
+                }
+            });
+        }
+    }
 }
