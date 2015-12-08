@@ -73,6 +73,13 @@ public class CuentaFragment extends Fragment{
         return view;
     }
 
+    //El Fragment ha sido quitado de su Activity y ya no está disponible
+    @Override
+    public void onDetach() {
+        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        super.onDetach();
+    }
+
 
 
 }

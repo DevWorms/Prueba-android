@@ -1,14 +1,20 @@
 package com.devworms.editorial.mango.fragments;
 
+
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.devworms.editorial.mango.R;
 import com.facebook.share.model.SharePhoto;
@@ -19,6 +25,17 @@ import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 public class CompartirFragment extends Fragment implements View.OnClickListener {
 
 
+    private static Integer[]images =
+            {
+                    R.drawable.imagen1,
+                    R.drawable.imagen2,
+                    R.drawable.imagen3,
+                    R.drawable.imagen4,
+            };
+
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    private ViewPager mViewPager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +50,21 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
         buttonFb.setOnClickListener(this);
         buttonTw.setOnClickListener(this);
         buttonPin.setOnClickListener(this);
+
+
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter( getChildFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) view.findViewById(R.id.containerCompartir);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        //mViewPager.setPageTransformer(true, new RelaxTransformer());
+        // mViewPager.setPageTransformer(true,  new DepthPageTransformer ());
+
+
+
 
         return view;
 
@@ -60,7 +92,7 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
     {
         // compartir una imagen
         //Se saca la imagen de los recursos
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.salchichas);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), images[mViewPager.getCurrentItem()]);
 
        SharePhoto photo = new SharePhoto.Builder()
                .setBitmap(bitmap)
@@ -77,7 +109,7 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
 
     public void compartirTw()
     {
-        Uri path = Uri.parse("android.resource://"+getActivity().getApplicationContext().getPackageName() +"/"+ R.drawable.salchichas);
+        Uri path = Uri.parse("android.resource://"+getActivity().getApplicationContext().getPackageName() +"/"+ images[mViewPager.getCurrentItem()]);
 
         //  File myImageFile = new File("/path/to/image");
         // Uri myImageUri = Uri.fromFile(myImageFile);
@@ -91,6 +123,108 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
     public void compartirPin()
     {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    /**
+     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
+     * one of the sections/tabs/pages.
+     */
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            return PlaceholderFragment.newInstance(position);
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return images.length;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "SECTION 1";
+                case 1:
+                    return "SECTION 2";
+                case 2:
+                    return "SECTION 3";
+                case 3:
+                    return "SECTION 4";
+            }
+            return null;
+        }
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+
+    public static class PlaceholderFragment extends Fragment {
+
+
+
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_screen_slider, container, false);
+            ImageView imageView =(ImageView) rootView.findViewById(R.id.imageSlides);
+            imageView.setImageResource(images[getArguments().getInt(ARG_SECTION_NUMBER)]);
+
+            return rootView;
+        }
+    }
+
+    //El Fragment ha sido quitado de su Activity y ya no está disponible
+    @Override
+    public void onDetach() {
+        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        super.onDetach();
     }
 
 }

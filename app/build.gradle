@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         applicationId "com.devworms.editorial.mango"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -47,5 +47,6 @@ dependencies {
     compile('com.twitter.sdk.android:twitter:1.10.0@aar') {
         transitive = true;
     }
+    compile 'com.android.support:support-v13:+'
 
 }

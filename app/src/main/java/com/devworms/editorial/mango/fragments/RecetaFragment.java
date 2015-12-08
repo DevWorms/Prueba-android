@@ -7,7 +7,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -93,7 +92,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
     public void compartir()
     {
         getFragmentManager().beginTransaction()
-                .replace(R.id.actividad, new CompartirFragment())
+                .replace(R.id.actividad,(new CompartirFragment()))
                 .addToBackStack("RecetaFragment")
                 .commit();
     }
@@ -103,5 +102,11 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
     }
 
+    //El Fragment ha sido quitado de su Activity y ya no está disponible
+    @Override
+    public void onDetach() {
+        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        super.onDetach();
+    }
 
 }

@@ -8,12 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.CustomList;
-import com.devworms.editorial.mango.componentes.CustomListListImagesAndText;
 
 
 /**
@@ -62,5 +60,12 @@ public class FavoritosFragment extends Fragment {
         //list.setDivider(null);
         list.setDivider(null);
         return view;
+    }
+
+    //El Fragment ha sido quitado de su Activity y ya no está disponible
+    @Override
+    public void onDetach() {
+        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        super.onDetach();
     }
 }

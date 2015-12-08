@@ -128,6 +128,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+
+
         if (id == R.id.nav_inicio) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, new MenuFragment()).commit();
