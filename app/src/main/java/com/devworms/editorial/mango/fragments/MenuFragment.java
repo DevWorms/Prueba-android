@@ -27,11 +27,11 @@ public class MenuFragment extends Fragment {
             "Comida 5",
     } ;
     Integer[] imageId = {
-            R.drawable.comida,
-            R.drawable.comida,
-            R.drawable.comida,
-            R.drawable.comida,
-            R.drawable.comida,
+            R.drawable.comidag,
+            R.drawable.comidar,
+            R.drawable.comidar,
+            R.drawable.comidav,
+            R.drawable.comidar,
     };
 
     @Override
@@ -54,11 +54,27 @@ public class MenuFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.actividad, new CategoriaFragment())
-                        .addToBackStack("MenuFragment")
-                        .commit();
+                switch (position) {
+                    case 0: //Gratis
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.actividad, new CategoriaFragment())
+                                .addToBackStack("MenuFragment")
+                                .commit();
+                        break;
 
+                    case 1:case 2:case 4: //compra
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.actividad, new ComprarFragment())
+                                .addToBackStack("MenuFragment")
+                                .commit();
+                        break;
+                    case 3: //viral
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.actividad, new CompartirFragment())
+                                .addToBackStack("MenuFragment")
+                                .commit();
+                        break;
+                }
 
 
             }
