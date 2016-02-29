@@ -1,9 +1,12 @@
 package com.devworms.editorial.mango.fragments;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -11,6 +14,15 @@ import android.widget.ListView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.CustomList;
+import com.devworms.editorial.mango.componentes.CustomListParse;
+import com.devworms.editorial.mango.main.StarterApplication;
+import com.parse.FindCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.List;
 
 
 /**
@@ -19,20 +31,25 @@ import com.devworms.editorial.mango.componentes.CustomList;
 public class MenuFragment extends Fragment {
 
     ListView list;
-    String[] web = {
-            "Comida 1",
-            "Comida 2",
-            "Comida 3",
-            "Comida 4",
-            "Comida 5",
-    } ;
-    Integer[] imageId = {
-            R.drawable.comidag,
-            R.drawable.comidar,
-            R.drawable.comidar,
-            R.drawable.comidav,
-            R.drawable.comidar,
-    };
+    List<ParseObject> lMenus;
+
+    public void obtenerObjetosParse(){
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Menus");
+        query.whereEqualTo("Activo", true);
+        query.orderByAscending("Orden");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> menuList, ParseException e) {
+                if (e == null) {
+                    lMenus = menuList;
+                    crearListado(getView());
+                    Log.d("score", "Retrieved " + lMenus.size() + " scores");
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,9 +57,26 @@ public class MenuFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.content_main, container, false);
 
-        //Menu
-        CustomList adapter = new
-                CustomList(getActivity(), web, imageId);
+        CustomListParse adapter = ((StarterApplication) this.getActivity().getApplication()).getListaMenuPrincipal();
+        if (adapter == null){
+            obtenerObjetosParse();
+        }
+        else{
+            crearListado(view);
+        }
+
+        return view;
+    }
+
+    private void crearListado(View view){
+
+        CustomListParse adapter = ((StarterApplication) this.getActivity().getApplication()).getListaMenuPrincipal();
+        if (adapter == null){
+            adapter = new
+                    CustomListParse(getActivity(), this.lMenus);
+            ((StarterApplication) this.getActivity().getApplication()).setListaMenuPrincipal(adapter);
+        }
+
         list=(ListView)view.findViewById(R.id.list);
         list.setAdapter(adapter);
         //list.setDivider(null);
@@ -54,21 +88,22 @@ public class MenuFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                switch (position) {
-                    case 0: //Gratis
+
+                ParseObject objParse = lMenus.get(position);
+                String tipo = objParse.getString("TipoMenu").toLowerCase();
+                ((StarterApplication) getActivity().getApplication()).setImagenReceta(null);
+
+                switch (tipo) {
+                    case "gratis": case "pago"://Gratis o de pago
+                        CategoriaFragment recetario = new CategoriaFragment();
+                        recetario.setMenuSeleccionado(lMenus.get(position));
                         getFragmentManager().beginTransaction()
-                                .replace(R.id.actividad, new CategoriaFragment())
+                                .replace(R.id.actividad,recetario)
                                 .addToBackStack("MenuFragment")
                                 .commit();
                         break;
 
-                    case 1:case 2:case 4: //compra
-                        getFragmentManager().beginTransaction()
-                                .replace(R.id.actividad, new ComprarFragment())
-                                .addToBackStack("MenuFragment")
-                                .commit();
-                        break;
-                    case 3: //viral
+                    case "viral":
                         getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad, new CompartirFragment())
                                 .addToBackStack("MenuFragment")
@@ -79,10 +114,6 @@ public class MenuFragment extends Fragment {
 
             }
         });
-
-
-
-        return view;
     }
 
     //El Fragment ha sido quitado de su Activity y ya no está disponible

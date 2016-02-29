@@ -10,17 +10,52 @@ package com.devworms.editorial.mango.main;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
 
+import com.devworms.editorial.mango.componentes.CustomListParse;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseInstallation;
+import com.parse.ParseObject;
 import com.parse.ParseTwitterUtils;
 import com.parse.ParseUser;
 
+import java.util.HashMap;
+
 
 public class StarterApplication extends Application {
+
+
+    private CustomListParse listaMenuPrincipal;
+    private HashMap<ParseObject, CustomListParse>listaRecetasPorMenu;
+    private Bitmap imagenReceta;
+
+    public Bitmap getImagenReceta() {
+        return imagenReceta;
+    }
+
+    public void setImagenReceta(Bitmap imagenReceta) {
+        this.imagenReceta = imagenReceta;
+    }
+
+    public HashMap<ParseObject, CustomListParse> getlistaRecetasPorMenu() {
+        return listaRecetasPorMenu;
+    }
+
+    public void setlistaRecetasPorMenu(HashMap<ParseObject, CustomListParse> listaRecetasPorMenu) {
+        this.listaRecetasPorMenu = listaRecetasPorMenu;
+    }
+
+
+  public CustomListParse getListaMenuPrincipal() {
+    return listaMenuPrincipal;
+  }
+
+  public void setListaMenuPrincipal(CustomListParse listaMenuPrincipal) {
+    this.listaMenuPrincipal = listaMenuPrincipal;
+  }
 
   @Override
   public void onCreate() {
@@ -41,6 +76,8 @@ public class StarterApplication extends Application {
     ParseFacebookUtils.initialize(this.getApplicationContext());
 
     ParseTwitterUtils.initialize("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
+
+      this.listaRecetasPorMenu = new HashMap<>();
 
 
 

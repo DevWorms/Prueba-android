@@ -23,11 +23,11 @@ public class ConsejosFragment extends Fragment {
             "Comida 5",
     } ;
     Integer[] imageId = {
-            R.drawable.comida,
-            R.drawable.comida,
-            R.drawable.comida,
-            R.drawable.comida,
-            R.drawable.comida,
+            R.drawable.comidag,
+            R.drawable.comidag,
+            R.drawable.comidag,
+            R.drawable.comidag,
+            R.drawable.comidag,
     };
 
 

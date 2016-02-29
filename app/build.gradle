@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         applicationId "com.devworms.editorial.mango"
-        minSdkVersion 17
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 3
         versionName "3.0"

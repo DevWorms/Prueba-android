@@ -25,8 +25,8 @@ public class FavoritosFragment extends Fragment {
 
     } ;
     Integer[] imageId = {
-            R.drawable.comida,
-            R.drawable.comida,
+            R.drawable.comidag,
+            R.drawable.comidag,
     };
 
     @Nullable

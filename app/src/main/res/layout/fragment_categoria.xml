@@ -7,10 +7,12 @@
     <ImageView
         android:id="@+id/imagenCategoria"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="200dp" />
+
     <ListView
         android:id="@+id/listreceta"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent" />
+        android:layout_height="200dp"
+        android:paddingEnd="4dp" />
 
 </LinearLayout>
