@@ -94,6 +94,15 @@
             </intent-filter>
         </receiver>
 
+        <!-- Pinterest -->
+
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="pdk4815040272566075428" />
+        </intent-filter>
+
     </application>
 
 </manifest>

@@ -69,13 +69,13 @@ public class CustomListParse extends ArrayAdapter<ParseObject> {
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
-        String urldisplay;
+       // String urldisplay;
         public DownloadImageTask(ImageView bmImage) {
             this.bmImage = bmImage;
         }
 
         protected Bitmap doInBackground(String... urls) {
-            urldisplay = urls[0];
+            String urldisplay = urls[0];
             Bitmap mIcon11 = null;
             try {
                 InputStream in = new java.net.URL(urldisplay).openStream();
@@ -88,7 +88,7 @@ public class CustomListParse extends ArrayAdapter<ParseObject> {
         }
 
         protected void onPostExecute(Bitmap result) {
-            listaImagenes.put(urldisplay, result);
+          //  listaImagenes.put(urldisplay, result);
             bmImage.setImageBitmap(result);
             bmImage.invalidate();
             mDialog.cancel();

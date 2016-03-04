@@ -38,6 +38,7 @@ public class ScreenSlider extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
+
     private ViewPager mViewPager;
 
     @Override
@@ -189,10 +190,16 @@ public class ScreenSlider extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_screen_slider, container, false);
-            ImageView imageView =(ImageView) rootView.findViewById(R.id.imageSlides);
-            imageView.setImageResource(images[getArguments().getInt(ARG_SECTION_NUMBER)]);
 
+            View rootView = inflater.inflate(R.layout.fragment_screen_slider, container, false);
+            try {
+                ImageView imageView = (ImageView) rootView.findViewById(R.id.imageSlides);
+                imageView.setImageResource(images[getArguments().getInt(ARG_SECTION_NUMBER)]);
+            }
+            catch (Exception ex)
+            {
+                System.err.println(ex.getMessage());
+            }
             return rootView;
         }
     }

@@ -21,6 +21,7 @@ import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseTwitterUtils;
 import com.parse.ParseUser;
+import com.pinterest.android.pdk.PDKClient;
 
 import java.util.HashMap;
 
@@ -78,6 +79,9 @@ public class StarterApplication extends Application {
     ParseTwitterUtils.initialize("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
 
       this.listaRecetasPorMenu = new HashMap<>();
+
+      PDKClient.configureInstance(this, "4815040272566075428");
+      PDKClient.getInstance().onConnect(this);
 
 
 
