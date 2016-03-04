@@ -57,7 +57,7 @@ public class MenuFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.content_main, container, false);
 
-        CustomListParse adapter = ((StarterApplication) this.getActivity().getApplication()).getListaMenuPrincipal();
+        CustomListParse adapter = null;//((StarterApplication) this.getActivity().getApplication()).getListaMenuPrincipal();
         if (adapter == null){
             obtenerObjetosParse();
         }
@@ -70,11 +70,11 @@ public class MenuFragment extends Fragment {
 
     private void crearListado(View view){
 
-        CustomListParse adapter = ((StarterApplication) this.getActivity().getApplication()).getListaMenuPrincipal();
+        CustomListParse adapter = null;//((StarterApplication) this.getActivity().getApplication()).getListaMenuPrincipal();
         if (adapter == null){
             adapter = new
                     CustomListParse(getActivity(), this.lMenus);
-            ((StarterApplication) this.getActivity().getApplication()).setListaMenuPrincipal(adapter);
+            //  ((StarterApplication) this.getActivity().getApplication()).setListaMenuPrincipal(adapter);
         }
 
         list=(ListView)view.findViewById(R.id.list);
@@ -91,7 +91,7 @@ public class MenuFragment extends Fragment {
 
                 ParseObject objParse = lMenus.get(position);
                 String tipo = objParse.getString("TipoMenu").toLowerCase();
-                ((StarterApplication) getActivity().getApplication()).setImagenReceta(null);
+              //  ((StarterApplication) getActivity().getApplication()).setImagenReceta(null);
 
                 switch (tipo) {
                     case "gratis": case "pago"://Gratis o de pago

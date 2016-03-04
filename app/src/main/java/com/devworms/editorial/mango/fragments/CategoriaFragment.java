@@ -69,7 +69,7 @@ public class CategoriaFragment extends Fragment {
         //Imagen
 
         ImageView imagen =(ImageView) view.findViewById(R.id.imagenCategoria);
-        Bitmap bt = ((StarterApplication) getActivity().getApplication()).getImagenReceta();
+        Bitmap bt = null;//((StarterApplication) getActivity().getApplication()).getImagenReceta();
         if (bt==null){
             new DownloadImageTask(imagen).execute(objParse.getString("Url_Imagen"));
         }
@@ -78,35 +78,35 @@ public class CategoriaFragment extends Fragment {
         }
 
         //Menu
-        HashMap<ParseObject, CustomListParse> hashMap = ((StarterApplication) this.getActivity().getApplication()).getlistaRecetasPorMenu();
-        if (hashMap.get(this.objParse) == null){
+        //HashMap<ParseObject, CustomListParse> hashMap = ((StarterApplication) this.getActivity().getApplication()).getlistaRecetasPorMenu();
+        // if (hashMap.get(this.objParse) == null){
             CustomListParse adapter = new
                     CustomListParse(getActivity(), this.lMenusRecetas);
 
-            hashMap.put(objParse, adapter);
-            ((StarterApplication) this.getActivity().getApplication()).setlistaRecetasPorMenu(hashMap);
-        }
+          /*  hashMap.put(objParse, adapter);
+            // ((StarterApplication) this.getActivity().getApplication()).setlistaRecetasPorMenu(hashMap);
+        }*/
 
 
         list=(ListView)view.findViewById(R.id.listreceta);
-        list.setAdapter(hashMap.get(this.objParse));
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list.setAdapter(adapter);//hashMap.get(this.objParse));
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
 
-                RecetaFragment receta = new RecetaFragment();
-                receta.objReceta =  lMenusRecetas.get(position);
+                        RecetaFragment receta = new RecetaFragment();
+                        receta.objReceta = lMenusRecetas.get(position);
 
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.actividad,receta)
-                        .addToBackStack("MenuFragment")
-                        .commit();
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.actividad, receta)
+                                .addToBackStack("MenuFragment")
+                                .commit();
 
 
-            }
-        });
+                    }
+                });
 
         //list.setDivider(null);
         list.setDivider(null);
@@ -118,13 +118,13 @@ public class CategoriaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view= inflater.inflate(R.layout.fragment_categoria, container, false);
-        HashMap<ParseObject, CustomListParse> hashMap = ((StarterApplication) this.getActivity().getApplication()).getlistaRecetasPorMenu();
-        if (hashMap.get(this.objParse) == null){
+        //HashMap<ParseObject, CustomListParse> hashMap = ((StarterApplication) this.getActivity().getApplication()).getlistaRecetasPorMenu();
+      //  if (hashMap.get(this.objParse) == null){
             obtenerObjetosParse();
-        }
-        else{
-            crearListado(view);
-        }
+        //}
+        //else{*/
+            //crearListado(view);
+        //}
 
 
         return view;
@@ -160,7 +160,7 @@ public class CategoriaFragment extends Fragment {
         protected void onPostExecute(Bitmap result) {
             bmImage.setImageBitmap(result);
             bmImage.invalidate();
-            ((StarterApplication) getActivity().getApplication()).setImagenReceta(result);
+           // ((StarterApplication) getActivity().getApplication()).setImagenReceta(result);
         }
 
     }

@@ -13,17 +13,18 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <!-- VERY IMPORTANT! Don't forget this permission, or in-app billing won't work. -->
+    <!-- VERY IMPORTANT! Don't forget this permission, or in-app billing won't work.
     <uses-permission android:name="com.android.vending.BILLING" />
 
-    <!--
+
       IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
       to match your app's package name + ".permission.C2D_MESSAGE".
-    -->
+
     <permission android:protectionLevel="signature"
         android:name="com.devworms.editorial.mango.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.devworms.editorial.mango.permission.C2D_MESSAGE" />
 
+    -->
 
     <application
         android:name=".main.StarterApplication"

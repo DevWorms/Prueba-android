@@ -29,7 +29,7 @@ import java.util.HashMap;
 public class StarterApplication extends Application {
 
 
-    private CustomListParse listaMenuPrincipal;
+  /*  private CustomListParse listaMenuPrincipal;
     private HashMap<ParseObject, CustomListParse>listaRecetasPorMenu;
     private Bitmap imagenReceta;
 
@@ -56,7 +56,7 @@ public class StarterApplication extends Application {
 
   public void setListaMenuPrincipal(CustomListParse listaMenuPrincipal) {
     this.listaMenuPrincipal = listaMenuPrincipal;
-  }
+  }*/
 
   @Override
   public void onCreate() {
@@ -78,7 +78,7 @@ public class StarterApplication extends Application {
 
     ParseTwitterUtils.initialize("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
 
-      this.listaRecetasPorMenu = new HashMap<>();
+      // this.listaRecetasPorMenu = new HashMap<>();
 
       PDKClient.configureInstance(this, "4815040272566075428");
       PDKClient.getInstance().onConnect(this);

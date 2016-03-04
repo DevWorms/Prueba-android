@@ -2,39 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.2.0/jars/libs/internal_impl-23.2.0.jar"
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="58d0010cb4373696cfdc5894c4b23649af58ed18">
-        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0-5e521cf3481c1a1b51ce9882893729fdb27ed1d8.jar" />
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/library-1.0.19-474e17ae3943508e0f0f4944b72b4051a02da3b7.jar" />
     </item>
     <item
-        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/libs/internal_impl-23.2.0.jar"
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/pdk/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="6e239441500605809818997dd63b62a947195f8c">
-        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0-3c307f3975edbe768afd565ed2c196c5909fb7ec.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
-        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-d615d9eb5d11fb4b96829ea08b3423f71f48863a.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.0/support-annotations-23.2.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
-        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.0-c1bdc1fc6520945f5c803aca3624dc1fcce3a306.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="f3a3189a228a65d03b3ea92a1b58a2b44bc7366e">
-        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-f047cf7d8dbc692bfbbd6cb644879e13fc804d52.jar" />
+        sha1="0797faad875d2bd2a69ddb7ccb2dc39bace7d909">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-dd7896e7633af818b92b61c4b1061aac7aea051e.jar" />
     </item>
 
 </items>
