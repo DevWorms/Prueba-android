@@ -50,4 +50,17 @@ dependencies {
     }
     compile 'com.android.support:support-v13:+'
 
+
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.squareup.okhttp:okhttp:2.2.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+
+    compile 'com.jpardogo.materialtabstrip:library:1.0.8'
+    compile 'com.github.chrisbanes.photoview:library:1.2.3'
+
+    compile  'com.theartofdev:fast-image-loader:0.8.+'
+
+    compile 'com.android.support:recyclerview-v7:23.0.0'
+
+
 }

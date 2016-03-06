@@ -56,11 +56,11 @@ public class CuentaFragment extends Fragment{
                 public void onClick(View v)
                 {
                     ParseUser.logOut();
-                    getFragmentManager().beginTransaction()
+                    /*getFragmentManager().beginTransaction()
                             .replace(R.id.actividad, new CuentaFragment())
                             .addToBackStack("cuenta")
                             .commit();
-
+*/
                 }
             });
         } else {

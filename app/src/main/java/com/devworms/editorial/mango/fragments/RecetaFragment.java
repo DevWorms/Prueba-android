@@ -31,21 +31,34 @@ import java.util.List;
  */
 public class RecetaFragment extends Fragment implements View.OnClickListener{
 
-    ParseObject objReceta;
-    private ProgressDialog mDialog;
+    private ParseObject objReceta;
+    private Bitmap imgReceta;
+
+
+    public ParseObject getObjReceta() {
+        return objReceta;
+    }
+
+    public void setObjReceta(ParseObject objReceta) {
+        this.objReceta = objReceta;
+    }
+
+    public Bitmap getImgReceta() {
+        return imgReceta;
+    }
+
+    public void setImgReceta(Bitmap imgReceta) {
+        this.imgReceta = imgReceta;
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_receta, container, false);
 
-        this.mDialog = new ProgressDialog(view.getContext());
-        this.mDialog.setMessage("Descargando");
-        this.mDialog.setCancelable(false);
-        this.mDialog.show();
 
         ImageView imagen = (ImageView) view.findViewById(R.id.imagenreceta);
-        new DownloadImageTask(imagen).execute(objReceta.getString("Url_Imagen"));
+        imagen.setImageBitmap(this.getImgReceta());
 
 
 
@@ -54,12 +67,6 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         pasosTitulo.setText(objReceta.getString("Nombre"));
         pasos.setText("Ingredientes \n" + (objReceta.getString("Ingredientes")));
         pasos.setText(pasos.getText() + "\n\nProcedimiento\n" + (objReceta.getString("Procedimiento")));
-
-
-
-
-
-
 
         FloatingActionButton buttonCompartir = (FloatingActionButton) view.findViewById(R.id.compartir);
         FloatingActionButton buttonAnadirFavoritos = (FloatingActionButton) view.findViewById(R.id.favoritos);
@@ -173,34 +180,6 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
     public void onDetach() {
         getActivity().getFragmentManager().beginTransaction().remove(this).commit();
         super.onDetach();
-    }
-
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-        String urldisplay;
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-            bmImage.invalidate();
-            mDialog.cancel();
-        }
-
     }
 
 }

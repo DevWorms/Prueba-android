@@ -48,11 +48,11 @@ public class FavoritosFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.actividad, new CategoriaFragment())
+                /*getFragmentManager().beginTransaction()
+                        .replace(R.id.actividad, new RecetarioFragment())
                         .addToBackStack("MenuFragment")
                         .commit();
-
+*/
 
             }
         });

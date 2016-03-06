@@ -12,8 +12,11 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
+import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.CustomListParse;
+import com.devworms.editorial.mango.util.Specs;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseFacebookUtils;
@@ -22,42 +25,20 @@ import com.parse.ParseObject;
 import com.parse.ParseTwitterUtils;
 import com.parse.ParseUser;
 import com.pinterest.android.pdk.PDKClient;
+import com.theartofdev.fastimageloader.FastImageLoader;
+import com.theartofdev.fastimageloader.adapter.IdentityAdapter;
+import com.theartofdev.fastimageloader.adapter.ImgIXAdapter;
 
 import java.util.HashMap;
 
 
 public class StarterApplication extends Application {
 
+  public static final int INSTAGRAM_IMAGE_SIZE = 640;
 
-  /*  private CustomListParse listaMenuPrincipal;
-    private HashMap<ParseObject, CustomListParse>listaRecetasPorMenu;
-    private Bitmap imagenReceta;
+  public static final int INSTAGRAM_AVATAR_SIZE = 150;
 
-    public Bitmap getImagenReceta() {
-        return imagenReceta;
-    }
-
-    public void setImagenReceta(Bitmap imagenReceta) {
-        this.imagenReceta = imagenReceta;
-    }
-
-    public HashMap<ParseObject, CustomListParse> getlistaRecetasPorMenu() {
-        return listaRecetasPorMenu;
-    }
-
-    public void setlistaRecetasPorMenu(HashMap<ParseObject, CustomListParse> listaRecetasPorMenu) {
-        this.listaRecetasPorMenu = listaRecetasPorMenu;
-    }
-
-
-  public CustomListParse getListaMenuPrincipal() {
-    return listaMenuPrincipal;
-  }
-
-  public void setListaMenuPrincipal(CustomListParse listaMenuPrincipal) {
-    this.listaMenuPrincipal = listaMenuPrincipal;
-  }*/
-
+  public static boolean mPrefetchImages;
   @Override
   public void onCreate() {
     super.onCreate();
@@ -84,6 +65,43 @@ public class StarterApplication extends Application {
       PDKClient.getInstance().onConnect(this);
 
 
+
+    mPrefetchImages = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("prefetch", true);
+
+    FastImageLoader
+            .init(this)
+            .setDefaultImageServiceAdapter(new ImgIXAdapter())
+            .setWriteLogsToLogcat(true)
+            .setLogLevel(Log.DEBUG)
+            .setDebugIndicator(true);
+
+    FastImageLoader.buildSpec(Specs.IMG_IX_UNBOUNDED)
+            .setUnboundDimension()
+            .setPixelConfig(Bitmap.Config.RGB_565)
+            .build();
+
+    FastImageLoader.buildSpec(Specs.IMG_IX_IMAGE)
+            .setDimensionByDisplay()
+            .setHeightByResource(R.dimen.image_height)
+            .setPixelConfig(Bitmap.Config.RGB_565)
+            .build();
+
+    IdentityAdapter identityUriEnhancer = new IdentityAdapter();
+    FastImageLoader.buildSpec(Specs.INSTA_AVATAR)
+            .setDimension(INSTAGRAM_AVATAR_SIZE)
+            .setImageServiceAdapter(identityUriEnhancer)
+            .build();
+
+    FastImageLoader.buildSpec(Specs.INSTA_IMAGE)
+            .setDimension(INSTAGRAM_IMAGE_SIZE)
+            .setPixelConfig(Bitmap.Config.RGB_565)
+            .setImageServiceAdapter(identityUriEnhancer)
+            .build();
+
+    FastImageLoader.buildSpec(Specs.UNBOUNDED_MAX)
+            .setUnboundDimension()
+            .setMaxDensity()
+            .build();
 
   }
 }

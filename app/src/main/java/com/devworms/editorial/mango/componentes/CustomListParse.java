@@ -63,7 +63,12 @@ public class CustomListParse extends ArrayAdapter<ParseObject> {
 
 
 
+/*        AQuery aq = new AQuery(yourActivity.this);
+        boolean memCache = true;
+        boolean fileCache = true;
+        aq.id(R.id.image1).image("http://www.example.com/image.jpg", memCache, fileCache);
 
+*/
         return rowView;
     }
 

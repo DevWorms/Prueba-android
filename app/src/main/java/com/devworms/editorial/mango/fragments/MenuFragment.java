@@ -1,23 +1,27 @@
 package com.devworms.editorial.mango.fragments;
 
 import android.app.Fragment;
-import android.app.ProgressDialog;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.componentes.CustomList;
 import com.devworms.editorial.mango.componentes.CustomListParse;
 import com.devworms.editorial.mango.main.StarterApplication;
+import com.devworms.editorial.mango.util.Adapter;
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -32,8 +36,9 @@ public class MenuFragment extends Fragment {
 
     ListView list;
     List<ParseObject> lMenus;
+    private Adapter mAdapter;
 
-    public void obtenerObjetosParse(){
+    public void obtenerObjetosParse(final RecyclerView recyclerView){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Menus");
         query.whereEqualTo("Activo", true);
@@ -42,7 +47,11 @@ public class MenuFragment extends Fragment {
             public void done(List<ParseObject> menuList, ParseException e) {
                 if (e == null) {
                     lMenus = menuList;
-                    crearListado(getView());
+
+
+
+
+                    //crearListado(getView());
                     Log.d("score", "Retrieved " + lMenus.size() + " scores");
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
@@ -57,29 +66,31 @@ public class MenuFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.content_main, container, false);
 
-        CustomListParse adapter = null;//((StarterApplication) this.getActivity().getApplication()).getListaMenuPrincipal();
-        if (adapter == null){
-            obtenerObjetosParse();
-        }
-        else{
-            crearListado(view);
-        }
+        StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+        prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
+
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+
+
+        mAdapter = new Adapter();
+        recyclerView.setAdapter(mAdapter);
+
+        obtenerObjetosParse(recyclerView);
+
 
         return view;
     }
 
     private void crearListado(View view){
 
-        CustomListParse adapter = null;//((StarterApplication) this.getActivity().getApplication()).getListaMenuPrincipal();
-        if (adapter == null){
-            adapter = new
-                    CustomListParse(getActivity(), this.lMenus);
-            //  ((StarterApplication) this.getActivity().getApplication()).setListaMenuPrincipal(adapter);
-        }
+        CustomListParse adapter = new CustomListParse(getActivity(), this.lMenus);
 
         list=(ListView)view.findViewById(R.id.list);
         list.setAdapter(adapter);
-        //list.setDivider(null);
+
         ColorDrawable sage = new ColorDrawable();
         list.setDivider(null);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,12 +102,19 @@ public class MenuFragment extends Fragment {
 
                 ParseObject objParse = lMenus.get(position);
                 String tipo = objParse.getString("TipoMenu").toLowerCase();
-              //  ((StarterApplication) getActivity().getApplication()).setImagenReceta(null);
 
                 switch (tipo) {
                     case "gratis": case "pago"://Gratis o de pago
-                        CategoriaFragment recetario = new CategoriaFragment();
+                        RecetarioFragment recetario = new RecetarioFragment();
                         recetario.setMenuSeleccionado(lMenus.get(position));
+
+                        final ImageView imageView = (ImageView) view.findViewById(R.id.img);
+                        final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
+                        final Bitmap imgReceta = bitmapDrawable.getBitmap();
+
+
+
+                        recetario.setImgMenu(imgReceta);
                         getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad,recetario)
                                 .addToBackStack("MenuFragment")
