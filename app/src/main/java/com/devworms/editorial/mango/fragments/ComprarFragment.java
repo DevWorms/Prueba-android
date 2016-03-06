@@ -20,19 +20,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.util.IabBroadcastReceiver;
-import com.devworms.editorial.mango.util.IabHelper;
-import com.devworms.editorial.mango.util.IabResult;
-import com.devworms.editorial.mango.util.Inventory;
-import com.devworms.editorial.mango.util.Purchase;
 
 /**
  * Created by sergio on 08/12/15.
  */
-public class ComprarFragment extends Fragment implements View.OnClickListener, DialogInterface.OnClickListener {
+public class ComprarFragment extends Fragment  {
 
 
-    private static Integer[]images =
+   /* private static Integer[]images =
             {
                     R.drawable.imagen1,
                     R.drawable.imagen2,
@@ -169,7 +164,7 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
              * Check for items we own. Notice that for each purchase, we check
              * the developer payload to see if it's correct! See
              * verifyDeveloperPayload().
-             */
+
 
             // Check for gas delivery -- if we own gas, we should fill up the tank immediately
             Purchase gasPurchase = inventory.getPurchase(SKU_RECETARIO);
@@ -185,7 +180,7 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
         }
     };
 
-    /** Verifies the developer payload of a purchase. */
+    /** Verifies the developer payload of a purchase.
     boolean verifyDeveloperPayload(Purchase p) {
         String payload = p.getDeveloperPayload();
 
@@ -210,7 +205,7 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
          *
          * Using your own server to store and verify developer payloads across app
          * installations is recommended.
-         */
+
 
         return true;
     }
@@ -253,7 +248,7 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
 
     // updates UI to reflect model
     public void updateUi() {
-        /*// update the car color to reflect premium status or lack thereof
+        // update the car color to reflect premium status or lack thereof
         ((ImageView)findViewById(R.id.free_or_premium)).setImageResource(mIsPremium ? R.drawable.premium : R.drawable.free);
 
         // "Upgrade" button is only visible if the user is not premium
@@ -275,7 +270,7 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
         else {
             int index = mTank >= TANK_RES_IDS.length ? TANK_RES_IDS.length - 1 : mTank;
             ((ImageView)findViewById(R.id.gas_gauge)).setImageResource(TANK_RES_IDS[index]);
-        }*/
+        }
     }
 
     void complain(String message) {
@@ -315,7 +310,7 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
 
         /* TODO: for security, generate your payload here for verification. See the comments on
          *        verifyDeveloperPayload() for more info. Since this is a SAMPLE, we just use
-         *        an empty string, but on a production app you should carefully generate this. */
+         *        an empty string, but on a production app you should carefully generate this.
         String payload = "";
 
         mHelper.launchPurchaseFlow(this.getActivity(), SKU_RECETARIO, RC_REQUEST,
@@ -377,7 +372,7 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
-     */
+
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -415,7 +410,7 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
 
     /**
      * A placeholder fragment containing a simple view.
-     */
+
 
     public static class PlaceholderFragment extends Fragment {
 
@@ -424,13 +419,13 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
         /**
          * The fragment argument representing the section number for this
          * fragment.
-         */
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         /**
          * Returns a new instance of this fragment for the given section
          * number.
-         */
+
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -459,5 +454,5 @@ public class ComprarFragment extends Fragment implements View.OnClickListener, D
         getActivity().getFragmentManager().beginTransaction().remove(this).commit();
         super.onDetach();
     }
-
+*/
 }

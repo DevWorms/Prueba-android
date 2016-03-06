@@ -9,27 +9,21 @@
 package com.devworms.editorial.mango.main;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.componentes.CustomListParse;
 import com.devworms.editorial.mango.util.Specs;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseInstallation;
-import com.parse.ParseObject;
 import com.parse.ParseTwitterUtils;
-import com.parse.ParseUser;
 import com.pinterest.android.pdk.PDKClient;
 import com.theartofdev.fastimageloader.FastImageLoader;
 import com.theartofdev.fastimageloader.adapter.IdentityAdapter;
 import com.theartofdev.fastimageloader.adapter.ImgIXAdapter;
-
-import java.util.HashMap;
 
 
 public class StarterApplication extends Application {

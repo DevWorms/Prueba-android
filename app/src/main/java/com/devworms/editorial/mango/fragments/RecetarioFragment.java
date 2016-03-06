@@ -1,61 +1,51 @@
 package com.devworms.editorial.mango.fragments;
 
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.AsyncTask;
+import android.media.Image;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.componentes.CustomList;
-import com.devworms.editorial.mango.componentes.CustomListListImagesAndText;
-import com.devworms.editorial.mango.componentes.CustomListParse;
+import com.devworms.editorial.mango.componentes.AdapterMenuList;
+import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by sergio on 21/10/15.
  */
 public class RecetarioFragment extends Fragment {
-    ListView list;
+
 
     private ParseObject objParse;
     private List<ParseObject> lMenusRecetas;
+    private AdapterRecetarioList mAdapterMenuList;
     private Bitmap imgMenu;
 
     public void setMenuSeleccionado(ParseObject objParse){
         this.objParse = objParse;
     }
 
-    public ParseObject getMenuSeleccionado(){
-        return this.objParse;
-    }
-
-    public Bitmap getImgMenu() {
-        return imgMenu;
-    }
-
     public void setImgMenu(Bitmap imgMenu) {
         this.imgMenu = imgMenu;
     }
 
-    public void obtenerObjetosParse(){
+    public void obtenerObjetosParse(final RecyclerView recyclerView){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
         query.whereEqualTo("Menu", objParse);
@@ -65,7 +55,10 @@ public class RecetarioFragment extends Fragment {
             public void done(List<ParseObject> menuList, ParseException e) {
                 if (e == null) {
                     lMenusRecetas = menuList;
-                    crearListado(getView());
+
+                    mAdapterMenuList = new AdapterRecetarioList(menuList);
+                    recyclerView.setAdapter(mAdapterMenuList);
+
                     Log.d("score", "Retrieved " + lMenusRecetas.size() + " scores");
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
@@ -74,52 +67,23 @@ public class RecetarioFragment extends Fragment {
         });
     }
 
-    private void crearListado(View view){
-
-        ImageView imagen =(ImageView) view.findViewById(R.id.imagenCategoria);
-        imagen.setImageBitmap(this.imgMenu);
-
-
-        CustomListParse adapter = new CustomListParse(getActivity(), this.lMenusRecetas);
-
-
-
-        list=(ListView)view.findViewById(R.id.listreceta);
-        list.setAdapter(adapter);
-                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view,
-                                            int position, long id) {
-
-                        final ImageView imageView = (ImageView) view.findViewById(R.id.img);
-                        final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-                        final Bitmap imgReceta = bitmapDrawable.getBitmap();
-
-                        RecetaFragment receta = new RecetaFragment();
-                        receta.setObjReceta(lMenusRecetas.get(position));
-                        receta.setImgReceta(imgReceta);
-
-                        getFragmentManager().beginTransaction()
-                                .replace(R.id.actividad, receta)
-                                .addToBackStack("MenuFragment")
-                                .commit();
-
-
-                    }
-                });
-
-        list.setDivider(null);
-    }
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view= inflater.inflate(R.layout.fragment_categoria, container, false);
+        View view= inflater.inflate(R.layout.fragment_recetario, container, false);
 
-        obtenerObjetosParse();
+        ((ImageView)view.findViewById(R.id.image_receta)).setImageBitmap(this.imgMenu);
+
+        StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+        prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
+
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+
+        obtenerObjetosParse(recyclerView);
 
 
         return view;

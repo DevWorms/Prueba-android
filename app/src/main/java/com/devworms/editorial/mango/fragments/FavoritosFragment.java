@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.componentes.CustomList;
 
 
 /**
@@ -35,7 +34,7 @@ public class FavoritosFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_favoritos, container, false);
 
-        //Menu
+        /* //Menu
         CustomList adapter = new
                 CustomList(getActivity(), web, imageId);
         list=(ListView)view.findViewById(R.id.list);
@@ -52,13 +51,13 @@ public class FavoritosFragment extends Fragment {
                         .replace(R.id.actividad, new RecetarioFragment())
                         .addToBackStack("MenuFragment")
                         .commit();
-*/
+
 
             }
         });
 
         //list.setDivider(null);
-        list.setDivider(null);
+         list.setDivider(null);*/
         return view;
     }
 
