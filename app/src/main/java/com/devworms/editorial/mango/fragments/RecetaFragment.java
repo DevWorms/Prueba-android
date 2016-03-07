@@ -8,21 +8,27 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.io.InputStream;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -100,78 +106,58 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                 .commit();
     }
 
+
+    public void obtenerObjetosParse(){
+
+
+    }
+
     public void anadirFavoritos()
     {
-        /*
-         let query = PFQuery(className: "Favoritos")
-        query.cachePolicy = .CacheElseNetwork
-        query.whereKey("username", equalTo: PFUser.currentUser()!)
-        query.whereKey("Receta", equalTo: self.objReceta)
-        query.findObjectsInBackgroundWithBlock {
-            (recetas: [PFObject]?, error: NSError?) -> Void in
-            // comments now contains the comments for myPost
-
-            if error == nil {
-
-                //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
-                if recetas != nil && recetas?.count>0 {
-
-                    // The object has been saved.
-                    let alertController = UIAlertController(title: "¡Esta receta ya fue añadida!",
-                        message: "Tu receta ya esta en la seccion de favoritos",
-                        preferredStyle: UIAlertControllerStyle.Alert)
-
-                    alertController.addAction(UIAlertAction(title: "OK",
-                        style: UIAlertActionStyle.Default,
-                        handler: nil))
-                    // Display alert
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                }
-                    //Añade la receta a favoritos
-                else{
-
-                    let date = NSDate()
-                    let calendar = NSCalendar.currentCalendar()
-                    let components = calendar.components([.Day , .Month , .Year], fromDate: date)
-
-                    let year =  components.year
-                    let month = components.month
-                    let trimestre = Int(  (Double(month)/3) + 0.7)
 
 
-                    let favorito = PFObject(className:"Favoritos")
-                    favorito["username"] = PFUser.currentUser()
-                    favorito["Anio"] = year
-                    favorito["Mes"] = month
-                    favorito["Trimestre"] = trimestre
-                    favorito.relationForKey("authors")
-                    favorito.addObject(self.objReceta, forKey: "Receta")
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
+        query.whereEqualTo("username", ParseUser.getCurrentUser());
+        query.whereEqualTo("Receta", objReceta);
 
-                    favorito.saveInBackgroundWithBlock {
-                        (success: Bool, error: NSError?) -> Void in
-                        if (success) {
-                            // The object has been saved.
-                            let alertController = UIAlertController(title: "Añadido a favoritos",
-                                message: "¡Tu receta ya esta disponible en la seccion de favoritos!",
-                                preferredStyle: UIAlertControllerStyle.Alert)
-
-                            alertController.addAction(UIAlertAction(title: "OK",
-                                style: UIAlertActionStyle.Default,
-                                handler: nil))
-                            // Display alert
-                            self.presentViewController(alertController, animated: true, completion: nil)
-                        } else {
-                            // There was a problem, check error.description
-                        }
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> recetasList, ParseException e) {
+                if (e == null) {
+                    //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
+                    if (recetasList.size() > 0 ) {
+                        Toast.makeText(getActivity(),"¡Esta receta ya fue añadida!\",\n" + "message: \"Tu receta ya esta en la seccion de favoritos",Toast.LENGTH_LONG);
                     }
+                    else{
+
+                        Calendar cal = Calendar.getInstance();
+                        int year = cal.get(cal.YEAR);
+                        int month = cal.get(cal.MONTH)+1;
+                        int trimestre = (int)(((month)/3) + 0.7);
+
+
+                        ParseObject query = new ParseObject("Favoritos");
+                        query.put("username", ParseUser.getCurrentUser());
+                        query.put("Anio", year);
+                        query.put("Mes", month);
+                        query.put("Mes", month);
+                        query.put("Trimestre", trimestre);
+                        query.put("Mes", month);
+                        query.add("Receta", objReceta);
+
+                        query.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                Toast.makeText(getActivity(),"¡Esta receta ya fue añadida!\",\n" + "message: \"Tu receta ya esta en la seccion de favoritos",Toast.LENGTH_LONG);
+                            }
+                        });
+                    }
+
+
+                } else {
+                    Log.d("receta", "Error: " + e.getMessage());
                 }
             }
-            else
-            {
-                print(error)
-            }
-        }
-         */
+        });
 
     }
 

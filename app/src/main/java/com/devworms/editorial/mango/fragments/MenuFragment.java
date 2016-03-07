@@ -28,7 +28,6 @@ import java.util.List;
  */
 public class MenuFragment extends Fragment {
 
-    ListView list;
     List<ParseObject> lMenus;
     private AdapterMenuList mAdapterMenuList;
 
