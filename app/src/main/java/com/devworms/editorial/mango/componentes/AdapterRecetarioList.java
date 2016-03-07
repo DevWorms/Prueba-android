@@ -31,7 +31,10 @@ import com.theartofdev.fastimageloader.FastImageLoader;
 import com.theartofdev.fastimageloader.ImageLoadSpec;
 import com.theartofdev.fastimageloader.target.TargetImageView;
 
+import org.json.JSONArray;
+
 import java.util.List;
+import java.util.Objects;
 
 
 public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRecetarioList.ViewHolder> {
@@ -65,6 +68,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     public void onBindViewHolder(ViewHolder holder, int position) {
         ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
         holder.objReceta = mItems.get(position);
+
 
         holder.mTargetImageView.loadImage(mItems.get(position).getString("Url_Imagen"), spec.getKey());
     }

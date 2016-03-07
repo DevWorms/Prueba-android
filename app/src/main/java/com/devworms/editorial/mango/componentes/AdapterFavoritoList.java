@@ -26,12 +26,15 @@ import com.devworms.editorial.mango.fragments.RecetaFragment;
 import com.devworms.editorial.mango.fragments.RecetarioFragment;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.devworms.editorial.mango.util.Specs;
+import com.parse.GetCallback;
 import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.theartofdev.fastimageloader.FastImageLoader;
 import com.theartofdev.fastimageloader.ImageLoadSpec;
 import com.theartofdev.fastimageloader.target.TargetImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -45,8 +48,15 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
 
         if (StarterApplication.mPrefetchImages) {
             for (ParseObject parseObject : mItems) {
-                ParseObject objParse = parseObject.getParseObject("Receta");
-                FastImageLoader.prefetchImage(objParse.getString("Url_Imagen"), Specs.IMG_IX_UNBOUNDED);
+
+
+                parseObject.getParseObject("Recetas").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
+                    public void done(ParseObject receta, ParseException e) {
+
+                        FastImageLoader.prefetchImage(receta.getString("Url_Imagen"), Specs.IMG_IX_UNBOUNDED);
+                    }
+                });
+
             }
         }
     }
@@ -64,12 +74,18 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
-        holder.objReceta = mItems.get(position);
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        final ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
+        ParseObject parseObject = mItems.get(position);
 
-        ParseObject objParse = mItems.get(position).getParseObject("Receta");
-        holder.mTargetImageView.loadImage(objParse.getString("Url_Imagen"), spec.getKey());
+
+        parseObject.getParseObject("Recetas").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
+            public void done(ParseObject receta, ParseException e) {
+                holder.objReceta = receta;
+                holder.mTargetImageView.loadImage(receta.getString("Url_Imagen"), spec.getKey());
+
+            }
+        });
     }
 
     //region: Inner class: ViewHolder

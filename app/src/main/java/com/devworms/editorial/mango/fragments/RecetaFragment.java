@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.activities.MainActivity;
 import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.parse.FindCallback;
@@ -118,7 +119,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
-        query.whereEqualTo("Receta", objReceta);
+        query.whereEqualTo("Recetas", objReceta);
 
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> recetasList, ParseException e) {
@@ -142,12 +143,12 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                         query.put("Mes", month);
                         query.put("Trimestre", trimestre);
                         query.put("Mes", month);
-                        query.add("Receta", objReceta);
+                        query.put("Recetas", objReceta);
 
                         query.saveInBackground(new SaveCallback() {
                             @Override
                             public void done(ParseException e) {
-                                Toast.makeText(getActivity(),"¡Esta receta ya fue añadida!\",\n" + "message: \"Tu receta ya esta en la seccion de favoritos",Toast.LENGTH_LONG);
+                                Toast.makeText(getActivity().getApplicationContext(),"¡Esta receta ya fue añadida!\",\n" + "message: \"Tu receta ya esta en la seccion de favoritos",Toast.LENGTH_LONG);
                             }
                         });
                     }

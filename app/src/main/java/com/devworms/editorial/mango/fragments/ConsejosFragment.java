@@ -37,7 +37,6 @@ public class ConsejosFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_consejos, container, false);
 
 
-
         /*//Menu
         CustomList adapter = new
                 CustomList(this.getActivity(), web, imageId);
