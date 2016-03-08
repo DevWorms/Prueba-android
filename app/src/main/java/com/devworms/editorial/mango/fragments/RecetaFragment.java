@@ -2,12 +2,15 @@ package com.devworms.editorial.mango.fragments;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -126,7 +129,35 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                 if (e == null) {
                     //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
                     if (recetasList.size() > 0 ) {
-                        Toast.makeText(getActivity(),"¡Esta receta ya fue añadida!\",\n" + "message: \"Tu receta ya esta en la seccion de favoritos",Toast.LENGTH_LONG);
+                        String titulo = "¡Esta receta ya fue añadida!";
+                        String mensaje = "Tu receta ya esta en la seccion de favoritos";
+
+
+
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
+
+
+                        // set title
+                        alertDialogBuilder.setTitle(titulo);
+
+                        // set dialog message
+                        alertDialogBuilder
+                                .setMessage(mensaje)
+                                .setCancelable(false)
+                                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // if this button is clicked, close
+                                        // current activity
+                                        //MainActivity.this.finish();
+                                    }
+                                });
+
+                        // create alert dialog
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // show it
+                        alertDialog.show();
+
                     }
                     else{
 
@@ -148,7 +179,41 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                         query.saveInBackground(new SaveCallback() {
                             @Override
                             public void done(ParseException e) {
-                                Toast.makeText(getActivity().getApplicationContext(),"¡Esta receta ya fue añadida!\",\n" + "message: \"Tu receta ya esta en la seccion de favoritos",Toast.LENGTH_LONG);
+
+                                String titulo = "";
+                                String mensaje = "";
+
+                                if (e == null) {
+                                    titulo = "Añadido a favoritos";
+                                    mensaje = "¡Tu receta ya esta disponible en la seccion de favoritos!";
+                                } else {
+                                    titulo = "Error";
+                                    mensaje = "Se produjo un error, intente más tarde";
+                                }
+
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
+
+                                // set title
+                                alertDialogBuilder.setTitle(titulo);
+
+                                // set dialog message
+                                alertDialogBuilder
+                                        .setMessage(mensaje)
+                                        .setCancelable(false)
+                                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                // if this button is clicked, close
+                                                // current activity
+                                                //MainActivity.this.finish();
+                                            }
+                                        });
+
+                                // create alert dialog
+                                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                                // show it
+                                alertDialog.show();
+
                             }
                         });
                     }

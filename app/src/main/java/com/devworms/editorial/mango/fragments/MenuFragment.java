@@ -1,18 +1,21 @@
 package com.devworms.editorial.mango.fragments;
 
+import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.componentes.DividerItemDecoration;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.devworms.editorial.mango.componentes.AdapterMenuList;
 import com.parse.FindCallback;
@@ -51,11 +54,12 @@ public class MenuFragment extends Fragment {
         });
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.content_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
         StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
 
@@ -64,11 +68,12 @@ public class MenuFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+        /*recyclerView.addItemDecoration(
+                new DividerItemDecoration(ContextCompat.getDrawable(container.getContext(), R.drawable.divider),
+                        true, true));
+        */
 
-
-
-
-        obtenerObjetosParse(recyclerView);
+                obtenerObjetosParse(recyclerView);
 
 
         return view;

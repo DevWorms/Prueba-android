@@ -67,7 +67,7 @@ public class StarterApplication extends Application {
             .setDefaultImageServiceAdapter(new ImgIXAdapter())
             .setWriteLogsToLogcat(true)
             .setLogLevel(Log.DEBUG)
-            .setDebugIndicator(true);
+            .setDebugIndicator(false);
 
     FastImageLoader.buildSpec(Specs.IMG_IX_UNBOUNDED)
             .setUnboundDimension()
