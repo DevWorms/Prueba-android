@@ -99,11 +99,15 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                 String tipo = objMenu.getString("TipoMenu").toLowerCase();
 
                 switch (tipo) {
-                    case "gratis": case "pago"://Gratis o de pago
-                        RecetarioFragment recetario = new RecetarioFragment();
-                        recetario.setMenuSeleccionado(objMenu);
+                    case "gratis": case "pago"://Gratis o de pagoç
 
                         final ImageView imageView = (ImageView) v;
+
+
+                        RecetarioFragment recetario = new RecetarioFragment();
+                        recetario.setMenuSeleccionado(objMenu);
+                        recetario.setTipoMenu(tipo);
+
                         final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
                         final Bitmap imgReceta = bitmapDrawable.getBitmap();
 
@@ -112,6 +116,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                                 .replace(R.id.actividad,recetario)
                                 .addToBackStack("MenuFragment")
                                 .commit();
+
                         break;
 
                     case "viral":
@@ -124,6 +129,8 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
             }
         }
+
+
 
     }
     //endregion

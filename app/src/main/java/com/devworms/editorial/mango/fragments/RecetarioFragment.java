@@ -36,6 +36,7 @@ public class RecetarioFragment extends Fragment {
     private List<ParseObject> lMenusRecetas;
     private AdapterRecetarioList mAdapterMenuList;
     private Bitmap imgMenu;
+    private String tipoMenu;
 
     public void setMenuSeleccionado(ParseObject objParse){
         this.objParse = objParse;
@@ -56,7 +57,7 @@ public class RecetarioFragment extends Fragment {
                 if (e == null) {
                     lMenusRecetas = menuList;
 
-                    mAdapterMenuList = new AdapterRecetarioList(menuList);
+                    mAdapterMenuList = new AdapterRecetarioList(menuList, tipoMenu);
                     recyclerView.setAdapter(mAdapterMenuList);
 
                     Log.d("score", "Retrieved " + lMenusRecetas.size() + " scores");
@@ -94,5 +95,9 @@ public class RecetarioFragment extends Fragment {
     public void onDetach() {
         getActivity().getFragmentManager().beginTransaction().remove(this).commit();
         super.onDetach();
+    }
+
+    public void setTipoMenu(String tipoMenu) {
+        this.tipoMenu = tipoMenu;
     }
 }
