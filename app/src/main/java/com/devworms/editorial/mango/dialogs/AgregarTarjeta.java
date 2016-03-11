@@ -3,12 +3,20 @@ package com.devworms.editorial.mango.dialogs;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.openpay.OpenPayRestApi;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.List;
 
 import mx.openpay.android.model.Card;
 import mx.openpay.android.validation.CardValidator;
@@ -20,6 +28,28 @@ import mx.openpay.android.validation.CardValidator;
 public class AgregarTarjeta extends Activity {
 
     EditText holderNameEt, cardNumberEt, cvvEt, monthEt, yearEt, emailEt, numeroEt;
+    ParseObject objCliente;
+
+    public void initControls(){
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
+        query.whereEqualTo("username", ParseUser.getCurrentUser());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> listaClientes, ParseException e) {
+                if (e == null) {
+
+                    if (listaClientes.size()>0) {
+                        objCliente = listaClientes.get(0);
+                        holderNameEt.setText(objCliente.getString("nombre"));
+                        emailEt.setText(objCliente.getString("email"));
+                        numeroEt.setText(objCliente.getString("numero"));
+                    }
+                    Log.d("score", "Retrieved scores");
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +66,14 @@ public class AgregarTarjeta extends Activity {
         yearEt = ((EditText) this.findViewById(R.id.txt_aa));
         emailEt = ((EditText) this.findViewById(R.id.txt_email));
         numeroEt = ((EditText) this.findViewById(R.id.txt_num));
+        initControls();
+
     }
 
     public void addTarjeta(View view) {
 
 
-        Card card = new Card();
+        final Card card = new Card();
         boolean isValid = true;
 
         final String holderName = holderNameEt.getText().toString();
@@ -76,15 +108,9 @@ public class AgregarTarjeta extends Activity {
         }
 
         if (isValid) {
-
-
-            String resultado = OpenPayRestApi.crearClienteConTarjeta(card, emailEt.getText().toString(), numeroEt.getText().toString());
-
-             if (!resultado.isEmpty()) {
-                 Intent intent=new Intent(getApplicationContext(), WalletActivity.class);
-                 startActivity(intent);
-             }
+            OpenPayRestApi.crearClienteConTarjeta(card, emailEt.getText().toString(), numeroEt.getText().toString(),objCliente, this);
             clearData();
+
         }
 
     }

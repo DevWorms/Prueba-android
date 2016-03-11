@@ -38,6 +38,7 @@ public class StarterApplication extends Application {
 
     private static Openpay openpay;
     public static final String MERCHANT_ID = "mom7qomx3rv93zcwv2vk";
+    public static final String PLAN_ID = "pzxtp8o88pipie9tfmps";
     public static final String API_KEY = "pk_f492b71637e247e4b5a314a1f9366ec9";
     public static  final String PRIVATE_KEY = "sk_7506b8183bc34e038ee9e849e2e52994";
     public static  final String URL = "https://sandbox-api.openpay.mx/v1/";
