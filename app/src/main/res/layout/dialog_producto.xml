@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NOMBRE DEL PRODUCTO"
-                android:id="@+id/textView"
+                android:id="@+id/textViewNombreProducto"
                 android:layout_below="@+id/imageView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -43,10 +43,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Descripcion del producto"
-                android:id="@+id/textView2"
+                android:id="@+id/textViewDescripcionProducto"
                 android:textColor="@color/abc_input_method_navigation_guard"
                 android:textSize="20dp"
-                android:layout_below="@+id/textView"
+                android:layout_below="@+id/textViewNombreProducto"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp" />
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="Presiona &quot;continuar para agregar una forma de pago o canjear un código a fin de completar la compra&quot;"
                 android:id="@+id/textView3"
-                android:layout_below="@+id/textView2"
+                android:layout_below="@+id/textViewDescripcionProducto"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/abc_input_method_navigation_guard"
@@ -75,7 +75,7 @@
                     android:text="Cancelar"
                     android:id="@+id/btn_can"
 
-                    android:layout_below="@+id/textView2"
+                    android:layout_below="@+id/textViewDescripcionProducto"
                     android:layout_alignLeft="@+id/imageView"
                     android:layout_alignStart="@+id/imageView" />
 

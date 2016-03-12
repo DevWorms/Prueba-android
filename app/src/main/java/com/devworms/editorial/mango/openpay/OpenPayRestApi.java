@@ -127,6 +127,7 @@ public class OpenPayRestApi{
 
 
             Intent intent = new Intent(context.getApplicationContext(), WalletActivity.class);
+
             context.startActivity(intent);
 
 
@@ -148,12 +149,15 @@ public class OpenPayRestApi{
 
     // Pagos
 
-    public static String[] pagarEnTienda(Integer precio, String fechaVigencia , String clientId){
+    public static String[] pagarEnTienda(Double precio, String fechaVigencia , ParseObject objCliente){
+
+
 
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n   \"method\" : \"store\",\n   \"amount\" : " + precio + ",\n   \"description\" : \"Cargo con tienda\",\n   \"due_date\" : \"" + fechaVigencia + "\"\n} "); //2016-03-20T13:45:00
+        RequestBody body = RequestBody.create(mediaType, "{\n   \"method\" : \"store\",\n   \"amount\" : " + precio + ",\n   \"description\" : \"Cargo con tienda\"} "); //2016-03-20T13:45:00 , "due_date" : "" + fechaVigencia + ""
+
         Request request = new Request.Builder()
-                .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers/"+clientId+"/charges")
+                .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers/"+objCliente.getString("clientID")+"/charges")
                 .post(body)
                 .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
                 .addHeader("content-type", "application/json")
@@ -166,8 +170,12 @@ public class OpenPayRestApi{
         try {
 
             JSONObject response = new RequestOpenPay().execute(request).get();
-
-            return new String[]{response.getString("barcode_url"), response.getString("reference")};
+            JSONObject jsonObject = new JSONObject(response.getString("payment_method"));
+            objCliente.put("codigobarras",jsonObject.getString("barcode_url"));
+            objCliente.put("referenciaentienda", jsonObject.getString("reference"));
+            objCliente.put("transaction_id_tienda", response.getString("id"));
+            objCliente.saveInBackground();
+            return new String[]{jsonObject.getString("barcode_url"), jsonObject.getString("reference")};
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -183,7 +191,7 @@ public class OpenPayRestApi{
 
     // suscribirse a plan ( necesario tener tarjeta de credito registrada a un cliente para esto)
 
-    private static void suscribirsePlan(final Activity actividad){
+    public static void suscribirsePlan(final Activity actividad){
 
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");

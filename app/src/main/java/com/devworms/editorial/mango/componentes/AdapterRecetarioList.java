@@ -24,11 +24,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.dialogs.AgregarTarjeta;
+import com.devworms.editorial.mango.dialogs.WalletActivity;
 import com.devworms.editorial.mango.openpay.OpenPayRestApi;
 import com.devworms.editorial.mango.fragments.RecetaFragment;
 import com.devworms.editorial.mango.fragments.RecetarioFragment;
@@ -168,35 +170,98 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                     .commit();
 
                         } else {
-                            final Dialog dialog = new Dialog(activity);
-                            dialog.setCancelable(false);
-                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                            //Aqui haces que tu layout se muestre como dialog
-                            dialog.setContentView(R.layout.dialog_producto);
-                            ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
-
-                                @Override
-                                public void onClick(View view) {
-
-                                    dialog.cancel();
-                                    dialog.closeOptionsMenu();
 
 
-                                }
-                            });
+                            if (clientes.size() >0){
+                                ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
+                                query.whereEqualTo("cliente", clientes.get(0));
+                                query.findInBackground(new FindCallback<ParseObject>() {
 
-                            ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+                                    public void done(List<ParseObject> listaTarjetas, ParseException e) {
+                                        if (e == null) {
 
-                                @Override
-                                public void onClick(View view) {
 
-                                    dialog.cancel();
-                                    continuar();
 
-                                }
-                            });
+                                            if (listaTarjetas.size()>0) {
 
-                            dialog.show();
+                                                Intent intent = new Intent(activity.getApplicationContext(), WalletActivity.class);
+                                                activity.startActivity(intent);
+
+                                            }
+                                            else{
+                                                final Dialog dialog = new Dialog(activity);
+                                                dialog.setCancelable(false);
+                                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                                //Aqui haces que tu layout se muestre como dialog
+
+                                                dialog.setContentView(R.layout.dialog_producto);
+                                                ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+
+                                                    @Override
+                                                    public void onClick(View view) {
+
+                                                        dialog.cancel();
+                                                        dialog.closeOptionsMenu();
+
+
+                                                    }
+                                                });
+
+                                                ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+
+                                                    @Override
+                                                    public void onClick(View view) {
+
+                                                        dialog.cancel();
+                                                        continuar();
+
+                                                    }
+                                                });
+
+                                                dialog.show();
+                                            }
+
+
+
+                                        }
+                                    }
+                                });
+                            }
+                            else{
+                                final Dialog dialog = new Dialog(activity);
+                                dialog.setCancelable(false);
+                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                //Aqui haces que tu layout se muestre como dialog
+
+                                dialog.setContentView(R.layout.dialog_producto);
+                                ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        dialog.cancel();
+                                        dialog.closeOptionsMenu();
+
+
+                                    }
+                                });
+
+                                ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        dialog.cancel();
+                                        continuar();
+
+                                    }
+                                });
+
+                                dialog.show();
+
+                            }
+
+
                         }
                         Log.d("score", "Retrieved " + clientes.size() + " scores");
 
@@ -247,41 +312,81 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     //Aqui haces que tu layout se muestre como dialog
                     dialog.setContentView(R.layout.dialog_pago_tienda);
-                    ((Button) dialog.findViewById(R.id.btn_regre)).setOnClickListener(new View.OnClickListener() {
 
-                        @Override
-                        public void onClick(View view) {
 
-                            dialog.cancel();
-                            continuar();
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
+                    query.whereEqualTo("username", ParseUser.getCurrentUser());
+                    query.findInBackground(new FindCallback<ParseObject>() {
 
+                        public void done(List<ParseObject> listaClientes, ParseException e) {
+                            if (e == null) {
+
+                                ParseObject objCliente = null;
+                                if (listaClientes.size() > 0) {
+                                    objCliente = listaClientes.get(0);
+                                    ((EditText) dialog.findViewById(R.id.nombreEt)).setText(objCliente.getString("nombre"));
+                                    ((EditText) dialog.findViewById(R.id.correoEt)).setText(objCliente.getString("email"));
+                                    ((EditText) dialog.findViewById(R.id.telefonoEt)).setText(objCliente.getString("numero"));
+                                } else {
+                                    objCliente = OpenPayRestApi.crearCliente(
+                                            ((EditText) dialog.findViewById(R.id.nombreEt)).getText().toString(),
+                                            ((EditText) dialog.findViewById(R.id.correoEt)).getText().toString(),
+                                            ((EditText) dialog.findViewById(R.id.telefonoEt)).getText().toString(),
+                                            true
+                                    );
+                                }
+
+
+                                //se asignan las operaciones normales
+
+                                ((Button) dialog.findViewById(R.id.btn_regre)).setOnClickListener(new View.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        dialog.cancel();
+                                        continuar();
+
+                                    }
+                                });
+
+                                final ParseObject finalObjCliente = objCliente;
+                                ((Button) dialog.findViewById(R.id.btn_pagar_tienda)).setOnClickListener(new View.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(View view) {
+                                        String[] resultados = OpenPayRestApi.pagarEnTienda(50.0, "2016-03-20T13:45:00", finalObjCliente); // att2t0hjg6qricd6ezgc corresponde al id de un cliente de openpay de la cuenta de openpya para desarrollo de devworms
+
+                                        System.out.println(resultados[0]);
+                                        ((TextView) dialog.findViewById(R.id.lb_barCode)).setText(resultados[1]);
+
+
+                                        TargetImageView imgBar = ((TargetImageView) dialog.findViewById(R.id.img_barcode));
+                                        //  dialog.cancel();
+                                        FastImageLoader.prefetchImage(resultados[0], Specs.IMG_IX_UNBOUNDED);
+                                        ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
+                                        imgBar.loadImage(resultados[0], spec.getKey());
+
+                                        //  dialog.cancel();
+                                    }
+                                });
+
+
+                            }
                         }
                     });
 
-                    ((Button) dialog.findViewById(R.id.btn_pagar_tienda)).setOnClickListener(new View.OnClickListener() {
 
-                        @Override
-                        public void onClick(View view) {
-                            String[] resultados = OpenPayRestApi.pagarEnTienda(50, "2016-03-20T13:45:00", "att2t0hjg6qricd6ezgc"); // att2t0hjg6qricd6ezgc corresponde al id de un cliente de openpay de la cuenta de openpya para desarrollo de devworms
+                        dialog.show();
+                    }
 
-                            System.out.println(resultados[0]);
-                            ((TextView) dialog.findViewById(R.id.lb_barCode)).setText(resultados[1]);
+                });
 
-                            //  dialog.cancel();
-                        }
-                    });
-                    dialog.show();
-                }
-
-            });
+            }
 
         }
 
-    }
-
-    //pagos
+                //pagos
 
 
-
-
-}
+                }
