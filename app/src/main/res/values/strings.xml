@@ -13,4 +13,10 @@
     <string name="menu_search">menu de busqueda</string>
     <string name="search_hint">buscar</string>
 
+    <string name="action_new_board">Nuevo Board</string>
+    <string name="action_new_pin">Nuevo Pin</string>
+    <string name="title_activity_create_board">Crear nuevo tablero</string>
+    <string name="title_activity_my_boards">Tus tableros</string>
+    <string name="action_delete">Borrar Board</string>
+
 </resources>

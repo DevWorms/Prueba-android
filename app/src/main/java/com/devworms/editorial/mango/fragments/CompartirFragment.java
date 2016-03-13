@@ -2,6 +2,8 @@ package com.devworms.editorial.mango.fragments;
 
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -19,7 +21,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.activities.MyBoardsActivity;
 import com.devworms.editorial.mango.efectos.RelaxTransformer;
+import com.devworms.editorial.mango.main.StarterApplication;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
@@ -32,6 +36,7 @@ import com.pinterest.android.pdk.PDKResponse;
 import com.pinterest.android.pdk.Utils;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -39,6 +44,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CompartirFragment extends Fragment implements View.OnClickListener {
 
@@ -161,28 +168,48 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
 
     public void compartirPin()
     {
-        String pinImageUrl = objReceta.getString("Url_Imagen");
-        String board = "ToukanMango";
-        String noteText = "Me encanta esta receta";
-        if (!Utils.isEmpty(noteText) &&!Utils.isEmpty(board) && !Utils.isEmpty(pinImageUrl)) {
-            PDKClient
-                    .getInstance().createPin(noteText, board, pinImageUrl,"http://appcocina.parseapp.com", new PDKCallback() {
-                @Override
-                public void onSuccess(PDKResponse response) {
-                    Log.d(getClass().getName(), response.getData().toString());
+
+        List scopes = new ArrayList<String>();
+        scopes.add(PDKClient.PDKCLIENT_PERMISSION_READ_PUBLIC);
+        scopes.add(PDKClient.PDKCLIENT_PERMISSION_WRITE_PUBLIC);
+        scopes.add(PDKClient.PDKCLIENT_PERMISSION_READ_RELATIONSHIPS);
+        scopes.add(PDKClient.PDKCLIENT_PERMISSION_WRITE_RELATIONSHIPS);
+        scopes.add(PDKClient.PDKCLIENT_PERMISSION_READ_PRIVATE);
+        scopes.add(PDKClient.PDKCLIENT_PERMISSION_WRITE_PRIVATE);
 
 
+        StarterApplication.pdkClient.login(getActivity(), scopes, new PDKCallback() {
+            @Override
+            public void onSuccess(PDKResponse response) {
+                Log.d(getClass().getName(), response.getData().toString());
+
+                try {
+                    //Write file
+                    String filename = "bitmap.png";
+                    FileOutputStream stream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
+                    imgReceta.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
+                    //Cleanup
+                    stream.close();
+
+
+                    //Pop intent
+                    Intent in1 = new Intent(getActivity(), MyBoardsActivity.class);
+                    in1.putExtra("image", filename);
+                    startActivity(in1);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
-                @Override
-                public void onFailure(PDKException exception) {
-                    Log.e(getClass().getName(), exception.getDetailMessage());
+            }
 
-                }
-            });
-        } else {
+            @Override
+            public void onFailure(PDKException exception) {
+                Log.e(getClass().getName(), exception.getDetailMessage());
+            }
+        });
 
-        }
+
     }
 
     @Override

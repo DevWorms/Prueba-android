@@ -25,6 +25,7 @@ import com.devworms.editorial.mango.fragments.CuentaFragment;
 import com.devworms.editorial.mango.fragments.FavoritosFragment;
 import com.devworms.editorial.mango.fragments.MenuFragment;
 import com.devworms.editorial.mango.fragments.SearchResultsFragment;
+import com.devworms.editorial.mango.main.StarterApplication;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseAnalytics;
@@ -209,6 +210,13 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        StarterApplication.pdkClient.onOauthResponse(requestCode, resultCode,
+                data);
     }
 
 }
