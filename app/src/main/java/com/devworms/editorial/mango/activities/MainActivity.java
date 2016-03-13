@@ -3,16 +3,12 @@ package com.devworms.editorial.mango.activities;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -20,7 +16,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterBuscadorList;
@@ -29,8 +24,7 @@ import com.devworms.editorial.mango.fragments.CreditosFragment;
 import com.devworms.editorial.mango.fragments.CuentaFragment;
 import com.devworms.editorial.mango.fragments.FavoritosFragment;
 import com.devworms.editorial.mango.fragments.MenuFragment;
-import com.devworms.editorial.mango.fragments.RecetaFragment;
-import com.devworms.editorial.mango.main.StarterApplication;
+import com.devworms.editorial.mango.fragments.SearchResultsFragment;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseAnalytics;
@@ -176,7 +170,7 @@ public class MainActivity extends AppCompatActivity
             //use the query to search
             Log.v("query", query);
 
-            SearchResultsActivity fragmentSearch = new SearchResultsActivity();
+            SearchResultsFragment fragmentSearch = new SearchResultsFragment();
             fragmentSearch.query = query;
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, fragmentSearch).commit();
