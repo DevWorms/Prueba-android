@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/classes.jar"
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="711b2b5293312206c83b4b6ce2a2f36d8901708a">
-        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-843d0b528ba78a4dea4549800fc7249eef3af583.jar" />
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-d0b140127b9799c9bf8c33880f2e10f2f04b6d7b.jar" />
     </item>
 
 </items>

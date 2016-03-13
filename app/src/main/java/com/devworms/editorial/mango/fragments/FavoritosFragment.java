@@ -1,31 +1,34 @@
 package com.devworms.editorial.mango.fragments;
 
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterFavoritoList;
-import com.devworms.editorial.mango.componentes.AdapterMenuList;
-import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
 import com.devworms.editorial.mango.main.StarterApplication;
+
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -36,6 +39,7 @@ public class FavoritosFragment extends Fragment {
 
 
     private AdapterFavoritoList mAdapterFavoritosList;
+    private List<ParseObject> mListToDelete;
 
     public void obtenerObjetosParse(final RecyclerView recyclerView){
 
@@ -43,11 +47,51 @@ public class FavoritosFragment extends Fragment {
         query.whereEqualTo("username", ParseUser.getCurrentUser());
         //query.include("Receta");
         query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> recetasList, ParseException e) {
+            public void done(final List<ParseObject> recetasList, ParseException e) {
                 if (e == null) {
 
                     mAdapterFavoritosList = new AdapterFavoritoList(recetasList);
                     recyclerView.setAdapter(mAdapterFavoritosList);
+                    mListToDelete = new ArrayList<ParseObject>();
+
+                    ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                        @Override
+                        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+
+
+                            return false;
+                        }
+
+                        @Override
+                        public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
+                            final int adapterPosition = viewHolder.getAdapterPosition();
+                            final ParseObject mReceta = recetasList.get(adapterPosition);
+                            Snackbar snackbar = Snackbar
+                                    .make(recyclerView, "Receta borrada de tu seccion de favoritos", Snackbar.LENGTH_LONG)
+                                    .setAction("Deshacer", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            int mAdapterPosition = adapterPosition;
+                                            recetasList.add(mAdapterPosition, mReceta);
+                                            mAdapterFavoritosList.notifyItemInserted(mAdapterPosition);
+                                            recyclerView.scrollToPosition(mAdapterPosition);
+                                            mListToDelete.remove(mReceta);
+                                        }
+                                    });
+                            snackbar.show();
+                            recetasList.remove(adapterPosition);
+                            mAdapterFavoritosList.notifyItemRemoved(adapterPosition);
+                            mListToDelete.add(mReceta);
+
+                        }
+
+
+
+                    };
+
+                    ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+                    itemTouchHelper.attachToRecyclerView(recyclerView);
+
 
 
                 } else {
@@ -69,6 +113,10 @@ public class FavoritosFragment extends Fragment {
         prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
         obtenerObjetosParse(recyclerView);
 
@@ -81,5 +129,14 @@ public class FavoritosFragment extends Fragment {
     public void onDetach() {
         getActivity().getFragmentManager().beginTransaction().remove(this).commit();
         super.onDetach();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        for(ParseObject receta:mListToDelete){
+            receta.deleteInBackground();
+        }
     }
 }
