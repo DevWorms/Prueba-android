@@ -37,6 +37,7 @@ import com.devworms.editorial.mango.fragments.RecetarioFragment;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.devworms.editorial.mango.util.Specs;
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -57,6 +58,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu) {
         this.mItems = mItems;
         this.tipoMenu = tipoMenu;
+
 
         if (StarterApplication.mPrefetchImages) {
             for (ParseObject parseObject : mItems) {
