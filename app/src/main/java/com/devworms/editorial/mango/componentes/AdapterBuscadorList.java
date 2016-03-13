@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.activities.MainActivity;
 import com.devworms.editorial.mango.dialogs.AgregarTarjeta;
 import com.devworms.editorial.mango.dialogs.WalletActivity;
 import com.devworms.editorial.mango.fragments.RecetaFragment;
@@ -46,6 +47,7 @@ import com.theartofdev.fastimageloader.FastImageLoader;
 import com.theartofdev.fastimageloader.ImageLoadSpec;
 import com.theartofdev.fastimageloader.target.TargetImageView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -162,11 +164,11 @@ public final class AdapterBuscadorList extends RecyclerView.Adapter<AdapterBusca
                             receta.setObjReceta(objReceta);
                             receta.setImgReceta(imgReceta);
 
-
                             activity.getFragmentManager().beginTransaction()
                                     .replace(R.id.actividad, receta)
                                     .addToBackStack("MenuFragment")
                                     .commit();
+
 
                         } else {
 

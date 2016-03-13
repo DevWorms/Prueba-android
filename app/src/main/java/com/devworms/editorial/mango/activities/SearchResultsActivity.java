@@ -34,10 +34,11 @@ import com.theartofdev.fastimageloader.FastImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchResultsActivity extends AppCompatActivity {
+public class SearchResultsActivity extends Fragment {
 
 
 
+    public  String query;
     private AdapterBuscadorList mAdapterRecetarioList;
 
 
@@ -90,55 +91,19 @@ public class SearchResultsActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.activity_result, container, false);
         StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+        String []tags = query.split(" ");
 
-        handleIntent(getIntent());
-
-
-
-
+        obtenerObjetosParse(recyclerView, tags);
+        return view;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.menu_search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
 
-        return true;
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        handleIntent(intent);
-    }
-
-    private void handleIntent(Intent intent) {
-
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            //use the query to search
-            Log.v("query", query);
-
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-            String []tags = query.split(" ");
-
-
-            obtenerObjetosParse(recyclerView, tags);
-        }
-    }
 }

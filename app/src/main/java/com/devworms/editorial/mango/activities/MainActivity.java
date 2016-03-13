@@ -2,30 +2,100 @@ package com.devworms.editorial.mango.activities;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.componentes.AdapterBuscadorList;
 import com.devworms.editorial.mango.fragments.ConsejosFragment;
 import com.devworms.editorial.mango.fragments.CreditosFragment;
 import com.devworms.editorial.mango.fragments.CuentaFragment;
 import com.devworms.editorial.mango.fragments.FavoritosFragment;
 import com.devworms.editorial.mango.fragments.MenuFragment;
+import com.devworms.editorial.mango.fragments.RecetaFragment;
+import com.devworms.editorial.mango.main.StarterApplication;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseAnalytics;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private AdapterBuscadorList mAdapterRecetarioList;
+
+
+    public void obtenerObjetosParse(final RecyclerView recyclerView, String []tags){
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Tags");
+
+        for(String tag:tags){
+            query.whereEqualTo("Tag", tag);
+        }
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(final List<ParseObject> recetasList, ParseException e) {
+                if (e == null) {
+
+
+                    final List<ParseObject> lItems = new ArrayList<ParseObject>();
+                    final List<String> lTipos = new ArrayList<String>();
+
+                    if (recetasList.size() > 0) {
+                        for (ParseObject parseObject : recetasList) {
+
+                            parseObject.getParseObject("Receta").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
+                                public void done(final ParseObject receta, ParseException e) {
+                                    lItems.add(receta);
+                                    receta.getParseObject("Menu").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
+                                        public void done(ParseObject menu, ParseException e) {
+                                            lTipos.add(menu.getString("TipoMenu").toLowerCase());
+
+                                            if (lTipos.size() == recetasList.size()) {
+                                                mAdapterRecetarioList = new AdapterBuscadorList(lItems, lTipos);
+                                                recyclerView.setAdapter(mAdapterRecetarioList);
+                                            }
+
+                                        }
+                                    });
+
+                                }
+                            });
+                        }
+                    }
+
+
+                    Log.d("score", "Retrieved " + recetasList.size() + " scores");
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +121,14 @@ public class MainActivity extends AppCompatActivity
         ///***************Menu***************************************************
 
         ///***************Fragment***************************************************
+
         getFragmentManager().beginTransaction()
                 .replace(R.id.actividad, new MenuFragment()).commit();
         ///***************Fragment***************************************************
+
+
+        handleIntent(getIntent());
+
 
 
     }
@@ -89,7 +164,24 @@ public class MainActivity extends AppCompatActivity
 
 
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        handleIntent(intent);
+    }
 
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            //use the query to search
+            Log.v("query", query);
+
+            SearchResultsActivity fragmentSearch = new SearchResultsActivity();
+            fragmentSearch.query = query;
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.actividad, fragmentSearch).commit();
+        }
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
