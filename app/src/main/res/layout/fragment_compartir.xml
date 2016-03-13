@@ -1,37 +1,71 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context="com.devworms.editorial.mango.fragments.CompartirFragment">
 
-    <Button
-        android:layout_width="109dp"
-        android:layout_height="121dp"
-        android:layout_gravity="left|bottom"
-        android:id="@+id/bFacebook"
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        android:background="@drawable/fb" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imgReceta"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"/>
 
-    <Button
-        android:layout_width="109dp"
-        android:layout_height="121dp"
-        android:id="@+id/bTwitter"
-        android:background="@drawable/twittert"
+    </LinearLayout>
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        android:layout_gravity="center_horizontal|bottom" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/bFacebook"
 
-    <Button
-        android:layout_width="109dp"
-        android:layout_height="121dp"
-        android:id="@+id/bPinterest"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            />
 
-        android:background="@drawable/pinterest"
-        android:layout_gravity="right|bottom" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/bTwitter"
 
-    <android.support.v4.view.ViewPager android:id="@+id/containerCompartir"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/bPinterest"
+
+
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            />
+        </LinearLayout>
+  <!--  <android.support.v4.view.ViewPager android:id="@+id/containerCompartir"
         android:layout_width="267dp" android:layout_height="271dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_gravity="center_horizontal|top"
-        android:paddingTop="40dp" />
-</FrameLayout>
+        android:paddingTop="40dp" />-->
+
+</LinearLayout>

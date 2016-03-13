@@ -104,8 +104,12 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
     public void compartir()
     {
+        CompartirFragment compartir = new CompartirFragment();
+        compartir.objReceta = this.objReceta;
+        compartir.imgReceta = this.imgReceta;
+
         getFragmentManager().beginTransaction()
-                .replace(R.id.actividad,(new CompartirFragment()))
+                .replace(R.id.actividad,(compartir))
                 .addToBackStack("RecetaFragment")
                 .commit();
     }
