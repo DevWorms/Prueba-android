@@ -98,7 +98,8 @@
                 android:text="submit"
                 android:textColor="#fff"
                 android:textSize="13dp"
-                android:background="#13b586"/>
+                android:background="#13b586"
+                android:onClick="loguearConMail" />
 
 
 
@@ -110,7 +111,8 @@
                 android:textColor="#fff"
                 android:textSize="13dp"
 
-                android:background="#2683c2"/>
+                android:background="#2683c2"
+                android:onClick="loguearConFacebook" />
 
             <Button android:layout_width="190dp"
                 android:layout_height="38dp"
@@ -120,7 +122,8 @@
                 android:textColor="#fff"
                 android:textSize="13dp"
 
-                android:background="#a5e4ff"/>
+                android:background="#a5e4ff"
+                android:onClick="loguearConTwitter" />
 
 
 
