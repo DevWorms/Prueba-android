@@ -66,7 +66,8 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="0dp"
-        android:id="@+id/layout_barras">
+        android:id="@+id/layout_barras"
+        android:visibility="gone">
         <com.theartofdev.fastimageloader.target.TargetImageView
             android:id="@+id/imagenBarras"
             android:layout_width="match_parent"
@@ -91,7 +92,8 @@
         android:orientation="horizontal"
         android:layout_height="0dp"
         android:layout_width="match_parent"
-        android:id="@+id/layout_card">
+        android:id="@+id/layout_card"
+        android:visibility="gone">
         <ImageView
             android:id="@+id/imagenTarjeta"
             android:layout_weight="1"
@@ -142,7 +144,8 @@
         android:orientation="horizontal"
         android:layout_height="0dp"
         android:layout_width="match_parent"
-        android:id="@+id/layout_card_buttons">
+        android:id="@+id/layout_card_buttons"
+        android:visibility="gone">
         <Button
             android:id="@+id/btnCancelarSuscripcion"
             android:layout_weight="1"

@@ -2,11 +2,284 @@
 <items version="2" >
 
     <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.theartofdev/fast-image-loader/0.8.4/dbc38870b9506ceef6ffdf73a7bfce864587a4df/fast-image-loader-0.8.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="dbc38870b9506ceef6ffdf73a7bfce864587a4df">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/fast-image-loader-0.8.4-288c016143514936b72abb84cc548b6cd1ea95c6.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.0/support-annotations-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.0-a7517a5954ec52448d6d140b8b8fb165b6000b9c.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="29573e9c39205e1ce87c7632268581f9ae48731c">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-843d0b528ba78a4dea4549800fc7249eef3af583.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/okhttp-2.2.0-bcca467c322edffe5527adb83a0ad1213e1026cb.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/google-http-client-android-1.17.0-rc.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c6ef8e9d839d3aa873651214975c9ce4cbe1709b">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/google-http-client-android-1.17.0-rc-5f0348ff03852c9e0957ad6fa93a0f07e55691f9.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.10.3-b8b4ca1e68fa46d5d33a5cd55ddc5bfc5c8d0096.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.2.0/jars/libs/internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="58d0010cb4373696cfdc5894c4b23649af58ed18">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0-5b528708c2776a73a4e75431ae322d530d0411d8.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.3/36366e460af2c0f224bb8f70b64e3302f638b138/parse-android-1.10.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="36366e460af2c0f224bb8f70b64e3302f638b138">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/parse-android-1.10.3-8d466654c5ccd4338c70d64651ebb1f4ceafd2aa.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/google-http-client-jackson2-1.17.0-rc.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a9e93a7b00a0055b4ec7be96df40e18303ecbcfc">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.17.0-rc-4b4c9e4634e4671ff99d9147361ccdf7e5a4f06a.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/gson-2.3.1-f353eb99002f8950aa5c3b6df1068d1712ea3049.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/okhttp-3.2.0-b8f01e0639de6c87ae6210065f50e76a11bf27a3.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/44780c2cf98f6a3cf4e77f1234d644758b329201/bolts-android-1.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="44780c2cf98f6a3cf4e77f1234d644758b329201">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.1-fb62f5d27198303722529df95047b9d846b00519.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-884e948ea4834334e72a7aa0f867dd9f30b5beba.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-composer/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8ec69f9e7e18a05a46b4fcaa69368b6d42fa6324">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-75abbc9c46e2c5703a153e79ca0723a4e6aae115.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.0.8/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e724073d032731be77fad0f993e2970fb4429e3a">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-288b6775c4f64c0c4885ebef4149c0037535d40a.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter/1.10.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c70dc7e189e45e8a8b07a2cafee76aefdc9822df">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-64efd72ca55ce29fa98aa65477de495482bd2a8c.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b727e800debd202a5113d675f024751bc82b2cbf">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-ccba61141a638b1534b8f4dffee4ad5cbdedc5cb.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/okio-1.6.0-5592238585369aec172f01ca2e8ef46cefb33647.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/google-http-client-1.17.0-rc.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8c3af35a458e5430f9d2f9bf9f12117673500ba0">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/google-http-client-1.17.0-rc-8461bcc492fff27a544599b5fc66e68bf9fff110.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/devicecollector-sdk-2.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="566020d79462ad829ce7daa8c557b239d662ec46">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/devicecollector-sdk-2.5-2c37a97c3362c8d985acd41a9b414de93b8ce70f.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/junit-4.10.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="28496454496957d3efb815d5a77723d8e3d8b912">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/junit-4.10-cc4f0fd36c6b3a8a19622bffe971d43a8dae46ce.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.7/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3318d37e2378c4982ad6d2635eed93d9e7f7940b">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-9f55853cc048d6c6f8b35854c5d0587392aa92fe.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.github.chrisbanes.photoview/library/1.2.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="81aa0e8e77d948204aa6754019c6f3c04dd922e3">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-9d15590ecb1a894ebbdfee1245cc10fd5dd6417b.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f3a3189a228a65d03b3ea92a1b58a2b44bc7366e">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-60e4d3b6779b2c9b39bbf170e0526c6de3895adb.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.twitter/twitter-text/1.13.0/78415b95ae3184c5926d593feab64bfc0b73b2dd/twitter-text-1.13.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="78415b95ae3184c5926d593feab64bfc0b73b2dd">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/twitter-text-1.13.0-d188c56854b432bef6c460eae423a6adf5d46b26.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/pdk/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="dd7ed66d23736943942d2d46e992f8122175ffb5">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-dd7896e7633af818b92b61c4b1061aac7aea051e.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/jackson-core-2.1.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/jackson-core-2.1.3-f231412b9de189de27ec5ca86e528ae73a58d29a.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/jackson-core-asl-1.9.11.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e32303ef8bd18a5c9272780d49b81c95e05ddf43">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/jackson-core-asl-1.9.11-451aef45a4c0a437f7116e93d49bd080622f1fb4.jar" />
+    </item>
+    <item
         jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
         <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-d0b140127b9799c9bf8c33880f2e10f2f04b6d7b.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/library-1.0.19-474e17ae3943508e0f0f4944b72b4051a02da3b7.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-dffbdc0afd9954f659f5e12f1cc28489d763b302.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-d6f75a3297428c8d93124726cf28d7a462d1fe92.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/jsr305-1.3.9.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9-9cf72f6d4fbe323ebf385a3cf451a7bda86327ed.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.7.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-4b6ce9182a808b7e8861cce89ea5d336dd1bb683.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-fe62551cac35dd47846c68d044968b64ced79dc0.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/ParseTwitterUtils-1.10.3-0fc26eee075091a2f2f20eea377562aa5f176e2e.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/libs/internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.0-39d0dea97c06824174ec53a51cd789015b109f56.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0e85a8fb54f04489a01242e7579e7512ef5a28b1">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-f07a9adc41e2a866de77151d5d8fe889c78929c4.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/retrofit-1.9.0-24b17bbc113702a1dd8f18191dcec11a0b6e90d6.jar" />
+    </item>
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.7.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e0f6e271147a09c34a8fa0d09e1df8c383ce3f44">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/pre-dexed/debug/classes-f438498949d60014a185e88e05bfba9311efa94d.jar" />
     </item>
 
 </items>

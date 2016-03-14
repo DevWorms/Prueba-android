@@ -1,11 +1,12 @@
 package com.devworms.editorial.mango.fragments;
 
 import android.app.Fragment;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,18 +15,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.activities.Login;
-import com.devworms.editorial.mango.activities.MainActivity;
+import com.devworms.editorial.mango.main.StarterApplication;
+import com.devworms.editorial.mango.openpay.OpenPayRestApi;
 import com.devworms.editorial.mango.util.Specs;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
+import com.google.api.client.util.IOUtils;
 import com.parse.FindCallback;
+import com.parse.LogInCallback;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
@@ -33,17 +34,43 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseTwitterUtils;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
+
 import com.theartofdev.fastimageloader.FastImageLoader;
+
 import com.theartofdev.fastimageloader.ImageLoadSpec;
 import com.theartofdev.fastimageloader.target.TargetImageView;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterApiClient;
+import com.twitter.sdk.android.core.TwitterException;
+import com.twitter.sdk.android.core.models.Tweet;
+import com.twitter.sdk.android.core.services.StatusesService;
 
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 //import com.parse.ParseUser;
 
@@ -56,21 +83,26 @@ public class CuentaFragment extends Fragment{
     ImageView imgTarjeta;
 
     Button btnCerrarSesion;
-    TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number;
+    TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number, txt_usuario, txt_pass;
     LinearLayout ly_barras, ly_tarjeta;
 
     String clientId;
 
     public void loadFBProfileImage(String userid){
 
-            URL img_value = null;
+        URL img_value = null;
 
-            String url = "http://graph.facebook.com/"+userid+"/picture?type=large";
+        String url = "http://graph.facebook.com/"+userid+"/picture?type=large";
 
-            FastImageLoader.prefetchImage(url, Specs.IMG_IX_IMAGE);
-            ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
+        StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
 
-            imgPerfil.loadImage(url, spec.getKey());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+        prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
+
+        FastImageLoader.prefetchImage(url, Specs.IMG_IX_IMAGE);
+        ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
+
+        imgPerfil.loadImage(url, spec.getKey());
 
     }
 
@@ -103,10 +135,114 @@ public class CuentaFragment extends Fragment{
 
     public void getTWUserData(){
 
+        com.parse.twitter.Twitter twitter = ParseTwitterUtils.getTwitter();
+
+        try {
+            JSONObject response = new RequestTwitter().execute(twitter.getUserId()).get();
+
+            String profileImageUrl = response.getString("profile_image_url").replace("_normal", "");
+
+            String fullName = response.getString("name");
+            String username = response.getString("screen_name");
+
+            loadTwProfileImage(profileImageUrl);
+            txtNombreUsuario.setText(fullName);
+            txtCorreoElectronico.setText("@"+username);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    // conexion a internet
+    private class RequestTwitter extends AsyncTask<String, Void, JSONObject> {
+        @Override
+        protected JSONObject doInBackground(String... params) {
+            try {
+
+
+
+                HttpClient client = new DefaultHttpClient();
+                HttpGet verifyGet = new HttpGet(
+                        "https://api.twitter.com/1.1/users/show.json?user_id=" + params[0]);
+                ParseTwitterUtils.getTwitter().signRequest(verifyGet);
+                HttpResponse response = client.execute(verifyGet);
+                InputStream is = response.getEntity().getContent();
+
+                BufferedReader streamReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                StringBuilder responseStrBuilder = new StringBuilder();
+
+                String inputStr;
+                while ((inputStr = streamReader.readLine()) != null)
+                    responseStrBuilder.append(inputStr);
+
+                JSONObject responseJson = new JSONObject(responseStrBuilder.toString());
+
+                return responseJson;
+
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+
+        }
+
+
+    }
+
+
+
+    public void loadTwProfileImage(String imageUrl){
+
+        String url = imageUrl;
+
+
+        try {
+            imgPerfil.setImageBitmap(new GetBitmapFromURL().execute(url).get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    // conexion a internet
+    private class GetBitmapFromURL extends AsyncTask<String, Void, Bitmap> {
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            try {
+
+
+                URL url = new URL(params[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+
+        }
+
+
     }
 
     public void getParseUserData(){
-
+        imgPerfil.setImageResource(R.drawable.cup);
+        txtCorreoElectronico.setText(ParseUser.getCurrentUser().getEmail());
+        txtNombreUsuario.setVisibility(View.GONE);
     }
 
     public void cargarInformacion(){
@@ -129,20 +265,23 @@ public class CuentaFragment extends Fragment{
             public void done(List<ParseObject> clientList, ParseException e) {
                 if (e == null) {
 
-                    final ParseObject objCliente = clientList.get(0);
-
-                    if (objCliente == null) {
-                        initControls(view, objCliente, null);
+                    if (clientList.size() <= 0) {
+                        initControls(view, null, null);
                     }
                     else{
 
-
-                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
+                        final ParseObject objCliente = clientList.get(0);
+                        final ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
                         query.whereEqualTo("cliente", objCliente);
                         query.findInBackground(new FindCallback<ParseObject>() {
                             public void done(List<ParseObject> tarjetasList, ParseException e) {
                                     if (e == null) {
-                                        ParseObject objTarjeta = tarjetasList.get(0);
+                                        ParseObject objTarjeta = null;
+
+                                        if (tarjetasList.size() > 0){
+                                            objTarjeta = tarjetasList.get(0);
+                                        }
+
                                         initControls(view, objCliente, objTarjeta);
                                     }
                                 }
@@ -241,9 +380,138 @@ public class CuentaFragment extends Fragment{
             obtenerClienteParse(view);
         } else {
             view=inflater.inflate(R.layout.fragment_contacto, container, false);
+            txt_usuario =  ( (TextView)view.findViewById(R.id.usuario) );
+            txt_pass = ( (TextView)view.findViewById(R.id.password) );
+            txtCorreoElectronico = ((TextView)view.findViewById(R.id.correo) );
         }
 
         return view;
+    }
+
+
+
+
+    public void loguearConMail(View view)
+    {
+        String userName = txt_usuario.getText().toString();
+        String pass=txt_pass.getText().toString();
+        String mail= txtCorreoElectronico.getText().toString();
+
+            ParseUser user = new ParseUser();
+            user.setUsername(userName);
+            user.setPassword(pass);
+            user.setEmail(mail);
+            user.signUpInBackground(new SignUpCallback() {
+                public void done(ParseException e) {
+                    if (e == null) {
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.actividad, new CuentaFragment())
+                                .addToBackStack("cuenta")
+                                .commit();
+                    } else {
+
+                    }
+                }
+            });
+
+
+
+    }
+
+
+    public void loguearConFacebook(View view)
+    {
+        List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
+
+        ParseFacebookUtils.logInWithReadPermissionsInBackground(getActivity(), permissions, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException err) {
+                if (user == null) {
+                    Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+                } else if (user.isNew()) {
+                    Log.d("MyApp", "User signed up and logged in through Facebook!");
+
+                    ligarFBconParse(user);
+
+
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.actividad, new CuentaFragment())
+                            .addToBackStack("cuenta")
+                            .commit();
+                } else {
+                    ligarFBconParse(user);
+
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.actividad, new CuentaFragment())
+                            .addToBackStack("cuenta")
+                            .commit();
+
+                    Log.d("MyApp", "User logged in through Facebook!");
+                }
+            }
+        });
+
+
+
+    }
+
+
+    private void ligarFBconParse(final ParseUser user)
+    {
+        List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
+
+        if (!ParseFacebookUtils.isLinked(user)) {
+            ParseFacebookUtils.linkWithReadPermissionsInBackground(user, getActivity(), permissions, new SaveCallback() {
+                @Override
+                public void done(ParseException ex) {
+                    if (ParseFacebookUtils.isLinked(user)) {
+                        Log.d("MyApp", "Woohoo, user logged in with Facebook!");
+                    }
+                }
+            });
+        }
+    }
+
+    public void loguearConTwitter(View view)
+    {
+
+        ParseTwitterUtils.logIn(getActivity(), new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException err) {
+                if (user == null) {
+                    Log.d("MyApp", "Uh oh. The user cancelled the Twitter login.");
+                } else if (user.isNew()) {
+                    ligarConTwitter(user);
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.actividad, new CuentaFragment())
+                            .addToBackStack("cuenta")
+                            .commit();
+                    Log.d("MyApp", "User signed up and logged in through Twitter!");
+                } else {
+                    ligarConTwitter(user);
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.actividad, new CuentaFragment())
+                            .addToBackStack("cuenta")
+                            .commit();
+                    Log.d("MyApp", "User logged in through Twitter!");
+                }
+            }
+        });
+
+    }
+
+    private void ligarConTwitter(final ParseUser user)
+    {
+        if (!ParseTwitterUtils.isLinked(user)) {
+            ParseTwitterUtils.link(user, getActivity(), new SaveCallback() {
+                @Override
+                public void done(ParseException ex) {
+                    if (ParseTwitterUtils.isLinked(user)) {
+                        Log.d("MyApp", "Woohoo, user logged in with Twitter!");
+                    }
+                }
+            });
+        }
     }
 
     //El Fragment ha sido quitado de su Activity y ya no está disponible

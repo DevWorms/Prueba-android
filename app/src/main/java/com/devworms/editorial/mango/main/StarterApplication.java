@@ -24,7 +24,10 @@ import com.pinterest.android.pdk.PDKClient;
 import com.theartofdev.fastimageloader.FastImageLoader;
 import com.theartofdev.fastimageloader.adapter.IdentityAdapter;
 import com.theartofdev.fastimageloader.adapter.ImgIXAdapter;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
 
+import io.fabric.sdk.android.Fabric;
 import mx.openpay.android.Openpay;
 
 
@@ -67,7 +70,12 @@ public class StarterApplication extends Application {
 
     ParseTwitterUtils.initialize("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
 
-      // this.listaRecetasPorMenu = new HashMap<>();
+        /* Twitter */
+        TwitterAuthConfig authConfig = new TwitterAuthConfig("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
+        Fabric.with(this, new Twitter(authConfig));
+
+
+        // this.listaRecetasPorMenu = new HashMap<>();
 
         pdkClient = PDKClient.configureInstance(this, "4815040272566075428");
         pdkClient.onConnect(this);
