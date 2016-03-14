@@ -1,19 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imagenPerfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/cup" />
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
 
-    <Button
-        android:id="@+id/cerrarSesionBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <com.theartofdev.fastimageloader.target.TargetImageView
+            android:id="@+id/imagenPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
-        android:text="Cerrar sesion"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp">
+        <Button
+            android:id="@+id/cerrarSesionBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Cerrar sesion" />
+
+        <TextView
+            android:id="@+id/txt_nombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Nombre de usuario"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/txt_correoElectronico"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Correo electronico"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/txt_subscripcion"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="suscripcion"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:id="@+id/layout_barras">
+        <com.theartofdev.fastimageloader.target.TargetImageView
+            android:id="@+id/imagenBarras"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/txt_referenciaBarras"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Nombre de usuario"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:id="@+id/layout_card">
+        <ImageView
+            android:id="@+id/imagenTarjeta"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="0dp">
+            <TextView
+                android:id="@+id/txt_brand"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Nombre de usuario"
+                android:gravity="right"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/txt_holder"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Nombre de usuario"
+                android:gravity="right"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/txt_card_number"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Nombre de usuario"
+                android:gravity="right"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="0.4"
+        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:id="@+id/layout_card_buttons">
+        <Button
+            android:id="@+id/btnCancelarSuscripcion"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:paddingRight="4dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:text="Cancelar suscripcion" />
+        <Button
+            android:id="@+id/btnEliminarTarjeta"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:paddingLeft="4dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:text="eliminar tarjeta" />
+    </LinearLayout>
+
+
 </LinearLayout>
