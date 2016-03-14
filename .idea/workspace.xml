@@ -43,6 +43,29 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="fragment_contacto.xml" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_contacto.xml">
+                <provider selected="true" editor-type-id="android-designer">
+                  <state />
+                </provider>
+                <provider editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -60,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/main/StarterApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <caret line="87" column="19" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -96,20 +119,25 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/Login.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="203" column="0" selection-start-line="198" selection-start-column="3" selection-end-line="203" selection-end-column="0" />
+              <folding>
+                <element signature="e#7468#7762#0" expanded="true" />
+                <element signature="e#7761#7762#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="RecetarioFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/RecetarioFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="56" column="32" selection-start-line="54" selection-start-column="8" selection-end-line="56" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1270#1271#0" expanded="false" />
-                <element signature="e#1310#1311#0" expanded="false" />
-                <element signature="e#1356#1357#0" expanded="false" />
-                <element signature="e#1394#1395#0" expanded="false" />
-                <element signature="e#3341#3342#0" expanded="false" />
-                <element signature="e#3381#3382#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,28 +145,28 @@
       <file leaf-file-name="CuentaFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/CuentaFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13793103">
-              <caret line="474" column="33" selection-start-line="474" selection-start-column="16" selection-end-line="474" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.23481117">
+              <caret line="368" column="8" selection-start-line="368" selection-start-column="8" selection-end-line="368" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3683#4436#0" expanded="true" />
-                <element signature="e#4435#4436#0" expanded="true" />
-                <element signature="e#8518#9801#0" expanded="true" />
-                <element signature="e#9103#9735#0" expanded="true" />
-                <element signature="e#9734#9735#0" expanded="true" />
-                <element signature="e#9800#9801#0" expanded="true" />
-                <element signature="e#12247#12640#0" expanded="true" />
-                <element signature="e#12639#12640#0" expanded="true" />
-                <element signature="e#13870#14310#0" expanded="true" />
-                <element signature="e#14309#14310#0" expanded="true" />
-                <element signature="e#14596#15642#0" expanded="true" />
-                <element signature="e#15641#15642#0" expanded="true" />
-                <element signature="e#15996#16292#0" expanded="true" />
-                <element signature="e#16291#16292#0" expanded="true" />
-                <element signature="e#16411#17449#0" expanded="true" />
-                <element signature="e#17448#17449#0" expanded="true" />
-                <element signature="e#17626#17920#0" expanded="true" />
-                <element signature="e#17919#17920#0" expanded="true" />
+                <element signature="e#3793#4546#0" expanded="true" />
+                <element signature="e#4545#4546#0" expanded="true" />
+                <element signature="e#8630#9859#0" expanded="true" />
+                <element signature="e#9196#9793#0" expanded="true" />
+                <element signature="e#9792#9793#0" expanded="true" />
+                <element signature="e#9858#9859#0" expanded="true" />
+                <element signature="e#12305#12698#0" expanded="true" />
+                <element signature="e#12697#12698#0" expanded="true" />
+                <element signature="e#14538#14978#0" expanded="true" />
+                <element signature="e#14977#14978#0" expanded="true" />
+                <element signature="e#15255#16301#0" expanded="true" />
+                <element signature="e#16300#16301#0" expanded="true" />
+                <element signature="e#16655#16951#0" expanded="true" />
+                <element signature="e#16950#16951#0" expanded="true" />
+                <element signature="e#17061#18099#0" expanded="true" />
+                <element signature="e#18098#18099#0" expanded="true" />
+                <element signature="e#18276#18570#0" expanded="true" />
+                <element signature="e#18569#18570#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3190,9 +3218,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/main/StarterApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/openpay/OpenPayRestApi.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/CuentaFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_contaco_detalles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_contacto.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/CuentaFragment.java" />
       </list>
     </option>
   </component>
@@ -3210,8 +3238,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="105" />
-    <option name="y" value="46" />
+    <option name="x" value="436" />
+    <option name="y" value="128" />
     <option name="width" value="1371" />
     <option name="height" value="1097" />
   </component>
@@ -3518,6 +3546,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Prueba-android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mango" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -3782,8 +3832,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="46" width="1371" height="1097" extended-state="0" />
-    <editor active="true" />
+    <frame x="436" y="128" width="1371" height="1097" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -3791,7 +3841,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.49763992" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32313967" sideWeight="0.5959368" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32313967" sideWeight="0.5959368" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5066259" sideWeight="0.37321293" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -3967,9 +4017,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/CuentaFragment.java</url>
-          <line>381</line>
+          <line>442</line>
           <properties />
-          <option name="timeStamp" value="212" />
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/CuentaFragment.java</url>
+          <line>447</line>
+          <properties />
+          <option name="timeStamp" value="214" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/RecetaFragment.java</url>
@@ -3978,7 +4034,7 @@
           <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="213" />
+      <option name="time" value="216" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -4005,6 +4061,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5008" column="0" selection-start-line="5008" selection-start-column="0" selection-end-line="5008" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4845,32 +4902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="233" column="47" selection-start-line="233" selection-start-column="47" selection-end-line="233" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/RecetarioFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="32" selection-start-line="54" selection-start-column="8" selection-end-line="56" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1270#1271#0" expanded="false" />
-            <element signature="e#1310#1311#0" expanded="false" />
-            <element signature="e#1356#1357#0" expanded="false" />
-            <element signature="e#1394#1395#0" expanded="false" />
-            <element signature="e#3341#3342#0" expanded="false" />
-            <element signature="e#3381#3382#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/ea7da3df51e365ee51de4933c834b8abdd15ae5e/bolts-android-1.2.1-sources.jar!/bolts/Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23831776">
@@ -4919,14 +4950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/main/StarterApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/os/AsyncTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4946,6 +4969,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/main/StarterApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="19" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_contacto.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -4957,30 +4988,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/RecetarioFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="32" selection-start-line="54" selection-start-column="8" selection-end-line="56" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="203" column="0" selection-start-line="198" selection-start-column="3" selection-end-line="203" selection-end-column="0" />
+          <folding>
+            <element signature="e#7468#7762#0" expanded="true" />
+            <element signature="e#7761#7762#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/CuentaFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13793103">
-          <caret line="474" column="33" selection-start-line="474" selection-start-column="16" selection-end-line="474" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.23481117">
+          <caret line="368" column="8" selection-start-line="368" selection-start-column="8" selection-end-line="368" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3683#4436#0" expanded="true" />
-            <element signature="e#4435#4436#0" expanded="true" />
-            <element signature="e#8518#9801#0" expanded="true" />
-            <element signature="e#9103#9735#0" expanded="true" />
-            <element signature="e#9734#9735#0" expanded="true" />
-            <element signature="e#9800#9801#0" expanded="true" />
-            <element signature="e#12247#12640#0" expanded="true" />
-            <element signature="e#12639#12640#0" expanded="true" />
-            <element signature="e#13870#14310#0" expanded="true" />
-            <element signature="e#14309#14310#0" expanded="true" />
-            <element signature="e#14596#15642#0" expanded="true" />
-            <element signature="e#15641#15642#0" expanded="true" />
-            <element signature="e#15996#16292#0" expanded="true" />
-            <element signature="e#16291#16292#0" expanded="true" />
-            <element signature="e#16411#17449#0" expanded="true" />
-            <element signature="e#17448#17449#0" expanded="true" />
-            <element signature="e#17626#17920#0" expanded="true" />
-            <element signature="e#17919#17920#0" expanded="true" />
+            <element signature="e#3793#4546#0" expanded="true" />
+            <element signature="e#4545#4546#0" expanded="true" />
+            <element signature="e#8630#9859#0" expanded="true" />
+            <element signature="e#9196#9793#0" expanded="true" />
+            <element signature="e#9792#9793#0" expanded="true" />
+            <element signature="e#9858#9859#0" expanded="true" />
+            <element signature="e#12305#12698#0" expanded="true" />
+            <element signature="e#12697#12698#0" expanded="true" />
+            <element signature="e#14538#14978#0" expanded="true" />
+            <element signature="e#14977#14978#0" expanded="true" />
+            <element signature="e#15255#16301#0" expanded="true" />
+            <element signature="e#16300#16301#0" expanded="true" />
+            <element signature="e#16655#16951#0" expanded="true" />
+            <element signature="e#16950#16951#0" expanded="true" />
+            <element signature="e#17061#18099#0" expanded="true" />
+            <element signature="e#18098#18099#0" expanded="true" />
+            <element signature="e#18276#18570#0" expanded="true" />
+            <element signature="e#18569#18570#0" expanded="true" />
           </folding>
         </state>
       </provider>

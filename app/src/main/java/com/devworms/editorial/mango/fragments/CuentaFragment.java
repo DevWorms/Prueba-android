@@ -1,6 +1,7 @@
 package com.devworms.editorial.mango.fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,6 +25,7 @@ import com.devworms.editorial.mango.util.Specs;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.appevents.AppEventsLogger;
 import com.google.api.client.util.IOUtils;
 import com.parse.FindCallback;
 import com.parse.LogInCallback;
@@ -77,7 +79,7 @@ import okhttp3.Response;
 /**
  * Created by sergio on 21/10/15.
  */
-public class CuentaFragment extends Fragment{
+public class CuentaFragment extends Fragment implements View.OnClickListener{
 
     TargetImageView imgPerfil, imgBarras;
     ImageView imgTarjeta;
@@ -158,6 +160,8 @@ public class CuentaFragment extends Fragment{
 
 
     }
+
+
 
     // conexion a internet
     private class RequestTwitter extends AsyncTask<String, Void, JSONObject> {
@@ -267,25 +271,24 @@ public class CuentaFragment extends Fragment{
 
                     if (clientList.size() <= 0) {
                         initControls(view, null, null);
-                    }
-                    else{
+                    } else {
 
                         final ParseObject objCliente = clientList.get(0);
                         final ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
                         query.whereEqualTo("cliente", objCliente);
                         query.findInBackground(new FindCallback<ParseObject>() {
                             public void done(List<ParseObject> tarjetasList, ParseException e) {
-                                    if (e == null) {
-                                        ParseObject objTarjeta = null;
+                                if (e == null) {
+                                    ParseObject objTarjeta = null;
 
-                                        if (tarjetasList.size() > 0){
-                                            objTarjeta = tarjetasList.get(0);
-                                        }
-
-                                        initControls(view, objCliente, objTarjeta);
+                                    if (tarjetasList.size() > 0) {
+                                        objTarjeta = tarjetasList.get(0);
                                     }
+
+                                    initControls(view, objCliente, objTarjeta);
                                 }
-                            });
+                            }
+                        });
                     }
                 }
             }
@@ -383,15 +386,31 @@ public class CuentaFragment extends Fragment{
             txt_usuario =  ( (TextView)view.findViewById(R.id.usuario) );
             txt_pass = ( (TextView)view.findViewById(R.id.password) );
             txtCorreoElectronico = ((TextView)view.findViewById(R.id.correo) );
+            ((Button)view.findViewById(R.id.submitButton) ).setOnClickListener(this);
+            ((Button)view.findViewById(R.id.fbButton) ).setOnClickListener(this);
+            ((Button)view.findViewById(R.id.twButton) ).setOnClickListener(this);
         }
 
         return view;
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.submitButton:
+                loguearConMail();
+                break;
+            case R.id.fbButton:
+                loguearConFacebook();
+                break;
+            case R.id.twButton:
+                loguearConTwitter();
+                break;
+        }
+    }
 
-
-    public void loguearConMail(View view)
+    public void loguearConMail()
     {
         String userName = txt_usuario.getText().toString();
         String pass=txt_pass.getText().toString();
@@ -419,7 +438,7 @@ public class CuentaFragment extends Fragment{
     }
 
 
-    public void loguearConFacebook(View view)
+    public void loguearConFacebook()
     {
         List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
 
@@ -472,7 +491,7 @@ public class CuentaFragment extends Fragment{
         }
     }
 
-    public void loguearConTwitter(View view)
+    public void loguearConTwitter()
     {
 
         ParseTwitterUtils.logIn(getActivity(), new LogInCallback() {
