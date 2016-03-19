@@ -26,7 +26,7 @@ public class SearchResultsFragment extends Fragment {
 
 
 
-    public  String query;
+    public  String[] query;
     private AdapterBuscadorList mAdapterRecetarioList;
 
 
@@ -86,7 +86,11 @@ public class SearchResultsFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-        String []tags = query.split(" ");
+        String []tags = query;
+
+        for (int i = 0; i<query.length;i++){
+            tags[i] = "#"+tags[i];
+        }
 
         obtenerObjetosParse(recyclerView, tags);
         return view;
