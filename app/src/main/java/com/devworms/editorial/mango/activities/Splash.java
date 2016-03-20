@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
 import com.devworms.editorial.mango.R;
 
@@ -22,6 +23,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
+        ((ImageView)findViewById(R.id.splash)).setImageResource(R.drawable.splash);
         Thread timerThread = new Thread(){
             public void run(){
                 try{

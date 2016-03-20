@@ -68,10 +68,10 @@ public class MenuFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-        /*recyclerView.addItemDecoration(
-                new DividerItemDecoration(ContextCompat.getDrawable(container.getContext(), R.drawable.divider),
-                        true, true));
-        */
+        recyclerView.addItemDecoration(
+                new DividerItemDecoration(ContextCompat.getDrawable(container.getContext(), R.drawable.deviderp),
+                        false, true));
+
 
                 obtenerObjetosParse(recyclerView);
 
