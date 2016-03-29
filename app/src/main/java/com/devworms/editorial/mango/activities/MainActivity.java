@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity
             Log.v("query", query);
 
             SearchResultsFragment fragmentSearch = new SearchResultsFragment();
-            fragmentSearch.query = query;
+            fragmentSearch.query = query.split(" ");
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, fragmentSearch).commit();
         }
