@@ -23,7 +23,6 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        ((ImageView)findViewById(R.id.splash)).setImageResource(R.drawable.splash);
         Thread timerThread = new Thread(){
             public void run(){
                 try{

@@ -244,7 +244,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
     }
 
     public void getParseUserData(){
-        imgPerfil.setImageResource(R.drawable.cup);
+        imgPerfil.setImageResource(R.drawable.frida);
         txtCorreoElectronico.setText(ParseUser.getCurrentUser().getEmail());
         txtNombreUsuario.setVisibility(View.GONE);
     }

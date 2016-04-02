@@ -23,11 +23,11 @@ public class CreditosFragment extends Fragment {
             "Comida 5",
     } ;
     Integer[] imageId = {
-            R.drawable.comidag,
-            R.drawable.comidag,
-            R.drawable.comidag,
-            R.drawable.comidag,
-            R.drawable.comidag,
+            R.drawable.fondo,
+            R.drawable.fondo,
+            R.drawable.fondo,
+            R.drawable.fondo,
+            R.drawable.fondo,
     };
 
     @Nullable
