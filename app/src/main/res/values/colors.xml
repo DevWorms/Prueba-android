@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="divider">#ff8c40</color>
     <color name="menuItem">#676670</color>
+    <color name="menuText">#ffffff</color>
 </resources>
