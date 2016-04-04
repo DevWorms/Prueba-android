@@ -35,15 +35,11 @@ public class RecetarioFragment extends Fragment {
     private ParseObject objParse;
     private List<ParseObject> lMenusRecetas;
     private AdapterRecetarioList mAdapterMenuList;
-    private Bitmap imgMenu;
+
     private String tipoMenu;
 
     public void setMenuSeleccionado(ParseObject objParse){
         this.objParse = objParse;
-    }
-
-    public void setImgMenu(Bitmap imgMenu) {
-        this.imgMenu = imgMenu;
     }
 
     public void obtenerObjetosParse(final RecyclerView recyclerView){
@@ -74,7 +70,6 @@ public class RecetarioFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_recetario, container, false);
 
-        ((ImageView)view.findViewById(R.id.image_receta)).setImageBitmap(this.imgMenu);
 
         StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
 

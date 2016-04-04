@@ -111,7 +111,6 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                         final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
                         final Bitmap imgReceta = bitmapDrawable.getBitmap();
 
-                        recetario.setImgMenu(imgReceta);
                         activity.getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad,recetario)
                                 .addToBackStack("MenuFragment")

@@ -47,6 +47,7 @@ public class MenuFragment extends Fragment {
                     Log.d("score", "Retrieved " + lMenus.size() + " scores");
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
+
                 }
             }
         });
