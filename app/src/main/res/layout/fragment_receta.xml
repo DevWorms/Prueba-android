@@ -47,7 +47,7 @@
                 android:layout_margin="@dimen/fab_margin"
                 app:backgroundTint="@color/tw__composer_white"
 
-                android:src="@drawable/compartir" />
+                android:src="@drawable/iconocompartir" />
 
             <android.support.design.widget.FloatingActionButton android:id="@+id/favoritos"
                 android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                 android:layout_gravity="left|bottom|end"
                 android:layout_margin="@dimen/fab_margin"
                 app:backgroundTint="@color/tw__composer_white"
-                android:src="@drawable/like" />
+                android:src="@drawable/iconomegusta" />
         </LinearLayout>
 
 

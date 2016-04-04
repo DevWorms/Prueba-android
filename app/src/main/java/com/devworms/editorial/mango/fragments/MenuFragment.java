@@ -1,9 +1,7 @@
 package com.devworms.editorial.mango.fragments;
 
-import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
@@ -68,10 +66,10 @@ public class MenuFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-        recyclerView.addItemDecoration(
-                new DividerItemDecoration(ContextCompat.getDrawable(container.getContext(), R.drawable.deviderp),
+        /*recyclerView.addItemDecoration(
+                new DividerItemDecoration(ContextCompat.getDrawable(container.getContext(), R.drawable.deviderbottomxml),
                         false, true));
-
+*/
 
                 obtenerObjetosParse(recyclerView);
 

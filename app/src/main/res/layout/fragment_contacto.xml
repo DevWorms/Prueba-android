@@ -26,9 +26,10 @@
 
             <ImageView android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/cup"
                 android:layout_marginTop="15dp"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/frida"
+                android:scaleType="centerInside" />
 
             <EditText android:layout_width="fill_parent"
                 android:layout_height="40dp"
