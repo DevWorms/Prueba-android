@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
@@ -10,7 +10,94 @@
         android:layout_height="215dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false" />
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:id="@+id/imageView12"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/bandapaquete"
+        android:layout_alignParentEnd="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Clásicos tradicionales"
+        android:id="@+id/textViewNombrePlatillo"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:layout_alignBottom="@+id/imageView12"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:id="@+id/imageViewTipoPaquete"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/textViewNombrePlatillo"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/paquetesgratis"
+        android:layout_marginLeft="18dp"
         android:scaleType="fitCenter" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="14 recetas"
+        android:id="@+id/textViewNumeroRecetas"
+        android:rotation="-45"
+        android:layout_alignBottom="@+id/imageViewTipoPaquete"
+        android:layout_alignLeft="@+id/imageViewTipoPaquete"
+        android:layout_alignStart="@+id/imageViewTipoPaquete"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginBottom="26dp"
+        android:textColor="#ffffff" />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="PAQUETE"
+        android:id="@+id/textViewTipoPaquete"
+        android:rotation="-45"
+        android:textColor="#ffffff"
+        android:fontFamily="@string/dgts__call_me"
+        android:textSize="7dp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/imageViewTipoPaquete"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="0dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView13"
+        android:layout_alignBottom="@+id/image_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:src="@drawable/devidertop"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="false"
+        android:adjustViewBounds="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewDeviderbottom"
+        android:src="@drawable/deviderbottom"
+        android:adjustViewBounds="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
