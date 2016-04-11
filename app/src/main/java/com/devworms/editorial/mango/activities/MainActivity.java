@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /*
     @Override
     public void onBackPressed() {
 
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity
             getFragmentManager().popBackStack();
         }
 
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
