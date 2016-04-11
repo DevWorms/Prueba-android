@@ -27,82 +27,31 @@
             <ImageView android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:background="@drawable/frida"
-                android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"/>
 
-            <EditText android:layout_width="fill_parent"
-                android:layout_height="40dp"
+            <EditText android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:hint="Username"
                 android:id="@+id/usuario"
                 android:background="#f3f3f3"
-                android:paddingLeft="5dp"
-                android:layout_marginTop="30dp"/>
+                android:paddingLeft="5dp" />
 
 
             <EditText android:layout_width="fill_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:id="@+id/password"
                 android:hint="password"
                 android:password="true"
                 android:background="#f3f3f3"
                 android:paddingLeft="5dp"
-                android:layout_marginTop="15dp"/>
-
-            <EditText android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/correo"
-                android:hint="email"
-                android:background="#f3f3f3"
-                android:paddingLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:visibility="invisible" />
+                android:layout_marginTop="5dp" />
 
 
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                >
-
-                <TextView
-                    android:id="@+id/reg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:textColor="#000000"
-                    android:text="Register Here"
-                    android:onClick="registrarUsuario"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14dp"
-                    android:textColor="#000000"
-                    android:text="|"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:id="@+id/forgot_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:textColor="#000000"
-                    android:text="Forgot Password?"
-                    android:textStyle="bold"
-
-                    />
-
-            </LinearLayout>
             <Button android:layout_width="190dp"
                 android:layout_height="38dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:text="submit"
+                android:layout_marginTop="6dp"
+                android:text="Ingresar"
                 android:textColor="#fff"
                 android:textSize="13dp"
                 android:onClick="loguearConMail"
@@ -113,8 +62,8 @@
             <Button android:layout_width="190dp"
                 android:layout_height="38dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:text="Login with facebook"
+                android:layout_marginTop="6dp"
+                android:text="Facebook"
                 android:textColor="#fff"
                 android:textSize="13dp"
                 android:onClick="loguearConFacebook"
@@ -123,8 +72,8 @@
             <Button android:layout_width="190dp"
                 android:layout_height="38dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:text="Login with twitter"
+                android:layout_marginTop="6dp"
+                android:text="Twitter"
                 android:textColor="#fff"
                 android:textSize="13dp"
                 android:onClick="loguearConTwitter"
@@ -133,12 +82,45 @@
             <Button android:layout_width="190dp"
                 android:layout_height="38dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:text="Continue without sing up"
+                android:layout_marginTop="6dp"
+                android:text="Continuar sin iniciar sesión"
                 android:textColor="#fff"
                 android:textSize="13dp"
                 android:onClick="continuar"
                 android:background="#be0303"/>
+
+            <LinearLayout
+                android:layout_marginTop="4dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="#000000"
+                    android:text="Nuevo usuario"
+                    android:onClick="registrarUsuario"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/forgot_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="#000000"
+                    android:text="Olvide mi contraseña"
+                    android:textStyle="bold"
+                    android:onClick="recuperarContrasena"
+
+                    />
+
+            </LinearLayout>
 
 
         </LinearLayout>

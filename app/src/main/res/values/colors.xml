@@ -6,4 +6,7 @@
     <color name="divider">#ff8c40</color>
     <color name="menuItem">#676670</color>
     <color name="menuText">#ffffff</color>
+    <color name="barraPincipal">#ffffff</color>
+    <color name="barraSecundaria">#FFEA555A</color>
+
 </resources>

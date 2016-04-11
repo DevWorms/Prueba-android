@@ -385,7 +385,6 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
             view=inflater.inflate(R.layout.fragment_contacto, container, false);
             txt_usuario =  ( (TextView)view.findViewById(R.id.usuario) );
             txt_pass = ( (TextView)view.findViewById(R.id.password) );
-            txtCorreoElectronico = ((TextView)view.findViewById(R.id.correo) );
             ((Button)view.findViewById(R.id.submitButton) ).setOnClickListener(this);
             ((Button)view.findViewById(R.id.fbButton) ).setOnClickListener(this);
             ((Button)view.findViewById(R.id.twButton) ).setOnClickListener(this);
