@@ -1,5 +1,6 @@
 package com.devworms.editorial.mango.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -83,6 +84,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
 
     TargetImageView imgPerfil, imgBarras;
     ImageView imgTarjeta;
+    Activity activity = getActivity();
 
     Button btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta;
     TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number, txt_usuario, txt_pass;
@@ -372,7 +374,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
         {
             @Override
             public void onClick(View v) {
-                OpenPayRestApi.cancelarSuscripcion();
+                OpenPayRestApi.cancelarSuscripcion(activity, v);
             }
         });
 
@@ -380,7 +382,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
         {
             @Override
             public void onClick(View v) {
-                OpenPayRestApi.eliminarTarjeta();
+                OpenPayRestApi.eliminarTarjeta(activity, v);
             }
         });
 

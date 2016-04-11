@@ -1,11 +1,16 @@
 package com.devworms.editorial.mango.openpay;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
+import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
 import com.devworms.editorial.mango.dialogs.WalletActivity;
 import com.devworms.editorial.mango.main.StarterApplication;
@@ -286,7 +291,7 @@ public class OpenPayRestApi{
         }
     }
 
-    public static void cancelarSuscripcion(){
+    public static void cancelarSuscripcion(final Activity actividad, final View view){
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -314,12 +319,45 @@ public class OpenPayRestApi{
 
                             response = new RequestOpenPay().execute(request).get();
                             String error = response.getString("error_code");
+
+                            String titulo = "";
+                            String mensaje = "";
                             if (error == null || error.equals("")){
                                 cliente.put("Suscrito",false);
                                 cliente.put("idsuscripcion","");
                                 cliente.put("caducidad","");
                                 cliente.saveInBackground();
+                                titulo = "Suscripción cancelada";
+                                mensaje = "su suscripción actual fue cancelada cno éxito";
+                                view.setVisibility(View.GONE);
                             }
+                            else{
+                                titulo = "Error en cancelación";
+                                mensaje = "No es posible cancelar en este momento, intente más tarde";
+
+
+                            }
+
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
+
+                            // set title
+                            alertDialogBuilder.setTitle(titulo);
+
+                            // set dialog message
+                            alertDialogBuilder
+                                    .setMessage(mensaje)
+                                    .setCancelable(false)
+                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+
+                                        }
+                                    });
+
+                            // create alert dialog
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+
+                            // show it
+                            alertDialog.show();
 
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
@@ -334,7 +372,7 @@ public class OpenPayRestApi{
         });
     }
 
-    public static String eliminarTarjeta(){
+    public static String eliminarTarjeta(final Activity actividad, final View view){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
@@ -375,12 +413,37 @@ public class OpenPayRestApi{
                                         try {
 
                                             response = new RequestOpenPay().execute(request).get();
-
+                                            String titulo = "";
+                                            String mensaje = "";
                                             String error = response.getString("error_code");
                                             if (error == null || error.equals("")){
 
                                                 tarjeta.deleteInBackground();
+
+                                                titulo = "Tarjeta eliminada";
+                                                mensaje = "Esta tarjeta fue eliminada de esta cuenta";
+                                                view.setVisibility(View.GONE);
                                             }
+                                            else{
+                                                titulo = "Error en eliminación";
+                                                mensaje = "No es posible dar de baja esta tarjeta en este momento";
+
+
+                                            }
+                                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
+
+                                            // set title
+                                            alertDialogBuilder.setTitle(titulo);
+
+                                            // set dialog message
+                                            alertDialogBuilder
+                                                    .setMessage(mensaje)
+                                                    .setCancelable(false)
+                                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+
+                                                        }
+                                                    });
 
                                         } catch (InterruptedException ex) {
                                             ex.printStackTrace();
