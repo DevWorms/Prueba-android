@@ -286,6 +286,121 @@ public class OpenPayRestApi{
         }
     }
 
+    public static void cancelarSuscripcion(){
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
+        query.whereEqualTo("username", ParseUser.getCurrentUser());
+        query.findInBackground(new FindCallback<ParseObject>() {
+
+            public void done(final List<ParseObject> listaClientes, ParseException e) {
+                if (e == null) {
+
+
+                    if (listaClientes.size() > 0) {
+                        final ParseObject cliente = listaClientes.get(0);
+                        final String clientId = cliente.getString("clientID");
+                        Request request = new Request.Builder()
+                                .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/"+clientId+"/subscriptions/"+StarterApplication.PLAN_ID)
+                                .delete(null)
+                                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                                .addHeader("content-type", "application/json")
+                                .addHeader("cache-control", "no-cache")
+                                .addHeader("postman-token", "7774140f-d94f-ff76-447c-9b904ab74f6e")
+                                .build();
+
+
+                        JSONObject response = null;
+
+                        try {
+
+                            response = new RequestOpenPay().execute(request).get();
+                            String error = response.getString("error_code");
+                            if (error == null || error.equals("")){
+                                cliente.put("Suscrito",false);
+                                cliente.put("idsuscripcion","");
+                                cliente.put("caducidad","");
+                                cliente.saveInBackground();
+                            }
+
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        } catch (ExecutionException ex) {
+                            ex.printStackTrace();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    public static String eliminarTarjeta(){
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
+        query.whereEqualTo("username", ParseUser.getCurrentUser());
+        query.findInBackground(new FindCallback<ParseObject>() {
+
+            public void done(final List<ParseObject> listaClientes, ParseException e) {
+                if (e == null) {
+
+
+                    if (listaClientes.size() > 0) {
+                        final ParseObject cliente = listaClientes.get(0);
+                        final String clientId = cliente.getString("clientID");
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
+                        query.whereEqualTo("cliente", ParseUser.getCurrentUser());
+                        query.findInBackground(new FindCallback<ParseObject>() {
+
+                            public void done(List<ParseObject> listaTarjetas, ParseException e) {
+                                if (e == null) {
+
+
+                                    if (listaTarjetas.size() > 0) {
+                                        final ParseObject tarjeta = listaTarjetas.get(0);
+
+
+                                        String tarjetaId = tarjeta.getString("tarjetaPrincipal");
+
+                                        Request request = new Request.Builder()
+                                                .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/" + clientId + "/cards/" + tarjetaId)
+                                                .delete(null)
+                                                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                                                .addHeader("content-type", "application/json")
+                                                .addHeader("cache-control", "no-cache")
+                                                .addHeader("postman-token", "b7c48f0e-7e92-7617-2ab4-b1d5b3451692")
+                                                .build();
+
+                                        JSONObject response = null;
+
+                                        try {
+
+                                            response = new RequestOpenPay().execute(request).get();
+
+                                            String error = response.getString("error_code");
+                                            if (error == null || error.equals("")){
+
+                                                tarjeta.deleteInBackground();
+                                            }
+
+                                        } catch (InterruptedException ex) {
+                                            ex.printStackTrace();
+                                        } catch (ExecutionException ex) {
+                                            ex.printStackTrace();
+                                        } catch (Exception ex) {
+                                            ex.printStackTrace();
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
+        return "";
+    }
+
 
 
 

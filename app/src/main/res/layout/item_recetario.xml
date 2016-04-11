@@ -120,18 +120,6 @@
         android:layout_toRightOf="@+id/textView2"
         android:layout_toEndOf="@+id/textView2" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView20"
-        android:src="@drawable/floresdificultadmedia"
-        android:scaleType="fitStart"
-        android:layout_below="@+id/textView10"
-        android:layout_alignRight="@+id/image_view"
-        android:layout_alignEnd="@+id/image_view"
-        android:layout_alignBottom="@+id/image_view"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
 
 
 </RelativeLayout>

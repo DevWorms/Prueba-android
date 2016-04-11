@@ -109,10 +109,15 @@ public class AgregarTarjeta extends Activity {
 
         if (isValid) {
             OpenPayRestApi.crearClienteConTarjeta(card, emailEt.getText().toString(), numeroEt.getText().toString(),objCliente, this);
+            finish();
             clearData();
 
         }
 
+    }
+
+    private void cancelar(View view){
+        finish();
     }
 
     private void clearData() {

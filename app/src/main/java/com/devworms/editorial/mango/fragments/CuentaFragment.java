@@ -84,9 +84,9 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
     TargetImageView imgPerfil, imgBarras;
     ImageView imgTarjeta;
 
-    Button btnCerrarSesion;
+    Button btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta;
     TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number, txt_usuario, txt_pass;
-    LinearLayout ly_barras, ly_tarjeta;
+    LinearLayout ly_barras, ly_tarjeta, ly_botones;
 
     String clientId;
 
@@ -315,10 +315,11 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
 
         ly_barras = (LinearLayout)view.findViewById(R.id.layout_barras);
         ly_tarjeta = (LinearLayout)view.findViewById(R.id.layout_card);
+        ly_botones = (LinearLayout)view.findViewById(R.id.layout_card_buttons);
 
         ly_barras.setVisibility(View.GONE);
         ly_tarjeta.setVisibility(View.GONE);
-
+        ly_botones.setVisibility(View.GONE);
 
         imgTarjeta.setImageResource(R.mipmap.tarjeta);
 
@@ -342,6 +343,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
 
         if (objTarjeta != null){
             ly_tarjeta.setVisibility(View.VISIBLE);
+            ly_botones.setVisibility(View.VISIBLE);
             txt_brand.setText(objTarjeta.getString("brand"));
             txt_holder.setText(objCliente.getString("nombre"));
             txt_card_number.setText(objTarjeta.getString("numero"));
@@ -365,6 +367,23 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
 
             }
         });
+
+        btnCancelarSuscripcion.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                OpenPayRestApi.cancelarSuscripcion();
+            }
+        });
+
+        btnEliminarTarjeta.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                OpenPayRestApi.eliminarTarjeta();
+            }
+        });
+
 
         cargarInformacion();
 
