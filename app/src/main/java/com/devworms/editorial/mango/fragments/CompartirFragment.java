@@ -52,7 +52,9 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
     private ViewPager mViewPager;
     public ParseObject objReceta;
     public Bitmap imgReceta;
+    public boolean opcionViral;
     ImageView imgView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -197,6 +199,7 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
                     Intent in1 = new Intent(getActivity(), MyBoardsActivity.class);
                     in1.putExtra("image", filename);
                     startActivity(in1);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

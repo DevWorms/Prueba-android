@@ -31,6 +31,7 @@ import android.widget.TextView;
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.dialogs.AgregarTarjeta;
 import com.devworms.editorial.mango.dialogs.WalletActivity;
+import com.devworms.editorial.mango.fragments.CompartirFragment;
 import com.devworms.editorial.mango.openpay.OpenPayRestApi;
 import com.devworms.editorial.mango.fragments.RecetaFragment;
 import com.devworms.editorial.mango.fragments.RecetarioFragment;
@@ -120,6 +121,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                 if ( tipoMenu.equals("pago")) {
                     consultarSuscripcion(activity, imageView);
                 }
+
                 else{
                     RecetarioFragment recetario = new RecetarioFragment();
                     recetario.setMenuSeleccionado(objReceta);

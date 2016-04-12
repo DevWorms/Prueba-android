@@ -98,18 +98,18 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
                 String tipo = objMenu.getString("TipoMenu").toLowerCase();
 
+                final ImageView imageView = (ImageView) v;
+
+
+                final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
+                final Bitmap imgReceta = bitmapDrawable.getBitmap();
+
                 switch (tipo) {
                     case "gratis": case "pago"://Gratis o de pagoç
-
-                        final ImageView imageView = (ImageView) v;
-
 
                         RecetarioFragment recetario = new RecetarioFragment();
                         recetario.setMenuSeleccionado(objMenu);
                         recetario.setTipoMenu(tipo);
-
-                        final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-                        final Bitmap imgReceta = bitmapDrawable.getBitmap();
 
                         activity.getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad,recetario)
@@ -119,10 +119,16 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                         break;
 
                     case "viral":
+
+                        CompartirFragment compartir = new CompartirFragment();
+                        compartir.objReceta = objMenu;
+                        compartir.imgReceta = imgReceta;
+
                         activity.getFragmentManager().beginTransaction()
-                                .replace(R.id.actividad, new CompartirFragment())
-                                .addToBackStack("MenuFragment")
+                                .replace(R.id.actividad,(compartir))
+                                .addToBackStack("RecetaFragment")
                                 .commit();
+
                         break;
                 }
 

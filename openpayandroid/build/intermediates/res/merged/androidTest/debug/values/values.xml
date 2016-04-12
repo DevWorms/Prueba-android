@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
-    <!-- From: file:/Users/sergio/Documents/Devworms/Proyectos%20Publicos/Prueba-android/openpayandroid/build/intermediates/bundles/debug/res/values/values.xml -->
-    <eat-comment/>
-=======
->>>>>>> origin/master
     <string name="app_name">openpay-android</string>
 </resources>
