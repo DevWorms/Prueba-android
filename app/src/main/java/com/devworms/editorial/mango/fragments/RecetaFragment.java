@@ -78,8 +78,8 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         pasos.setText("Ingredientes \n" + (objReceta.getString("Ingredientes")));
         pasos.setText(pasos.getText() + "\n\nProcedimiento\n" + (objReceta.getString("Procedimiento")));
 
-        FloatingActionButton buttonCompartir = (FloatingActionButton) view.findViewById(R.id.compartir);
-        FloatingActionButton buttonAnadirFavoritos = (FloatingActionButton) view.findViewById(R.id.favoritos);
+        ImageView buttonCompartir = (ImageView) view.findViewById(R.id.compartir);
+        ImageView buttonAnadirFavoritos = (ImageView) view.findViewById(R.id.favoritos);
 
 
         buttonCompartir.setOnClickListener(this);

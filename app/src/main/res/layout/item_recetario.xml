@@ -48,15 +48,15 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Tiempo"
         android:id="@+id/textView"
-        android:layout_marginLeft="52dp"
-        android:layout_marginStart="52dp"
         android:textColor="#ffffff"
         android:shadowColor="#000000"
+        android:textSize="12dp"
+        android:textIsSelectable="true"
         android:layout_alignTop="@+id/imageView15"
         android:layout_toRightOf="@+id/textViewNombrereceta"
         android:layout_toEndOf="@+id/textViewNombrereceta"
-        android:textSize="15dp"
-        android:textIsSelectable="true" />
+        android:layout_marginLeft="41dp"
+        android:layout_marginStart="41dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,8 +67,8 @@
         android:textColor="#ffffff"
         android:shadowColor="#000000"
         android:textIsSelectable="true"
-        android:textSize="15dp"
-        android:layout_alignTop="@+id/textViewNombrereceta"
+        android:textSize="12dp"
+        android:layout_alignBottom="@+id/textViewNombrereceta"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView" />
 
@@ -84,7 +84,7 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2"
         android:textIsSelectable="true"
-        android:textSize="15dp" />
+        android:textSize="12dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -94,15 +94,16 @@
         android:id="@+id/textView9"
         android:textColor="#ffffff"
         android:shadowColor="#000000"
-        android:textSize="15dp"
+        android:textSize="12dp"
         android:textIsSelectable="true"
         android:layout_alignTop="@+id/imageView15"
         android:layout_alignRight="@+id/image_view"
         android:layout_alignEnd="@+id/image_view"
         android:singleLine="true"
-        android:layout_alignBottom="@+id/textView"
         android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_above="@+id/textView2"
+        android:inputType="textMultiLine" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -112,12 +113,13 @@
         android:id="@+id/textView10"
         android:textColor="#ffffff"
         android:shadowColor="#000000"
-        android:textSize="15dp"
+        android:textSize="12dp"
         android:textIsSelectable="true"
         android:singleLine="true"
         android:layout_alignBottom="@+id/textView2"
         android:layout_toRightOf="@+id/textView2"
         android:layout_toEndOf="@+id/textView2" />
+
 
 
 </RelativeLayout>

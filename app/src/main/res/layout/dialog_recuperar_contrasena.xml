@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@android:color/transparent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="4"
+            android:src="@drawable/frida"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Recuperar contraseña"
+            android:id="@+id/textView12"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:hint="Correo electrónico"
+            android:id="@+id/txtCorreo"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_weight="1" />
+
+
+        <Button
+            android:id="@+id/btn_con"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="Enviar"
+            android:textColor="#fff"
+            android:textSize="13dp"
+            android:onClick="registrarUsuario"
+            android:background="#13b586"
+            android:layout_weight="1" />
+
+
+
+        <Button
+            android:id="@+id/btn_can"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="Cancelar"
+            android:textColor="#fff"
+            android:textSize="13dp"
+            android:background="#c22e26"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</RelativeLayout>

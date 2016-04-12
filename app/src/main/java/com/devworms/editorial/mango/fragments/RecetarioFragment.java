@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +71,15 @@ public class RecetarioFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_recetario, container, false);
 
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+        imgFrida.setVisibility(View.INVISIBLE);
+
+        ImageView imgMensaje = (ImageView) getActivity().findViewById(R.id.img_mensaje);
+        imgMensaje.setVisibility(View.INVISIBLE);
+
+        ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
+        imgFondoBarra.setVisibility(View.INVISIBLE);
+        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
 

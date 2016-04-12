@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +18,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterBuscadorList;
@@ -103,6 +106,19 @@ public class MainActivity extends AppCompatActivity
         ///***************Barra***************************************************
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.barraPincipal));
+
+        ImageView imgFrida = (ImageView) findViewById(R.id.img_frida);
+        imgFrida.setVisibility(View.VISIBLE);
+
+        ImageView imgMensaje = (ImageView) findViewById(R.id.img_mensaje);
+        imgMensaje.setVisibility(View.VISIBLE);
+
+        ImageView imgFondoBarra = (ImageView) findViewById(R.id.img_fondo_barra);
+        imgFondoBarra.setVisibility(View.VISIBLE);
+        imgFondoBarra.setImageResource(R.drawable.fonsobar);
+
+
         ///***************Barra***************************************************
 
         ///***************Menu***************************************************
@@ -130,11 +146,12 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+
     @Override
     public void onBackPressed() {
 
         if(getFragmentManager().getBackStackEntryCount() == 0) {
-            super.onBackPressed();
+            //super.onBackPressed();
         }
         else {
             getFragmentManager().popBackStack();

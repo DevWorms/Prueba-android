@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <!-- From: file:/Users/sergio/Documents/Devworms/Proyectos%20Publicos/Prueba-android/openpayandroid/src/main/res/values/strings.xml -->
     <eat-comment/>
+=======
+>>>>>>> origin/master
     <string name="app_name">openpay-android</string>
 </resources>

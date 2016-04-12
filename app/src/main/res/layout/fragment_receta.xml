@@ -4,62 +4,215 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/fab_margin">
+    android:paddingBottom="@dimen/fab_margin"
+    android:background="@drawable/fondoreceta">
 
-    <ImageView
-        android:id="@+id/imagenreceta"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp" />
-    <TextView
-        android:id="@+id/txtrecetaTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:typeface="monospace"
-        android:gravity="center"/>
+        android:layout_height="250dp">
+
+        <ImageView
+            android:id="@+id/imagenreceta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitStart" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/imageView16"
+            android:src="@drawable/bandatitulopaquete"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/txtrecetaTitulo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView18"
+            android:src="@drawable/tiradescripcion"
+            android:scaleType="center"
+            android:adjustViewBounds="true"
+            android:layout_below="@+id/imageView16"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView17"
+            android:src="@drawable/plecadivision"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:layout_alignTop="@+id/txtrecetaTitulo"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="7dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView19"
+            android:src="@drawable/fondomegustacompartir"
+            android:scaleType="center"
+            android:adjustViewBounds="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favoritos"
+            android:layout_alignTop="@+id/imageView19"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginStart="29dp"
+            android:src="@drawable/iconomegusta"
+            android:scaleType="fitStart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="ME GUSTA"
+            android:id="@+id/textView11"
+            android:gravity="center_vertical|left"
+            android:textColor="#000000"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/favoritos"
+            android:layout_alignEnd="@+id/favoritos"
+            android:layout_marginRight="36dp"
+            android:layout_marginEnd="36dp"
+            android:layout_alignTop="@+id/imageView19"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/compartir"
+
+            android:src="@drawable/iconocompartir"
+            android:scaleType="fitStart"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_alignTop="@+id/imageView19"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="TIEMPO"
+            android:id="@+id/textView13"
+            android:textColor="#000000"
+            android:layout_alignBaseline="@+id/textView15"
+            android:layout_alignBottom="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="1 hora 30 minutos"
+            android:id="@+id/textView14"
+            android:textColor="#000000"
+            android:layout_alignBaseline="@+id/textView13"
+            android:layout_alignBottom="@+id/textView13"
+            android:layout_toRightOf="@+id/textView13"
+            android:layout_toEndOf="@+id/textView13" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="PORCIONES"
+            android:id="@+id/textView15"
+            android:textColor="#000000"
+            android:layout_alignBottom="@+id/imageView17"
+            android:layout_toRightOf="@+id/textView17"
+            android:layout_toEndOf="@+id/textView17" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="DIFICULTAD"
+            android:id="@+id/textView17"
+            android:textColor="#000000"
+            android:layout_below="@+id/imageView17"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView22"
+            android:layout_below="@+id/textView17"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/floresdificultadmedia"
+            android:scaleType="centerInside"
+            android:layout_above="@+id/imageView19" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="6"
+            android:id="@+id/textView18"
+            android:textColor="#000000"
+            android:layout_marginLeft="21dp"
+            android:layout_marginStart="21dp"
+            android:layout_alignBaseline="@+id/textView15"
+            android:layout_alignBottom="@+id/textView15"
+            android:layout_toRightOf="@+id/textView15"
+            android:layout_toEndOf="@+id/textView15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="ME GUSTA"
+            android:id="@+id/textView16"
+            android:gravity="center_vertical|left"
+            android:textColor="#000000"
+            android:textSize="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/textView18"
+            android:layout_alignEnd="@+id/textView18"
+            android:layout_below="@+id/imageView22" />
+
+
+    </RelativeLayout>
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp">
 
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        <TextView
+            android:id="@+id/txtreceta"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/txtreceta"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:typeface="sans"
-                android:layout_gravity="center_vertical|right"/>
-        </ScrollView>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <android.support.design.widget.FloatingActionButton android:id="@+id/compartir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right|end"
-                android:layout_margin="@dimen/fab_margin"
-                app:backgroundTint="@color/tw__composer_white"
-
-                android:src="@drawable/iconocompartir" />
-
-            <android.support.design.widget.FloatingActionButton android:id="@+id/favoritos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|bottom|end"
-                android:layout_margin="@dimen/fab_margin"
-                app:backgroundTint="@color/tw__composer_white"
-                android:src="@drawable/iconomegusta" />
-        </LinearLayout>
-
-
-    </LinearLayout>
+            android:layout_height="fill_parent"
+            android:typeface="sans"
+            android:layout_gravity="center_vertical|right"/>
     </ScrollView>
 
 

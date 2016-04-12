@@ -1,11 +1,16 @@
 package com.devworms.editorial.mango.openpay;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
+import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
 import com.devworms.editorial.mango.dialogs.WalletActivity;
 import com.devworms.editorial.mango.main.StarterApplication;
@@ -284,6 +289,179 @@ public class OpenPayRestApi{
             }
 
         }
+    }
+
+    public static void cancelarSuscripcion(final Activity actividad, final View view){
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
+        query.whereEqualTo("username", ParseUser.getCurrentUser());
+        query.findInBackground(new FindCallback<ParseObject>() {
+
+            public void done(final List<ParseObject> listaClientes, ParseException e) {
+                if (e == null) {
+
+
+                    if (listaClientes.size() > 0) {
+                        final ParseObject cliente = listaClientes.get(0);
+                        final String clientId = cliente.getString("clientID");
+                        Request request = new Request.Builder()
+                                .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/"+clientId+"/subscriptions/"+StarterApplication.PLAN_ID)
+                                .delete(null)
+                                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                                .addHeader("content-type", "application/json")
+                                .addHeader("cache-control", "no-cache")
+                                .addHeader("postman-token", "7774140f-d94f-ff76-447c-9b904ab74f6e")
+                                .build();
+
+
+                        JSONObject response = null;
+
+                        try {
+
+                            response = new RequestOpenPay().execute(request).get();
+                            String error = response.getString("error_code");
+
+                            String titulo = "";
+                            String mensaje = "";
+                            if (error == null || error.equals("")){
+                                cliente.put("Suscrito",false);
+                                cliente.put("idsuscripcion","");
+                                cliente.put("caducidad","");
+                                cliente.saveInBackground();
+                                titulo = "Suscripción cancelada";
+                                mensaje = "su suscripción actual fue cancelada cno éxito";
+                                view.setVisibility(View.GONE);
+                            }
+                            else{
+                                titulo = "Error en cancelación";
+                                mensaje = "No es posible cancelar en este momento, intente más tarde";
+
+
+                            }
+
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
+
+                            // set title
+                            alertDialogBuilder.setTitle(titulo);
+
+                            // set dialog message
+                            alertDialogBuilder
+                                    .setMessage(mensaje)
+                                    .setCancelable(false)
+                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+
+                                        }
+                                    });
+
+                            // create alert dialog
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+
+                            // show it
+                            alertDialog.show();
+
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        } catch (ExecutionException ex) {
+                            ex.printStackTrace();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    public static String eliminarTarjeta(final Activity actividad, final View view){
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
+        query.whereEqualTo("username", ParseUser.getCurrentUser());
+        query.findInBackground(new FindCallback<ParseObject>() {
+
+            public void done(final List<ParseObject> listaClientes, ParseException e) {
+                if (e == null) {
+
+
+                    if (listaClientes.size() > 0) {
+                        final ParseObject cliente = listaClientes.get(0);
+                        final String clientId = cliente.getString("clientID");
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
+                        query.whereEqualTo("cliente", ParseUser.getCurrentUser());
+                        query.findInBackground(new FindCallback<ParseObject>() {
+
+                            public void done(List<ParseObject> listaTarjetas, ParseException e) {
+                                if (e == null) {
+
+
+                                    if (listaTarjetas.size() > 0) {
+                                        final ParseObject tarjeta = listaTarjetas.get(0);
+
+
+                                        String tarjetaId = tarjeta.getString("tarjetaPrincipal");
+
+                                        Request request = new Request.Builder()
+                                                .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/" + clientId + "/cards/" + tarjetaId)
+                                                .delete(null)
+                                                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                                                .addHeader("content-type", "application/json")
+                                                .addHeader("cache-control", "no-cache")
+                                                .addHeader("postman-token", "b7c48f0e-7e92-7617-2ab4-b1d5b3451692")
+                                                .build();
+
+                                        JSONObject response = null;
+
+                                        try {
+
+                                            response = new RequestOpenPay().execute(request).get();
+                                            String titulo = "";
+                                            String mensaje = "";
+                                            String error = response.getString("error_code");
+                                            if (error == null || error.equals("")){
+
+                                                tarjeta.deleteInBackground();
+
+                                                titulo = "Tarjeta eliminada";
+                                                mensaje = "Esta tarjeta fue eliminada de esta cuenta";
+                                                view.setVisibility(View.GONE);
+                                            }
+                                            else{
+                                                titulo = "Error en eliminación";
+                                                mensaje = "No es posible dar de baja esta tarjeta en este momento";
+
+
+                                            }
+                                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
+
+                                            // set title
+                                            alertDialogBuilder.setTitle(titulo);
+
+                                            // set dialog message
+                                            alertDialogBuilder
+                                                    .setMessage(mensaje)
+                                                    .setCancelable(false)
+                                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+
+                                                        }
+                                                    });
+
+                                        } catch (InterruptedException ex) {
+                                            ex.printStackTrace();
+                                        } catch (ExecutionException ex) {
+                                            ex.printStackTrace();
+                                        } catch (Exception ex) {
+                                            ex.printStackTrace();
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
+        return "";
     }
 
 

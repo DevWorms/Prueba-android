@@ -24,10 +24,10 @@
                 android:id="@+id/imageView"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/logo"
                 android:layout_weight="1"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true" />
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:src="@mipmap/logo" />
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
@@ -147,7 +147,8 @@
                     android:text="Cancelar"
                     android:id="@+id/btn_cancel"
                     android:layout_weight="1"
-                    android:background="#2683c2" />
+                    android:background="#2683c2"
+                    android:onClick="cancelar" />
 
                 <Button
                     android:layout_width="0dp"

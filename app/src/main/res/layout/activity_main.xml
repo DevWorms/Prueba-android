@@ -25,13 +25,13 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+
    <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:backgroundTintMode="@color/menuItem"
         app:itemTextColor="@color/menuText"
         app:itemBackground="@color/menuItem"
         app:headerLayout="@layout/nav_header_main"
