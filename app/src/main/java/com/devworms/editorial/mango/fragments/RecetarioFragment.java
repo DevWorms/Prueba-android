@@ -55,7 +55,7 @@ public class RecetarioFragment extends Fragment {
                 if (e == null) {
                     lMenusRecetas = menuList;
 
-                    mAdapterMenuList = new AdapterRecetarioList(menuList, tipoMenu);
+                    mAdapterMenuList = new AdapterRecetarioList(menuList, tipoMenu, getActivity());
                     recyclerView.setAdapter(mAdapterMenuList);
 
                     Log.d("score", "Retrieved " + lMenusRecetas.size() + " scores");

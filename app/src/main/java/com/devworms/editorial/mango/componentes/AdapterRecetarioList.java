@@ -14,10 +14,13 @@ package com.devworms.editorial.mango.componentes;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -55,11 +58,13 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
     private List<ParseObject> mItems;
     private String tipoMenu;
+    private Activity actividad;
 
 
-    public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu) {
+    public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu, Activity actividad) {
         this.mItems = mItems;
         this.tipoMenu = tipoMenu;
+        this.actividad = actividad;
 
 
         if (StarterApplication.mPrefetchImages) {
@@ -87,6 +92,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         holder.objReceta = mItems.get(position);
         holder.setTitulos(mItems.get(position));
         holder.tipoMenu = this.tipoMenu;
+        holder.actividad = actividad;
         holder.mTargetImageView.loadImage(mItems.get(position).getString("Url_Imagen"), spec.getKey());
     }
 
@@ -102,7 +108,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         public final TargetImageView mTargetImageView;
         ParseObject objReceta;
         public String tipoMenu;
-
+        public Activity actividad;
         public TextView tTextViewNombrereceta;
         public TextView textViewPorciones;
         public TextView tTextViewTiempo;
@@ -142,7 +148,42 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                 final ImageView imageView = (ImageView) v;
 
                 if ( tipoMenu.equals("pago")) {
-                    consultarSuscripcion(activity, imageView);
+
+
+                    if (ParseUser.getCurrentUser() != null ){
+                        consultarSuscripcion(activity, imageView);
+                    }else {
+
+                        String titulo = "Inicio de sesión necesario";
+                        String mensaje = "Tienes que iniciar sesión para poder suscribirte y acceder a esta receta";
+
+
+
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
+
+
+                        // set title
+                        alertDialogBuilder.setTitle(titulo);
+
+                        // set dialog message
+                        alertDialogBuilder
+                                .setMessage(mensaje)
+                                .setCancelable(false)
+                                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // if this button is clicked, close
+                                        // current activity
+                                        //MainActivity.this.finish();
+                                    }
+                                });
+
+                        // create alert dialog
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // show it
+                        alertDialog.show();
+                    }
+
                 }
 
                 else{
