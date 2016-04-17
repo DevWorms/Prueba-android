@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterMenuList;
@@ -74,11 +75,17 @@ public class RecetarioFragment extends Fragment {
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
 
-        ImageView imgMensaje = (ImageView) getActivity().findViewById(R.id.img_mensaje);
-        imgMensaje.setVisibility(View.INVISIBLE);
-
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
+
+        TextView txtFrida = (TextView) getActivity().findViewById(R.id.textViewMensajeBienvenida);
+        txtFrida.setVisibility(View.INVISIBLE);
+
+        TextView txtNombreRecetario = (TextView) view.findViewById(R.id.textViewNombreRecetario);
+        String nombreMenu = objParse.getString("NombreMenu");
+        txtNombreRecetario.setText(nombreMenu);
+
+
         ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
@@ -88,6 +95,8 @@ public class RecetarioFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+
+
 
         obtenerObjetosParse(recyclerView);
 

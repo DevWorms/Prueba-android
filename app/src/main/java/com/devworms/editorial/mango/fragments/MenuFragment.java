@@ -7,15 +7,19 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.DividerItemDecoration;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.devworms.editorial.mango.componentes.AdapterMenuList;
+import com.parse.CountCallback;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -54,6 +58,7 @@ public class MenuFragment extends Fragment {
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -67,12 +72,24 @@ public class MenuFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-        /*recyclerView.addItemDecoration(
-                new DividerItemDecoration(ContextCompat.getDrawable(container.getContext(), R.drawable.deviderbottomxml),
-                        false, true));
-*/
 
-                obtenerObjetosParse(recyclerView);
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.barraPincipal));
+
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+        imgFrida.setVisibility(View.VISIBLE);
+
+        TextView txtFrida = (TextView) getActivity().findViewById(R.id.textViewMensajeBienvenida);
+        txtFrida.setVisibility(View.VISIBLE);
+
+
+        ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
+        imgFondoBarra.setVisibility(View.VISIBLE);
+        imgFondoBarra.setImageResource(R.drawable.fonsobar);
+
+
+        obtenerObjetosParse(recyclerView);
 
 
         return view;

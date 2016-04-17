@@ -20,6 +20,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterBuscadorList;
@@ -111,8 +112,9 @@ public class MainActivity extends AppCompatActivity
         ImageView imgFrida = (ImageView) findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.VISIBLE);
 
-        ImageView imgMensaje = (ImageView) findViewById(R.id.img_mensaje);
-        imgMensaje.setVisibility(View.VISIBLE);
+        TextView txtFrida = (TextView) findViewById(R.id.textViewMensajeBienvenida);
+        txtFrida.setVisibility(View.VISIBLE);
+
 
         ImageView imgFondoBarra = (ImageView) findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.VISIBLE);

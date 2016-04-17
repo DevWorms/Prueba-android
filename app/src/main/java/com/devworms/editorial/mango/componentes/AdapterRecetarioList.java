@@ -17,6 +17,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -84,8 +85,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     public void onBindViewHolder(ViewHolder holder, int position) {
         ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
         holder.objReceta = mItems.get(position);
+        holder.setTitulos(mItems.get(position));
         holder.tipoMenu = this.tipoMenu;
-
         holder.mTargetImageView.loadImage(mItems.get(position).getString("Url_Imagen"), spec.getKey());
     }
 
@@ -102,6 +103,14 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         ParseObject objReceta;
         public String tipoMenu;
 
+        public TextView tTextViewNombrereceta;
+        public TextView textViewPorciones;
+        public TextView tTextViewTiempo;
+        public ImageView iImageViewDificultad;
+
+
+
+
 
         public ViewHolder(View v) {
             super(v);
@@ -109,6 +118,20 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
             mTargetImageView = (TargetImageView) v.findViewById(R.id.image_view);
 
             mTargetImageView.setOnClickListener(this);
+
+            tTextViewNombrereceta = (TextView) v.findViewById(R.id.textViewNombrereceta);
+            tTextViewTiempo = (TextView) v.findViewById(R.id.textViewTiempo);
+            textViewPorciones = (TextView) v.findViewById(R.id.textViewPorciones);
+
+           // iImageViewDificultad = (ImageView) v.findViewById(R.id.textViewNombrereceta);
+
+        }
+
+
+        public void setTitulos(ParseObject objReceta){
+            tTextViewNombrereceta.setText("   "+objReceta.getString("Nombre"));
+            tTextViewTiempo.setText("   "+objReceta.getString("Tiempo"));
+            textViewPorciones.setText("   "+objReceta.getString("Porciones"));
         }
 
         @Override

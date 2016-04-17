@@ -29,37 +29,32 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:id="@+id/img_fondo_barra" />
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:src="@drawable/fridita"
-                        android:scaleType="fitCenter"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_weight="1"
-                        android:id="@+id/img_frida" />
-
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/textobarra"
                         android:scaleType="fitStart"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_weight="3"
-                        android:layout_marginRight="20dp"
-                        android:id="@+id/img_mensaje" />
-                </LinearLayout>
+                        android:id="@+id/img_frida" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:text="¿Qué se te antoja comer hoy?"
+                        android:id="@+id/textViewMensajeBienvenida"
+                        android:textColor="#ca5857"
+                        android:gravity="center"
+                        android:textSize="12dp" />
+
+
+                </RelativeLayout>
 
 
 

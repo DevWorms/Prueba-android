@@ -17,7 +17,7 @@
     <ImageView
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:id="@+id/imageView12"
+        android:id="@+id/imageViewCinta"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -33,8 +33,12 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:shadowColor="#000000"
-        android:layout_alignBottom="@+id/imageView12"
-        android:layout_centerHorizontal="true" />
+        android:textAlignment="center"
+        android:gravity="center|clip_vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="false"
+        android:layout_alignBottom="@+id/image_view"
+        android:paddingBottom="30dp" />
 
     <ImageView
         android:layout_width="85dp"
@@ -51,13 +55,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="14 recetas"
+        android:text="Contando..."
         android:id="@+id/textViewNumeroRecetas"
         android:rotation="-45"
         android:layout_alignBottom="@+id/imageViewTipoPaquete"
         android:layout_alignLeft="@+id/imageViewTipoPaquete"
         android:layout_alignStart="@+id/imageViewTipoPaquete"
-        android:layout_marginLeft="19dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginStart="29dp"
         android:layout_marginBottom="26dp"
         android:textColor="#ffffff" />
@@ -66,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="PAQUETE"
+        android:text=""
         android:id="@+id/textViewTipoPaquete"
         android:rotation="-45"
         android:textColor="#ffffff"

@@ -18,13 +18,15 @@
             android:scaleType="centerCrop"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Clasicos tradicionales"
             android:textColor="#ffffff"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textViewNombreRecetario"
+            android:gravity="center"
+            android:textAlignment="center" />
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

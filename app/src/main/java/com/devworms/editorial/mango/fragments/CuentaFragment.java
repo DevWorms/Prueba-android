@@ -306,6 +306,8 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
         imgTarjeta = (ImageView)view.findViewById(R.id.imagenTarjeta);
 
         btnCerrarSesion = (Button)view.findViewById(R.id.cerrarSesionBtn);
+        btnCancelarSuscripcion = (Button)view.findViewById(R.id.cerrarSesionBtn);
+        btnEliminarTarjeta = (Button)view.findViewById(R.id.cerrarSesionBtn);
 
         txtNombreUsuario = (TextView)view.findViewById(R.id.txt_nombreUsuario);
         txtCorreoElectronico = (TextView)view.findViewById(R.id.txt_correoElectronico);
@@ -349,6 +351,22 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
             txt_brand.setText(objTarjeta.getString("brand"));
             txt_holder.setText(objCliente.getString("nombre"));
             txt_card_number.setText(objTarjeta.getString("numero"));
+            btnCancelarSuscripcion.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v) {
+                    OpenPayRestApi.cancelarSuscripcion(activity, v);
+                }
+            });
+
+            btnEliminarTarjeta.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v) {
+                    OpenPayRestApi.eliminarTarjeta(activity, v);
+                }
+            });
+
         }
 
         btnCerrarSesion.setOnClickListener(new View.OnClickListener()
@@ -365,29 +383,10 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
                                 .commit();
                     }
                 });
-
-
             }
         });
 
-        btnCancelarSuscripcion.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                OpenPayRestApi.cancelarSuscripcion(activity, v);
-            }
-        });
-
-        btnEliminarTarjeta.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                OpenPayRestApi.eliminarTarjeta(activity, v);
-            }
-        });
-
-
-        cargarInformacion();
+      cargarInformacion();
 
     }
 
