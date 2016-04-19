@@ -22,7 +22,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:src="@drawable/bandapaquete"
-        android:layout_alignParentEnd="false" />
+        android:layout_alignParentEnd="false"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,10 +46,9 @@
         android:layout_height="85dp"
         android:id="@+id/imageViewTipoPaquete"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textViewNombrePlatillo"
         android:layout_marginTop="0dp"
         android:src="@drawable/paquetesgratis"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="13dp"
         android:scaleType="fitCenter" />
 
     <TextView
@@ -61,16 +61,15 @@
         android:layout_alignBottom="@+id/imageViewTipoPaquete"
         android:layout_alignLeft="@+id/imageViewTipoPaquete"
         android:layout_alignStart="@+id/imageViewTipoPaquete"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="22dp"
         android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=""
+        android:text="jjjjj"
         android:id="@+id/textViewTipoPaquete"
         android:rotation="-45"
         android:textColor="#ffffff"

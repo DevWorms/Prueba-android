@@ -61,13 +61,15 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         this.imgReceta = imgReceta;
     }
 
+    public  ImageView imagen;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_receta, container, false);
 
 
-        ImageView imagen = (ImageView) view.findViewById(R.id.imagenreceta);
+        imagen = (ImageView) view.findViewById(R.id.imagenreceta);
         imagen.setImageBitmap(this.getImgReceta());
 
 
@@ -104,9 +106,15 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
     public void compartir()
     {
+        View drawingView = imagen;
+        drawingView.buildDrawingCache(true);
+        Bitmap bitmap = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
+        drawingView.destroyDrawingCache();
+
+
         CompartirFragment compartir = new CompartirFragment();
         compartir.objReceta = this.objReceta;
-        compartir.imgReceta = this.imgReceta;
+        compartir.imgReceta = bitmap;
 
         getFragmentManager().beginTransaction()
                 .replace(R.id.actividad,(compartir))
@@ -115,120 +123,144 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
     }
 
 
-    public void obtenerObjetosParse(){
-
-
-    }
-
     public void anadirFavoritos()
     {
 
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
-        query.whereEqualTo("username", ParseUser.getCurrentUser());
-        query.whereEqualTo("Recetas", objReceta);
-
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> recetasList, ParseException e) {
-                if (e == null) {
-                    //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
-                    if (recetasList.size() > 0 ) {
-                        String titulo = "¡Esta receta ya fue añadida!";
-                        String mensaje = "Tu receta ya esta en la seccion de favoritos";
+    if(ParseUser.getCurrentUser() == null){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
 
 
+        // set title
+        alertDialogBuilder.setTitle("Iniciar sesión obligatorio");
 
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Para poder añadir esta reseta a favoritos es necesario iniciar sesión")
+                .setCancelable(false)
+                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // if this button is clicked, close
+                        // current activity
+                        //MainActivity.this.finish();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+
+    }else{
 
 
-                        // set title
-                        alertDialogBuilder.setTitle(titulo);
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
+            query.whereEqualTo("username", ParseUser.getCurrentUser());
+            query.whereEqualTo("Recetas", objReceta);
 
-                        // set dialog message
-                        alertDialogBuilder
-                                .setMessage(mensaje)
-                                .setCancelable(false)
-                                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,int id) {
-                                        // if this button is clicked, close
-                                        // current activity
-                                        //MainActivity.this.finish();
+            query.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> recetasList, ParseException e) {
+                    if (e == null) {
+                        //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
+                        if (recetasList.size() > 0 ) {
+                            String titulo = "¡Esta receta ya fue añadida!";
+                            String mensaje = "Tu receta ya esta en la seccion de favoritos";
+
+
+
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
+
+
+                            // set title
+                            alertDialogBuilder.setTitle(titulo);
+
+                            // set dialog message
+                            alertDialogBuilder
+                                    .setMessage(mensaje)
+                                    .setCancelable(false)
+                                    .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog,int id) {
+                                            // if this button is clicked, close
+                                            // current activity
+                                            //MainActivity.this.finish();
+                                        }
+                                    });
+
+                            // create alert dialog
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+
+                            // show it
+                            alertDialog.show();
+
+                        }
+                        else{
+
+                            Calendar cal = Calendar.getInstance();
+                            int year = cal.get(cal.YEAR);
+                            int month = cal.get(cal.MONTH)+1;
+                            int trimestre = (int)(((month)/3) + 0.7);
+
+
+                            ParseObject query = new ParseObject("Favoritos");
+                            query.put("username", ParseUser.getCurrentUser());
+                            query.put("Anio", year);
+                            query.put("Mes", month);
+                            query.put("Mes", month);
+                            query.put("Trimestre", trimestre);
+                            query.put("Mes", month);
+                            query.put("Recetas", objReceta);
+
+                            query.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+
+                                    String titulo = "";
+                                    String mensaje = "";
+
+                                    if (e == null) {
+                                        titulo = "Añadido a favoritos";
+                                        mensaje = "¡Tu receta ya esta disponible en la seccion de favoritos!";
+                                    } else {
+                                        titulo = "Error";
+                                        mensaje = "Se produjo un error, intente más tarde";
                                     }
-                                });
 
-                        // create alert dialog
-                        AlertDialog alertDialog = alertDialogBuilder.create();
+                                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
 
-                        // show it
-                        alertDialog.show();
+                                    // set title
+                                    alertDialogBuilder.setTitle(titulo);
 
-                    }
-                    else{
+                                    // set dialog message
+                                    alertDialogBuilder
+                                            .setMessage(mensaje)
+                                            .setCancelable(false)
+                                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                    // if this button is clicked, close
+                                                    // current activity
+                                                    //MainActivity.this.finish();
+                                                }
+                                            });
 
-                        Calendar cal = Calendar.getInstance();
-                        int year = cal.get(cal.YEAR);
-                        int month = cal.get(cal.MONTH)+1;
-                        int trimestre = (int)(((month)/3) + 0.7);
+                                    // create alert dialog
+                                    AlertDialog alertDialog = alertDialogBuilder.create();
 
+                                    // show it
+                                    alertDialog.show();
 
-                        ParseObject query = new ParseObject("Favoritos");
-                        query.put("username", ParseUser.getCurrentUser());
-                        query.put("Anio", year);
-                        query.put("Mes", month);
-                        query.put("Mes", month);
-                        query.put("Trimestre", trimestre);
-                        query.put("Mes", month);
-                        query.put("Recetas", objReceta);
-
-                        query.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(ParseException e) {
-
-                                String titulo = "";
-                                String mensaje = "";
-
-                                if (e == null) {
-                                    titulo = "Añadido a favoritos";
-                                    mensaje = "¡Tu receta ya esta disponible en la seccion de favoritos!";
-                                } else {
-                                    titulo = "Error";
-                                    mensaje = "Se produjo un error, intente más tarde";
                                 }
+                            });
+                        }
 
-                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
 
-                                // set title
-                                alertDialogBuilder.setTitle(titulo);
-
-                                // set dialog message
-                                alertDialogBuilder
-                                        .setMessage(mensaje)
-                                        .setCancelable(false)
-                                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int id) {
-                                                // if this button is clicked, close
-                                                // current activity
-                                                //MainActivity.this.finish();
-                                            }
-                                        });
-
-                                // create alert dialog
-                                AlertDialog alertDialog = alertDialogBuilder.create();
-
-                                // show it
-                                alertDialog.show();
-
-                            }
-                        });
+                    } else {
+                        Log.d("receta", "Error: " + e.getMessage());
                     }
-
-
-                } else {
-                    Log.d("receta", "Error: " + e.getMessage());
                 }
-            }
-        });
+            });
 
+        }
     }
 
     //El Fragment ha sido quitado de su Activity y ya no está disponible

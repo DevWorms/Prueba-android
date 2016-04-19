@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="6c92ea2573358c09de8e364693c506732462fbbe">
+        <dex dex="/Users/loajrla/Desktop/programas Ivan/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_36e701fe6a9fa21799bb756d70ae8b8993ee46d8/classes.dex" />
+    </item>
+
+</items>

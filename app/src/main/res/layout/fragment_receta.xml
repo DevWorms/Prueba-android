@@ -22,11 +22,11 @@
                 android:layout_height="wrap_content">
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="400dp">
+                    android:layout_height="460dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_height="50dp"
                         android:id="@+id/imageView16"
                         android:src="@drawable/bandatitulopaquete"
                         android:scaleType="fitXY"
@@ -44,7 +44,9 @@
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffffff"
+                        android:textSize="30dp"
+                        android:textIsSelectable="true" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -64,10 +66,10 @@
                         android:src="@drawable/plecadivision"
                         android:scaleType="fitXY"
                         android:adjustViewBounds="true"
-                        android:layout_alignTop="@+id/txtrecetaTitulo"
+                        android:layout_below="@+id/txtrecetaTitulo"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginTop="7dp" />
+                        android:layout_marginTop="-15dp" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -78,7 +80,8 @@
                         android:adjustViewBounds="true"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/imageView18" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -88,9 +91,10 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="0dp"
-                        android:layout_marginStart="29dp"
                         android:src="@drawable/iconomegusta"
-                        android:scaleType="fitStart" />
+                        android:scaleType="fitStart"
+                        android:layout_toLeftOf="@+id/compartir"
+                        android:layout_toStartOf="@+id/compartir" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -98,15 +102,15 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="ME GUSTA"
                         android:id="@+id/textView11"
-                        android:gravity="center_vertical|left"
+                        android:gravity="center_vertical"
                         android:textColor="#000000"
+                        android:textSize="12dp"
+                        android:layout_marginLeft="41dp"
+                        android:layout_marginStart="41dp"
                         android:layout_alignParentBottom="true"
-                        android:layout_alignRight="@+id/favoritos"
-                        android:layout_alignEnd="@+id/favoritos"
-                        android:layout_marginRight="36dp"
-                        android:layout_marginEnd="36dp"
-                        android:layout_alignTop="@+id/imageView19"
-                        android:textSize="14dp" />
+                        android:layout_alignLeft="@+id/textView14"
+                        android:layout_alignStart="@+id/textView14"
+                        android:layout_below="@+id/imageView18" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -116,10 +120,10 @@
                         android:src="@drawable/iconocompartir"
                         android:scaleType="fitStart"
                         android:layout_alignParentBottom="true"
-                        android:layout_toRightOf="@+id/textView11"
-                        android:layout_alignTop="@+id/imageView19"
                         android:layout_alignParentRight="true"
-                        android:layout_alignParentEnd="true" />
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/textView11"
+                        android:layout_below="@+id/imageView18" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -128,8 +132,8 @@
                         android:text="TIEMPO"
                         android:id="@+id/textView13"
                         android:textColor="#000000"
-                        android:layout_alignBaseline="@+id/textView15"
-                        android:layout_alignBottom="@+id/textView15"
+                        android:textSize="12dp"
+                        android:layout_below="@+id/imageView17"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true" />
 
@@ -140,10 +144,10 @@
                         android:text="1 hora 30 minutos"
                         android:id="@+id/textView14"
                         android:textColor="#000000"
-                        android:layout_alignBaseline="@+id/textView13"
-                        android:layout_alignBottom="@+id/textView13"
-                        android:layout_toRightOf="@+id/textView13"
-                        android:layout_toEndOf="@+id/textView13" />
+                        android:textSize="12dp"
+                        android:layout_alignTop="@+id/textView13"
+                        android:layout_toLeftOf="@+id/textView17"
+                        android:layout_toStartOf="@+id/textView17" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -152,7 +156,8 @@
                         android:text="PORCIONES"
                         android:id="@+id/textView15"
                         android:textColor="#000000"
-                        android:layout_alignBottom="@+id/imageView17"
+                        android:textSize="12dp"
+                        android:layout_below="@+id/imageView17"
                         android:layout_toRightOf="@+id/textView17"
                         android:layout_toEndOf="@+id/textView17" />
 
@@ -163,18 +168,18 @@
                         android:text="DIFICULTAD"
                         android:id="@+id/textView17"
                         android:textColor="#000000"
-                        android:layout_below="@+id/imageView17"
-                        android:layout_centerHorizontal="true" />
+                        android:layout_above="@+id/imageView22"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="12dp" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="200dp"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
                         android:id="@+id/imageView22"
-                        android:layout_below="@+id/textView17"
-                        android:layout_centerHorizontal="true"
                         android:src="@drawable/floresdificultadmedia"
                         android:scaleType="centerCrop"
-                        android:layout_above="@+id/imageView19" />
+                        android:layout_alignBottom="@+id/imageView18"
+                        android:layout_centerHorizontal="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -188,30 +193,33 @@
                         android:layout_alignBaseline="@+id/textView15"
                         android:layout_alignBottom="@+id/textView15"
                         android:layout_toRightOf="@+id/textView15"
-                        android:layout_toEndOf="@+id/textView15" />
+                        android:layout_toEndOf="@+id/textView15"
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="ME GUSTA"
+                        android:text="COMPARTIR"
                         android:id="@+id/textView16"
-                        android:gravity="center_vertical|left"
+                        android:gravity="center|center_vertical|center_horizontal"
                         android:textColor="#000000"
-                        android:textSize="14dp"
+                        android:textSize="12dp"
                         android:layout_alignParentBottom="true"
-                        android:layout_alignRight="@+id/textView18"
-                        android:layout_alignEnd="@+id/textView18"
-                        android:layout_below="@+id/imageView22" />
+                        android:layout_toRightOf="@+id/imageView22"
+                        android:layout_below="@+id/imageView18"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true" />
 
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/txtreceta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:typeface="sans"
                     android:layout_gravity="center_vertical|right"
-                    android:background="@drawable/fondoreceta" />
+                    android:background="#e0e4e6" />
             </LinearLayout>
 
 

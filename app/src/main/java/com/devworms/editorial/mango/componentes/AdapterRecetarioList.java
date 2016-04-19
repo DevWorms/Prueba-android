@@ -135,9 +135,9 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
 
         public void setTitulos(ParseObject objReceta){
-            tTextViewNombrereceta.setText("   "+objReceta.getString("Nombre"));
-            tTextViewTiempo.setText("   "+objReceta.getString("Tiempo"));
-            textViewPorciones.setText("   "+objReceta.getString("Porciones"));
+            tTextViewNombrereceta.setText(objReceta.getString("Nombre"));
+            tTextViewTiempo.setText(objReceta.getString("Tiempo"));
+            textViewPorciones.setText(objReceta.getString("Porciones"));
         }
 
         @Override
@@ -191,8 +191,10 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                     recetario.setMenuSeleccionado(objReceta);
 
 
-                    final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-                    final Bitmap imgReceta = bitmapDrawable.getBitmap();
+                    View drawingView = imageView;
+                    drawingView.buildDrawingCache(true);
+                    Bitmap imgReceta = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
+                    drawingView.destroyDrawingCache();
 
                     RecetaFragment receta = new RecetaFragment();
                     receta.setObjReceta(objReceta);

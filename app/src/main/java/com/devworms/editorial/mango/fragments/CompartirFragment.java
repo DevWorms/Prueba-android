@@ -108,8 +108,6 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
     private void compartirFb()
     {
         // compartir una imagen
-        //Se saca la imagen de los recursos
-
 
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentUrl(Uri.parse("http://appcocina.parseapp.com"))
@@ -127,8 +125,10 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
     {
         try {
 
-
-            BitmapDrawable image = (BitmapDrawable) imgView.getDrawable();
+            View drawingView = imgView;
+            drawingView.buildDrawingCache(true);
+            Bitmap bitmap = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
+            drawingView.destroyDrawingCache();
 
             OutputStream outStream = null;
 
@@ -138,7 +138,7 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
             File file = new File(extStorageDirectory, "image.PNG");
 
             outStream = new FileOutputStream(file);
-            imgReceta.compress(Bitmap.CompressFormat.PNG, 100, outStream);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream);
             outStream.flush();
             outStream.close();
 
@@ -189,7 +189,13 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
                     //Write file
                     String filename = "bitmap.png";
                     FileOutputStream stream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
-                    imgReceta.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
+                    View drawingView = imgView;
+                    drawingView.buildDrawingCache(true);
+                    Bitmap bitmap = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
+                    drawingView.destroyDrawingCache();
+
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 
                     //Cleanup
                     stream.close();

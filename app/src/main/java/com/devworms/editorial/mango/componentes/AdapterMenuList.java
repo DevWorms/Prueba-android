@@ -132,7 +132,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                         // The count request succeeded. Log the count
                         if (objMenu.getString("TipoMenu").toLowerCase().equals("gratis")||objMenu.getString("TipoMenu").toLowerCase().equals("pago")){
                             tTextViewNumeroRecetas.setText(count + " receta" );
-                            if (count == 1){
+                            if (count > 1){
                                 tTextViewNumeroRecetas.setText(tTextViewNumeroRecetas.getText()+"s");
                             }
                             imageViewCinta.setVisibility(View.VISIBLE);
