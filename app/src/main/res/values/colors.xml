@@ -8,5 +8,6 @@
     <color name="menuText">#ffffff</color>
     <color name="barraPincipal">#ffffff</color>
     <color name="barraSecundaria">#FFEA555A</color>
+    <color name="opcionMenuSeleccionada">#eb555a</color>
 
 </resources>
