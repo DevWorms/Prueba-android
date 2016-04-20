@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/loajrla/Desktop/programas Ivan/Prueba-android/openpayandroid/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/loajrla/Desktop/programas Ivan/Prueba-android/openpayandroid/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/openpayandroid/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/openpayandroid/src/debug/jniLibs"/></dataSet></merger>
