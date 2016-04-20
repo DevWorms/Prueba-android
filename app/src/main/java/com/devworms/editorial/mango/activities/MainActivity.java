@@ -3,10 +3,12 @@ package com.devworms.editorial.mango.activities;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -132,7 +134,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setBackgroundColor(Color.BLACK);
+        navigationView.setBackgroundColor(ContextCompat.getColor(this, R.color.menuItem));
+
+
         ///***************Menu***************************************************
 
         ///***************Fragment***************************************************
