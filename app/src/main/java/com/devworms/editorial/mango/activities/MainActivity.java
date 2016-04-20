@@ -218,11 +218,11 @@ public class MainActivity extends AppCompatActivity
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, new FavoritosFragment()).commit();
 
-        } else if (id == R.id.nav_consejos) {
+/*        } else if (id == R.id.nav_consejos) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, new ConsejosFragment()).commit();
 
-        } else if (id == R.id.nav_cuenta) {
+*/        } else if (id == R.id.nav_cuenta) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, new CuentaFragment()).commit();
 

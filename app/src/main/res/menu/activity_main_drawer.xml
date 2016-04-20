@@ -5,31 +5,22 @@
         <item
             android:id="@+id/nav_inicio"
             android:checked="true"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="INICIO" />
+            android:icon="@drawable/ic_menu_inicio"
+            android:title="Inicio" />
         <item
             android:id="@+id/nav_favoritos"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="FAVORITOS" />
-        <item
-            android:id="@+id/nav_consejos"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="CONSEJOS" />
+            android:icon="@drawable/ic_menu_me_gustan"
+            android:title="Me gustan" />
+
         <item
             android:id="@+id/nav_cuenta"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="TU CUENTA" />
+            android:icon="@drawable/ic_menu_usuario"
+            android:title="Usuario" />
 
+        <item
+            android:id="@+id/nav_creditos"
+            android:icon="@drawable/ic_menu_creditos"
+
+            android:title="Creditos" />
     </group>
-
-    <item android:title="Acerca de">
-        <menu>
-
-            <item
-                android:id="@+id/nav_creditos"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="CREDITOS" />
-        </menu>
-    </item>
-
 </menu>
