@@ -112,7 +112,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         drawingView.destroyDrawingCache();
 
 
-        CompartirFragment compartir = new CompartirFragment();
+        CompartirFragment compartir = new CompartirFragment(getActivity());
         compartir.objReceta = this.objReceta;
         compartir.imgReceta = bitmap;
 

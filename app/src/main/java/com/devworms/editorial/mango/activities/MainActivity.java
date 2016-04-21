@@ -30,6 +30,7 @@ import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterBuscadorList;
+import com.devworms.editorial.mango.fragments.CompartirFragment;
 import com.devworms.editorial.mango.fragments.ConsejosFragment;
 import com.devworms.editorial.mango.fragments.CreditosFragment;
 import com.devworms.editorial.mango.fragments.CuentaFragment;
@@ -171,6 +172,13 @@ public class MainActivity extends AppCompatActivity
 
         handleIntent(getIntent());
 
+
+        if(StarterApplication.bViral){
+            CompartirFragment compartirDialog = new CompartirFragment(this);
+            compartirDialog.objReceta = StarterApplication.objReceta;
+            compartirDialog.imgReceta = StarterApplication.imgReceta;
+            compartirDialog.show();
+        }
 
 
     }

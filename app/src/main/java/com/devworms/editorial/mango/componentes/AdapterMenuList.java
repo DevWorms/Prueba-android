@@ -13,6 +13,7 @@
 package com.devworms.editorial.mango.componentes;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -22,6 +23,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -187,22 +190,10 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                         break;
 
                     case "viral":
-
-                        CompartirFragment compartir = new CompartirFragment();
-                        compartir.objReceta = objMenu;
-                        compartir.imgReceta = imgReceta;
-
-                        /*activity.getFragmentManager().beginTransaction()
-                                .replace(R.id.actividad,(compartir))
-                                .addToBackStack("RecetaFragment")
-                                .commit();
-                        */
-
-
-                        Intent in1 = new Intent(activity, CompartirFragment.class);
-
-                        activity.startActivity(in1);
-
+                        CompartirFragment compartirDialog = new CompartirFragment(activity);
+                        compartirDialog.objReceta = objMenu;
+                        compartirDialog.imgReceta = imgReceta;
+                        compartirDialog.show();
                         break;
                 }
 

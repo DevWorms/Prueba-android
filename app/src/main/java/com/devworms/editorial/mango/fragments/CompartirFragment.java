@@ -2,6 +2,7 @@ package com.devworms.editorial.mango.fragments;
 
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -11,15 +12,24 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.devworms.editorial.mango.R;
@@ -53,7 +63,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CompartirFragment extends Activity implements View.OnClickListener {
+public class CompartirFragment extends Dialog implements View.OnClickListener {
 
     private ViewPager mViewPager;
     public ParseObject objReceta;
@@ -61,17 +71,20 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
     public boolean opcionViral;
     ImageView imgView;
     private PDKClient pdkClient;
+    private Context context;
 
+    public CompartirFragment(Context context) {
+        super(context);
+        this.context = context;
 
+        setCancelable(true);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+        //Aqui haces que tu layout se muestre como dialog
         setContentView(R.layout.fragment_compartir);
 
-        ImageButton buttonFb = (ImageButton)  findViewById(R.id.bFacebook);
-        ImageButton buttonTw = (ImageButton)  findViewById(R.id.bTwitter);
+        ImageButton buttonFb = (ImageButton) findViewById(R.id.bFacebook);
+        ImageButton buttonTw = (ImageButton) findViewById(R.id.bTwitter);
         ImageButton buttonPin = (ImageButton) findViewById(R.id.bPinterest);
         imgView = (ImageView) findViewById(R.id.imgReceta);
 
@@ -86,30 +99,33 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
 
         imgView.setImageBitmap(imgReceta);
 
-       // mViewPager = (ViewPager) view.findViewById(R.id.containerCompartir);
-       // mViewPager.setPageTransformer(true, new RelaxTransformer());
+        // mViewPager = (ViewPager) view.findViewById(R.id.containerCompartir);
+        // mViewPager.setPageTransformer(true, new RelaxTransformer());
         // mViewPager.setPageTransformer(true,  new DepthPageTransformer ());
         // this.listaRecetasPorMenu = new HashMap<>();
 
-        pdkClient = PDKClient.configureInstance(this, "4815040272566075428");
-        pdkClient.onConnect(this);
+        pdkClient = PDKClient.configureInstance(context, "4815040272566075428");
+        pdkClient.onConnect(context);
         pdkClient.setDebugMode(true);
+
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        pdkClient.onOauthResponse(requestCode, resultCode,
-                data);
+    @Override
+    public void cancel() {
+        super.cancel();
+
+        StarterApplication.objReceta = null;
+        StarterApplication.imgReceta =  null;
+        StarterApplication.bViral =  false;
+
     }
 
     //Para asignar accion a los botones dentro del fragment
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.bFacebook:
                 compartirFb();
                 break;
@@ -123,8 +139,7 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
         }
     }
 
-    private void compartirFb()
-    {
+    private void compartirFb() {
         // compartir una imagen
 
         ShareLinkContent content = new ShareLinkContent.Builder()
@@ -134,13 +149,12 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
                 .setImageUrl(Uri.parse(objReceta.getString("Url_Imagen")))
                 .build();
 
-        ShareDialog.show(this, content);
+        ShareDialog.show((Activity) context, content);
 
 
     }
 
-    public void compartirTw()
-    {
+    public void compartirTw() {
         try {
 
             View drawingView = imgView;
@@ -167,7 +181,7 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
             // Uri myImageUri = Uri.fromFile(myImageFile);
             TweetComposer.Builder builder = null;
 
-            builder = new TweetComposer.Builder(this)
+            builder = new TweetComposer.Builder(context)
                     .text("¡Me encanta esta receta!")
                     .url(new URL("http://appcocina.parseapp.com"))
                     .image(ImageUri);
@@ -181,13 +195,13 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
             e.printStackTrace();
 
         }
-
-
-
     }
 
-    public void compartirPin()
-    {
+    public void compartirPin() {
+
+        StarterApplication.objReceta = objReceta;
+        StarterApplication.imgReceta =  imgReceta;
+        StarterApplication.bViral =  true;
 
         List scopes = new ArrayList<String>();
         scopes.add(PDKClient.PDKCLIENT_PERMISSION_READ_PUBLIC);
@@ -198,7 +212,7 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
         scopes.add(PDKClient.PDKCLIENT_PERMISSION_WRITE_PRIVATE);
 
 
-        pdkClient.login(this, scopes, new PDKCallback() {
+        pdkClient.login(context, scopes, new PDKCallback() {
             @Override
             public void onSuccess(PDKResponse response) {
                 Log.d(getClass().getName(), response.getData().toString());
@@ -206,7 +220,7 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
                 try {
                     //Write file
                     String filename = "bitmap.png";
-                    FileOutputStream stream = openFileOutput(filename, Context.MODE_PRIVATE);
+                    FileOutputStream stream = context.openFileOutput(filename, Context.MODE_PRIVATE);
 
                     View drawingView = imgView;
                     drawingView.buildDrawingCache(true);
@@ -218,15 +232,18 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
                     //Cleanup
                     stream.close();
 
+                    StarterApplication.objReceta = null;
+                    StarterApplication.imgReceta =  null;
+                    StarterApplication.bViral =  false;
 
                     //Pop intent
-                    Intent in1 = new Intent(CompartirFragment.this, MyBoardsActivity.class);
+                    Intent in1 = new Intent(context, MyBoardsActivity.class);
                     in1.putExtra("image", filename);
-                    startActivity(in1);
+                    context.startActivity(in1);
 
 
                 } catch (Exception e) {
-                    Log.e("error",e.getMessage());
+                    Log.e("error", e.getMessage());
 
                 }
 
@@ -235,27 +252,10 @@ public class CompartirFragment extends Activity implements View.OnClickListener 
             @Override
             public void onFailure(PDKException exception) {
                 Log.e(getClass().getName(), exception.getDetailMessage());
+                StarterApplication.objReceta = null;
+                StarterApplication.imgReceta =  null;
+                StarterApplication.bViral =  false;
             }
-
-
         });
-
-
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.menu_search) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 }
