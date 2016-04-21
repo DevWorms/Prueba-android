@@ -99,7 +99,13 @@ public class MenuFragment extends Fragment {
     //El Fragment ha sido quitado de su Activity y ya no está disponible
     @Override
     public void onDetach() {
-        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        try {
+            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        }
+        catch (Exception ex)
+        {
+
+        }
         super.onDetach();
     }
 
