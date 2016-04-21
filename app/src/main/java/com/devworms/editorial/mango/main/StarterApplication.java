@@ -47,8 +47,6 @@ public class StarterApplication extends Application {
     public static  final String URL = "https://sandbox-api.openpay.mx/v1/";
     public static final boolean PRODUCTION_MODE = false;
 
-    public static PDKClient pdkClient;
-
 
     @Override
   public void onCreate() {
@@ -75,11 +73,6 @@ public class StarterApplication extends Application {
         Fabric.with(this, new Twitter(authConfig));
 
 
-        // this.listaRecetasPorMenu = new HashMap<>();
-
-        pdkClient = PDKClient.configureInstance(this, "4815040272566075428");
-        pdkClient.onConnect(this);
-        pdkClient.setDebugMode(true);
 
 
 

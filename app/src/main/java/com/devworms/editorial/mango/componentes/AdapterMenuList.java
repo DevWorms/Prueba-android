@@ -13,6 +13,7 @@
 package com.devworms.editorial.mango.componentes;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.IntegerRes;
@@ -25,6 +26,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.activities.MainActivity;
+import com.devworms.editorial.mango.activities.MyBoardsActivity;
 import com.devworms.editorial.mango.fragments.CompartirFragment;
 import com.devworms.editorial.mango.fragments.RecetarioFragment;
 import com.devworms.editorial.mango.main.StarterApplication;
@@ -189,10 +192,16 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                         compartir.objReceta = objMenu;
                         compartir.imgReceta = imgReceta;
 
-                        activity.getFragmentManager().beginTransaction()
+                        /*activity.getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad,(compartir))
                                 .addToBackStack("RecetaFragment")
                                 .commit();
+                        */
+
+
+                        Intent in1 = new Intent(activity, CompartirFragment.class);
+
+                        activity.startActivity(in1);
 
                         break;
                 }

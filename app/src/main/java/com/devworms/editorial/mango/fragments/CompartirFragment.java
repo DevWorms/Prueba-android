@@ -1,6 +1,7 @@
 package com.devworms.editorial.mango.fragments;
 
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.android.volley.VolleyError;
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.activities.MyBoardsActivity;
 import com.devworms.editorial.mango.efectos.RelaxTransformer;
@@ -36,6 +38,8 @@ import com.pinterest.android.pdk.PDKResponse;
 import com.pinterest.android.pdk.Utils;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -45,27 +49,31 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class CompartirFragment extends Fragment implements View.OnClickListener {
+public class CompartirFragment extends Activity implements View.OnClickListener {
 
     private ViewPager mViewPager;
     public ParseObject objReceta;
     public Bitmap imgReceta;
     public boolean opcionViral;
     ImageView imgView;
+    private PDKClient pdkClient;
+
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        View view= inflater.inflate(R.layout.fragment_compartir, container, false);
+        setContentView(R.layout.fragment_compartir);
 
-        ImageButton buttonFb = (ImageButton) view.findViewById(R.id.bFacebook);
-        ImageButton buttonTw = (ImageButton) view.findViewById(R.id.bTwitter);
-        ImageButton buttonPin = (ImageButton) view.findViewById(R.id.bPinterest);
-        imgView = (ImageView) view.findViewById(R.id.imgReceta);
+        ImageButton buttonFb = (ImageButton)  findViewById(R.id.bFacebook);
+        ImageButton buttonTw = (ImageButton)  findViewById(R.id.bTwitter);
+        ImageButton buttonPin = (ImageButton) findViewById(R.id.bPinterest);
+        imgView = (ImageView) findViewById(R.id.imgReceta);
 
 
         buttonFb.setImageResource(R.drawable.fb);
@@ -81,10 +89,20 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
        // mViewPager = (ViewPager) view.findViewById(R.id.containerCompartir);
        // mViewPager.setPageTransformer(true, new RelaxTransformer());
         // mViewPager.setPageTransformer(true,  new DepthPageTransformer ());
+        // this.listaRecetasPorMenu = new HashMap<>();
 
+        pdkClient = PDKClient.configureInstance(this, "4815040272566075428");
+        pdkClient.onConnect(this);
+        pdkClient.setDebugMode(true);
 
-        return view;
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        pdkClient.onOauthResponse(requestCode, resultCode,
+                data);
     }
 
     //Para asignar accion a los botones dentro del fragment
@@ -116,7 +134,7 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
                 .setImageUrl(Uri.parse(objReceta.getString("Url_Imagen")))
                 .build();
 
-        ShareDialog.show(this.getActivity(), content);
+        ShareDialog.show(this, content);
 
 
     }
@@ -149,7 +167,7 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
             // Uri myImageUri = Uri.fromFile(myImageFile);
             TweetComposer.Builder builder = null;
 
-            builder = new TweetComposer.Builder(this.getActivity())
+            builder = new TweetComposer.Builder(this)
                     .text("¡Me encanta esta receta!")
                     .url(new URL("http://appcocina.parseapp.com"))
                     .image(ImageUri);
@@ -180,7 +198,7 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
         scopes.add(PDKClient.PDKCLIENT_PERMISSION_WRITE_PRIVATE);
 
 
-        StarterApplication.pdkClient.login(getActivity(), scopes, new PDKCallback() {
+        pdkClient.login(this, scopes, new PDKCallback() {
             @Override
             public void onSuccess(PDKResponse response) {
                 Log.d(getClass().getName(), response.getData().toString());
@@ -188,7 +206,7 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
                 try {
                     //Write file
                     String filename = "bitmap.png";
-                    FileOutputStream stream = getActivity().openFileOutput(filename, Context.MODE_PRIVATE);
+                    FileOutputStream stream = openFileOutput(filename, Context.MODE_PRIVATE);
 
                     View drawingView = imgView;
                     drawingView.buildDrawingCache(true);
@@ -202,12 +220,14 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
 
 
                     //Pop intent
-                    Intent in1 = new Intent(getActivity(), MyBoardsActivity.class);
+                    Intent in1 = new Intent(CompartirFragment.this, MyBoardsActivity.class);
                     in1.putExtra("image", filename);
                     startActivity(in1);
 
+
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.e("error",e.getMessage());
+
                 }
 
             }
@@ -216,6 +236,8 @@ public class CompartirFragment extends Fragment implements View.OnClickListener 
             public void onFailure(PDKException exception) {
                 Log.e(getClass().getName(), exception.getDetailMessage());
             }
+
+
         });
 
 
