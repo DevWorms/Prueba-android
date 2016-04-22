@@ -355,7 +355,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         ly_botones.setVisibility(View.GONE);
 
         imgTarjeta.setImageResource(R.mipmap.tarjeta);
-
+        activity = getActivity();
 
 
         if (objCliente != null){

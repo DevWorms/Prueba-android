@@ -251,8 +251,11 @@ public class OpenPayRestApi{
                 try {
                     response = new RequestOpenPay().execute(request).get();
                     String operacion = response.getString("id");
+                    String caducidad = response.getString("period_end_date");
                     if (!operacion.equals("")){
                         client.put("Suscrito", true);
+                        client.put("idsuscripcion",operacion);
+                        client.put("caducidad",caducidad);
                         client.saveInBackground();
 
                         Toast.makeText(actividad, "Te has suscrito", Toast.LENGTH_LONG).show();
@@ -304,7 +307,7 @@ public class OpenPayRestApi{
                         final ParseObject cliente = listaClientes.get(0);
                         final String clientId = cliente.getString("clientID");
                         Request request = new Request.Builder()
-                                .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/"+clientId+"/subscriptions/"+StarterApplication.PLAN_ID)
+                                .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/"+clientId+"/subscriptions/"+cliente.getString("idsuscripcion"))
                                 .delete(null)
                                 .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
                                 .addHeader("content-type", "application/json")
@@ -386,7 +389,7 @@ public class OpenPayRestApi{
                         final ParseObject cliente = listaClientes.get(0);
                         final String clientId = cliente.getString("clientID");
                         ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
-                        query.whereEqualTo("cliente", ParseUser.getCurrentUser());
+                        query.whereEqualTo("cliente", cliente);
                         query.findInBackground(new FindCallback<ParseObject>() {
 
                             public void done(List<ParseObject> listaTarjetas, ParseException e) {
@@ -426,7 +429,7 @@ public class OpenPayRestApi{
                                             }
                                             else{
                                                 titulo = "Error en eliminación";
-                                                mensaje = "No es posible dar de baja esta tarjeta en este momento";
+                                                mensaje = "No es posible dar de baja esta tarjeta, si esta suscrito primero cancele la membresia, de lo contrario intente más tarde";
 
 
                                             }
@@ -445,6 +448,8 @@ public class OpenPayRestApi{
                                                         }
                                                     });
 
+                                            // show it
+                                            alertDialogBuilder.show();
                                         } catch (InterruptedException ex) {
                                             ex.printStackTrace();
                                         } catch (ExecutionException ex) {
