@@ -1,7 +1,9 @@
 package com.devworms.editorial.mango.fragments;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -10,16 +12,21 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.dialogs.Usuario;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.devworms.editorial.mango.openpay.OpenPayRestApi;
 import com.devworms.editorial.mango.util.Specs;
@@ -80,21 +87,23 @@ import okhttp3.Response;
 /**
  * Created by sergio on 21/10/15.
  */
-public class CuentaFragment extends Fragment implements View.OnClickListener{
+public class CuentaFragment extends Fragment implements View.OnClickListener {
 
     TargetImageView imgPerfil, imgBarras;
     ImageView imgTarjeta;
     Activity activity = getActivity();
+    TextView usuario;
+    TextView password;
 
-    Button btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta;
-    TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number, txt_usuario, txt_pass;
+    Button btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta, btnFb, btnMail, btnTwitter;
+    TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number,btnNuevoUsuario, btnForgot;;
     LinearLayout ly_barras, ly_tarjeta, ly_botones;
 
     String clientId;
 
+
     public void loadFBProfileImage(String userid){
 
-        URL img_value = null;
 
         String url = "http://graph.facebook.com/"+userid+"/picture?type=large";
 
@@ -163,6 +172,26 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnFb:
+                loguearConFacebook();
+                break;
+            case R.id.btnTw:
+                loguearConTwitter();
+                break;
+            case R.id.btnMail:
+                loguearConMail();
+                break;
+            case R.id.reg:
+                registrarUsuario();
+                break;
+            case R.id.forgot_password:
+                recuperarContrasena();
+                break;
+        }
+    }
 
 
     // conexion a internet
@@ -306,8 +335,8 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
         imgTarjeta = (ImageView)view.findViewById(R.id.imagenTarjeta);
 
         btnCerrarSesion = (Button)view.findViewById(R.id.cerrarSesionBtn);
-        btnCancelarSuscripcion = (Button)view.findViewById(R.id.cerrarSesionBtn);
-        btnEliminarTarjeta = (Button)view.findViewById(R.id.cerrarSesionBtn);
+        btnCancelarSuscripcion = (Button)view.findViewById(R.id.btnCancelarSuscripcion);
+        btnEliminarTarjeta = (Button)view.findViewById(R.id.btnEliminarTarjeta);
 
         txtNombreUsuario = (TextView)view.findViewById(R.id.txt_nombreUsuario);
         txtCorreoElectronico = (TextView)view.findViewById(R.id.txt_correoElectronico);
@@ -403,57 +432,223 @@ public class CuentaFragment extends Fragment implements View.OnClickListener{
             obtenerClienteParse(view);
         } else {
             view=inflater.inflate(R.layout.fragment_contacto, container, false);
-            txt_usuario =  ( (TextView)view.findViewById(R.id.usuario) );
-            txt_pass = ( (TextView)view.findViewById(R.id.password) );
-            ((Button)view.findViewById(R.id.submitButton) ).setOnClickListener(this);
-            ((Button)view.findViewById(R.id.fbButton) ).setOnClickListener(this);
-            ((Button)view.findViewById(R.id.twButton) ).setOnClickListener(this);
-        }
+            usuario = ((TextView)view.findViewById(R.id.usuario) );
+            password = ((TextView)view.findViewById(R.id.password) );
 
+            btnFb = ((Button) view.findViewById(R.id.btnFb) );
+            btnMail = ((Button)view.findViewById(R.id.btnTw) );
+            btnTwitter = ((Button)view.findViewById(R.id.btnMail) );
+            btnNuevoUsuario = ((TextView)view.findViewById(R.id.reg) );
+            btnForgot = ((TextView)view.findViewById(R.id.forgot_password) );
+
+
+            btnFb.setOnClickListener(this);
+            btnMail.setOnClickListener(this);
+            btnTwitter.setOnClickListener(this);
+            btnNuevoUsuario.setOnClickListener(this);
+            btnForgot.setOnClickListener(this);
+
+
+        }
         return view;
     }
 
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.submitButton:
-                loguearConMail();
-                break;
-            case R.id.fbButton:
-                loguearConFacebook();
-                break;
-            case R.id.twButton:
-                loguearConTwitter();
-                break;
-        }
-    }
 
     public void loguearConMail()
     {
-        String userName = txt_usuario.getText().toString();
-        String pass=txt_pass.getText().toString();
-        String mail= txtCorreoElectronico.getText().toString();
+        final Activity activity = getActivity();
+        String userName = "";
+        String pass = "";
 
-            ParseUser user = new ParseUser();
-            user.setUsername(userName);
-            user.setPassword(pass);
-            user.setEmail(mail);
-            user.signUpInBackground(new SignUpCallback() {
-                public void done(ParseException e) {
-                    if (e == null) {
+        if (usuario.getText().toString() == null ||  password.getText() == null ||
+                usuario.getText().toString().toString().equals("") ||  password.getText().toString().equals("")) {
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this.getActivity(), R.style.myDialog));
+
+            // set title
+            alertDialogBuilder.setTitle("Faltan datos por llenar");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Debe ingresar correo y contraseña")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        }else {
+            userName = usuario.getText().toString();
+            pass = password.getText().toString();
+
+            ParseUser.logInInBackground(userName, pass, new LogInCallback() {
+                public void done(ParseUser user, ParseException e) {
+                    if (user != null) {
                         getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad, new CuentaFragment())
                                 .addToBackStack("cuenta")
                                 .commit();
                     } else {
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(activity, R.style.myDialog));
 
+
+                        // set title
+                        alertDialogBuilder.setTitle("Error");
+
+                        // set dialog message
+                        alertDialogBuilder
+                                .setMessage("Revise sus datos o su conexion a internet")
+                                .setCancelable(false)
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                    }
+                                });
+
+                        // create alert dialog
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // show it
+                        alertDialog.show();
                     }
                 }
             });
 
 
+        }
 
+
+    }
+
+
+    public void recuperarContrasena(){
+        final Activity actividad = this.getActivity();
+        final Dialog dialog = new Dialog(actividad);
+        dialog.setCancelable(true);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //Aqui haces que tu layout se muestre como dialog
+
+        dialog.setContentView(R.layout.dialog_recuperar_contrasena);
+        ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.cancel();
+                dialog.closeOptionsMenu();
+            }
+        });
+
+        ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+            private EditText txtCorreo;
+
+            @Override
+            public void onClick(View view) {
+
+                txtCorreo = (EditText)dialog.findViewById(R.id.txtCorreo);
+
+                if (txtCorreo.getText() == null || txtCorreo.getText().toString().equals("") ) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
+
+                    // set title
+                    alertDialogBuilder.setTitle("Error");
+
+                    // set dialog message
+                    alertDialogBuilder
+                            .setMessage("Debe ingresar un correo")
+                            .setCancelable(false)
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                }
+                            });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
+                }else {
+
+                    Usuario usuario = new Usuario(txtCorreo, null, null);
+                    usuario.recuperarContrasena(actividad,dialog);
+
+                }
+
+            }
+        });
+
+        dialog.show();
+    }
+
+    public void registrarUsuario()
+    {
+
+        final Activity actividad = this.getActivity();
+        final Dialog dialog = new Dialog(actividad);
+        dialog.setCancelable(true);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //Aqui haces que tu layout se muestre como dialog
+
+        dialog.setContentView(R.layout.dialog_usuario);
+        ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.cancel();
+                dialog.closeOptionsMenu();
+            }
+        });
+
+        ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+            private EditText txtCorreo, txtPass, txtPassConfirm;
+
+            @Override
+            public void onClick(View view) {
+
+                txtCorreo = (EditText)dialog.findViewById(R.id.txtCorreo);
+                txtPass = (EditText)dialog.findViewById(R.id.txtCorreo);
+                txtPassConfirm = (EditText)dialog.findViewById(R.id.txtCorreo);
+
+                if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("") ) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
+
+
+                    // set title
+                    alertDialogBuilder.setTitle("Error");
+
+                    // set dialog message
+                    alertDialogBuilder
+                            .setMessage("Debe llenar los datos")
+                            .setCancelable(false)
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                }
+                            });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
+                }else {
+
+                    Usuario usuario = new Usuario(txtCorreo, txtPass, txtPassConfirm);
+                    usuario.nuevoUsuario(actividad,dialog);
+
+                }
+
+            }
+        });
+
+        dialog.show();
     }
 
 

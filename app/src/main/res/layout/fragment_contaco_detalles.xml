@@ -28,7 +28,7 @@
             android:id="@+id/cerrarSesionBtn"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.3"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="Cerrar sesion" />
 
@@ -67,7 +67,7 @@
         android:orientation="vertical"
         android:layout_height="0dp"
         android:id="@+id/layout_barras"
-        android:visibility="gone">
+        android:visibility="invisible">
         <com.theartofdev.fastimageloader.target.TargetImageView
             android:id="@+id/imagenBarras"
             android:layout_width="match_parent"
@@ -93,7 +93,7 @@
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:id="@+id/layout_card"
-        android:visibility="gone">
+        android:visibility="invisible">
         <ImageView
             android:id="@+id/imagenTarjeta"
             android:layout_weight="1"
@@ -146,7 +146,7 @@
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:id="@+id/layout_card_buttons"
-        android:visibility="gone">
+        android:visibility="invisible">
         <Button
             android:id="@+id/btnCancelarSuscripcion"
             android:layout_weight="1"

@@ -88,9 +88,6 @@ public class Login extends AppCompatActivity {
         if (usuario.getText().toString() == null ||  password.getText() == null ||
             usuario.getText().toString().toString().equals("") ||  password.getText().toString().equals("")) {
 
-            userName= ((TextView)findViewById(R.id.usuario) ).getText().toString();
-            pass = ((TextView)findViewById(R.id.password) ).getText().toString();
-
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
 
             // set title

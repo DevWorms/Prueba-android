@@ -112,6 +112,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        handleIntent(getIntent());
+
 
 
 
@@ -156,8 +158,6 @@ public class MainActivity extends AppCompatActivity
                 .replace(R.id.actividad, new MenuFragment()).commit();
         ///***************Fragment***************************************************
 
-
-        handleIntent(getIntent());
 
 
         if(StarterApplication.bViral){
@@ -250,6 +250,7 @@ public class MainActivity extends AppCompatActivity
 
             SearchResultsFragment fragmentSearch = new SearchResultsFragment();
             fragmentSearch.query = query.split(" ");
+
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, fragmentSearch).commit();
         }
