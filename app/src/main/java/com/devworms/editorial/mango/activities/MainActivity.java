@@ -27,15 +27,18 @@ import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterBuscadorList;
+import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
 import com.devworms.editorial.mango.dialogs.CompartirDialog;
 import com.devworms.editorial.mango.fragments.CreditosFragment;
 import com.devworms.editorial.mango.fragments.CuentaFragment;
 import com.devworms.editorial.mango.fragments.FavoritosFragment;
 import com.devworms.editorial.mango.fragments.MenuFragment;
+import com.devworms.editorial.mango.fragments.RecetaFragment;
 import com.devworms.editorial.mango.fragments.SearchResultsFragment;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
+import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -110,21 +113,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
 
-        // Add code to print out the key hash
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    "com.devworms.editorial.mango",
-                    PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
-        } catch (PackageManager.NameNotFoundException e) {
 
-        } catch (NoSuchAlgorithmException e) {
-
-        }
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
@@ -176,6 +165,42 @@ public class MainActivity extends AppCompatActivity
             compartirDialog.show();
         }
 
+        abrirReceta();
+    }
+
+    public void abrirReceta(){
+        if(StarterApplication.bCompartido && StarterApplication.objReceta != null)
+        {
+
+            final RecetaFragment receta = new RecetaFragment();
+
+            final ParseObject objParse = StarterApplication.objReceta;
+
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
+            query.whereEqualTo("Menu", objParse);
+            query.whereEqualTo("Activada", true);
+            query.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> menuList, ParseException e) {
+                    if (e == null) {
+                        if(menuList.size()>0) {
+                            ParseObject parseObjectTemp = menuList.get(0);
+                            receta.setObjReceta(parseObjectTemp);
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.actividad, receta).commit();
+
+                            StarterApplication.bViral = false;
+                            StarterApplication.objReceta = null;
+                        }
+                    } else {
+                        Log.d("score", "Error: " + e.getMessage());
+                    }
+
+                    StarterApplication.bCompartido = false;
+                }
+            });
+
+
+        }
 
     }
 
@@ -243,6 +268,21 @@ public class MainActivity extends AppCompatActivity
         if(StarterApplication.callbackManager != null){
             StarterApplication.callbackManager.onActivityResult(requestCode, resultCode, data);
         }
+
+        int TWEET_COMPOSER_REQUEST_CODE = 100;
+
+        if(requestCode == TWEET_COMPOSER_REQUEST_CODE && StarterApplication.bCompartidoTwitter)
+        {
+            StarterApplication.bCompartidoTwitter = false;
+            if(resultCode == RESULT_OK){
+                final RecetaFragment receta = new RecetaFragment();
+
+                final ParseObject objParse = StarterApplication.objReceta;
+
+                abrirReceta();
+
+            }
+        }
     }
 
 
@@ -280,7 +320,18 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
 
+        if(StarterApplication.bCompartido && StarterApplication.objReceta != null)
+        {
+            Intent refresh = new Intent(this, MainActivity.class);
+            startActivity(refresh);//Start the same Activity
+            finish(); //
+            StarterApplication.dialogoCompartir.cancel();
+            StarterApplication.dialogoCompartir.invalidateOptionsMenu();
 
-
+        }
+    }
 }

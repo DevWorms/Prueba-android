@@ -117,8 +117,36 @@ public class FavoritosFragment extends Fragment {
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
+
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
-        obtenerObjetosParse(recyclerView);
+
+        if(ParseUser.getCurrentUser() == null){
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
+
+
+            // set title
+            alertDialogBuilder.setTitle("Iniciar sesión obligatorio");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Inicia sesión para poder añadir recetas a esta sección")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            // if this button is clicked, close
+                            // current activity
+                            //MainActivity.this.finish();
+                        }
+                    });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        }else {
+            obtenerObjetosParse(recyclerView);
+        }
 
 
         return view;

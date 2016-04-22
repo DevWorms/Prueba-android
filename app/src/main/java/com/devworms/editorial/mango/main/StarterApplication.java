@@ -9,11 +9,13 @@
 package com.devworms.editorial.mango.main;
 
 import android.app.Application;
+import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.dialogs.CompartirDialog;
 import com.devworms.editorial.mango.util.Specs;
 import com.facebook.CallbackManager;
 import com.parse.Parse;
@@ -50,10 +52,13 @@ public class StarterApplication extends Application {
   public static final boolean PRODUCTION_MODE = false;
 
   public static boolean bViral = false;
+  public static boolean bCompartido = false;
+  public static boolean bCompartidoTwitter = false;
   public static ParseObject objReceta = null;
 
   public static PDKClient pdkClient = null;
   public static CallbackManager callbackManager = null;
+  public static CompartirDialog dialogoCompartir = null;
 
 
     @Override

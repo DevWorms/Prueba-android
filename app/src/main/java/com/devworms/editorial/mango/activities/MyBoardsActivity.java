@@ -23,8 +23,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.dialogs.CompartirDialog;
-import com.devworms.editorial.mango.fragments.RecetaFragment;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.devworms.editorial.mango.util.Specs;
 import com.parse.FindCallback;
@@ -57,13 +55,8 @@ public class MyBoardsActivity extends AppCompatActivity {
     private TextView _txtMensajes;
     private TargetImageView _img_receta;
     private BoardsAdapter _boardsAdapter;
-    public Activity activity;
-    public Activity activityMain;
-    public String urlImagen;
-    public String idObjetoParse;
-    public CompartirDialog dialogo;
 
-    private boolean desadeMenuPrincipal;
+    public String urlImagen;
     private boolean _loading = false;
     private static final String BOARD_FIELDS = "id,name,description,creator,image,counts,created_at";
 
@@ -77,24 +70,9 @@ public class MyBoardsActivity extends AppCompatActivity {
         _txtMensajes = (TextView) findViewById(R.id.txtMensajes);
         _img_receta =  (TargetImageView) findViewById(R.id.image_receta);
 
-        Bitmap bmp = null;
-        String filename = getIntent().getStringExtra("image");
-        this.desadeMenuPrincipal = getIntent().getBooleanExtra("desadeMenuPrincipal", false);
-
-        this.activity = (Activity)getIntent().getSerializableExtra("actividad");
         this.urlImagen = (String) getIntent().getStringExtra("url_imagen");
-        this.idObjetoParse = (String) getIntent().getStringExtra("idObjetoParse");
 
-        this.dialogo = (CompartirDialog) getIntent().getSerializableExtra("dialogo");
 
-        activityMain = this;
-        try {
-            FileInputStream is = this.openFileInput(filename);
-            bmp = BitmapFactory.decodeStream(is);
-            is.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         FastImageLoader.prefetchImage(urlImagen, Specs.IMG_IX_IMAGE);
         ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_IMAGE);
@@ -267,51 +245,9 @@ public class MyBoardsActivity extends AppCompatActivity {
                         _botonIzq.setVisibility(View.GONE);
                         _botonDer.setVisibility(View.VISIBLE);
                         _txtMensajes.setText("Esta receta fue compartida");
-                        if (desadeMenuPrincipal) {
-                            View drawingView = _img_receta;
-                            drawingView.buildDrawingCache(true);
-                            final Bitmap imgReceta = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
-                            drawingView.destroyDrawingCache();
-
-
-                            ParseQuery<ParseObject> query = ParseQuery.getQuery("Menus");
-
-                            query.getInBackground(idObjetoParse, new GetCallback<ParseObject>() {
-                                public void done(ParseObject object, ParseException e) {
-                                    if (e == null) {
-
-                                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
-                                        query.whereEqualTo("Menu", object);
-
-                                        query.findInBackground(new FindCallback<ParseObject>() {
-                                            public void done(List<ParseObject> recetasList, ParseException e) {
-                                                if (e == null) {
-
-                                                    if (recetasList.size() > 0) {
-
-                                                        activityMain.finish();
-                                                        dialogo.cancel();
-
-                                                        ParseObject objRecetaLocal = recetasList.get(0);
-                                                        RecetaFragment receta = new RecetaFragment();
-                                                        receta.setObjReceta(objRecetaLocal);
-                                                        receta.setImgReceta(imgReceta);
-
-                                                        activity.getFragmentManager().beginTransaction()
-                                                                .replace(R.id.actividad, receta)
-                                                                .addToBackStack("MenuFragment")
-                                                                .commit();
-                                                    }
-                                                }
-                                            }
-
-                                        });
-
-                                    }
-                                }
-                            });
-
-                        }
+                        ((Activity)(_context)).finish();
+                        StarterApplication.bCompartido = true;
+                        StarterApplication.pdkClient.logout();
                     }
 
                     @Override
@@ -319,7 +255,8 @@ public class MyBoardsActivity extends AppCompatActivity {
                         _botonIzq.setVisibility(View.VISIBLE);
                         _botonDer.setVisibility(View.GONE);
                         _txtMensajes.setText("Ocurrió un error, intente más tarde");
-                        StarterApplication.pdkClient.logout();
+                        StarterApplication.bCompartido = false;
+
                     }
                 });
             } else {
@@ -368,5 +305,12 @@ public class MyBoardsActivity extends AppCompatActivity {
         private class ViewHolderItem {
             TextView textViewItem;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+
     }
 }

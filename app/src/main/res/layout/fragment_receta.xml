@@ -7,7 +7,7 @@
     android:paddingBottom="@dimen/fab_margin"
     android:background="@drawable/fondoreceta">
 
-        <ImageView
+    <com.theartofdev.fastimageloader.target.TargetImageView
             android:id="@+id/imagenreceta"
             android:layout_width="match_parent"
             android:layout_height="215dp"

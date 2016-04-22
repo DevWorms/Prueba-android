@@ -1,15 +1,31 @@
 package com.devworms.editorial.mango.dialogs;
 
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
+import android.os.Message;
 import android.util.Log;
+import android.view.ActionMode;
+import android.view.ContextMenu;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.SearchEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageButton;
 
 import com.devworms.editorial.mango.R;
@@ -56,7 +72,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
     private Context context;
     public boolean desadeMenuPrincipal = false;
 
-    public  CompartirDialog dialogo;
+
     public CompartirDialog(Context context, ParseObject objReceta, boolean desadeMenuPrincipal) {
         super(context);
         this.context = context;
@@ -71,7 +87,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         ImageButton buttonTw = (ImageButton) findViewById(R.id.bTwitter);
         ImageButton buttonPin = (ImageButton) findViewById(R.id.bPinterest);
         imgView = (TargetImageView) findViewById(R.id.imgReceta);
-        dialogo = this;
+
 
         buttonFb.setImageResource(R.drawable.fb);
         buttonTw.setImageResource(R.drawable.twittert);
@@ -96,6 +112,8 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         pdkClient.setDebugMode(true);
 
         this.objReceta = objReceta;
+
+
     }
 
 
@@ -104,7 +122,6 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
     public void cancel() {
         super.cancel();
 
-        StarterApplication.objReceta = null;
         StarterApplication.bViral =  false;
 
     }
@@ -125,6 +142,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
 
         }
     }
+
 
     private void compartirFb() {
         // compartir una imagen
@@ -223,14 +241,25 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
 
             //  File myImageFile = new File("/path/to/image");
             // Uri myImageUri = Uri.fromFile(myImageFile);
-            TweetComposer.Builder builder = null;
+            if(!desadeMenuPrincipal){
+                TweetComposer.Builder b= new TweetComposer.Builder(context)
+                        .text("¡Me encanta esta receta!")
+                        .url(new URL("http://appcocina.parseapp.com"))
+                        .image(ImageUri);
+                b.show();
+            }else {
+                Intent intent = new TweetComposer.Builder(context)
+                        .text("¡Me encanta esta receta!")
+                        .url(new URL("http://appcocina.parseapp.com"))
+                        .image(ImageUri).createIntent();
 
-            builder = new TweetComposer.Builder(context)
-                    .text("¡Me encanta esta receta!")
-                    .url(new URL("http://appcocina.parseapp.com"))
-                    .image(ImageUri);
-            builder.show();
+                int TWEET_COMPOSER_REQUEST_CODE = 100;
+                StarterApplication.objReceta = objReceta;
+                StarterApplication.bCompartido = true;
+                StarterApplication.bCompartidoTwitter = true;
 
+                ((Activity) context).startActivityForResult(intent, TWEET_COMPOSER_REQUEST_CODE);
+            }
         } catch (MalformedURLException e) {
             e.printStackTrace();
 
@@ -243,8 +272,10 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
 
     public void compartirPin() {
 
+
         StarterApplication.objReceta = objReceta;
         StarterApplication.bViral =  true;
+
 
         List scopes = new ArrayList<String>();
         scopes.add(PDKClient.PDKCLIENT_PERMISSION_READ_PUBLIC);
@@ -260,26 +291,20 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             public void onSuccess(PDKResponse response) {
                 Log.d(getClass().getName(), response.getData().toString());
 
-                StarterApplication.objReceta = null;
+
                 StarterApplication.bViral =  false;
 
 
                 try {
 
 
+
                     //Pop intent
                     Intent in1 = new Intent(context, MyBoardsActivity.class);
-
-                    in1.putExtra("desadeMenuPrincipal", desadeMenuPrincipal);
-
-                    in1.putExtra("actividad",(Serializable) context );
-
                     in1.putExtra("url_imagen", objReceta.getString("Url_Imagen"));
-                    in1.putExtra("idObjetoParse", objReceta.getObjectId());
-
                     context.startActivity(in1);
 
-                    cancel();
+
 
 
                 } catch (Exception e) {
@@ -293,8 +318,10 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             public void onFailure(PDKException exception) {
                 Log.e(getClass().getName(), exception.getDetailMessage());
                 StarterApplication.objReceta = null;
+                StarterApplication.bCompartido =  false;
                 StarterApplication.bViral =  false;
             }
         });
     }
+
 }

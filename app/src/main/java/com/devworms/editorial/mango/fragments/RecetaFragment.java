@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +17,17 @@ import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.dialogs.CompartirDialog;
+import com.devworms.editorial.mango.main.StarterApplication;
+import com.devworms.editorial.mango.util.Specs;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.theartofdev.fastimageloader.FastImageLoader;
+import com.theartofdev.fastimageloader.ImageLoadSpec;
+import com.theartofdev.fastimageloader.target.TargetImageView;
 
 import java.util.Calendar;
 import java.util.List;
@@ -41,6 +47,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
     }
 
     public void setObjReceta(ParseObject objReceta) {
+
         this.objReceta = objReceta;
     }
 
@@ -52,7 +59,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         this.imgReceta = imgReceta;
     }
 
-    public  ImageView imagen;
+    public TargetImageView imagen;
 
     @Nullable
     @Override
@@ -60,9 +67,21 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         View view= inflater.inflate(R.layout.fragment_receta, container, false);
 
 
-        imagen = (ImageView) view.findViewById(R.id.imagenreceta);
-        imagen.setImageBitmap(this.getImgReceta());
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+        imgFrida.setVisibility(View.INVISIBLE);
 
+        ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
+        imgFondoBarra.setVisibility(View.INVISIBLE);
+
+        TextView txtFrida = (TextView) getActivity().findViewById(R.id.textViewMensajeBienvenida);
+        txtFrida.setVisibility(View.INVISIBLE);
+
+        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
+
+        imagen = (TargetImageView) view.findViewById(R.id.imagenreceta);
+        FastImageLoader.prefetchImage(objReceta.getString("Url_Imagen"), Specs.IMG_IX_IMAGE);
+        ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_IMAGE);
+        imagen.loadImage(objReceta.getString("Url_Imagen"), spec.getKey());
 
 
         TextView pasosTitulo=(TextView)view.findViewById(R.id.txtrecetaTitulo);
@@ -115,7 +134,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
         // set dialog message
         alertDialogBuilder
-                .setMessage("Para poder añadir esta reseta a favoritos es necesario iniciar sesión")
+                .setMessage("Para poder añadir esta reseta a Me Gustan es necesario iniciar sesión")
                 .setCancelable(false)
                 .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
@@ -144,7 +163,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                         //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
                         if (recetasList.size() > 0 ) {
                             String titulo = "¡Esta receta ya fue añadida!";
-                            String mensaje = "Tu receta ya esta en la seccion de favoritos";
+                            String mensaje = "Tu receta ya esta en la seccion de Me Gustan";
 
 
 
@@ -198,8 +217,8 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                                     String mensaje = "";
 
                                     if (e == null) {
-                                        titulo = "Añadido a favoritos";
-                                        mensaje = "¡Tu receta ya esta disponible en la seccion de favoritos!";
+                                        titulo = "Añadido a Me Gustan";
+                                        mensaje = "¡Tu receta ya esta disponible en la seccion de Me Gustan!";
                                     } else {
                                         titulo = "Error";
                                         mensaje = "Se produjo un error, intente más tarde";
@@ -245,7 +264,13 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
     //El Fragment ha sido quitado de su Activity y ya no está disponible
     @Override
     public void onDetach() {
-        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+
+        try {
+            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        }
+        catch (Exception ex){
+            Log.e("error", ex.getMessage());
+        }
         super.onDetach();
     }
 
