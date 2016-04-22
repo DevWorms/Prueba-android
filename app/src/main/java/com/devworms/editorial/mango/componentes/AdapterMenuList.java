@@ -13,30 +13,21 @@
 package com.devworms.editorial.mango.componentes;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.annotation.IntegerRes;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.activities.MainActivity;
-import com.devworms.editorial.mango.activities.MyBoardsActivity;
-import com.devworms.editorial.mango.fragments.CompartirFragment;
+import com.devworms.editorial.mango.dialogs.CompartirDialog;
 import com.devworms.editorial.mango.fragments.RecetarioFragment;
 import com.devworms.editorial.mango.main.StarterApplication;
 import com.devworms.editorial.mango.util.Specs;
 import com.parse.CountCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -73,6 +64,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
     @Override
     public AdapterMenuList.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_menu, parent, false);
+
         return new ViewHolder(v);
     }
 
@@ -83,6 +75,24 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
         holder.contarRecetas(mItems.get(position));
         holder.numRecetasPorMenu = numRecetasPorMenu;
         holder.mTargetImageView.loadImage(mItems.get(position).getString("Url_Imagen"), spec.getKey());
+
+
+        if(position == 0){
+            holder.imageViewDeviderbottom.setVisibility(View.INVISIBLE);
+            holder.imageViewDeviderTop.setVisibility(View.VISIBLE);
+
+        }
+        else {
+            if( mItems.size()-1 == position){
+                holder.imageViewDeviderbottom.setVisibility(View.VISIBLE);
+                holder.imageViewDeviderTop.setVisibility(View.INVISIBLE);
+            }
+            else{
+                holder.imageViewDeviderbottom.setVisibility(View.VISIBLE);
+                holder.imageViewDeviderTop.setVisibility(View.VISIBLE);
+            }
+        }
+
     }
 
     //region: Inner class: ViewHolder
@@ -104,6 +114,10 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
         public TextView tTextViewNombrePlatillo;
         public ImageView imageViewCinta;
         public ImageView imageViewTipoPaquete;
+        public ImageView imageViewDeviderTop;
+        public ImageView imageViewDeviderbottom;
+
+
         ParseObject objMenu;
 
 
@@ -120,6 +134,11 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
             imageViewCinta = (ImageView) v.findViewById(R.id.imageViewCinta);
             imageViewTipoPaquete = (ImageView) v.findViewById(R.id.imageViewTipoPaquete);
+
+            imageViewDeviderbottom = (ImageView) v.findViewById(R.id.imageViewDeviderbottom);
+            imageViewDeviderTop = (ImageView) v.findViewById(R.id.imageViewDeviderTop);
+
+
 
         }
 
@@ -169,11 +188,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
                 String tipo = objMenu.getString("TipoMenu").toLowerCase();
 
-                final ImageView imageView = (ImageView) v;
 
-
-                final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-                final Bitmap imgReceta = bitmapDrawable.getBitmap();
 
                 switch (tipo) {
                     case "gratis": case "pago"://Gratis o de pagoç
@@ -190,9 +205,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                         break;
 
                     case "viral":
-                        CompartirFragment compartirDialog = new CompartirFragment(activity);
-                        compartirDialog.objReceta = objMenu;
-                        compartirDialog.imgReceta = imgReceta;
+                        CompartirDialog compartirDialog = new CompartirDialog(activity, objMenu, true);
                         compartirDialog.show();
                         break;
                 }

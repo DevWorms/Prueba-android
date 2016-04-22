@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
@@ -30,8 +27,7 @@ import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterBuscadorList;
-import com.devworms.editorial.mango.fragments.CompartirFragment;
-import com.devworms.editorial.mango.fragments.ConsejosFragment;
+import com.devworms.editorial.mango.dialogs.CompartirDialog;
 import com.devworms.editorial.mango.fragments.CreditosFragment;
 import com.devworms.editorial.mango.fragments.CuentaFragment;
 import com.devworms.editorial.mango.fragments.FavoritosFragment;
@@ -45,6 +41,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -52,10 +49,11 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, Serializable {
 
     private AdapterBuscadorList mAdapterRecetarioList;
 
+    private static final long serialVersionUID = 1L;
 
     public void obtenerObjetosParse(final RecyclerView recyclerView, String []tags){
 
@@ -174,9 +172,7 @@ public class MainActivity extends AppCompatActivity
 
 
         if(StarterApplication.bViral){
-            CompartirFragment compartirDialog = new CompartirFragment(this);
-            compartirDialog.objReceta = StarterApplication.objReceta;
-            compartirDialog.imgReceta = StarterApplication.imgReceta;
+            CompartirDialog compartirDialog = new CompartirDialog(this, StarterApplication.objReceta, true);
             compartirDialog.show();
         }
 
@@ -233,6 +229,22 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.actividad, fragmentSearch).commit();
         }
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(StarterApplication.pdkClient != null) {
+            StarterApplication.pdkClient.onOauthResponse(requestCode, resultCode,
+                    data);
+        }
+
+        if(StarterApplication.callbackManager != null){
+            StarterApplication.callbackManager.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

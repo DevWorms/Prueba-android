@@ -38,9 +38,8 @@
         android:layout_alignTop="@+id/imageView15">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Pastel azteca"
             android:id="@+id/textViewNombrereceta"
             android:textColor="#ffffff"
@@ -48,8 +47,10 @@
             android:gravity="center|left"
             android:lines="3"
             android:maxLines="3"
-            android:paddingEnd="5dp"
-            android:paddingStart="8dp" />
+            android:paddingEnd="15dp"
+            android:paddingStart="8dp"
+            android:textIsSelectable="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
         <GridLayout
             android:layout_width="0dp"
             android:layout_weight="1.4"

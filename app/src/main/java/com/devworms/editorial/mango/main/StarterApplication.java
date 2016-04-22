@@ -15,6 +15,7 @@ import android.util.Log;
 
 import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.util.Specs;
+import com.facebook.CallbackManager;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseFacebookUtils;
@@ -50,7 +51,9 @@ public class StarterApplication extends Application {
 
   public static boolean bViral = false;
   public static ParseObject objReceta = null;
-  public static Bitmap imgReceta = null;
+
+  public static PDKClient pdkClient = null;
+  public static CallbackManager callbackManager = null;
 
 
     @Override

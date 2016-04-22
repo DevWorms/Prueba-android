@@ -1,29 +1,21 @@
 package com.devworms.editorial.mango.fragments;
 
 import android.app.Fragment;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.devworms.editorial.mango.R;
-import com.devworms.editorial.mango.activities.MainActivity;
-import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
-import com.devworms.editorial.mango.main.StarterApplication;
+import com.devworms.editorial.mango.dialogs.CompartirDialog;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -31,7 +23,6 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-import java.io.InputStream;
 import java.util.Calendar;
 import java.util.List;
 
@@ -106,21 +97,8 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
     public void compartir()
     {
-        View drawingView = imagen;
-        drawingView.buildDrawingCache(true);
-        Bitmap bitmap = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
-        drawingView.destroyDrawingCache();
-
-
-        CompartirFragment compartir = new CompartirFragment(getActivity());
-        compartir.objReceta = this.objReceta;
-        compartir.imgReceta = bitmap;
-
-        /*getFragmentManager().beginTransaction()
-                .replace(R.id.actividad,(compartir))
-                .addToBackStack("RecetaFragment")
-                .commit();
-                */
+        CompartirDialog compartir = new CompartirDialog(getActivity(),this.objReceta, false );
+        compartir.show();
     }
 
 

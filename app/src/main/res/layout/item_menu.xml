@@ -23,13 +23,13 @@
         android:layout_alignParentStart="true"
         android:src="@drawable/bandapaquete"
         android:layout_alignParentEnd="false"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Clásicos tradicionales"
         android:id="@+id/textViewNombrePlatillo"
         android:textColor="#ffffff"
         android:textStyle="bold"
@@ -49,13 +49,13 @@
         android:layout_marginTop="0dp"
         android:src="@drawable/paquetesgratis"
         android:layout_marginLeft="13dp"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Contando..."
         android:id="@+id/textViewNumeroRecetas"
         android:rotation="-45"
         android:layout_alignBottom="@+id/imageViewTipoPaquete"
@@ -69,7 +69,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="jjjjj"
         android:id="@+id/textViewTipoPaquete"
         android:rotation="-45"
         android:textColor="#ffffff"
@@ -84,14 +83,15 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView13"
         android:layout_alignBottom="@+id/image_view"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
         android:src="@drawable/devidertop"
         android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="false"
+        android:id="@+id/imageViewDeviderTop"
         android:adjustViewBounds="true" />
+
 
     <ImageView
         android:layout_width="wrap_content"
