@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.devworms.editorial.mango.R;
@@ -375,7 +377,7 @@ public class OpenPayRestApi{
         });
     }
 
-    public static String eliminarTarjeta(final Activity actividad, final View view){
+    public static String eliminarTarjeta(final Activity actividad, final View view, final LinearLayout linearLayoutCompat){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
@@ -426,6 +428,7 @@ public class OpenPayRestApi{
                                                 titulo = "Tarjeta eliminada";
                                                 mensaje = "Esta tarjeta fue eliminada de esta cuenta";
                                                 view.setVisibility(View.GONE);
+                                                linearLayoutCompat.setVisibility(View.GONE);
                                             }
                                             else{
                                                 titulo = "Error en eliminación";
@@ -438,6 +441,7 @@ public class OpenPayRestApi{
                                                     titulo = "Tarjeta eliminada";
                                                     mensaje = "Esta tarjeta fue eliminada de esta cuenta";
                                                     view.setVisibility(View.GONE);
+                                                    linearLayoutCompat.setVisibility(View.GONE);
                                                 }
 
                                             }

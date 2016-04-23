@@ -396,7 +396,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
             {
                 @Override
                 public void onClick(View v) {
-                    OpenPayRestApi.eliminarTarjeta(activity, v);
+                    OpenPayRestApi.eliminarTarjeta(activity, v, ly_tarjeta);
                 }
             });
 
