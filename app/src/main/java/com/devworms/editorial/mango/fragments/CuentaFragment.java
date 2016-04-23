@@ -372,6 +372,10 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                 txtReferenciaBarras.setText(objCliente.getString("referenciaentienda"));
 
             }
+
+            if(!objCliente.getBoolean("Suscrito")){
+                btnCancelarSuscripcion.setVisibility(View.GONE);
+            }
         }
 
         if (objTarjeta != null){

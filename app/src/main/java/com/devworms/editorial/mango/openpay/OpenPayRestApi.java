@@ -321,7 +321,7 @@ public class OpenPayRestApi{
                         try {
 
                             response = new RequestOpenPay().execute(request).get();
-                            String error = response.getString("error_code");
+                            String error = response == null ? "":response.getString("error_code");
 
                             String titulo = "";
                             String mensaje = "";
@@ -418,7 +418,7 @@ public class OpenPayRestApi{
                                             response = new RequestOpenPay().execute(request).get();
                                             String titulo = "";
                                             String mensaje = "";
-                                            String error = response.getString("error_code");
+                                            String error = response == null ? "" : response.getString("error_code");
                                             if (error == null || error.equals("")){
 
                                                 tarjeta.deleteInBackground();
@@ -431,6 +431,14 @@ public class OpenPayRestApi{
                                                 titulo = "Error en eliminación";
                                                 mensaje = "No es posible dar de baja esta tarjeta, si esta suscrito primero cancele la membresia, de lo contrario intente más tarde";
 
+
+                                                if(error.equals("1005")){
+                                                    tarjeta.deleteInBackground();
+
+                                                    titulo = "Tarjeta eliminada";
+                                                    mensaje = "Esta tarjeta fue eliminada de esta cuenta";
+                                                    view.setVisibility(View.GONE);
+                                                }
 
                                             }
                                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
