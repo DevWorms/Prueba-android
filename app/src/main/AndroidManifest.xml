@@ -21,12 +21,13 @@
 
       IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
       to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
 
-    <permission android:protectionLevel="signature"
-        android:name="com.devworms.editorial.mango.permission.C2D_MESSAGE" />
+    <permission
+        android:name="com.devworms.editorial.mango.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
     <uses-permission android:name="com.devworms.editorial.mango.permission.C2D_MESSAGE" />
 
-    -->
 
     <application
         android:name=".main.StarterApplication"

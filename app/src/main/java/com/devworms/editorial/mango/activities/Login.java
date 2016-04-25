@@ -2,11 +2,14 @@ package com.devworms.editorial.mango.activities;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -60,8 +63,12 @@ public class Login extends AppCompatActivity {
             registrar = false;
 
 
+            if (!isNetworkAvailable()){
+                ParseUser.logOut();
+            }
+
             ParseUser currentUser = ParseUser.getCurrentUser();
-            if (currentUser != null) {
+            if (currentUser != null ) {
                 Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -79,6 +86,32 @@ public class Login extends AppCompatActivity {
 
     public void loguearConMail(View view)
     {
+        if(!isNetworkAvailable()){
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
+
+            // set title
+            alertDialogBuilder.setTitle("Sin acceso a internet");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Necesita conexión internet para poder iniciar sesión")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+
+            return;
+        }
+
         final Activity activity = this;
         String userName = "";
         String pass = "";
@@ -152,6 +185,32 @@ public class Login extends AppCompatActivity {
 
     public  void continuar(View view)
     {
+        if(!isNetworkAvailable()){
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
+
+            // set title
+            alertDialogBuilder.setTitle("Sin acceso a internet");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Necesita conexión internet para poder iniciar sesión")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+
+            return;
+        }
+
         Intent intent = new Intent(Login.this,MainActivity.class);
         startActivity(intent);
         finish();
@@ -395,5 +454,13 @@ public class Login extends AppCompatActivity {
                 }
             });
         }
+    }
+
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

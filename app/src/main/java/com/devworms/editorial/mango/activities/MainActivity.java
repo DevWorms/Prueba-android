@@ -3,6 +3,8 @@ package com.devworms.editorial.mango.activities;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
@@ -225,6 +227,8 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
+
+
 
 
     @SuppressWarnings("StatementWithEmptyBody")
