@@ -66,7 +66,7 @@ public class StarterApplication extends Application {
     super.onCreate();
 
     // Enable Local Datastore.
-    Parse.enableLocalDatastore(this);
+    //Parse.enableLocalDatastore(this);
 
     Parse.initialize(this, "Rv2InCwEE4RJowtNJVaYqlLw0VpjPLEePcfpHMsw", "oYALR4CrZhDOYlrOk7zCLszZXixJEXsDtOV4e0zt");
     ParseInstallation.getCurrentInstallation().saveInBackground();

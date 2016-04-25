@@ -56,6 +56,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     private List<ParseObject> mItems;
     private String tipoMenu;
     private Activity actividad;
+    private List<String>lTipos;
 
 
     public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu, Activity actividad) {
@@ -70,6 +71,19 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
             }
         }
     }
+
+    public AdapterRecetarioList(List<ParseObject> mItems, List<String>lTipos, Activity actividad) {
+        this.mItems = mItems;
+        this.lTipos = lTipos;
+        this.actividad = actividad;
+
+        if (StarterApplication.mPrefetchImages) {
+            for (ParseObject parseObject : mItems) {
+                FastImageLoader.prefetchImage(parseObject.getString("Url_Imagen"), Specs.IMG_IX_IMAGE);
+            }
+        }
+    }
+
 
     @Override
     public int getItemCount() {
@@ -88,7 +102,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
         holder.objReceta = mItems.get(position);
         holder.setTitulos(mItems.get(position));
-        holder.tipoMenu = this.tipoMenu;
+        holder.tipoMenu = this.tipoMenu == null ?  lTipos.get(position):this.tipoMenu;
         holder.actividad = actividad;
         holder.mTargetImageView.loadImage(mItems.get(position).getString("Url_Imagen"), spec.getKey());
     }
@@ -133,8 +147,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
         public void setTitulos(ParseObject objReceta){
             tTextViewNombrereceta.setText(objReceta.getString("Nombre"));
-            tTextViewTiempo.setText(objReceta.getString("Tiempo"));
-            textViewPorciones.setText(objReceta.getString("Porciones"));
+            tTextViewTiempo.setText("   " + objReceta.getString("Tiempo"));
+            textViewPorciones.setText("   " + objReceta.getString("Porciones"));
         }
 
         @Override

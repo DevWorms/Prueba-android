@@ -74,7 +74,6 @@ public class MenuFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
 
 
-
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(getResources().getColor(R.color.barraPincipal));
 

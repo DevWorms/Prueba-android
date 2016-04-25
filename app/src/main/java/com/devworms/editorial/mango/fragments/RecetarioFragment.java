@@ -104,13 +104,21 @@ public class RecetarioFragment extends Fragment {
         return view;
     }
 
+
+
     //El Fragment ha sido quitado de su Activity y ya no está disponible
     @Override
     public void onDetach() {
+        try {
+            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        }
+        catch (Exception ex)
+        {
 
-        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+        }
         super.onDetach();
     }
+
 
     public void setTipoMenu(String tipoMenu) {
         this.tipoMenu = tipoMenu;
