@@ -63,12 +63,10 @@ public class Login extends AppCompatActivity {
             registrar = false;
 
 
-            if (!isNetworkAvailable()){
-                ParseUser.logOut();
-            }
+
 
             ParseUser currentUser = ParseUser.getCurrentUser();
-            if (currentUser != null ) {
+            if (currentUser != null && isNetworkAvailable() ) {
                 Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -347,6 +345,32 @@ public class Login extends AppCompatActivity {
 
     public void loguearConFacebook(View view)
     {
+        if(!isNetworkAvailable()){
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
+
+            // set title
+            alertDialogBuilder.setTitle("Sin acceso a internet");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Necesita conexión internet para poder iniciar sesión")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+
+            return;
+        }
+
         List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
 
         ParseFacebookUtils.logInWithReadPermissionsInBackground(this, permissions , new LogInCallback() {
@@ -418,6 +442,32 @@ public class Login extends AppCompatActivity {
 
     public void loguearConTwitter(View view)
     {
+
+        if(!isNetworkAvailable()){
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
+
+            // set title
+            alertDialogBuilder.setTitle("Sin acceso a internet");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Necesita conexión internet para poder iniciar sesión")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+
+            return;
+        }
 
         ParseTwitterUtils.logIn(this, new LogInCallback() {
             @Override

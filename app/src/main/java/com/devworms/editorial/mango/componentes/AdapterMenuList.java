@@ -13,13 +13,20 @@
 package com.devworms.editorial.mango.componentes;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.devworms.editorial.mango.R;
@@ -44,8 +51,10 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
     private List<ParseObject> mItems;
     private HashMap<ParseObject, Integer> numRecetasPorMenu;
 
+
     public AdapterMenuList(List<ParseObject> mItems) {
         this.mItems = mItems;
+
         if (StarterApplication.mPrefetchImages) {
             for (ParseObject parseObject : mItems) {
                 FastImageLoader.prefetchImage(parseObject.getString("Url_Imagen"), Specs.IMG_IX_IMAGE);
@@ -118,6 +127,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
         public ImageView imageViewDeviderbottom;
 
 
+
         ParseObject objMenu;
 
 
@@ -127,6 +137,22 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
             mTargetImageView = (TargetImageView) v.findViewById(R.id.image_view);
             mTargetImageView.setOnClickListener(this);
+            Activity activity = (Activity) mTargetImageView.getContext();
+
+            WindowManager wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+            Display display = wm.getDefaultDisplay();
+
+            Point size = new Point();
+            display.getSize(size);
+            int width = size.x;
+            int height = size.y;
+
+            Double d = height*0.437;
+
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, d.intValue());
+            //width and height of your Image ,if it is inside Relative change the LinearLayout to RelativeLayout.
+            mTargetImageView.setLayoutParams(layoutParams);
+
             tTextViewNumeroRecetas =(TextView) v.findViewById(R.id.textViewNumeroRecetas);
             tTextViewTipoPaquete = (TextView) v.findViewById(R.id.textViewTipoPaquete);
             tTextViewNombrePlatillo = (TextView) v.findViewById(R.id.textViewNombrePlatillo);

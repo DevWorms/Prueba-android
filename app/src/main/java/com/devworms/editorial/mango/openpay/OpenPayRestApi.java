@@ -26,6 +26,7 @@ import com.parse.ParseUser;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -152,6 +153,46 @@ public class OpenPayRestApi{
 
     }
 
+    public static String validarPagoEnTienda(ParseObject objCliente){
+
+
+        Request request = new Request.Builder()
+                .url("https://sandbox-api.openpay.mx/v1/mom7qomx3rv93zcwv2vk/customers/ardbxtfaezp661zcirk3/charges/trvgotekbxtberngmtp7")
+                .get()
+                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                .addHeader("cache-control", "no-cache")
+                .addHeader("postman-token", "fffa7be1-071a-4b41-1de2-b7d0e3988de1")
+                .build();
+
+
+        try {
+
+            JSONObject response = new RequestOpenPay().execute(request).get();
+            String estatus = response.getString("status");
+
+
+
+            if (estatus.equals("completed")){
+                objCliente.put("codigobarras","");
+                objCliente.put("referenciaentienda", "");
+                objCliente.put("transaction_id_tienda", "");
+                objCliente.put("Caducidad", );
+                objCliente.saveInBackground();
+            }
+
+            return estatus;
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return new String();
+    }
+
 
 
     // Pagos
@@ -159,9 +200,17 @@ public class OpenPayRestApi{
     public static String[] pagarEnTienda(Double precio, String fechaVigencia , ParseObject objCliente){
 
 
+        Calendar c = Calendar.getInstance();
+        int dia = c.get(Calendar.MONDAY);
+        int mes = c.get(Calendar.MONTH);
+        int anio = c.get(Calendar.YEAR);
+
+        String caducidadCanjeo = anio + "-"+mes+"-"+20T13:45:00";
+
 
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n   \"method\" : \"store\",\n   \"amount\" : " + precio + ",\n   \"description\" : \"Cargo con tienda\"} "); //2016-03-20T13:45:00 , "due_date" : "" + fechaVigencia + ""
+        RequestBody body = RequestBody.create(mediaType, "{\n   \"method\" : \"store\",\n   \"amount\" : " + precio + ",\n   \"description\" : \"Cargo con tienda\",\n" +
+                "   \"due_date\" : \""+caducidadCanjeo+"\"} "); //2016-03-20T13:45:00 , "due_date" : "" + fechaVigencia + ""
 
         Request request = new Request.Builder()
                 .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers/"+objCliente.getString("clientID")+"/charges")
@@ -257,7 +306,7 @@ public class OpenPayRestApi{
                     if (!operacion.equals("")){
                         client.put("Suscrito", true);
                         client.put("idsuscripcion",operacion);
-                        client.put("caducidad",caducidad);
+                        client.put("Caducidad",caducidad);
                         client.saveInBackground();
 
                         Toast.makeText(actividad, "Te has suscrito", Toast.LENGTH_LONG).show();
@@ -330,7 +379,7 @@ public class OpenPayRestApi{
                             if (error == null || error.equals("")){
                                 cliente.put("Suscrito",false);
                                 cliente.put("idsuscripcion","");
-                                cliente.put("caducidad","");
+                                cliente.put("Caducidad","");
                                 cliente.saveInBackground();
                                 titulo = "Suscripción cancelada";
                                 mensaje = "su suscripción actual fue cancelada cno éxito";
