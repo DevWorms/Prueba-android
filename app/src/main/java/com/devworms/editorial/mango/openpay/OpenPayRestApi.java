@@ -16,6 +16,7 @@ import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.componentes.AdapterRecetarioList;
 import com.devworms.editorial.mango.dialogs.WalletActivity;
 import com.devworms.editorial.mango.main.StarterApplication;
+import com.devworms.editorial.mango.util.ISO8601;
 import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -200,12 +201,7 @@ public class OpenPayRestApi{
     public static String[] pagarEnTienda(Double precio, String fechaVigencia , ParseObject objCliente){
 
 
-        Calendar c = Calendar.getInstance();
-        int dia = c.get(Calendar.MONDAY);
-        int mes = c.get(Calendar.MONTH);
-        int anio = c.get(Calendar.YEAR);
-
-        String caducidadCanjeo = anio + "-"+mes+"-"+20T13:45:00";
+        String caducidadCanjeo = ISO8601.now();
 
 
         MediaType mediaType = MediaType.parse("application/json");
