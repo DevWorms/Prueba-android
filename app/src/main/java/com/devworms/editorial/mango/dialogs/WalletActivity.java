@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.devworms.editorial.mango.R;
+import com.devworms.editorial.mango.main.StarterApplication;
 import com.devworms.editorial.mango.openpay.OpenPayRestApi;
 import com.devworms.editorial.mango.util.Specs;
 import com.parse.FindCallback;
@@ -109,7 +110,7 @@ public class WalletActivity extends Activity {
 
     public void pagarEnTienda(View view){
         final Dialog dialog = new Dialog(this);
-        final double precio = 50;
+        final Activity activity = this;
         dialog.setCancelable(false);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         //Aqui haces que tu layout se muestre como dialog
@@ -136,7 +137,7 @@ public class WalletActivity extends Activity {
 
             @Override
             public void onClick(View view) {
-                String[] resultados = OpenPayRestApi.pagarEnTienda(50.0, "2016-03-20T13:45:00", objCliente); // att2t0hjg6qricd6ezgc corresponde al id de un cliente de openpay de la cuenta de openpya para desarrollo de devworms
+                String[] resultados = OpenPayRestApi.pagarEnTienda(StarterApplication.PRECIO_MEMBRESIA, objCliente, activity); // att2t0hjg6qricd6ezgc corresponde al id de un cliente de openpay de la cuenta de openpya para desarrollo de devworms
 
                 System.out.println(resultados[0]);
                 ((TextView) dialog.findViewById(R.id.lb_barCode)).setText(resultados[1]);

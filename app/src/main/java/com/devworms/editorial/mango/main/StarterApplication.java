@@ -49,6 +49,8 @@ public class StarterApplication extends Application {
   public static final String API_KEY = "pk_f492b71637e247e4b5a314a1f9366ec9";
   public static  final String PRIVATE_KEY = "sk_7506b8183bc34e038ee9e849e2e52994";
   public static  final String URL = "https://sandbox-api.openpay.mx/v1/";
+  public static final Double PRECIO_MEMBRESIA = 5.0;
+
   public static final boolean PRODUCTION_MODE = false;
 
   public static boolean bViral = false;

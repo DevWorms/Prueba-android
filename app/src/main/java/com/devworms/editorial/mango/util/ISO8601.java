@@ -11,8 +11,11 @@ import java.util.GregorianCalendar;
  */
 public class ISO8601 {
     /** Transform Calendar to ISO 8601 string. */
-    public static String fromCalendar(final Calendar calendar) {
-        calendar.set(Calendar.MONTH, 01);
+    public static String fromCalendar(final Calendar calendar, int dias,  int mes) {
+        if(dias > 0)
+            calendar.add(Calendar.DAY_OF_MONTH, dias);
+        if(mes > 0)
+            calendar.add(Calendar.MONTH, mes);
         Date date = calendar.getTime();
         String formatted = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                 .format(date);
@@ -20,9 +23,10 @@ public class ISO8601 {
     }
 
     /** Get current date and time formatted as ISO 8601 string. */
-    public static String now() {
-        return fromCalendar(GregorianCalendar.getInstance());
+    public static String fecha(int day, int month) {
+        return fromCalendar(GregorianCalendar.getInstance(),day, month);
     }
+
 
     /** Transform ISO 8601 string to Calendar. */
     public static Calendar toCalendar(final String iso8601string)

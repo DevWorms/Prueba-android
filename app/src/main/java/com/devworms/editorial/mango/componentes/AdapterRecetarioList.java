@@ -48,6 +48,9 @@ import com.theartofdev.fastimageloader.FastImageLoader;
 import com.theartofdev.fastimageloader.ImageLoadSpec;
 import com.theartofdev.fastimageloader.target.TargetImageView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -232,23 +235,44 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                 public void done(List<ParseObject> clientes, ParseException e) {
                     if (e == null) {
 
-                        if (clientes.size() > 0 && clientes.get(0).getBoolean("Suscrito")) {
+                        if (clientes.size() > 0)
+                        {
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                            try {
 
-                            RecetarioFragment recetario = new RecetarioFragment();
-                            recetario.setMenuSeleccionado(objReceta);
+                                if(clientes.get(0).getString("Caducidad") != null && !clientes.get(0).getString("Caducidad").equals(""))
+                                {
+                                    Date dateSuscripcion = sdf.parse(clientes.get(0).getString("Caducidad"));//caducidad en la base
+
+                                    Date dateNow = sdf.parse(clientes.get(0).getString("Caducidad"));//caducidad en la base
+                                }
 
 
-                            final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-                            final Bitmap imgReceta = bitmapDrawable.getBitmap();
 
-                            RecetaFragment receta = new RecetaFragment();
-                            receta.setObjReceta(objReceta);
-                            receta.setImgReceta(imgReceta);
+                            } catch (java.text.ParseException e1) {
+                                e1.printStackTrace();
+                            }
+                            Calendar cal = sdf.getCalendar();
 
-                            activity.getFragmentManager().beginTransaction()
-                                    .replace(R.id.actividad, receta)
-                                    .addToBackStack("MenuFragment")
-                                    .commit();
+                            if(clientes.get(0).getBoolean("Suscrito") || OpenPayRestApi.validarPagoEnTienda(clientes.get(0)))
+                            {
+
+                                RecetarioFragment recetario = new RecetarioFragment();
+                                recetario.setMenuSeleccionado(objReceta);
+
+
+                                final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
+                                final Bitmap imgReceta = bitmapDrawable.getBitmap();
+
+                                RecetaFragment receta = new RecetaFragment();
+                                receta.setObjReceta(objReceta);
+                                receta.setImgReceta(imgReceta);
+
+                                activity.getFragmentManager().beginTransaction()
+                                        .replace(R.id.actividad, receta)
+                                        .addToBackStack("MenuFragment")
+                                        .commit();
+                            }
 
                         } else {
 
@@ -436,7 +460,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                                     @Override
                                     public void onClick(View view) {
-                                        String[] resultados = OpenPayRestApi.pagarEnTienda(50.0, "2016-03-20T13:45:00", finalObjCliente); // att2t0hjg6qricd6ezgc corresponde al id de un cliente de openpay de la cuenta de openpya para desarrollo de devworms
+                                        String[] resultados = OpenPayRestApi.pagarEnTienda(StarterApplication.PRECIO_MEMBRESIA, finalObjCliente, activity); // att2t0hjg6qricd6ezgc corresponde al id de un cliente de openpay de la cuenta de openpya para desarrollo de devworms
 
                                         System.out.println(resultados[0]);
                                         ((TextView) dialog.findViewById(R.id.lb_barCode)).setText(resultados[1]);
