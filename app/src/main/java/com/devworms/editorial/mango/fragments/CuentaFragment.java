@@ -14,6 +14,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -454,6 +455,21 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
 
         }
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.barraPincipal));
+
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+        imgFrida.setVisibility(View.VISIBLE);
+
+        TextView txtFrida = (TextView) getActivity().findViewById(R.id.textViewMensajeBienvenida);
+        txtFrida.setVisibility(View.VISIBLE);
+
+
+        ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
+        imgFondoBarra.setVisibility(View.VISIBLE);
+        imgFondoBarra.setImageResource(R.drawable.fonsobar);
+
         return view;
     }
 
@@ -660,6 +676,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
     {
         List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
 
+
         ParseFacebookUtils.logInWithReadPermissionsInBackground(getActivity(), permissions, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException err) {
@@ -686,6 +703,9 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                     Log.d("MyApp", "User logged in through Facebook!");
                 }
             }
+
+
+
         });
 
 

@@ -172,11 +172,11 @@ public class OpenPayRestApi{
 
             JSONObject response = new RequestOpenPay().execute(request).get();
             String estatus = response.getString("status");
-            Calendar calendar = ISO8601.toCalendar(caducidad);
 
+
+            Calendar calendar = ISO8601.toCalendar(caducidad);
             Date date = calendar.getTime();
             String fecha = new SimpleDateFormat("yyyy-MM-dd").format(date);
-
 
 
             if(estatus == null){return false;}
@@ -215,7 +215,7 @@ public class OpenPayRestApi{
     public static String[] pagarEnTienda(Double precio , ParseObject objCliente, Activity actividad){
 
 
-        String caducidadCanjeo = ISO8601.fecha(1,0); // una semana
+        String caducidadCanjeo = ISO8601.fecha(7,0); // una semana, 7 dias en el futuro y 0 mese en el futuro
 
 
         MediaType mediaType = MediaType.parse("application/json");
@@ -246,7 +246,7 @@ public class OpenPayRestApi{
             JSONObject jsonObject = new JSONObject(response.getString("payment_method"));
             objCliente.put("codigobarras",jsonObject.getString("barcode_url"));
             objCliente.put("referenciaentienda", jsonObject.getString("reference"));
-            objCliente.put("referenciaentienda", jsonObject.getString("reference"));
+            objCliente.put("transaction_id_tienda", response.getString("id"));
             objCliente.put("Caducidad", fecha);
             objCliente.saveInBackground();
 
@@ -256,11 +256,12 @@ public class OpenPayRestApi{
             alertDialogBuilder.setTitle("Canjea este codigo antes de");
 
 
-
+            String fechas = new SimpleDateFormat("dd-MM-yyyy")
+                    .format(date);
 
             // set dialog message
             alertDialogBuilder
-                    .setMessage(fecha)
+                    .setMessage(fechas)
                     .setCancelable(false)
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {

@@ -36,8 +36,10 @@ import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseTwitterUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -203,6 +205,9 @@ public class MainActivity extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
+
+
         if(StarterApplication.pdkClient != null) {
             StarterApplication.pdkClient.onOauthResponse(requestCode, resultCode,
                     data);
@@ -226,6 +231,8 @@ public class MainActivity extends AppCompatActivity
 
             }
         }
+
+
     }
 
 

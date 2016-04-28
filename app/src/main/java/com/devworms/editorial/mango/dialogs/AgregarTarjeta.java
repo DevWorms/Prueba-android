@@ -116,7 +116,7 @@ public class AgregarTarjeta extends Activity {
 
     }
 
-    private void cancelar(View view){
+    public void cancelar(View view){
         finish();
     }
 

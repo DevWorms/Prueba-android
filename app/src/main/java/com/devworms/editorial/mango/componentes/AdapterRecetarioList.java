@@ -128,7 +128,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         public TextView tTextViewTiempo;
         public ImageView iImageViewDificultad;
 
-
+        private Dialog dialog;
 
 
 
@@ -237,24 +237,61 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                         if (clientes.size() > 0)
                         {
+                            boolean suscripcion = false;
+
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                             try {
 
+
+                            Calendar cal = sdf.getCalendar();
+
+                            if(clientes.get(0).getBoolean("Suscrito")){
+                                suscripcion = true;
+                            }else{
+                                //si no esta suscrito quiere decir que posiblemente hizo un pago en tienda
+                                if(OpenPayRestApi.validarPagoEnTienda(clientes.get(0))){
+                                    suscripcion = true;
+                                }
+                            }
+
+
+
+                            //validamos la caducidad de suscripcion, valido para pago en tienda
+
+
+                            if(suscripcion){
+
+                                Date dateSuscripcion = null, dateNow = null;
                                 if(clientes.get(0).getString("Caducidad") != null && !clientes.get(0).getString("Caducidad").equals(""))
                                 {
-                                    Date dateSuscripcion = sdf.parse(clientes.get(0).getString("Caducidad"));//caducidad en la base
-
-                                    Date dateNow = sdf.parse(clientes.get(0).getString("Caducidad"));//caducidad en la base
+                                    dateSuscripcion = sdf.parse(clientes.get(0).getString("Caducidad"));//caducidad en la base
+                                    Calendar calendar = Calendar.getInstance();
+                                    dateNow =  calendar.getTime();
                                 }
 
+                                if (dateNow != null && dateSuscripcion != null){
+                                    if (dateNow.after(dateSuscripcion)) {
+                                        suscripcion = false;
+                                        clientes.get(0).put("Suscrito", false);
+                                        clientes.get(0).put("Caducidad", "");
+                                        clientes.get(0).saveInBackground();
+
+                                    }
+                                }else{
+                                    suscripcion = false; //quiere decir que no hay caducidad
+                                    clientes.get(0).put("Suscrito", false);
+                                    clientes.get(0).put("Caducidad", "");
+                                    clientes.get(0).saveInBackground();
+                                }
+                            }
 
 
                             } catch (java.text.ParseException e1) {
                                 e1.printStackTrace();
                             }
-                            Calendar cal = sdf.getCalendar();
 
-                            if(clientes.get(0).getBoolean("Suscrito") || OpenPayRestApi.validarPagoEnTienda(clientes.get(0)))
+
+                            if(suscripcion)
                             {
 
                                 RecetarioFragment recetario = new RecetarioFragment();
@@ -272,6 +309,43 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                         .replace(R.id.actividad, receta)
                                         .addToBackStack("MenuFragment")
                                         .commit();
+                            }  else{
+
+                                if(dialog == null){
+                                    dialog = new Dialog(activity);
+                                    dialog.setCancelable(true);
+                                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                    //Aqui haces que tu layout se muestre como dialog
+
+                                    dialog.setContentView(R.layout.dialog_producto);
+                                    ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+
+                                        @Override
+                                        public void onClick(View view) {
+
+                                            dialog.cancel();
+                                            dialog.closeOptionsMenu();
+
+
+                                        }
+                                    });
+
+                                    ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+
+                                        @Override
+                                        public void onClick(View view) {
+
+                                            dialog.cancel();
+                                            continuar();
+
+                                        }
+                                });
+                                }
+
+                                if(!dialog.isShowing()) {
+                                    dialog.show();
+                                }
+
                             }
 
                         } else {
@@ -294,36 +368,43 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                                             }
                                             else{
-                                                final Dialog dialog = new Dialog(activity);
-                                                dialog.setCancelable(false);
-                                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                                                //Aqui haces que tu layout se muestre como dialog
 
-                                                dialog.setContentView(R.layout.dialog_producto);
-                                                ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+                                                if(dialog == null){
+                                                    dialog = new Dialog(activity);
+                                                    dialog.setCancelable(true);
+                                                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                                    //Aqui haces que tu layout se muestre como dialog
 
-                                                    @Override
-                                                    public void onClick(View view) {
+                                                    dialog.setContentView(R.layout.dialog_producto);
+                                                    ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
 
-                                                        dialog.cancel();
-                                                        dialog.closeOptionsMenu();
+                                                        @Override
+                                                        public void onClick(View view) {
+
+                                                            dialog.cancel();
+                                                            dialog.closeOptionsMenu();
 
 
-                                                    }
-                                                });
+                                                        }
+                                                    });
 
-                                                ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+                                                    ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
 
-                                                    @Override
-                                                    public void onClick(View view) {
+                                                        @Override
+                                                        public void onClick(View view) {
 
-                                                        dialog.cancel();
-                                                        continuar();
+                                                            dialog.cancel();
+                                                            continuar();
 
-                                                    }
-                                                });
+                                                        }
+                                                    });
+                                                }
 
-                                                dialog.show();
+                                                if(!dialog.isShowing()) {
+                                                    dialog.show();
+                                                }
+
+
                                             }
 
 
@@ -333,36 +414,41 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                 });
                             }
                             else{
-                                final Dialog dialog = new Dialog(activity);
-                                dialog.setCancelable(false);
-                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                                //Aqui haces que tu layout se muestre como dialog
 
-                                dialog.setContentView(R.layout.dialog_producto);
-                                ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+                                if(dialog == null){
+                                    dialog = new Dialog(activity);
+                                    dialog.setCancelable(true);
+                                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                    //Aqui haces que tu layout se muestre como dialog
 
-                                    @Override
-                                    public void onClick(View view) {
+                                    dialog.setContentView(R.layout.dialog_producto);
+                                    ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
 
-                                        dialog.cancel();
-                                        dialog.closeOptionsMenu();
+                                        @Override
+                                        public void onClick(View view) {
+
+                                            dialog.cancel();
+                                            dialog.closeOptionsMenu();
 
 
-                                    }
-                                });
+                                        }
+                                    });
 
-                                ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+                                    ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
 
-                                    @Override
-                                    public void onClick(View view) {
+                                        @Override
+                                        public void onClick(View view) {
 
-                                        dialog.cancel();
-                                        continuar();
+                                            dialog.cancel();
+                                            continuar();
 
-                                    }
-                                });
+                                        }
+                                    });
+                                }
 
-                                dialog.show();
+                                if(!dialog.isShowing()) {
+                                    dialog.show();
+                                }
 
                             }
 
@@ -377,7 +463,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                 public void continuar() {
                     final Dialog dialog = new Dialog(activity);
-                    dialog.setCancelable(false);
+                    dialog.setCancelable(true);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     //Aqui haces que tu layout se muestre como dialog
                     dialog.setContentView(R.layout.dialog_forma_pago);
@@ -413,7 +499,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                 public void pagarTienda() {
                     final Dialog dialog = new Dialog(activity);
-                    dialog.setCancelable(false);
+                    dialog.setCancelable(true);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     //Aqui haces que tu layout se muestre como dialog
                     dialog.setContentView(R.layout.dialog_pago_tienda);
@@ -462,7 +548,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                     public void onClick(View view) {
                                         String[] resultados = OpenPayRestApi.pagarEnTienda(StarterApplication.PRECIO_MEMBRESIA, finalObjCliente, activity); // att2t0hjg6qricd6ezgc corresponde al id de un cliente de openpay de la cuenta de openpya para desarrollo de devworms
 
-                                        System.out.println(resultados[0]);
                                         ((TextView) dialog.findViewById(R.id.lb_barCode)).setText(resultados[1]);
 
 
