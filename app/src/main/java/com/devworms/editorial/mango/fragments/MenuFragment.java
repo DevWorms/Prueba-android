@@ -81,8 +81,6 @@ public class MenuFragment extends Fragment {
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.VISIBLE);
 
-        TextView txtFrida = (TextView) getActivity().findViewById(R.id.textViewMensajeBienvenida);
-        txtFrida.setVisibility(View.VISIBLE);
 
 
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);

@@ -44,13 +44,14 @@
             android:id="@+id/textViewNombrereceta"
             android:textColor="#ffffff"
             android:shadowColor="#000000"
-            android:gravity="center|left"
+            android:gravity="left"
             android:lines="3"
             android:maxLines="3"
             android:paddingEnd="15dp"
             android:paddingStart="8dp"
             android:textIsSelectable="true"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="18dp" />
         <GridLayout
             android:layout_width="0dp"
             android:layout_weight="1.4"

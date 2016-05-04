@@ -147,7 +147,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
             int width = size.x;
             int height = size.y;
 
-            Double d = height*0.437;
+            Double d = height*0.41;
 
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, d.intValue());
             //width and height of your Image ,if it is inside Relative change the LinearLayout to RelativeLayout.
@@ -186,10 +186,13 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                             if (count > 1){
                                 tTextViewNumeroRecetas.setText(tTextViewNumeroRecetas.getText()+"s");
                             }
+
+                            tTextViewTipoPaquete.setVisibility(View.VISIBLE);
                             imageViewCinta.setVisibility(View.VISIBLE);
                             imageViewTipoPaquete.setVisibility(View.VISIBLE);
                             tTextViewNumeroRecetas.setVisibility(View.VISIBLE);
                         }else{
+                            tTextViewTipoPaquete.setVisibility(View.GONE);
                             imageViewCinta.setVisibility(View.GONE);
                             imageViewTipoPaquete.setVisibility(View.GONE);
                             tTextViewNumeroRecetas.setVisibility(View.GONE);

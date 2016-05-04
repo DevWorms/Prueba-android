@@ -147,8 +147,13 @@ public class Usuario{
 
 
                     } else {
+
                         titulo = "Error";
-                        mensaje = "Revisa que tu correo y pasword ingresados sean correctos";
+
+                        if(e.getCode() == 202)
+                            mensaje = "Este correo ya esta registrado, puedes iniciar sesión. \nPuedes recuperar tu contraseña con la opcion \"Olvide mi contraseña\" ";
+                        else
+                            mensaje = "Revisa que tu correo y pasword ingresados sean correctos";
 
 
                         // set title

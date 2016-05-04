@@ -150,8 +150,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
         public void setTitulos(ParseObject objReceta){
             tTextViewNombrereceta.setText(objReceta.getString("Nombre"));
-            tTextViewTiempo.setText("   " + objReceta.getString("Tiempo"));
-            textViewPorciones.setText("   " + objReceta.getString("Porciones"));
+            tTextViewTiempo.setText("  " + objReceta.getString("Tiempo"));
+            textViewPorciones.setText("  " + objReceta.getString("Porciones"));
         }
 
         @Override

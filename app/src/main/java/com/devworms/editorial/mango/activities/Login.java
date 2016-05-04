@@ -144,6 +144,10 @@ public class Login extends AppCompatActivity {
             userName = usuario.getText().toString();
             pass = password.getText().toString();
 
+            userName = "upiicsavideogames@gmail.com";
+            pass = "dascac";
+
+
             ParseUser.logInInBackground(userName, pass, new LogInCallback() {
                 public void done(ParseUser user, ParseException e) {
                     if (user != null) {
@@ -303,8 +307,8 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
 
                 txtCorreo = (EditText)dialog.findViewById(R.id.txtCorreo);
-                txtPass = (EditText)dialog.findViewById(R.id.txtCorreo);
-                txtPassConfirm = (EditText)dialog.findViewById(R.id.txtCorreo);
+                txtPass = (EditText)dialog.findViewById(R.id.password);
+                txtPassConfirm = (EditText)dialog.findViewById(R.id.passwordConfirm);
 
                 if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("") ) {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));

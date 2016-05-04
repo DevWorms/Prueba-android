@@ -462,8 +462,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.VISIBLE);
 
-        TextView txtFrida = (TextView) getActivity().findViewById(R.id.textViewMensajeBienvenida);
-        txtFrida.setVisibility(View.VISIBLE);
+
 
 
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
@@ -633,8 +632,8 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
 
                 txtCorreo = (EditText)dialog.findViewById(R.id.txtCorreo);
-                txtPass = (EditText)dialog.findViewById(R.id.txtCorreo);
-                txtPassConfirm = (EditText)dialog.findViewById(R.id.txtCorreo);
+                txtPass = (EditText)dialog.findViewById(R.id.password);
+                txtPassConfirm = (EditText)dialog.findViewById(R.id.passwordConfirm);
 
                 if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("") ) {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));

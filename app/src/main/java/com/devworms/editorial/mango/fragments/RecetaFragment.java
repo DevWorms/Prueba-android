@@ -73,9 +73,6 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
 
-        TextView txtFrida = (TextView) getActivity().findViewById(R.id.textViewMensajeBienvenida);
-        txtFrida.setVisibility(View.INVISIBLE);
-
         ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         imagen = (TargetImageView) view.findViewById(R.id.imagenreceta);

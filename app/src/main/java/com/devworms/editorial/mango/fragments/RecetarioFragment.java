@@ -78,9 +78,6 @@ public class RecetarioFragment extends Fragment {
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
 
-        TextView txtFrida = (TextView) getActivity().findViewById(R.id.textViewMensajeBienvenida);
-        txtFrida.setVisibility(View.INVISIBLE);
-
         TextView txtNombreRecetario = (TextView) view.findViewById(R.id.textViewNombreRecetario);
         String nombreMenu = objParse.getString("NombreMenu");
         txtNombreRecetario.setText(nombreMenu);
