@@ -24,7 +24,7 @@
         android:src="@drawable/bandapaquete"
         android:layout_alignParentEnd="false"
         android:scaleType="centerCrop"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,29 +42,31 @@
         android:paddingBottom="30dp" />
 
     <ImageView
-        android:layout_width="85dp"
-        android:layout_height="55dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:id="@+id/imageViewTipoPaquete"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
         android:src="@drawable/paquetesgratis"
-        android:layout_marginLeft="23dp"
         android:scaleType="fitCenter"
-        android:visibility="invisible"
-        android:layout_alignParentEnd="false" />
+        android:visibility="visible"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="0dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textViewNumeroRecetas"
         android:rotation="-45"
-        android:layout_alignBottom="@+id/imageViewTipoPaquete"
-        android:layout_alignLeft="@+id/imageViewTipoPaquete"
-        android:layout_alignStart="@+id/imageViewTipoPaquete"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="22dp"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:visibility="visible"
+        android:text="14 recetas"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="18dp"
+        android:textIsSelectable="true"
+        android:textSize="12dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,10 +77,12 @@
         android:textColor="#ffffff"
         android:fontFamily="@string/dgts__call_me"
         android:textStyle="bold"
-        android:text="Paquete"
-        android:layout_below="@+id/imageViewTipoPaquete"
+        android:text="PAQUETE"
+        android:textIsSelectable="true"
+        android:textSize="10dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="70dp" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -90,7 +94,8 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="false"
         android:id="@+id/imageViewDeviderTop"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="true"
+        android:visibility="visible" />
 
 
     <ImageView
