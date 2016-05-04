@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <com.theartofdev.fastimageloader.target.TargetImageView
-        android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="215dp"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="false" />
+  <com.theartofdev.fastimageloader.target.TargetImageView
+      android:id="@+id/image_view"
+      android:layout_width="match_parent"
+      android:layout_height="215dp"
+      android:layout_gravity="center"
+      android:adjustViewBounds="true"
+      android:scaleType="fitCenter"
+      android:layout_alignParentStart="false"
+      android:layout_alignParentEnd="false" />
 
-    <ImageView
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:id="@+id/imageViewCinta"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/bandapaquete"
-        android:layout_alignParentEnd="false"
-        android:scaleType="centerCrop"
-        android:visibility="visible" />
+  <ImageView
+      android:layout_width="160dp"
+      android:layout_height="160dp"
+      android:id="@+id/imageViewCinta"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
+      android:src="@drawable/bandapaquete"
+      android:layout_alignParentEnd="false"
+      android:scaleType="centerCrop"
+      android:visibility="visible" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textViewNombrePlatillo"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:shadowColor="#000000"
-        android:textAlignment="center"
-        android:gravity="center|clip_vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="false"
-        android:layout_alignBottom="@+id/image_view"
-        android:paddingBottom="30dp" />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:id="@+id/textViewNombrePlatillo"
+      android:textColor="#ffffff"
+      android:textStyle="bold"
+      android:shadowColor="#000000"
+      android:textAlignment="center"
+      android:gravity="center|clip_vertical"
+      android:layout_centerHorizontal="true"
+      android:layout_alignParentBottom="false"
+      android:layout_alignBottom="@+id/image_view"
+      android:paddingBottom="30dp" />
 
-    <ImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:id="@+id/imageViewTipoPaquete"
-        android:src="@drawable/paquetesgratis"
-        android:scaleType="fitCenter"
-        android:visibility="visible"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="false"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="0dp" />
+  <ImageView
+      android:layout_width="75dp"
+      android:layout_height="75dp"
+      android:id="@+id/imageViewTipoPaquete"
+      android:src="@drawable/paquetesgratis"
+      android:scaleType="fitCenter"
+      android:visibility="visible"
+      android:layout_alignParentTop="false"
+      android:layout_alignParentLeft="false"
+      android:layout_alignParentStart="false"
+      android:layout_marginLeft="25dp"
+      android:layout_marginTop="0dp" />
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/textViewNumeroRecetas"
-        android:rotation="-45"
-        android:textColor="#ffffff"
-        android:visibility="visible"
-        android:text="14 recetas"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="18dp"
-        android:textIsSelectable="true"
-        android:textSize="12dp" />
+  <TextView
+      android:layout_width="100dp"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceSmall"
+      android:id="@+id/textViewNumeroRecetas"
+      android:rotation="-45"
+      android:textColor="#ffffff"
+      android:visibility="visible"
+      android:text="14 recetas"
+      android:layout_marginLeft="40dp"
+      android:layout_marginTop="18dp"
+      android:textIsSelectable="true"
+      android:textSize="12dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/textViewTipoPaquete"
-        android:rotation="-45"
-        android:textColor="#ffffff"
-        android:fontFamily="@string/dgts__call_me"
-        android:textStyle="bold"
-        android:text="PAQUETE"
-        android:textIsSelectable="true"
-        android:textSize="10dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginTop="70dp" />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceSmall"
+      android:id="@+id/textViewTipoPaquete"
+      android:rotation="-45"
+      android:textColor="#ffffff"
+      android:fontFamily="@string/dgts__call_me"
+      android:textStyle="bold"
+      android:text="PAQUETE"
+      android:textIsSelectable="true"
+      android:textSize="10dp"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="false"
+      android:layout_marginTop="70dp" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/image_view"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:src="@drawable/devidertop"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentBottom="false"
-        android:id="@+id/imageViewDeviderTop"
-        android:adjustViewBounds="true"
-        android:visibility="visible" />
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBottom="@+id/image_view"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="false"
+      android:src="@drawable/devidertop"
+      android:layout_alignParentEnd="false"
+      android:layout_alignParentBottom="false"
+      android:id="@+id/imageViewDeviderTop"
+      android:adjustViewBounds="true"
+      android:visibility="visible" />
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageViewDeviderbottom"
-        android:src="@drawable/deviderbottom"
-        android:adjustViewBounds="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageViewDeviderbottom"
+      android:src="@drawable/deviderbottom"
+      android:adjustViewBounds="true"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

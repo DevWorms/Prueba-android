@@ -10,104 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a877a827-1f22-4b7b-b1e8-819ca0379636" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_24_0_0_alpha2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v13_24_0_0_alpha2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_24_0_0_alpha2.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v13_23_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_single.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_steps.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/test/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/test/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/test/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/test/R.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-19.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-19.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-21.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-21.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/devicecollector-sdk-2.5.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/devicecollector-sdk-2.5.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-android-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-android-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-jackson2-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-jackson2-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-2.1.3.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-2.1.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-asl-1.9.11.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-asl-1.9.11.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jsr305-1.3.9.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jsr305-1.3.9.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/junit-4.10.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/junit-4.10.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/devicecollector-sdk-2.5.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/devicecollector-sdk-2.5.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-android-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-android-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-jackson2-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-jackson2-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-2.1.3.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-2.1.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-asl-1.9.11.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-asl-1.9.11.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jsr305-1.3.9.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jsr305-1.3.9.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/junit-4.10.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/junit-4.10.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/DeviceCollectorDefaultImpl.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/DeviceCollectorDefaultImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/Openpay$1.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/Openpay$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/Openpay$2.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/Openpay$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/Openpay.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/Openpay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/model/Card.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/model/Card.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/BaseService$1.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/BaseService$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/BaseService$OpenpayHttpRequestInitializer$ServiceUnsuccessfulResponseHandler.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/BaseService$OpenpayHttpRequestInitializer$ServiceUnsuccessfulResponseHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/BaseService$OpenpayHttpRequestInitializer.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/BaseService$OpenpayHttpRequestInitializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/BaseService.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/BaseService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/CardService.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/CardService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/ServicesFactory.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/ServicesFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/TokenService.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/services/TokenService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/validation/CardType.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/validation/CardType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/validation/CardValidator.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/validation/CardValidator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/validation/LuhnValidator.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/debug/mx/openpay/android/validation/LuhnValidator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/DeviceCollectorDefaultImpl.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/DeviceCollectorDefaultImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/Openpay$1.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/Openpay$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/Openpay$2.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/Openpay$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/Openpay.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/Openpay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/model/Card.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/model/Card.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/BaseService$1.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/BaseService$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/BaseService$OpenpayHttpRequestInitializer$ServiceUnsuccessfulResponseHandler.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/BaseService$OpenpayHttpRequestInitializer$ServiceUnsuccessfulResponseHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/BaseService$OpenpayHttpRequestInitializer.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/BaseService$OpenpayHttpRequestInitializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/BaseService.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/BaseService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/CardService.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/CardService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/ServicesFactory.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/ServicesFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/TokenService.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/services/TokenService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/validation/CardType.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/validation/CardType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/validation/CardValidator.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/validation/CardValidator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/validation/LuhnValidator.class" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/release/mx/openpay/android/validation/LuhnValidator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-debug.aar" afterPath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-release.aar" afterPath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/fabric_1_3_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/fabric_1_3_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/twitter_core_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/twitter_core_1_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Prueba-android.iml" afterPath="$PROJECT_DIR$/Prueba-android.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/MenuFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/MenuFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_menu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/blame/res/androidTest/debug/multi/values.json" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/blame/res/androidTest/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/packageDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental/packageReleaseResources/merger.xml" />
     </list>
     <ignored path="Prueba-android.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -143,8 +47,23 @@
             <state />
           </provider>
           <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.083333">
+              <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+              <folding>
+                <element signature="e#2831#2854#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_screen_slider.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_screen_slider.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -3972,7 +3891,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2831#2854#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -4133,17 +4054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_screen_slider.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -4166,14 +4076,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_menu.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_screen_slider.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_menu.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.083333">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+          <folding>
+            <element signature="e#2831#2854#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
