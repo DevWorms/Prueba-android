@@ -163,8 +163,10 @@ public class FavoritosFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        for(ParseObject receta:mListToDelete){
-            receta.deleteInBackground();
+        if(mListToDelete != null) {
+            for (ParseObject receta : mListToDelete) {
+                receta.deleteInBackground();
+            }
         }
     }
 }

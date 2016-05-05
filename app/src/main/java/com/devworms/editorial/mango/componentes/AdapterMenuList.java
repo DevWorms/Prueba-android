@@ -33,6 +33,7 @@ import com.devworms.editorial.mango.R;
 import com.devworms.editorial.mango.dialogs.CompartirDialog;
 import com.devworms.editorial.mango.fragments.RecetarioFragment;
 import com.devworms.editorial.mango.main.StarterApplication;
+import com.devworms.editorial.mango.util.SoporteMultiplesPantallas;
 import com.devworms.editorial.mango.util.Specs;
 import com.parse.CountCallback;
 import com.parse.ParseException;
@@ -147,9 +148,9 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
             int width = size.x;
             int height = size.y;
 
-            Double d = height*0.41;
+            int alto = SoporteMultiplesPantallas.getImageMenuDimens(width, height);
 
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, d.intValue());
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, alto);
             //width and height of your Image ,if it is inside Relative change the LinearLayout to RelativeLayout.
             mTargetImageView.setLayoutParams(layoutParams);
 
