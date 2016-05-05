@@ -54,7 +54,7 @@
         jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos publicos/Prueba-android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.1"
-        sha1="a7af826fd28d679f6e8b6f15bafea61643c4c8d8">
+        sha1="d1bfc943b43801b687445a4638e628bd938a78d4">
         <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_fe8adf62039fddac30123eaa59287929da57f8fb/classes.dex" />
     </item>
     <item
@@ -89,7 +89,7 @@
         jar="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos publicos/Prueba-android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.1"
-        sha1="4b7a3851c5b68791feb146174785f7bc72adb397">
+        sha1="e13d7907ac67ef308747644f2ee5679f5647d6bd">
         <dex dex="/Users/sergio/Proyectos DevWorms/Moviles/Android/Proyectos publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f87b9728bbac7afdafcc30c90f66fcc66ba39ce0/classes.dex" />
     </item>
     <item

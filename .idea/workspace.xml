@@ -10,62 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a877a827-1f22-4b7b-b1e8-819ca0379636" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/util/SoporteMultiplesPantallas.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/test/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/test/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/test/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/classes/androidTest/debug/mx/openpay/android/test/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/incremental-safeguard/androidTest/debug/tag.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-19.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-19.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-21.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-21.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/devicecollector-sdk-2.5.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/devicecollector-sdk-2.5.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-android-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-android-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-jackson2-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-jackson2-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-2.1.3.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-2.1.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-asl-1.9.11.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-asl-1.9.11.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jsr305-1.3.9.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jsr305-1.3.9.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/junit-4.10.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/junit-4.10.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/devicecollector-sdk-2.5.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/devicecollector-sdk-2.5.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-android-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-android-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-jackson2-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-jackson2-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-2.1.3.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-2.1.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-asl-1.9.11.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-asl-1.9.11.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jsr305-1.3.9.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jsr305-1.3.9.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/junit-4.10.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/junit-4.10.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-debug.aar" afterPath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-release.aar" afterPath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-release.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/componentes/AdapterMenuList.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/componentes/AdapterMenuList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/FavoritosFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/FavoritosFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/util/SoporteMultiplesPantallas.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/util/SoporteMultiplesPantallas.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="Prueba-android.iws" />
@@ -100,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/componentes/AdapterMenuList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+              <caret line="150" column="83" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -109,8 +62,8 @@
       <file leaf-file-name="SoporteMultiplesPantallas.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/util/SoporteMultiplesPantallas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12552302">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.8698225">
+              <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -137,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/MenuFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/Login.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -157,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -3838,7 +3791,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="3_3_WQVGA_API_23" />
+    <property name="device.picker.selection" value="Nexus_10_API_23_tableta_10_06_pulgadas" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/apk" />
     <property name="ExportApk.ApkPath" value="$USER_HOME$/Desktop/apk" />
@@ -4135,9 +4088,9 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329806" sideWeight="0.49671593" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5601318" sideWeight="0.80870277" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5601318" sideWeight="0.80870277" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3970346" sideWeight="0.71851224" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3970346" sideWeight="0.71851224" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3970346" sideWeight="0.28148773" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4181,43 +4134,13 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/componentes/AdapterMenuList.java</url>
-          <line>150</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/util/SoporteMultiplesPantallas.java</url>
           <line>9</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/util/SoporteMultiplesPantallas.java</url>
-          <line>24</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/MenuFragment.java</url>
-          <line>66</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/Login.java</url>
-          <line>215</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/MainActivity.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -4644,38 +4567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/componentes/AdapterMenuList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/MenuFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/plecadivision.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -4689,10 +4580,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/fragments/MenuFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/componentes/AdapterMenuList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="150" column="83" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/editorial/mango/util/SoporteMultiplesPantallas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12552302">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.8698225">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
           <folding />
         </state>
       </provider>
