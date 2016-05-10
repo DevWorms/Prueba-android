@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.devworms.editorial.mango" >
+    package="com.devworms.toukan.mango" >
 
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -23,10 +23,10 @@
       to match your app's package name + ".permission.C2D_MESSAGE".
     -->
 
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
     <permission
-        android:name="com.devworms.editorial.mango.permission.C2D_MESSAGE"
+        android:name="${applicationId}.permission.C2D_MESSAGE"
         android:protectionLevel="signature"/>
-    <uses-permission android:name="com.devworms.editorial.mango.permission.C2D_MESSAGE" />
 
 
     <application
@@ -150,7 +150,7 @@
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
 
-                <category android:name="com.devworms.editorial.mango" />
+                <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
 
