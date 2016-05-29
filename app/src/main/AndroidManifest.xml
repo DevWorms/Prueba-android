@@ -23,9 +23,9 @@
       to match your app's package name + ".permission.C2D_MESSAGE".
     -->
 
-    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.devworms.toukan.mango.permission.C2D_MESSAGE"/>
     <permission
-        android:name="${applicationId}.permission.C2D_MESSAGE"
+        android:name="com.devworms.toukan.mango.permission.C2D_MESSAGE"
         android:protectionLevel="signature"/>
 
 
@@ -150,7 +150,7 @@
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
 
-                <category android:name="${applicationId}" />
+                <category android:name="com.devworms.toukan.mango" />
             </intent-filter>
         </receiver>
 
