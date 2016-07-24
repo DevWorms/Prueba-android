@@ -1,134 +1,28 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView1"
-    android:layout_width="fill_parent"
-    android:layout_height="match_parent" >
-
-    <LinearLayout
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:background="#e8e8e7"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+    android:touchscreenBlocksFocus="false"
+    android:background="@android:color/background_light">
+    <include
+        layout="@layout/app_bar_inicio_sesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-
-
-        <LinearLayout android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="30dp"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:background="@drawable/greybackground"
-            >
-
-            <ImageView android:layout_width="80dp"
-                android:layout_height="100dp"
-                android:background="@drawable/frida"
-                android:layout_gravity="center_horizontal"/>
-
-            <EditText android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Username"
-                android:id="@+id/usuario"
-                android:background="#f3f3f3"
-                android:paddingLeft="5dp" />
-
-
-            <EditText android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/password"
-                android:hint="password"
-                android:password="true"
-                android:background="#f3f3f3"
-                android:paddingLeft="5dp"
-                android:layout_marginTop="5dp" />
-
-
-            <Button android:layout_width="190dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="6dp"
-                android:text="Ingresar"
-                android:textColor="#fff"
-                android:textSize="13dp"
-                android:onClick="loguearConMail"
-                android:background="#13b586"/>
-
-
-
-            <Button android:layout_width="190dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="6dp"
-                android:text="Facebook"
-                android:textColor="#fff"
-                android:textSize="13dp"
-                android:onClick="loguearConFacebook"
-                android:background="#2683c2"/>
-
-            <Button android:layout_width="190dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="6dp"
-                android:text="Twitter"
-                android:textColor="#fff"
-                android:textSize="13dp"
-                android:onClick="loguearConTwitter"
-                android:background="#a5e4ff"/>
-
-            <Button android:layout_width="190dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="6dp"
-                android:text="Continuar sin iniciar sesión"
-                android:textColor="#fff"
-                android:textSize="13dp"
-                android:onClick="continuar"
-                android:background="#be0303"/>
-
-            <LinearLayout
-                android:layout_marginTop="4dp"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                >
-
-                <TextView
-                    android:id="@+id/reg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:textColor="#000000"
-                    android:text="Nuevo usuario"
-                    android:onClick="registrarUsuario"
-                    android:textStyle="bold"
-                    />
-
-                <TextView
-                    android:id="@+id/forgot_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:textColor="#000000"
-                    android:text="Olvide mi contraseña"
-                    android:textStyle="bold"
-                    android:onClick="recuperarContrasena"
-
-                    />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <ImageView
+            android:layout_width="154dp"
+            android:layout_height="208dp"
+            android:src="@drawable/inisiosesionfrida"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06" />
 
     </LinearLayout>
 
 
-
-</ScrollView>
+</LinearLayout>

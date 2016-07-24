@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.parse'
+
 apply plugin: 'io.fabric'
 
 repositories {
@@ -9,11 +9,10 @@ repositories {
 buildscript {
     repositories {
         mavenCentral()
-        maven { url 'https://maven.parse.com/repo' }
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'com.parse.tools:gradle:1.+'
+
         classpath 'io.fabric.tools:gradle:1.+'
     }
 }
