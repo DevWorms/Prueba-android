@@ -9,5 +9,6 @@
         android:layout_height="fill_parent"
         android:adjustViewBounds="true"
         android:backgroundTintMode="screen"
-        android:src="@drawable/splash" />
+        android:src="@drawable/splash"
+        android:scaleType="centerCrop" />
 </LinearLayout>

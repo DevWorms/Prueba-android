@@ -7,5 +7,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/imageView20"
-        android:src="@drawable/splash_tablet_720dp" />
+        android:src="@drawable/splash_tablet_720dp"
+        android:scaleType="centerCrop" />
 </LinearLayout>
