@@ -1,47 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/splash"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:backgroundTintMode="screen"
-        android:src="@drawable/fondo" />
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:id="@+id/imageView11"
-            android:src="@drawable/bienvenidos"
-            android:layout_weight="1"
-            android:scaleType="fitEnd"
-            android:cropToPadding="false"
-            android:contextClickable="false"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:id="@+id/imageView10"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/frida"
-            android:scaleType="fitCenter"
-            android:layout_weight="1.2"
-            android:layout_marginLeft="40dp" />
-    </LinearLayout>
-
-</RelativeLayout>
+        android:id="@+id/imageView21"
+        android:src="@drawable/splash"
+        android:scaleType="centerCrop" />
+</LinearLayout>
