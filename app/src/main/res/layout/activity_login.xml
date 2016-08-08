@@ -16,11 +16,11 @@
         android:orientation="vertical"
         android:weightSum="1">
         <ImageView
-            android:layout_width="154dp"
+            android:layout_width="174dp"
             android:layout_height="208dp"
             android:src="@drawable/inisiosesionfrida"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.06" />
+            android:layout_weight="0.16" />
 
     </LinearLayout>
 

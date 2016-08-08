@@ -9,6 +9,13 @@
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.1.0_d7035ab6a0f40b9e919611ea1a3ee2706202bc9b.jar" />
     </item>
     <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.1.1/3af19f153122737b372622fa6c81dd11a1c6b999/support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/support-annotations-24.1.1_f83fb935dfcbbd9f61fbd2bf65e20212b7d1ae50.jar" />
+    </item>
+    <item
         jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.twitter/twitter-text/1.13.0/78415b95ae3184c5926d593feab64bfc0b73b2dd/twitter-text-1.13.0.jar"
         jumboMode="true"
         revision="23.0.1"
@@ -51,67 +58,25 @@
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_0ec428a053c1e5c315bacea39f17f3bf536663eb.jar" />
     </item>
     <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.7/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="3318d37e2378c4982ad6d2635eed93d9e7f7940b">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/io.fabric.sdk.android-fabric-1.3.7_5c5c5fd963ed77ff53555fc15ffcad576a962f30.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.7.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="e0f6e271147a09c34a8fa0d09e1df8c383ce3f44">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-tweet-ui-1.7.0_127b700e98ddf23a13df1ccac0a1c8195d6cc026.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_75b6e91092e032fdaf0b789989e50e88a6215b86.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/okhttp-2.2.0_80fdbf3fddc6f8f3a0ade5a800c44f1e4937ec12.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter/1.10.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="c70dc7e189e45e8a8b07a2cafee76aefdc9822df">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-twitter-1.10.0_d3306fe63ab757ba6345865e9009a956c47131b4.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.0_a74231b5d8a02fcb94232601bea96a410e64a8e1.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="b089d0d8a6ac2ec6f51344b0afb1bf4692149f94">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/instant-run_b43bfc3414382d9fe16374fe073e727f8229f259.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.theartofdev/fast-image-loader/0.8.4/dbc38870b9506ceef6ffdf73a7bfce864587a4df/fast-image-loader-0.8.4.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="dbc38870b9506ceef6ffdf73a7bfce864587a4df">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/fast-image-loader-0.8.4_6f74e852b1ef85521735ec77cf577711d923c8eb.jar" />
-    </item>
-    <item
         jar="/Users/sergio/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
         jumboMode="true"
         revision="23.0.1"
         sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/ParseFacebookUtilsV4-1.10.3_4411684062b7594680b4df2df2db41ca10e1692a.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/internal_impl-24.1.1_92d3e3a37c702667cdf32f25918876b9789b1f39.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.7/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3318d37e2378c4982ad6d2635eed93d9e7f7940b">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/io.fabric.sdk.android-fabric-1.3.7_5c5c5fd963ed77ff53555fc15ffcad576a962f30.jar" />
     </item>
     <item
         jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.1/jars/classes.jar"
@@ -128,18 +93,18 @@
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.github.chrisbanes.photoview-library-1.2.3_20dbdce0973954e3b7b53ab93b48141830f794d4.jar" />
     </item>
     <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.0.0/jars/libs/internal_impl-24.0.0.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="61fd2644ca586288d0e733377d12b5f6da18c4ca">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_f554f57f33f76d0e3d6e8641c67cb0b0b2c97170.jar" />
-    </item>
-    <item
         jar="/Users/sergio/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
         jumboMode="true"
         revision="23.0.1"
         sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/ParseTwitterUtils-1.10.3_41bde2f6d4152ec071a2fdf351f23c9f65b45581.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.7.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e0f6e271147a09c34a8fa0d09e1df8c383ce3f44">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-tweet-ui-1.7.0_127b700e98ddf23a13df1ccac0a1c8195d6cc026.jar" />
     </item>
     <item
         jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-composer/1.0.1/jars/classes.jar"
@@ -177,13 +142,6 @@
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/google-http-client-1.17.0-rc_e6db54f8421d5ab24c2993ec09c81af0c8a87d20.jar" />
     </item>
     <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.0.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="c87270a9d828773c296fadde93e939c8190a6b1b">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v13-24.0.0_35006b0adb20026a70530f92f8677bb0cd072bc9.jar" />
-    </item>
-    <item
         jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/44780c2cf98f6a3cf4e77f1234d644758b329201/bolts-android-1.2.1.jar"
         jumboMode="true"
         revision="23.0.1"
@@ -208,7 +166,7 @@
         jar="/Users/sergio/Prueba-android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.1"
-        sha1="1f4017f7e2bd4f009f2861f318094533c89cd379">
+        sha1="9c6154d40888c2d492a0f8086d42996244ed6729">
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_ecd9d6b31cccdd703eb7f116ffa7fba7acdc803e.jar" />
     </item>
     <item
@@ -219,18 +177,32 @@
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.7.0_e7de59f781c1e2acdfa182d96965201947ee2c79.jar" />
     </item>
     <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.1.1_fb5cea4c3bb393296d10d60fcdb1de885786a6f1.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="327f68d58bb39fb8b585150596b313541f8fdb87">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v13-24.1.1_717ad72cb8345c02d7dd5b3ffb803ed4bc5948a5.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/okhttp-2.2.0_80fdbf3fddc6f8f3a0ade5a800c44f1e4937ec12.jar" />
+    </item>
+    <item
         jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
         jumboMode="true"
         revision="23.0.1"
         sha1="a681c044244d9fc375198588297a39ba78028423">
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/retrofit-1.9.0_b11cc558c40262ba04d3f77bba94c23e07fabe47.jar" />
-    </item>
-    <item
-        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.0.0/2943c74db6d4346ab8c6531adac91fa05c137c40/support-annotations-24.0.0.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_e6ac3dae20753a9415e185e19f128e7b413a1a9e.jar" />
     </item>
     <item
         jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
@@ -254,13 +226,6 @@
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/junit-4.10_2afb6b051f688bd6c622ac1fcb35b192beb0812b.jar" />
     </item>
     <item
-        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_b3675c2dba453df9ee338be25384ac5f9ae9b934.jar" />
-    </item>
-    <item
         jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/google-http-client-jackson2-1.17.0-rc.jar"
         jumboMode="true"
         revision="23.0.1"
@@ -275,11 +240,46 @@
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/library-1.0.19_bfbdae95d2c2404f4873de2009e230cb8045a6f2.jar" />
     </item>
     <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter/1.10.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="c70dc7e189e45e8a8b07a2cafee76aefdc9822df">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.twitter.sdk.android-twitter-1.10.0_d3306fe63ab757ba6345865e9009a956c47131b4.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="ca74722504f90166103d01edcdfdb93192eb1cba">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/internal_impl-24.1.1_314c8d68e1c4d9c56117c7cec399bd31cdc7d317.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.0_a74231b5d8a02fcb94232601bea96a410e64a8e1.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/Prueba-android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="facdbe039602be9243c5292e4d84c721948be4c2">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/instant-run_b43bfc3414382d9fe16374fe073e727f8229f259.jar" />
+    </item>
+    <item
         jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.3/36366e460af2c0f224bb8f70b64e3302f638b138/parse-android-1.10.3.jar"
         jumboMode="true"
         revision="23.0.1"
         sha1="36366e460af2c0f224bb8f70b64e3302f638b138">
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/parse-android-1.10.3_0dd5232c4a18cce7c770dd246d8f4f6c50721eba.jar" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.theartofdev/fast-image-loader/0.8.4/dbc38870b9506ceef6ffdf73a7bfce864587a4df/fast-image-loader-0.8.4.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="dbc38870b9506ceef6ffdf73a7bfce864587a4df">
+        <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/pre-dexed/debug/fast-image-loader-0.8.4_6f74e852b1ef85521735ec77cf577711d923c8eb.jar" />
     </item>
 
 </items>
