@@ -22,16 +22,16 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
 
                     android:id="@+id/img_fondo_barra"
                     android:src="@drawable/appbar"
                     android:background="#f16665"
                     android:adjustViewBounds="false"
                     android:orientation="vertical"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:scaleType="fitStart" />
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY" />
 
             </LinearLayout>
 
