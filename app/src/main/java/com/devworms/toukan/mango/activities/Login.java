@@ -21,6 +21,7 @@ import android.view.View;
 
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -55,6 +56,26 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+        TextView usuario = ((TextView)findViewById(R.id.editTextMail) );
+        TextView password = ((TextView)findViewById(R.id.editTextContrasena) );
+
+        usuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayKeyboard((TextView) v);
+            }
+        });
+
+        password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayKeyboard((TextView) v);
+            }
+        });
+
+
+
+
 
         try {
 
@@ -79,6 +100,13 @@ public class Login extends AppCompatActivity {
         catch(Exception ex)
         {
 
+        }
+    }
+
+    private void displayKeyboard(TextView textView){
+        if (textView != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInputFromWindow(textView.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
         }
     }
 
@@ -113,8 +141,8 @@ public class Login extends AppCompatActivity {
         final Activity activity = this;
         String userName = "";
         String pass = "";
-        TextView usuario = ((TextView)findViewById(R.id.usuario) );
-        TextView password = ((TextView)findViewById(R.id.password) );
+        TextView usuario = ((TextView)findViewById(R.id.editTextMail) );
+        TextView password = ((TextView)findViewById(R.id.editTextContrasena) );
 
         if (usuario.getText().toString() == null ||  password.getText() == null ||
             usuario.getText().toString().toString().equals("") ||  password.getText().toString().equals("")) {

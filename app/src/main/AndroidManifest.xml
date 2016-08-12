@@ -23,6 +23,13 @@
       to match your app's package name + ".permission.C2D_MESSAGE".
     -->
 
+    <supports-screens
+        android:smallScreens="false"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true" />
+
     <uses-permission android:name="com.devworms.toukan.mango.permission.C2D_MESSAGE"/>
     <permission
         android:name="com.devworms.toukan.mango.permission.C2D_MESSAGE"
