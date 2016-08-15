@@ -2,6 +2,7 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
         jar="/Users/sergio/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
         jumboMode="true"
         revision="23.0.1"
@@ -280,6 +281,286 @@
         revision="23.0.1"
         sha1="36366e460af2c0f224bb8f70b64e3302f638b138">
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/parse-android-1.10.3_0dd5232c4a18cce7c770dd246d8f4f6c50721eba/classes.dex" />
+=======
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.1.1_845c2b33ef6def4197b3167ef679f7d5408adc44/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.7.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.7.0_48f79d5e12f5625073382c2d630833abee20349b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseTwitterUtils-1.10.3_4e58a6e2411eeaaced04421d97c4c83ac693e158/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.1.0_fda1de2aec1191e27b88c39cdeaa919000c4dd07/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.7.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e0f6e271147a09c34a8fa0d09e1df8c383ce3f44">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.twitter.sdk.android-tweet-ui-1.7.0_402188ba9845f9efaa3d3c16731c4b7616cd2f91/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.1.1_a87cd6d0c727e216752d26a52874e8f4f1b73754/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/google-http-client-1.17.0-rc.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="519f6e36b8db3bf474150f248c865384675459cf">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-1.17.0-rc_ff36b89f004cd5818a1117063924590379db3021/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.6.0_98052134adfcf606141a2e589b6db6b9f0e55971/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_0ec428a053c1e5c315bacea39f17f3bf536663eb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-1.9.0_b11cc558c40262ba04d3f77bba94c23e07fabe47/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/44780c2cf98f6a3cf4e77f1234d644758b329201/bolts-android-1.2.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="44780c2cf98f6a3cf4e77f1234d644758b329201">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-android-1.2.1_b44e1a11b79be67cbd905d7d8dc1b4d75811d177/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/jackson-core-2.1.3.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="546b2c0fb3a121260ec6cfabbaa559f9f368cfde">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-2.1.3_941079110d0208ed98ec61f0b413486d7193392c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.3/36366e460af2c0f224bb8f70b64e3302f638b138/parse-android-1.10.3.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="36366e460af2c0f224bb8f70b64e3302f638b138">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/parse-android-1.10.3_0dd5232c4a18cce7c770dd246d8f4f6c50721eba/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter/1.10.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="c70dc7e189e45e8a8b07a2cafee76aefdc9822df">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.twitter.sdk.android-twitter-1.10.0_ef081277eff53befa55bfbb38a472f887d9ecd0b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.1.0_91962c462497d4daae4330d1932e5beda88fecd6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="0e85a8fb54f04489a01242e7579e7512ef5a28b1">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.twitter.sdk.android-twitter-core-1.6.1_ff9387f6dec9a9e27821d7bdf5a3da5055a381ab/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.0.8/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e724073d032731be77fad0f993e2970fb4429e3a">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.jpardogo.materialtabstrip-library-1.0.8_f6a4fccf5abd04c1dd5df38f18c3a034f29d235f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.3.1_f1bc6645b40c2869d3380381b67ff24d95fb6320/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.2.0_8968de83578598c174791964f33a73420e255397/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/junit-4.10.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="7595505f88a63828e55719138442fa279c703bbc">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/junit-4.10_4e9c5286820aa269737310f32cf7908c963fbb09/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.twitter/twitter-text/1.13.0/78415b95ae3184c5926d593feab64bfc0b73b2dd/twitter-text-1.13.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="78415b95ae3184c5926d593feab64bfc0b73b2dd">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/twitter-text-1.13.0_28c63e982e830882e0870804611ddcf52fd7e620/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.7/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3318d37e2378c4982ad6d2635eed93d9e7f7940b">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/io.fabric.sdk.android-fabric-1.3.7_9410629d9f9d1326e68ccc678192df303189850e/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/jackson-core-asl-1.9.11.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="52f11326d2bd0e197ac5865e9cd9a3cc79888328">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-asl-1.9.11_57a5ee97f1c106c80ec2cb08d5bf55e5aae64e16/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="024c8325e24b89e8417ae40f66aa3e464206f578">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_9b5e51d7e9338c15b7f9d07dc2755c4f4865edff/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="ca74722504f90166103d01edcdfdb93192eb1cba">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.1.1_f26e4ea57a811d008a16065a012d65676dce9ba1/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.1.0_678f6e1711b5fdf4452e31c46fff6718096a27f7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.9.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="b727e800debd202a5113d675f024751bc82b2cbf">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.digits.sdk.android-digits-1.9.1_29e2bd39c4ddc2dcd7587e2ea2ee105003121b01/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseFacebookUtilsV4-1.10.3_f3a3451227486ce511bca08f8d789678c6c8baed/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.github.chrisbanes.photoview/library/1.2.3/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="81aa0e8e77d948204aa6754019c6f3c04dd922e3">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.chrisbanes.photoview-library-1.2.3_80f62e2006d8dab02d43e623bc177379e5fa7d41/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/library-1.0.19_bfbdae95d2c2404f4873de2009e230cb8045a6f2/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/google-http-client-android-1.17.0-rc.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="51f420255f7a07ebd76c99cb0b93c869e6b1e6cd">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-android-1.17.0-rc_fe199cab09a385ec8a625fcd9f1e134e639134ad/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="690355b56c5f798bd226388122cb87297cc6c1f6">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_1a9f740a85787195dd0fe7b3a98ddf63f37d4a95/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-composer/1.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="8ec69f9e7e18a05a46b4fcaa69368b6d42fa6324">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.twitter.sdk.android-tweet-composer-1.0.1_a764dfdce3f6f4bdc96c0f327cb3817f6bba7bd5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/google-http-client-jackson2-1.17.0-rc.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="b5214b4c8973020e9d0c6cfbd8252f7e5e8f3b27">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-jackson2-1.17.0-rc_dc5b5cc4cc6a2f6d8e3b14460277c3064fbd1451/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-2.2.0_80fdbf3fddc6f8f3a0ade5a800c44f1e4937ec12/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/jsr305-1.3.9.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="ef5a5dd7e61cc6ad6993a8c0716a2a3f902c673f">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jsr305-1.3.9_bbb9fd68d6fee7d66b46e7c37541b2db3ec113f3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.theartofdev/fast-image-loader/0.8.4/dbc38870b9506ceef6ffdf73a7bfce864587a4df/fast-image-loader-0.8.4.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="dbc38870b9506ceef6ffdf73a7bfce864587a4df">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fast-image-loader-0.8.4_6f74e852b1ef85521735ec77cf577711d923c8eb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="327f68d58bb39fb8b585150596b313541f8fdb87">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v13-24.1.1_726c74fa41e04d83180a154319a3fd995b5c4a04/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.1.1/3af19f153122737b372622fa6c81dd11a1c6b999/support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.1.1_f83fb935dfcbbd9f61fbd2bf65e20212b7d1ae50/classes.dex" />
+    </item>
+    <item
+        jar="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/exploded-aar/Prueba-android/openpayandroid/unspecified/jars/libs/devicecollector-sdk-2.5.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="439fb2e98d10152592f98400023b1d43d021db4a">
+        <dex dex="/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/devicecollector-sdk-2.5_7fdc542af5867125b88b81fb6c2da7584b633121/classes.dex" />
+>>>>>>> origin/master
     </item>
 
 </items>
