@@ -55,49 +55,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_openpayandroid_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_pdk_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/devicecollector-sdk-2.5.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/devicecollector-sdk-2.5.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-android-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-android-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-jackson2-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/google-http-client-jackson2-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-2.1.3.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-2.1.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-asl-1.9.11.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jackson-core-asl-1.9.11.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jsr305-1.3.9.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/jsr305-1.3.9.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/junit-4.10.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/debug/libs/junit-4.10.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/devicecollector-sdk-2.5.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/devicecollector-sdk-2.5.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-android-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-android-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-jackson2-1.17.0-rc.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/google-http-client-jackson2-1.17.0-rc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-2.1.3.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-2.1.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-asl-1.9.11.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jackson-core-asl-1.9.11.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jsr305-1.3.9.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/jsr305-1.3.9.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/junit-4.10.jar" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/bundles/release/libs/junit-4.10.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/openpayandroid/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-debug.aar" afterPath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-release.aar" afterPath="$PROJECT_DIR$/openpayandroid/build/outputs/aar/openpayandroid-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_24_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_24_1_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/app_bar_inicio_sesion.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/app_bar_inicio_sesion.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openpayandroid/openpayandroid.iml" afterPath="$PROJECT_DIR$/openpayandroid/openpayandroid.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pdk/pdk.iml" afterPath="$PROJECT_DIR$/pdk/pdk.iml" />
     </list>
     <ignored path="Prueba-android.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -152,13 +114,13 @@
       </file>
       <file leaf-file-name="app_bar_inicio_sesion.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-small-ldpi/app_bar_inicio_sesion.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.72727275">
               <caret line="16" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
+          <provider selected="true" editor-type-id="android-designer">
             <state />
           </provider>
         </entry>
@@ -224,7 +186,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_bar_inicio_sesion.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app_bar_inicio_sesion.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-hdpi/app_bar_inicio_sesion.xml">
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="-5.818182">
@@ -237,7 +199,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app_bar_inicio_sesion.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app_bar_inicio_sesion.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/app_bar_inicio_sesion.xml">
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.72727275">
@@ -3775,10 +3737,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="115" />
-    <option name="y" value="262" />
+    <option name="x" value="31" />
+    <option name="y" value="67" />
     <option name="width" value="1833" />
-    <option name="height" value="1234" />
+    <option name="height" value="1235" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -3899,7 +3861,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="device.picker.selection" value="10_1_800x1280" />
+    <property name="device.picker.selection" value="4_480x800" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="319" />
   </component>
@@ -4180,7 +4142,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="115" y="262" width="1833" height="1234" extended-state="0" />
+    <frame x="31" y="67" width="1833" height="1235" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4189,10 +4151,10 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3944544" sideWeight="0.49804577" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3941019" sideWeight="0.48464546" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1449016" sideWeight="0.5053043" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3941019" sideWeight="0.5153546" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -4203,7 +4165,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17029592" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1449016" sideWeight="0.4946957" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14477211" sideWeight="0.48352876" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -4709,17 +4671,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-small-ldpi/app_bar_inicio_sesion.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/devworms/toukan/mango/activities/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4828,10 +4779,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-hdpi/app_bar_inicio_sesion.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/app_bar_inicio_sesion.xml">
       <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.818182">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+        <state vertical-scroll-proportion="-0.72727275">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -4839,10 +4790,21 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/app_bar_inicio_sesion.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-small-ldpi/app_bar_inicio_sesion.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.72727275">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="16" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-hdpi/app_bar_inicio_sesion.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.818182">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
           <folding />
         </state>
       </provider>

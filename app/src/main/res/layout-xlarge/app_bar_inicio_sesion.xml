@@ -23,14 +23,15 @@
 
 
             app:contentInsetStart="0dp"
-            style="@style/TransparentToolbar">
+            style="@style/TransparentToolbar"
+            android:background="#e76463">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent">
 
                 <ImageView
-                    android:layout_width="868dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
                     android:id="@+id/img_fondo_barra"
@@ -38,7 +39,9 @@
 
                     android:adjustViewBounds="true"
                     android:orientation="vertical"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitStart"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-5dp" />
 
             </LinearLayout>
 
