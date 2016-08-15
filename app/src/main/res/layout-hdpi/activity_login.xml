@@ -9,28 +9,30 @@
     <include
         layout="@layout/app_bar_inicio_sesion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_weight="1"
+        android:layout_gravity="center">
         <ImageView
-            android:layout_width="138dp"
-            android:layout_height="138dp"
+            android:layout_width="122dp"
+            android:layout_height="128dp"
             android:src="@drawable/fridas"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp" />
+            android:layout_gravity="center_horizontal" />
 
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="30dp"
+            android:layout_width="223dp"
+            android:layout_height="26dp"
             android:id="@+id/imageButton"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/btnfb"
             android:scaleType="fitXY"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="15dp" />
 
         <ImageView
             android:layout_width="142dp"
@@ -72,7 +74,7 @@
             android:id="@+id/imageView25"
             android:src="@drawable/bolita"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="9dp"
             android:scaleType="fitXY" />
 
         <ImageView
@@ -86,10 +88,10 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="6dp">
+            android:layout_marginTop="24dp">
 
             <ImageView
                 android:layout_width="120dp"
@@ -99,7 +101,7 @@
                 android:src="@drawable/aunnotienescuenta"
                 android:scaleType="fitXY"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="42dp"
+                android:layout_marginLeft="3dp"
                 android:layout_marginTop="2dp" />
 
             <ImageView

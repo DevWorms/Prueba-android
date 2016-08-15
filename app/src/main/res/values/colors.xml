@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#e14e51</color>
+    <color name="colorPrimaryDark">#e14e51</color>
     <color name="colorAccent">#FF4081</color>
     <color name="divider">#ff8c40</color>
     <color name="menuItem">#676670</color>
@@ -9,5 +9,5 @@
     <color name="barraPincipal">#db4f4f</color>
     <color name="barraSecundaria">#FFEA555A</color>
     <color name="opcionMenuSeleccionada">#eb555a</color>
-
+    <color name="actionbar_opacity">#33000000</color>
 </resources>

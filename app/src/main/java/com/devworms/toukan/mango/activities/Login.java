@@ -15,6 +15,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 //import android.util.Log;
 import android.support.v7.internal.view.ContextThemeWrapper;
+import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -72,7 +73,6 @@ public class Login extends AppCompatActivity {
                 displayKeyboard((TextView) v);
             }
         });
-
 
 
 

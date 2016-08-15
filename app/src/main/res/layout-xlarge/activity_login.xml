@@ -1,6 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:touchscreenBlocksFocus="false"
+    android:background="@android:color/background_light">
+    <include
+        layout="@layout/app_bar_inicio_sesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fridas"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="83dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/btnfb"
+            android:scaleType="fitXY"
+            android:layout_marginTop="35dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView23"
+            android:src="@drawable/oconcorreoelectronico"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:layout_width="580dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextMail"
+            android:hint="Mail"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:textIsSelectable="true" />
+        <EditText
+            android:layout_width="580dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextContrasena"
+            android:hint="Contraseña"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:textIsSelectable="true"
+            android:layout_marginTop="5dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView24"
+            android:layout_gravity="center"
+            android:src="@drawable/iniciasesion"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView25"
+            android:src="@drawable/bolita"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView26"
+            android:src="@drawable/olvidastetucontrasena"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="65dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView27"
+                android:layout_gravity="center"
+                android:src="@drawable/aunnotienescuenta"
+                android:scaleType="fitXY"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="2dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView28"
+                android:src="@drawable/registrateaqui"
+                android:scaleType="fitXY"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </LinearLayout>
