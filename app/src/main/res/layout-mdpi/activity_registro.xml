@@ -1,0 +1,109 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:touchscreenBlocksFocus="false"
+    android:background="@android:color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="25dp"
+            android:id="@+id/imageButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/btnfb"
+            android:scaleType="fitXY"
+            android:onClick="loguearConFacebook"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="9dp"
+            android:id="@+id/imageView23"
+            android:src="@drawable/oconcorreoelectronico"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextMail"
+            android:hint="Mail"
+            android:layout_gravity="center"
+            android:textSize="9dp"
+            android:textIsSelectable="true" />
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextContrasena"
+            android:hint="Contraseña"
+            android:layout_gravity="center"
+            android:textSize="9dp"
+            android:textIsSelectable="true" />
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="23dp"
+            android:id="@+id/imageView24"
+            android:layout_gravity="center"
+            android:src="@drawable/iniciasesion"
+            android:onClick="loguearConMail"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:id="@+id/imageView25"
+            android:src="@drawable/bolita"
+            android:layout_gravity="center"
+            android:layout_marginTop="9dp"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="10dp"
+            android:id="@+id/imageView26"
+            android:src="@drawable/olvidastetucontrasena"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="13dp"
+                android:id="@+id/imageView27"
+                android:layout_gravity="center"
+                android:src="@drawable/aunnotienescuenta"
+                android:scaleType="fitXY"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="1dp" />
+
+            <ImageView
+                android:layout_width="95dp"
+                android:layout_height="10dp"
+                android:id="@+id/imageView28"
+                android:src="@drawable/registrateaqui"
+                android:scaleType="fitXY"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

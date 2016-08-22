@@ -172,9 +172,6 @@ public class Login extends AppCompatActivity {
             userName = usuario.getText().toString();
             pass = password.getText().toString();
 
-            userName = "upiicsavideogames@gmail.com";
-            pass = "dascac";
-
 
             ParseUser.logInInBackground(userName, pass, new LogInCallback() {
                 public void done(ParseUser user, ParseException e) {
@@ -311,66 +308,9 @@ public class Login extends AppCompatActivity {
 
     public void registrarUsuario(View view)
     {
-
-        final Activity actividad = this;
-        final Dialog dialog = new Dialog(this);
-        dialog.setCancelable(true);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //Aqui haces que tu layout se muestre como dialog
-
-        dialog.setContentView(R.layout.dialog_usuario);
-        ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                dialog.cancel();
-                dialog.closeOptionsMenu();
-            }
-        });
-
-        ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
-            private EditText txtCorreo, txtPass, txtPassConfirm;
-
-            @Override
-            public void onClick(View view) {
-
-                txtCorreo = (EditText)dialog.findViewById(R.id.txtCorreo);
-                txtPass = (EditText)dialog.findViewById(R.id.password);
-                txtPassConfirm = (EditText)dialog.findViewById(R.id.passwordConfirm);
-
-                if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("") ) {
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
-
-
-                    // set title
-                    alertDialogBuilder.setTitle("Error");
-
-                    // set dialog message
-                    alertDialogBuilder
-                            .setMessage("Debe llenar los datos")
-                            .setCancelable(false)
-                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-                                }
-                            });
-
-                    // create alert dialog
-                    AlertDialog alertDialog = alertDialogBuilder.create();
-
-                    // show it
-                    alertDialog.show();
-                }else {
-
-                    Usuario usuario = new Usuario(txtCorreo, txtPass, txtPassConfirm);
-                    usuario.nuevoUsuario(actividad,dialog);
-
-                }
-
-            }
-        });
-
-        dialog.show();
+        Intent intent = new Intent(Login.this,RegistroActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 

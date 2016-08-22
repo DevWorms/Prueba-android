@@ -32,6 +32,7 @@
             android:layout_gravity="center_horizontal"
             android:src="@drawable/btnfb"
             android:scaleType="fitXY"
+            android:onClick="loguearConFacebook"
             android:layout_marginTop="15dp" />
 
         <ImageView
@@ -41,6 +42,7 @@
             android:src="@drawable/oconcorreoelectronico"
             android:layout_gravity="center"
             android:scaleType="fitXY"
+
             android:layout_marginTop="10dp" />
 
         <EditText
@@ -66,6 +68,7 @@
             android:id="@+id/imageView24"
             android:layout_gravity="center"
             android:src="@drawable/iniciasesion"
+            android:onClick="loguearConMail"
             android:scaleType="fitXY" />
 
         <ImageView
@@ -110,6 +113,7 @@
                 android:id="@+id/imageView28"
                 android:src="@drawable/registrateaqui"
                 android:scaleType="fitXY"
+                android:onClick="registrarUsuario"
                 android:layout_gravity="center" />
         </LinearLayout>
 

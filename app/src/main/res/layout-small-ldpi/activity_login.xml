@@ -110,6 +110,7 @@
                 android:id="@+id/imageView28"
                 android:src="@drawable/registrateaqui"
                 android:scaleType="fitXY"
+                android:onClick="registrarUsuario"
                 android:layout_gravity="center" />
         </LinearLayout>
 
