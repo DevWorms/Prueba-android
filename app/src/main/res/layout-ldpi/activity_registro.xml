@@ -80,7 +80,7 @@
             android:id="@+id/imageView25"
             android:src="@drawable/bolita"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="80dp"
             android:scaleType="fitXY" />
 
         <ImageView
@@ -139,7 +139,7 @@
                 android:layout_marginTop="2dp" />
 
             <ImageView
-                android:layout_width="10dp"
+                android:layout_width="100dp"
                 android:layout_height="12dp"
                 android:id="@+id/imageView30"
                 android:src="@drawable/inicia"

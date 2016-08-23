@@ -22,29 +22,5 @@
                 }
             }
         ]
-    },
-    {
-        "outputFile": "/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/openpayandroid/build/intermediates/res/merged/androidTest/debug/values/values.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 52,
-                    "endOffset": 103
-                },
-                "from": {
-                    "file": "/Users/sergio/Documents/Devworms/Proyectos Publicos/Prueba-android/openpayandroid/build/intermediates/bundles/debug/res/values/values.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 52,
-                        "endOffset": 103
-                    }
-                }
-            }
-        ]
     }
 ]
