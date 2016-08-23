@@ -660,7 +660,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                 }else {
 
                     Usuario usuario = new Usuario(txtCorreo, txtPass, txtPassConfirm);
-                    usuario.nuevoUsuario(actividad,dialog);
+                    usuario.nuevoUsuario(actividad);
 
                 }
 

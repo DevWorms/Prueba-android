@@ -109,7 +109,7 @@ public class Usuario{
 
     }
 
-    public void nuevoUsuario (final Activity activity, final Dialog dialogo){
+    public void nuevoUsuario (final Activity activity){
 
 
         if (txtPass.getText().toString().equals(txtPassConfirm.getText().toString())) {
@@ -141,7 +141,7 @@ public class Usuario{
                                 .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog,int id) {
                                         ParseUser.logOut();
-                                        dialogo.cancel();
+
                                     }
                                 });
 

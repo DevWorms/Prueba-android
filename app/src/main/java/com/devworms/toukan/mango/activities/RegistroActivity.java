@@ -149,23 +149,20 @@ public class RegistroActivity extends AppCompatActivity{
             return;
         }
 
-        final Activity activity = this;
-        String userName = "";
-        String pass = "";
-        TextView usuario = ((TextView)findViewById(R.id.editTextMail) );
-        TextView password = ((TextView)findViewById(R.id.editTextContrasena) );
+        txtCorreo = (EditText)findViewById(R.id.txtCorreo);
+        txtPass = (EditText)findViewById(R.id.password);
+        txtPassConfirm = (EditText)findViewById(R.id.passwordConfirm);
 
-        if (usuario.getText().toString() == null ||  password.getText() == null ||
-                usuario.getText().toString().toString().equals("") ||  password.getText().toString().equals("")) {
-
+        if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("") ) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
 
+
             // set title
-            alertDialogBuilder.setTitle("Faltan datos por llenar");
+            alertDialogBuilder.setTitle("Error");
 
             // set dialog message
             alertDialogBuilder
-                    .setMessage("Debe ingresar correo y contraseña")
+                    .setMessage("Debe llenar los datos")
                     .setCancelable(false)
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -180,46 +177,10 @@ public class RegistroActivity extends AppCompatActivity{
             alertDialog.show();
         }else {
 
-            userName = usuario.getText().toString();
-            pass = password.getText().toString();
-
-
-
-            ParseUser.logInInBackground(userName, pass, new LogInCallback() {
-                public void done(ParseUser user, ParseException e) {
-                    if (user != null) {
-                        Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(activity, R.style.myDialog));
-
-
-                        // set title
-                        alertDialogBuilder.setTitle("Error");
-
-                        // set dialog message
-                        alertDialogBuilder
-                                .setMessage("Revise sus datos o su conexion a internet")
-                                .setCancelable(false)
-                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-
-                                    }
-                                });
-
-                        // create alert dialog
-                        AlertDialog alertDialog = alertDialogBuilder.create();
-
-                        // show it
-                        alertDialog.show();
-                    }
-                }
-            });
-
+            Usuario usuario = new Usuario(txtCorreo, txtPass, txtPassConfirm);
+            usuario.nuevoUsuario(this);
 
         }
-
     }
 
     private boolean isNetworkAvailable() {
