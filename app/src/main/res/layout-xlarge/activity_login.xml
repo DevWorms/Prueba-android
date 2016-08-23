@@ -50,7 +50,7 @@
             android:hint="Mail"
             android:layout_gravity="center"
             android:textSize="30dp"
-            android:textIsSelectable="true" />
+            android:textIsSelectable="false" />
         <EditText
             android:layout_width="580dp"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
             android:hint="Contraseña"
             android:layout_gravity="center"
             android:textSize="30dp"
-            android:textIsSelectable="true"
+            android:textIsSelectable="false"
             android:layout_marginTop="5dp" />
 
         <ImageView

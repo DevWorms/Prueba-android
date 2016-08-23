@@ -19,18 +19,18 @@
         android:weightSum="1">
 
         <ImageView
-            android:layout_width="217dp"
+            android:layout_width="220dp"
             android:layout_height="30dp"
             android:id="@+id/imageButton"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/registreatefb"
             android:scaleType="fitXY"
             android:onClick="loguearConFacebook"
-            android:layout_marginTop="80dp" />
+            android:layout_marginTop="79dp" />
 
         <ImageView
-            android:layout_width="140dp"
-            android:layout_height="9dp"
+            android:layout_width="150dp"
+            android:layout_height="12dp"
             android:id="@+id/imageView23"
             android:src="@drawable/oconcorreoelectronico"
             android:layout_gravity="center"
@@ -80,17 +80,17 @@
             android:id="@+id/imageView25"
             android:src="@drawable/bolita"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="30dp"
             android:scaleType="fitXY" />
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="8dp"
+            android:layout_width="125dp"
+            android:layout_height="9dp"
             android:id="@+id/imageView26"
             android:src="@drawable/terminostexto"
             android:scaleType="fitXY"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="30dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -144,6 +144,7 @@
                 android:id="@+id/imageView30"
                 android:src="@drawable/inicia"
                 android:scaleType="fitXY"
+                android:onClick="conCuenta"
                 android:layout_gravity="center" />
         </LinearLayout>
 

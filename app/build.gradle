@@ -23,7 +23,7 @@ android {
     useLibrary  'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.devworms.toukan.mango"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 4
         versionName "4.0"

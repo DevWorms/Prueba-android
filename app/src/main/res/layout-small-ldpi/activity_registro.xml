@@ -44,7 +44,7 @@
             android:hint="Mail"
             android:layout_gravity="center"
             android:textSize="09dp"
-            android:textIsSelectable="true" />
+            android:textIsSelectable="false" />
 
         <EditText
             android:layout_width="200dp"
@@ -53,7 +53,7 @@
             android:hint="Elige una contraseña"
             android:layout_gravity="center"
             android:textSize="09dp"
-            android:textIsSelectable="true" />
+            android:textIsSelectable="false" />
 
         <EditText
             android:layout_width="200dp"
@@ -61,7 +61,7 @@
             android:id="@+id/editTextConfirmContrasena"
             android:layout_gravity="center"
             android:textSize="09dp"
-            android:textIsSelectable="true"
+            android:textIsSelectable="false"
             android:hint="Confirmar contraseña" />
 
         <ImageView
@@ -134,7 +134,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/yatienescuenta"
                 android:scaleType="fitXY"
-                android:layout_marginRight="12dp"
+                android:layout_marginRight="15dp"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="2dp" />
 
@@ -144,6 +144,7 @@
                 android:id="@+id/imageView30"
                 android:src="@drawable/inicia"
                 android:scaleType="fitXY"
+                android:onClick="conCuenta"
                 android:layout_gravity="center" />
         </LinearLayout>
 

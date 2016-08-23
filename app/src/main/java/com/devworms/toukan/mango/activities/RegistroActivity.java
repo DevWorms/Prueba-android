@@ -149,9 +149,9 @@ public class RegistroActivity extends AppCompatActivity{
             return;
         }
 
-        txtCorreo = (EditText)findViewById(R.id.txtCorreo);
-        txtPass = (EditText)findViewById(R.id.password);
-        txtPassConfirm = (EditText)findViewById(R.id.passwordConfirm);
+        txtCorreo = (EditText)findViewById(R.id.editTextMail);
+        txtPass = (EditText)findViewById(R.id.editTextContrasena);
+        txtPassConfirm = (EditText)findViewById(R.id.editTextConfirmContrasena);
 
         if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("") ) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
@@ -181,6 +181,13 @@ public class RegistroActivity extends AppCompatActivity{
             usuario.nuevoUsuario(this);
 
         }
+    }
+
+    public void conCuenta(View view)
+    {
+        Intent intent = new Intent(RegistroActivity.this, Login.class);
+        startActivity(intent);
+        finish();
     }
 
     private boolean isNetworkAvailable() {
