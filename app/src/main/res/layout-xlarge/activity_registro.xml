@@ -19,101 +19,103 @@
         android:weightSum="1">
 
         <ImageView
-            android:layout_width="185dp"
-            android:layout_height="24dp"
+            android:layout_width="470dp"
+            android:layout_height="52dp"
             android:id="@+id/imageButton"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/registreatefb"
             android:scaleType="fitXY"
             android:onClick="loguearConFacebook"
-            android:layout_marginTop="110dp" />
+            android:layout_marginTop="322dp" />
 
         <ImageView
-            android:layout_width="106dp"
-            android:layout_height="8dp"
+            android:layout_width="270dp"
+            android:layout_height="20dp"
             android:id="@+id/imageView23"
             android:src="@drawable/oconcorreoelectronico"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp" />
 
         <EditText
-            android:layout_width="225dp"
+            android:layout_width="540dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextMail"
             android:hint="Mail"
             android:layout_gravity="center"
-            android:textSize="10dp"
+            android:textSize="25dp"
             android:textIsSelectable="false" />
 
         <EditText
-            android:layout_width="225dp"
+            android:layout_width="540dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextContrasena"
             android:hint="Elige una contraseña"
             android:layout_gravity="center"
-            android:textSize="10dp"
             android:inputType="textPassword"
+            android:textSize="25dp"
             android:textIsSelectable="false" />
 
         <EditText
-            android:layout_width="225dp"
+            android:layout_width="540dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextConfirmContrasena"
             android:layout_gravity="center"
-            android:textSize="10dp"
+            android:textSize="25dp"
             android:inputType="textPassword"
             android:textIsSelectable="false"
             android:hint="Confirmar contraseña" />
 
         <ImageView
-            android:layout_width="225dp"
-            android:layout_height="23dp"
+            android:layout_width="540dp"
+            android:layout_height="50dp"
             android:id="@+id/imageView24"
             android:layout_gravity="center"
             android:src="@drawable/registrate"
             android:onClick="loguearConMail"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:layout_marginTop="62dp" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:id="@+id/imageView25"
             android:src="@drawable/bolita"
             android:layout_gravity="center"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="53dp"
             android:scaleType="fitXY" />
 
         <ImageView
-            android:layout_width="110dp"
-            android:layout_height="8dp"
+            android:layout_width="240dp"
+            android:layout_height="15dp"
             android:id="@+id/imageView26"
             android:src="@drawable/terminostexto"
             android:scaleType="fitXY"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp" />
+            android:layout_marginTop="50dp" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:layout_gravity="center"
-            android:layout_marginTop="2dp">
+            android:layout_marginTop="10dp">
 
             <ImageView
-                android:layout_width="75dp"
-                android:layout_height="9dp"
+                android:layout_width="190dp"
+                android:layout_height="20dp"
                 android:id="@+id/imageView27"
                 android:layout_gravity="center"
                 android:src="@drawable/terminosbtn"
                 android:scaleType="fitXY"
                 android:layout_marginRight="2dp"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="220dp"
                 android:layout_marginTop="1dp" />
 
             <ImageView
-                android:layout_width="68dp"
-                android:layout_height="8dp"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
                 android:id="@+id/imageView28"
                 android:src="@drawable/avisoprivacidad"
                 android:scaleType="fitXY"
@@ -126,22 +128,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp" >
+            android:layout_marginTop="35dp" >
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="9dp"
+                android:layout_width="190dp"
+                android:layout_height="20dp"
                 android:id="@+id/imageView29"
                 android:layout_gravity="center"
                 android:src="@drawable/yatienescuenta"
                 android:scaleType="fitXY"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginLeft="74dp" />
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="200dp" />
 
             <ImageView
-                android:layout_width="78dp"
-                android:layout_height="9dp"
+                android:layout_width="190dp"
+                android:layout_height="20dp"
                 android:id="@+id/imageView30"
                 android:src="@drawable/inicia"
                 android:scaleType="fitXY"
