@@ -96,7 +96,7 @@
         jar="/Users/sergio/Prueba-android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.1"
-        sha1="3337540ac17dddd39b9cdd07c6cb8a286acac759">
+        sha1="bdcdfcf3bdfe22397ca3b275d5090544596942a2">
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b43bfc3414382d9fe16374fe073e727f8229f259/classes.dex" />
     </item>
     <item
@@ -215,7 +215,7 @@
         jar="/Users/sergio/Prueba-android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.1"
-        sha1="a5903ae9b649c789f1c7977b95f7c55617ed62cc">
+        sha1="05c1a59cf98515ffa1b645b0269adc5396d49538">
         <dex dex="/Users/sergio/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ecd9d6b31cccdd703eb7f116ffa7fba7acdc803e/classes.dex" />
     </item>
     <item

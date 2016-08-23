@@ -25,7 +25,7 @@
 
         <ImageView
             android:layout_width="220dp"
-            android:layout_height="25dp"
+            android:layout_height="27dp"
             android:id="@+id/imageButton"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/btnfb"
