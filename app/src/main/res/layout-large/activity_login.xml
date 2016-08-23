@@ -17,101 +17,104 @@
         android:orientation="vertical"
         android:weightSum="1">
         <ImageView
-            android:layout_width="122dp"
-            android:layout_height="128dp"
+            android:layout_width="225dp"
+            android:layout_height="225dp"
             android:src="@drawable/fridas"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp" />
+            android:layout_marginTop="55dp" />
 
         <ImageView
-            android:layout_width="223dp"
-            android:layout_height="26dp"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
             android:id="@+id/imageButton"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/btnfb"
             android:scaleType="fitXY"
             android:onClick="loguearConFacebook"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="29dp" />
 
         <ImageView
-            android:layout_width="142dp"
-            android:layout_height="10dp"
+            android:layout_width="250dp"
+            android:layout_height="18dp"
             android:id="@+id/imageView23"
             android:src="@drawable/oconcorreoelectronico"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="13dp" />
 
         <EditText
-            android:layout_width="250dp"
+            android:layout_width="430dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextMail"
             android:hint="Mail"
             android:layout_gravity="center"
-            android:textSize="10dp"
+            android:textSize="20dp"
             android:textIsSelectable="false" />
         <EditText
-            android:layout_width="250dp"
+            android:layout_width="430dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextContrasena"
             android:hint="Contraseña"
             android:layout_gravity="center"
-            android:textSize="10dp"
+            android:inputType="textPassword"
+            android:textSize="20dp"
             android:textIsSelectable="false" />
 
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="25dp"
+            android:layout_width="430dp"
+            android:layout_height="40dp"
             android:id="@+id/imageView24"
             android:layout_gravity="center"
             android:src="@drawable/iniciasesion"
             android:onClick="loguearConMail"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:layout_marginTop="2dp" />
 
         <ImageView
-            android:layout_width="33dp"
-            android:layout_height="33dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:id="@+id/imageView25"
             android:src="@drawable/bolita"
             android:layout_gravity="center"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="20dp"
             android:scaleType="fitXY" />
 
         <ImageView
-            android:layout_width="135dp"
-            android:layout_height="12dp"
+            android:layout_width="250dp"
+            android:layout_height="21dp"
             android:id="@+id/imageView26"
             android:src="@drawable/olvidastetucontrasena"
             android:scaleType="fitXY"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="13dp" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp">
+            android:layout_marginTop="46dp">
 
             <ImageView
-                android:layout_width="120dp"
-                android:layout_height="15dp"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
                 android:id="@+id/imageView27"
                 android:layout_gravity="center"
                 android:src="@drawable/aunnotienescuenta"
                 android:scaleType="fitXY"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="3dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginTop="2dp" />
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="13dp"
+                android:layout_width="185dp"
+                android:layout_height="23dp"
                 android:id="@+id/imageView28"
                 android:src="@drawable/registrateaqui"
                 android:scaleType="fitXY"
                 android:onClick="registrarUsuario"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp" />
         </LinearLayout>
 
     </LinearLayout>

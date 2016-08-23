@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/editTextContrasena"
             android:hint="Contraseña"
+            android:inputType="textPassword"
             android:layout_gravity="center"
             android:textSize="9dp"
             android:textIsSelectable="false" />

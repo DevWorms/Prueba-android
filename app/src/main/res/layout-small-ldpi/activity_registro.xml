@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/editTextContrasena"
             android:hint="Elige una contraseña"
+            android:inputType="textPassword"
             android:layout_gravity="center"
             android:textSize="09dp"
             android:textIsSelectable="false" />
@@ -59,6 +60,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextConfirmContrasena"
+            android:inputType="textPassword"
             android:layout_gravity="center"
             android:textSize="09dp"
             android:textIsSelectable="false"

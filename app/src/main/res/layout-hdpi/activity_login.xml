@@ -58,6 +58,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/editTextContrasena"
             android:hint="Contraseña"
+            android:inputType="textPassword"
             android:layout_gravity="center"
             android:textSize="10dp"
             android:textIsSelectable="false" />
@@ -110,6 +111,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="13dp"
+
                 android:id="@+id/imageView28"
                 android:src="@drawable/registrateaqui"
                 android:scaleType="fitXY"

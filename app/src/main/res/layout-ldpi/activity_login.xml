@@ -85,6 +85,7 @@
             android:id="@+id/imageView26"
             android:src="@drawable/olvidastetucontrasena"
             android:scaleType="fitXY"
+            android:inputType="textPassword"
             android:layout_gravity="center"
             android:layout_marginTop="8dp" />
 
