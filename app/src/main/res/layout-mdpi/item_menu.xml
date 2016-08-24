@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.theartofdev.fastimageloader.target.TargetImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageViewCinta"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/bandapaquete"
+        android:layout_alignParentEnd="false"
+        android:scaleType="fitXY"
+        android:visibility="invisible" />
+
+    <com.devworms.toukan.mango.componentes.TextoNegrita
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewNombrePlatillo"
+        android:textColor="#ffffff"
+        android:shadowColor="#000000"
+        android:shadowDx="15"
+        android:shadowDy="15"
+        android:textSize="22sp"
+        android:gravity="center|clip_vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="false"
+        android:layout_alignBottom="@+id/image_view"
+        android:paddingBottom="40dp" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/imageViewTipoPaquete"
+        android:src="@drawable/paquetesgratis"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="0dp" />
+
+    <com.devworms.toukan.mango.componentes.TextoNormal
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewNumeroRecetas"
+        android:rotation="-45"
+        android:textColor="#ffffff"
+        android:visibility="invisible"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="13dp"
+        android:textSize="15dp"
+        android:text="2 recetas" />
+
+    <com.devworms.toukan.mango.componentes.TextoNormal
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewTipoPaquete"
+        android:rotation="-45"
+        android:textColor="#ffffff"
+        android:text="PAQUETE"
+        android:textSize="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="66dp"
+        android:visibility="invisible"
+        android:layout_marginLeft="2dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:src="@drawable/devidertop"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="false"
+        android:id="@+id/imageViewDeviderTop"
+        android:adjustViewBounds="true"
+        android:visibility="visible"
+        android:layout_marginBottom="-2dp" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewDeviderbottom"
+        android:src="@drawable/deviderbottom"
+        android:adjustViewBounds="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

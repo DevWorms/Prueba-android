@@ -140,20 +140,6 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
             mTargetImageView.setOnClickListener(this);
             Activity activity = (Activity) mTargetImageView.getContext();
 
-            WindowManager wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
-            Display display = wm.getDefaultDisplay();
-
-            Point size = new Point();
-            display.getSize(size);
-            int width = size.x;
-            int height = size.y;
-
-            int alto = SoporteMultiplesPantallas.getImageMenuDimens(width, height);
-
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, alto);
-            //width and height of your Image ,if it is inside Relative change the LinearLayout to RelativeLayout.
-            mTargetImageView.setLayoutParams(layoutParams);
-
             tTextViewNumeroRecetas =(TextView) v.findViewById(R.id.textViewNumeroRecetas);
             tTextViewTipoPaquete = (TextView) v.findViewById(R.id.textViewTipoPaquete);
             tTextViewNombrePlatillo = (TextView) v.findViewById(R.id.textViewNombrePlatillo);

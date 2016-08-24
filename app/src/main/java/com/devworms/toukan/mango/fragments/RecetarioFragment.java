@@ -72,9 +72,9 @@ public class RecetarioFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_recetario, container, false);
 
-        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+       /* ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
-
+*/
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
 

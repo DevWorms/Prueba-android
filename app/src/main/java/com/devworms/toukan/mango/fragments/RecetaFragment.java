@@ -67,9 +67,9 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         View view= inflater.inflate(R.layout.fragment_receta, container, false);
 
 
-        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+/*        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
-
+*/
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
 

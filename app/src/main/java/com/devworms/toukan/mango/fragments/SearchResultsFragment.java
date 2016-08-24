@@ -119,9 +119,9 @@ public class SearchResultsFragment extends Fragment {
         obtenerObjetosParse(recyclerView, tags);
 
 
-        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+      /*  ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
-
+*/
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
 

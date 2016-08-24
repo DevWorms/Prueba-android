@@ -71,22 +71,24 @@ public class MenuFragment extends Fragment {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
         prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+
+
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recetaViewRecycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
 
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(getResources().getColor(R.color.barraPincipal));
 
-        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+     /*   ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.VISIBLE);
+*/
 
-
-
+        /*
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.VISIBLE);
         imgFondoBarra.setImageResource(R.drawable.fonsobar);
-
+*/
 
         obtenerObjetosParse(recyclerView);
 
