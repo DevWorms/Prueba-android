@@ -7,7 +7,7 @@
     <com.theartofdev.fastimageloader.target.TargetImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="401dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
@@ -42,8 +42,8 @@
         android:paddingBottom="40dp" />
 
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
         android:id="@+id/imageViewTipoPaquete"
         android:src="@drawable/paquetesgratis"
         android:scaleType="fitXY"
@@ -51,8 +51,8 @@
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="1dp" />
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="0dp" />
 
     <com.devworms.toukan.mango.componentes.TextoNormal
         android:layout_width="100dp"
@@ -61,9 +61,9 @@
         android:rotation="-45"
         android:textColor="#ffffff"
         android:visibility="visible"
-        android:layout_marginLeft="38dp"
-        android:layout_marginTop="14dp"
-        android:textSize="15dp"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="45dp"
+        android:textSize="27dp"
         android:text="2 recetas" />
 
     <com.devworms.toukan.mango.componentes.TextoNormal
@@ -76,9 +76,9 @@
         android:textSize="20dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="120dp"
         android:visibility="visible"
-        android:layout_marginLeft="1dp" />
+        android:layout_marginLeft="0dp" />
 
     <ImageView
         android:layout_width="fill_parent"
@@ -92,10 +92,10 @@
         android:adjustViewBounds="true"
         android:visibility="visible"
 
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:cropToPadding="false"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="370dp" />
-
 
     <ImageView
         android:layout_width="fill_parent"
@@ -103,9 +103,8 @@
         android:id="@+id/imageViewDeviderbottom"
         android:src="@drawable/deviderbottom"
         android:adjustViewBounds="true"
-        android:layout_alignParentTop="false"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitXY" />
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

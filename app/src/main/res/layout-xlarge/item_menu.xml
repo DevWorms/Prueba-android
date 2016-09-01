@@ -7,7 +7,7 @@
     <com.theartofdev.fastimageloader.target.TargetImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
-        android:layout_height="215dp"
+        android:layout_height="535dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
@@ -15,96 +15,111 @@
         android:layout_alignParentEnd="false" />
 
     <ImageView
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="358dp"
+        android:layout_height="358dp"
         android:id="@+id/imageViewCinta"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:src="@drawable/bandapaquete"
         android:layout_alignParentEnd="false"
-        android:scaleType="centerCrop"
-        android:visibility="invisible" />
+        android:scaleType="fitXY"
+        android:visibility="visible" />
 
-    <TextView
+    <com.devworms.toukan.mango.componentes.TextoNegrita
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textViewNombrePlatillo"
         android:textColor="#ffffff"
-        android:textStyle="bold"
         android:shadowColor="#000000"
-        android:textAlignment="center"
+        android:shadowDx="15"
+        android:shadowDy="15"
+        android:textSize="52dp"
         android:gravity="center|clip_vertical"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="false"
         android:layout_alignBottom="@+id/image_view"
-        android:paddingBottom="30dp" />
+        android:paddingBottom="90dp" />
 
     <ImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="165dp"
+        android:layout_height="165dp"
         android:id="@+id/imageViewTipoPaquete"
         android:src="@drawable/paquetesgratis"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
+        android:scaleType="fitXY"
+        android:visibility="visible"
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="0dp" />
 
-    <TextView
-        android:layout_width="100dp"
+    <com.devworms.toukan.mango.componentes.TextoNormal
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textViewNumeroRecetas"
         android:rotation="-45"
         android:textColor="#ffffff"
-        android:visibility="invisible"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="18dp"
-        android:textIsSelectable="true"
-        android:textSize="12dp" />
+        android:visibility="visible"
+        android:layout_marginLeft="113dp"
+        android:layout_marginTop="73dp"
+        android:textSize="37dp"
+        android:text="2 recetas" />
 
-    <TextView
+    <com.devworms.toukan.mango.componentes.TextoNormal
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textViewTipoPaquete"
         android:rotation="-45"
         android:textColor="#ffffff"
-        android:fontFamily="@string/dgts__call_me"
-        android:textStyle="bold"
         android:text="PAQUETE"
-        android:textIsSelectable="true"
-        android:textSize="10dp"
+        android:textSize="30dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
-        android:layout_marginTop="70dp"
-        android:visibility="invisible" />
+        android:layout_marginTop="160dp"
+        android:visibility="visible"
+        android:layout_marginLeft="0dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/image_view"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
         android:src="@drawable/devidertop"
         android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="false"
         android:id="@+id/imageViewDeviderTop"
         android:adjustViewBounds="true"
-        android:visibility="visible" />
+        android:visibility="visible"
 
+        android:scaleType="fitCenter"
+        android:cropToPadding="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:src="@drawable/devidertop"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="false"
+        android:id="@+id/imageView31"
+        android:adjustViewBounds="true"
+        android:visibility="visible"
+        android:scaleType="fitCenter"
+        android:cropToPadding="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp" />
+
+    <ImageView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageViewDeviderbottom"
         android:src="@drawable/deviderbottom"
         android:adjustViewBounds="true"
-        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
         android:layout_centerHorizontal="true" />
 
 
