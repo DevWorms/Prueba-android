@@ -36,7 +36,7 @@ public class Splash extends AppCompatActivity {
 
                     //Nos indica siu mostramos el login o si mostramos el tutorial
                     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Splash.this);
-                    Boolean slider = preferences.getBoolean("MostrarSlider", true );
+                    Boolean slider = true;//preferences.getBoolean("MostrarSlider", true );
                     if(slider)
                     {
                         SharedPreferences.Editor editor = preferences.edit();
