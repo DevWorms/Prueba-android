@@ -64,15 +64,16 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setBackgroundColor(getResources().getColor(R.color.barraPincipal));
 
-      /*  ImageView imgFrida = (ImageView) findViewById(R.id.img_frida);
+        ImageView imgFrida = (ImageView) findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.VISIBLE);
-*/
+        ImageView imgTexto = (ImageView) findViewById(R.id.img_texto);
+        imgTexto.setVisibility(View.VISIBLE);
 
 
-        /*ImageView imgFondoBarra = (ImageView) findViewById(R.id.img_fondo_barra);
+        ImageView imgFondoBarra = (ImageView) findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.VISIBLE);
         imgFondoBarra.setImageResource(R.drawable.fonsobar);
-*/
+
 
         ///***************Barra***************************************************
 
