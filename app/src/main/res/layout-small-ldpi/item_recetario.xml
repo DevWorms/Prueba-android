@@ -112,13 +112,13 @@
             <ImageView
                 android:id="@+id/imageView12"
 
-                android:src="@drawable/floresdificultadmedia"
-                android:scaleType="centerCrop"
+                android:src="@drawable/flor1"
+                android:scaleType="fitCenter"
                 android:layout_gravity="left"
-                android:layout_marginTop="-12dp"
-                android:layout_height="30dp"
-                android:layout_width="80dp"
-                android:layout_marginLeft="-12dp" />
+                android:layout_marginTop="-2dp"
+                android:layout_marginLeft="-12dp"
+                android:layout_height="20dp"
+                android:layout_width="60dp" />
         </GridLayout>
     </LinearLayout>
 

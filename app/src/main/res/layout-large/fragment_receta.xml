@@ -23,18 +23,18 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="530dp"
-                android:layout_marginTop="200dp">
+                android:layout_marginTop="195dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="150dp"
                     android:id="@+id/imageView16"
                     android:src="@drawable/bandatitulopaquete"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                    android:layout_alignParentStart="true"
+                    android:layout_height="120dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNegrita
                     android:id="@+id/txtrecetaTitulo"
@@ -45,11 +45,11 @@
                     android:layout_alignParentLeft="false"
                     android:layout_alignParentStart="false"
                     android:textColor="#ffffff"
-                    android:textSize="80dp"
                     android:textIsSelectable="true"
                     android:layout_alignWithParentIfMissing="false"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="210dp" />
+                    android:layout_marginTop="220dp"
+                    android:textSize="40dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
                     android:adjustViewBounds="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="295dp" />
+                    android:layout_marginTop="290dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
                     android:layout_alignTop="@+id/imageView19"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="180dp"
+                    android:layout_marginLeft="100dp"
                     android:src="@drawable/iconomegusta"
                     android:scaleType="fitStart"
                     android:layout_toStartOf="@+id/compartir"
@@ -105,9 +105,8 @@
                     android:gravity="center_vertical"
                     android:textColor="#000000"
                     android:textSize="23dp"
-                    android:layout_marginLeft="41dp"
+                    android:layout_marginLeft="201dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignEnd="@+id/textView14"
                     android:layout_below="@+id/imageView18" />
 
                 <ImageView
@@ -119,7 +118,7 @@
                     android:scaleType="fitStart"
                     android:layout_alignParentBottom="true"
                     android:layout_below="@+id/imageView18"
-                    android:layout_marginLeft="440dp" />
+                    android:layout_marginLeft="300dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNormal
                     android:layout_width="wrap_content"
@@ -132,7 +131,7 @@
                     android:layout_below="@+id/imageView17"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="129dp" />
+                    android:layout_marginLeft="25dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNegrita
                     android:layout_width="wrap_content"
@@ -143,7 +142,7 @@
                     android:textColor="#000000"
                     android:textSize="23dp"
                     android:layout_alignTop="@+id/textView13"
-                    android:layout_marginLeft="200dp" />
+                    android:layout_marginLeft="90dp" />
                 <com.devworms.toukan.mango.componentes.TextoNormal
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -155,7 +154,7 @@
                     android:layout_below="@+id/imageView17"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="370dp" />
+                    android:layout_marginLeft="260dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNormal
                     android:layout_width="wrap_content"
@@ -166,7 +165,7 @@
                     android:textColor="#000000"
                     android:textSize="23dp"
                     android:layout_below="@+id/imageView17"
-                    android:layout_marginLeft="385dp" />
+                    android:layout_marginLeft="270dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNormal
                     android:layout_width="wrap_content"
@@ -176,7 +175,7 @@
                     android:textColor="#000000"
                     android:textSize="23dp"
                     android:layout_below="@+id/imageView17"
-                    android:layout_marginLeft="520dp" />
+                    android:layout_marginLeft="395dp" />
 
                 <ImageView
                     android:id="@+id/imageView12"
@@ -186,7 +185,7 @@
                     android:layout_height="50dp"
                     android:scaleType="centerCrop"
                     android:layout_gravity="left"
-                    android:layout_marginLeft="607dp"
+                    android:layout_marginLeft="475dp"
                     android:layout_below="@+id/imageView17"
                     android:layout_marginTop="-14dp" />
                 <com.devworms.toukan.mango.componentes.TextoNormal
@@ -200,7 +199,7 @@
                     android:layout_below="@+id/imageView17"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="510dp" />
+                    android:layout_marginLeft="390dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNegrita
                     android:layout_width="wrap_content"
@@ -211,7 +210,7 @@
                     android:layout_alignBaseline="@+id/textView15"
                     android:layout_alignBottom="@+id/textView15"
                     android:textSize="23dp"
-                    android:layout_marginLeft="490dp" />
+                    android:layout_marginLeft="370dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNormal
                     android:layout_width="wrap_content"
@@ -228,13 +227,23 @@
 
             </RelativeLayout>
 
-            <com.devworms.toukan.mango.componentes.TextoNormal
-                android:id="@+id/txtreceta"
-                android:layout_width="650dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#e0e4e6"
-                android:textSize="25dp" />
+                android:gravity="center_horizontal"
+                android:paddingBottom="30dp"
+                android:paddingTop="30dp">
+                <com.devworms.toukan.mango.componentes.TextoNormal
+                    android:id="@+id/txtreceta"
+                    android:layout_height="wrap_content"
+                    android:background="#e0e4e6"
+                    android:textSize="35sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="540dp" />
+            </LinearLayout>
+
         </LinearLayout>
 
 

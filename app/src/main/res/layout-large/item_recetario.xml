@@ -178,13 +178,13 @@
             <ImageView
                 android:id="@+id/imageView12"
 
-                android:src="@drawable/floresdificultadmedia"
+                android:src="@drawable/flor1"
                 android:layout_width="100dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:layout_gravity="left"
-                android:layout_marginTop="-12dp"
-                android:layout_marginLeft="-18dp"
-                android:layout_height="52dp" />
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="-12dp"
+                android:layout_height="30dp" />
         </GridLayout>
     </LinearLayout>
 

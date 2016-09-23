@@ -83,6 +83,16 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
         TextView pasosTitulo=(TextView)view.findViewById(R.id.txtrecetaTitulo);
         TextView pasos=(TextView)view.findViewById(R.id.txtreceta);
+
+        TextView tiempo = (TextView) view.findViewById(R.id.textView14);
+        TextView porciones = (TextView) view.findViewById(R.id.textView18);
+
+
+        tiempo.setText("  " + objReceta.getString("Tiempo"));
+
+
+        porciones.setText("  " + objReceta.getString("Porciones").replace("personas",""));
+
         pasosTitulo.setText(objReceta.getString("Nombre"));
         pasos.setText("Ingredientes \n" + (objReceta.getString("Ingredientes")));
         pasos.setText(pasos.getText() + "\n\nProcedimiento\n" + (objReceta.getString("Procedimiento")));

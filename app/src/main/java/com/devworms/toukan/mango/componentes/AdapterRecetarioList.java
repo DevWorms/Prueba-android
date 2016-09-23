@@ -16,8 +16,10 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.RecyclerView;
@@ -104,10 +106,11 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     public void onBindViewHolder(ViewHolder holder, int position) {
         ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
         holder.objReceta = mItems.get(position);
-        holder.setTitulos(mItems.get(position));
+
         holder.tipoMenu = this.tipoMenu == null ?  lTipos.get(position):this.tipoMenu;
         holder.actividad = actividad;
         holder.mTargetImageView.loadImage(mItems.get(position).getString("Url_Imagen"), spec.getKey());
+        holder.setTitulos(mItems.get(position));
     }
 
     //region: Inner class: ViewHolder
@@ -143,7 +146,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
             tTextViewTiempo = (TextView) v.findViewById(R.id.textViewTiempo);
             textViewPorciones = (TextView) v.findViewById(R.id.textViewPorciones);
 
-           // iImageViewDificultad = (ImageView) v.findViewById(R.id.textViewNombrereceta);
+
+            iImageViewDificultad = (ImageView) v.findViewById(R.id.imageView12);
 
         }
 
@@ -152,6 +156,33 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
             tTextViewNombrereceta.setText(objReceta.getString("Nombre"));
             tTextViewTiempo.setText("  " + objReceta.getString("Tiempo"));
             textViewPorciones.setText("  " + objReceta.getString("Porciones"));
+
+
+
+            String dificultad = objReceta.getString("Nivel");
+
+
+            int imageresource = 0;
+            switch (dificultad){
+
+                case "Principiante":
+                    imageresource = actividad.getResources().getIdentifier("@drawable/flor1", "drawable", actividad.getPackageName());
+
+                    iImageViewDificultad.setImageResource(imageresource);
+                    break;
+                case "Intermedio":
+                    imageresource = actividad.getResources().getIdentifier("@drawable/flor2", "drawable", actividad.getPackageName());
+                    iImageViewDificultad.setImageResource(imageresource);
+                    break;
+                case "Avanzado":
+                    imageresource = actividad.getResources().getIdentifier("@drawable/flor3", "drawable", actividad.getPackageName());
+                    iImageViewDificultad.setImageResource(imageresource);
+                    break;
+                default:
+                    break;
+            }
+
+
         }
 
         @Override
