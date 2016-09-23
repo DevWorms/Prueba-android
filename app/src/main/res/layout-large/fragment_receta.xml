@@ -1,6 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/fab_margin"
+    android:background="@drawable/fondoreceta">
 
-</LinearLayout>
+    <com.theartofdev.fastimageloader.target.TargetImageView
+        android:id="@+id/imagenreceta"
+        android:layout_width="match_parent"
+        android:scaleType="fitCenter"
+        android:layout_height="400dp" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="530dp"
+                android:layout_marginTop="200dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:id="@+id/imageView16"
+                    android:src="@drawable/bandatitulopaquete"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <com.devworms.toukan.mango.componentes.TextoNegrita
+                    android:id="@+id/txtrecetaTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:typeface="monospace"
+                    android:gravity="center"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentStart="false"
+                    android:textColor="#ffffff"
+                    android:textSize="80dp"
+                    android:textIsSelectable="true"
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="210dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:id="@+id/imageView18"
+                    android:src="@drawable/tiradescripcion"
+                    android:scaleType="center"
+                    android:adjustViewBounds="true"
+                    android:layout_below="@+id/imageView16" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView17"
+                    android:src="@drawable/plecadivision"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="295dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:id="@+id/imageView19"
+                    android:src="@drawable/fondomegustacompartir"
+                    android:scaleType="center"
+                    android:adjustViewBounds="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/imageView18" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/favoritos"
+                    android:layout_alignTop="@+id/imageView19"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="180dp"
+                    android:src="@drawable/iconomegusta"
+                    android:scaleType="fitStart"
+                    android:layout_toStartOf="@+id/compartir"
+                    android:layout_alignEnd="@+id/txtrecetaTitulo" />
+
+                <com.devworms.toukan.mango.componentes.TextoNormal
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="ME GUSTA"
+                    android:id="@+id/textView11"
+                    android:gravity="center_vertical"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:layout_marginLeft="41dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignEnd="@+id/textView14"
+                    android:layout_below="@+id/imageView18" />
+
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/compartir"
+
+                    android:src="@drawable/iconocompartir"
+                    android:scaleType="fitStart"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/imageView18"
+                    android:layout_marginLeft="440dp" />
+
+                <com.devworms.toukan.mango.componentes.TextoNormal
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="TIEMPO"
+                    android:id="@+id/textView13"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:layout_below="@+id/imageView17"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="129dp" />
+
+                <com.devworms.toukan.mango.componentes.TextoNegrita
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="1 hora 30 minutos"
+                    android:id="@+id/textView14"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:layout_alignTop="@+id/textView13"
+                    android:layout_marginLeft="200dp" />
+                <com.devworms.toukan.mango.componentes.TextoNormal
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="/"
+                    android:id="@+id/textslash"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:layout_below="@+id/imageView17"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="370dp" />
+
+                <com.devworms.toukan.mango.componentes.TextoNormal
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="PORCIONES"
+                    android:id="@+id/textView15"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:layout_below="@+id/imageView17"
+                    android:layout_marginLeft="385dp" />
+
+                <com.devworms.toukan.mango.componentes.TextoNormal
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DIFICULTAD"
+                    android:id="@+id/textView17"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:layout_below="@+id/imageView17"
+                    android:layout_marginLeft="520dp" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+
+                    android:src="@drawable/floresdificultadmedia"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="607dp"
+                    android:layout_below="@+id/imageView17"
+                    android:layout_marginTop="-14dp" />
+                <com.devworms.toukan.mango.componentes.TextoNormal
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="/"
+                    android:id="@+id/textslash2"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:layout_below="@+id/imageView17"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="510dp" />
+
+                <com.devworms.toukan.mango.componentes.TextoNegrita
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6"
+                    android:id="@+id/textView18"
+                    android:textColor="#000000"
+                    android:layout_alignBaseline="@+id/textView15"
+                    android:layout_alignBottom="@+id/textView15"
+                    android:textSize="23dp"
+                    android:layout_marginLeft="490dp" />
+
+                <com.devworms.toukan.mango.componentes.TextoNormal
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="COMPARTIR"
+                    android:id="@+id/textView16"
+                    android:gravity="center|center_vertical|center_horizontal"
+                    android:textColor="#000000"
+                    android:textSize="23dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/textslash2"
+                    android:layout_below="@+id/imageView18" />
+
+            </RelativeLayout>
+
+            <com.devworms.toukan.mango.componentes.TextoNormal
+                android:id="@+id/txtreceta"
+                android:layout_width="650dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="#e0e4e6"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

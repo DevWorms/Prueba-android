@@ -34,7 +34,7 @@
         android:shadowColor="#000000"
         android:shadowDx="15"
         android:shadowDy="15"
-        android:textSize="22sp"
+        android:textSize="36sp"
         android:gravity="center|clip_vertical"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="false"
