@@ -12,17 +12,20 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.devworms.toukan.mango.R;
 import com.devworms.toukan.mango.componentes.AdapterFavoritoList;
 import com.devworms.toukan.mango.main.StarterApplication;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -46,6 +49,7 @@ public class FavoritosFragment extends Fragment {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
         //query.include("Receta");
+
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(final List<ParseObject> recetasList, ParseException e) {
                 if (e == null) {
@@ -117,6 +121,18 @@ public class FavoritosFragment extends Fragment {
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
+
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+        imgFrida.setVisibility(View.INVISIBLE);
+
+
+        ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
+        imgFondoBarra.setVisibility(View.INVISIBLE);
+
+        ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
+        imgTexto.setVisibility(View.INVISIBLE);
+
+        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
 

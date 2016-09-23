@@ -22,6 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.devworms.toukan.mango.R;
 import com.devworms.toukan.mango.fragments.RecetaFragment;
@@ -78,16 +79,19 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
-        ParseObject parseObject = mItems.get(position);
 
-
-        parseObject.getParseObject("Recetas").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
+        mItems.get(position).getParseObject("Recetas").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
             public void done(ParseObject receta, ParseException e) {
-                holder.objReceta = receta;
-                holder.mTargetImageView.loadImage(receta.getString("Url_Imagen"), spec.getKey());
 
+                holder.objReceta = receta;
+
+                holder.setTitulos(receta);
+
+                holder.mTargetImageView.loadImage(receta.getString("Url_Imagen"), spec.getKey());
             }
         });
+
+
     }
 
 
@@ -103,6 +107,12 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
 
         public final TargetImageView mTargetImageView;
         ParseObject objReceta;
+        public String tipoMenu;
+        public Activity actividad;
+        public TextView tTextViewNombrereceta;
+        public TextView textViewPorciones;
+        public TextView tTextViewTiempo;
+        public ImageView iImageViewDificultad;
 
 
 
@@ -112,8 +122,21 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
             mTargetImageView = (TargetImageView) v.findViewById(R.id.image_view);
 
             mTargetImageView.setOnClickListener(this);
+
+            tTextViewNombrereceta = (TextView) v.findViewById(R.id.textViewNombrereceta);
+            tTextViewTiempo = (TextView) v.findViewById(R.id.textViewTiempo);
+            textViewPorciones = (TextView) v.findViewById(R.id.textViewPorciones);
+
+            // iImageViewDificultad = (ImageView) v.findViewById(R.id.textViewNombrereceta);
+
         }
 
+
+        public void setTitulos(ParseObject objReceta){
+            tTextViewNombrereceta.setText(objReceta.getString("Nombre"));
+            tTextViewTiempo.setText("  " + objReceta.getString("Tiempo"));
+            textViewPorciones.setText("  " + objReceta.getString("Porciones"));
+        }
 
 
         @Override

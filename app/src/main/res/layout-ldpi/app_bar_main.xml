@@ -8,49 +8,67 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
+        app:elevation="0dp"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#ffffff">
-            <RelativeLayout
+            android:layout_height="55dp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            android:background="@color/barraPincipal">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/fonsobar"
-                    android:scaleType="centerCrop"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:id="@+id/img_fondo_barra" />
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
 
-                    android:orientation="horizontal">
-
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                     <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/mensaje"
-                        android:scaleType="fitCenter"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:id="@+id/img_frida" />
+                        android:layout_width="match_parent"
+
+                        android:id="@+id/img_fondo_barra"
+                        android:src="@drawable/flores"
+
+                        android:adjustViewBounds="true"
+                        android:orientation="vertical"
+                        android:scaleType="fitXY"
+                        android:layout_height="55dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+
+                            android:id="@+id/img_frida"
+                            android:src="@drawable/frida"
+
+                            android:adjustViewBounds="true"
+                            android:orientation="vertical"
+                            android:scaleType="fitXY"
+                            android:layout_height="60dp" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+
+                            android:id="@+id/img_texto"
+                            android:src="@drawable/queseteantoja"
+
+                            android:adjustViewBounds="true"
+                            android:orientation="vertical"
+                            android:scaleType="fitXY"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="-10dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
 
 
-                </LinearLayout>
+            </LinearLayout>
 
 
-
-            </RelativeLayout>
 
 
         </android.support.v7.widget.Toolbar>
