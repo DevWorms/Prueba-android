@@ -101,8 +101,28 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         ImageView buttonAnadirFavoritos = (ImageView) view.findViewById(R.id.favoritos);
 
 
+
         buttonCompartir.setOnClickListener(this);
         buttonAnadirFavoritos.setOnClickListener(this);
+
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
+        query.whereEqualTo("username", ParseUser.getCurrentUser());
+        query.whereEqualTo("Recetas", objReceta);
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> recetasList, ParseException e) {
+                if (e == null) {
+                    //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
+                    if (recetasList.size() > 0) {
+                        int imageresource = getActivity().getResources().getIdentifier("@drawable/corazon", "drawable", getActivity().getPackageName());
+                        ImageView iImageViewBtnRelease = (ImageView)getActivity().findViewById(R.id.favoritos);
+                        iImageViewBtnRelease.setImageResource(imageresource);
+                    }
+
+                }
+            }
+        });
 
 
         return view;
@@ -245,6 +265,10 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                                                     // if this button is clicked, close
                                                     // current activity
                                                     //MainActivity.this.finish();
+
+                                                    int imageresource = getActivity().getResources().getIdentifier("@drawable/corazon", "drawable", getActivity().getPackageName());
+                                                    ImageView iImageViewBtnRelease = (ImageView)getActivity().findViewById(R.id.favoritos);
+                                                    iImageViewBtnRelease.setImageResource(imageresource);
                                                 }
                                             });
 

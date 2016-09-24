@@ -27,6 +27,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.devworms.toukan.mango.R;
+import com.devworms.toukan.mango.activities.Login;
+import com.devworms.toukan.mango.activities.MainActivity;
 import com.devworms.toukan.mango.dialogs.Usuario;
 import com.devworms.toukan.mango.main.StarterApplication;
 import com.devworms.toukan.mango.openpay.OpenPayRestApi;
@@ -96,7 +98,8 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
     TextView usuario;
     TextView password;
 
-    Button btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta, btnFb, btnMail, btnTwitter;
+    ImageView btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta;
+    Button btnFb, btnMail, btnTwitter;
     TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number,btnNuevoUsuario, btnForgot;;
     LinearLayout ly_barras, ly_tarjeta, ly_botones;
 
@@ -278,7 +281,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
     public void getParseUserData(){
         imgPerfil.setImageResource(R.drawable.frida);
         txtCorreoElectronico.setText(ParseUser.getCurrentUser().getEmail());
-        txtNombreUsuario.setVisibility(View.GONE);
+        txtNombreUsuario.setVisibility(View.INVISIBLE);
     }
 
     public void cargarInformacion(){
@@ -335,9 +338,9 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
         imgTarjeta = (ImageView)view.findViewById(R.id.imagenTarjeta);
 
-        btnCerrarSesion = (Button)view.findViewById(R.id.cerrarSesionBtn);
-        btnCancelarSuscripcion = (Button)view.findViewById(R.id.btnCancelarSuscripcion);
-        btnEliminarTarjeta = (Button)view.findViewById(R.id.btnEliminarTarjeta);
+        btnCerrarSesion = (ImageView)view.findViewById(R.id.cerrarSesionBtn);
+        btnCancelarSuscripcion = (ImageView)view.findViewById(R.id.btnCancelarSuscripcion);
+        btnEliminarTarjeta = (ImageView)view.findViewById(R.id.btnEliminarTarjeta);
 
         txtNombreUsuario = (TextView)view.findViewById(R.id.txt_nombreUsuario);
         txtCorreoElectronico = (TextView)view.findViewById(R.id.txt_correoElectronico);
@@ -352,10 +355,10 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         ly_botones = (LinearLayout)view.findViewById(R.id.layout_card_buttons);
 
         ly_barras.setVisibility(View.GONE);
-        ly_tarjeta.setVisibility(View.GONE);
-        ly_botones.setVisibility(View.GONE);
+        ly_tarjeta.setVisibility(View.INVISIBLE);
+        ly_botones.setVisibility(View.INVISIBLE);
 
-        imgTarjeta.setImageResource(R.mipmap.tarjeta);
+        imgTarjeta.setImageResource(R.drawable.tarjetau);
         activity = getActivity();
 
 
@@ -375,7 +378,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
             }
 
             if(!objCliente.getBoolean("Suscrito")){
-                btnCancelarSuscripcion.setVisibility(View.GONE);
+                btnCancelarSuscripcion.setVisibility(View.INVISIBLE);
             }
         }
 
@@ -411,10 +414,13 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                 ParseUser.logOutInBackground(new LogOutCallback() {
                     @Override
                     public void done(ParseException e) {
-                        getFragmentManager().beginTransaction()
-                                .replace(R.id.actividad, new CuentaFragment())
-                                .addToBackStack("cuenta")
-                                .commit();
+
+                        Intent intent = new Intent(getActivity(), Login.class);
+                        startActivity(intent);
+
+                        getActivity().finish();
+
+
                     }
                 });
             }
@@ -456,18 +462,18 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
         }
 
-        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.barraPincipal));
-
-      /*  ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
-        imgFrida.setVisibility(View.VISIBLE);
-*/
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+        imgFrida.setVisibility(View.INVISIBLE);
 
 
 
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
-        imgFondoBarra.setVisibility(View.VISIBLE);
-        imgFondoBarra.setImageResource(R.drawable.fonsobar);
+        imgFondoBarra.setVisibility(View.INVISIBLE);
+
+        ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
+        imgTexto.setVisibility(View.INVISIBLE);
+
+        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         return view;
     }
@@ -770,12 +776,6 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    //El Fragment ha sido quitado de su Activity y ya no está disponible
-    @Override
-    public void onDetach() {
-        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
-        super.onDetach();
-    }
 
 
 

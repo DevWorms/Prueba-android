@@ -69,7 +69,7 @@
                     android:adjustViewBounds="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="162dp" />
+                    android:layout_marginTop="160dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
                     android:layout_below="@+id/imageView17"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="130dp" />
+                    android:layout_marginLeft="135dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNormal
                     android:layout_width="wrap_content"
@@ -166,7 +166,7 @@
                     android:layout_below="@+id/imageView17"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="197dp"
+                    android:layout_marginLeft="210dp"
                     android:textSize="12sp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNormal
@@ -177,7 +177,7 @@
                     android:id="@+id/textView15"
                     android:textColor="#000000"
                     android:layout_below="@+id/imageView17"
-                    android:layout_marginLeft="135dp"
+                    android:layout_marginLeft="140dp"
                     android:textSize="12sp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNormal
@@ -187,7 +187,7 @@
                     android:id="@+id/textView17"
                     android:textColor="#000000"
                     android:layout_below="@+id/imageView17"
-                    android:layout_marginLeft="200dp"
+                    android:layout_marginLeft="215dp"
                     android:textSize="12sp" />
 
                 <ImageView
@@ -198,7 +198,7 @@
                     android:layout_height="50dp"
                     android:scaleType="centerCrop"
                     android:layout_gravity="left"
-                    android:layout_marginLeft="237dp"
+                    android:layout_marginLeft="257dp"
                     android:layout_below="@+id/imageView17"
                     android:layout_marginTop="-20dp"
                     android:layout_marginRight="-12dp" />
@@ -212,7 +212,7 @@
                     android:layout_alignBaseline="@+id/textView15"
                     android:layout_alignBottom="@+id/textView15"
                     android:textSize="12sp"
-                    android:layout_marginLeft="190dp" />
+                    android:layout_marginLeft="195dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNormal
                     android:layout_width="wrap_content"

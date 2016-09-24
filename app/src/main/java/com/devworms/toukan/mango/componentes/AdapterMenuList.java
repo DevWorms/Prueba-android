@@ -127,7 +127,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
         public ImageView imageViewDeviderTop;
         public ImageView imageViewDeviderbottom;
 
-
+        public  Activity activity;
 
         ParseObject objMenu;
 
@@ -138,7 +138,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
             mTargetImageView = (TargetImageView) v.findViewById(R.id.image_view);
             mTargetImageView.setOnClickListener(this);
-            Activity activity = (Activity) mTargetImageView.getContext();
+            this.activity = (Activity) mTargetImageView.getContext();
 
             tTextViewNumeroRecetas =(TextView) v.findViewById(R.id.textViewNumeroRecetas);
             tTextViewTipoPaquete = (TextView) v.findViewById(R.id.textViewTipoPaquete);
@@ -178,6 +178,25 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                             imageViewCinta.setVisibility(View.VISIBLE);
                             imageViewTipoPaquete.setVisibility(View.VISIBLE);
                             tTextViewNumeroRecetas.setVisibility(View.VISIBLE);
+
+
+                            String tipomenu = objMenu.getString("TipoMenu").toLowerCase();
+                            int imageresource = 0;
+                            switch (tipomenu){
+                                case "gratis":
+                                    imageresource = activity.getResources().getIdentifier("@drawable/paquetesgratis", "drawable", activity.getPackageName());
+
+                                    imageViewTipoPaquete.setImageResource(imageresource);
+
+                                    break;
+                                case "pago":
+                                    imageresource = activity.getResources().getIdentifier("@drawable/premium", "drawable", activity.getPackageName());
+
+                                    imageViewTipoPaquete.setImageResource(imageresource);
+                                    break;
+                            }
+
+
                         }else{
                             tTextViewTipoPaquete.setVisibility(View.GONE);
                             imageViewCinta.setVisibility(View.GONE);

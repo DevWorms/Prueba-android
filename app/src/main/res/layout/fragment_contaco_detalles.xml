@@ -1,172 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_weight="1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="match_parent">
 
-        <com.theartofdev.fastimageloader.target.TargetImageView
-            android:id="@+id/imagenPerfil"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="0dp">
-        <Button
-            android:id="@+id/cerrarSesionBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1.3"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Cerrar sesion"
-            android:textSize="12dp" />
-
-        <TextView
-            android:id="@+id/txt_nombreUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Nombre de usuario"
-            android:gravity="center" />
-
-        <TextView
-            android:id="@+id/txt_correoElectronico"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Correo electronico"
-            android:gravity="center" />
-
-        <TextView
-            android:id="@+id/txt_subscripcion"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:text="suscripcion"
-            android:gravity="center" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="0dp"
-        android:id="@+id/layout_barras"
-        android:visibility="invisible">
-        <com.theartofdev.fastimageloader.target.TargetImageView
-            android:id="@+id/imagenBarras"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter" />
-
-        <TextView
-            android:id="@+id/txt_referenciaBarras"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Nombre de usuario"
-            android:gravity="center" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:id="@+id/layout_card"
-        android:visibility="invisible">
         <ImageView
-            android:id="@+id/imagenTarjeta"
-            android:layout_weight="1"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/tarjeta" />
-        <LinearLayout
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_width="0dp">
-            <TextView
-                android:id="@+id/txt_brand"
-                android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:src="@drawable/usuariof"/>
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:text="Nombre de usuario"
-                android:gravity="right"
-                android:textSize="14dp" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/txt_holder"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:text="Nombre de usuario"
-                android:gravity="right"
-                android:textSize="14dp" />
 
-            <TextView
-                android:id="@+id/txt_card_number"
+            <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:text="Nombre de usuario"
-                android:gravity="right"
-                android:textSize="14dp" />
+                android:layout_marginTop="5dp">
+
+                <com.theartofdev.fastimageloader.target.TargetImageView
+                    android:id="@+id/imagenPerfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/cerrarSesionBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:src="@drawable/cerrarsesionbtn"
+                    android:scaleType="fitCenter" />
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="0dp">
+                <com.devworms.toukan.mango.componentes.TextoNegrita
+                    android:textColor="@color/barraSecundaria"
+                    android:id="@+id/txt_nombreUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Nombre de usuario"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size" />
+
+                <com.devworms.toukan.mango.componentes.TextoNegrita
+                    android:textColor="@color/barraSecundaria"
+                    android:id="@+id/txt_correoElectronico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Correo electronico"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size" />
+
+                <com.devworms.toukan.mango.componentes.TextoNegrita
+                    android:textColor="@color/barraSecundaria"
+                    android:id="@+id/txt_subscripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="suscripcion"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size" />
+
+
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView32"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:src="@drawable/bolita"
+                    android:scaleType="fitCenter" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="0dp"
+                android:id="@+id/layout_barras"
+                android:visibility="gone">
+                <com.theartofdev.fastimageloader.target.TargetImageView
+                    android:id="@+id/imagenBarras"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+
+                <com.devworms.toukan.mango.componentes.TextoNegrita
+                    android:textColor="@color/barraSecundaria"
+                    android:id="@+id/txt_referenciaBarras"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:text="Nombre de usuario"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:id="@+id/layout_card"
+                android:visibility="invisible"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:id="@+id/imagenTarjeta"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/tarjetau" />
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp">
+                    <com.devworms.toukan.mango.componentes.TextoNegrita
+                        android:textColor="@color/barraSecundaria"
+                        android:id="@+id/txt_brand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:text="Nombre de usuario"
+                        android:gravity="right"
+                        android:textSize="@dimen/text_size" />
+
+                    <com.devworms.toukan.mango.componentes.TextoNegrita
+                        android:textColor="@color/barraSecundaria"
+                        android:id="@+id/txt_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:text="Nombre de usuario"
+                        android:gravity="right"
+                        android:textSize="@dimen/text_size" />
+
+                    <com.devworms.toukan.mango.componentes.TextoNegrita
+                        android:textColor="@color/barraSecundaria"
+                        android:id="@+id/txt_card_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:text="Nombre de usuario"
+                        android:gravity="right"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="0.4"
+                android:orientation="horizontal"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:id="@+id/layout_card_buttons"
+                android:visibility="invisible">
+                <ImageView
+                    android:id="@+id/btnCancelarSuscripcion"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:paddingRight="4dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:src="@drawable/cancelarsuscripcionbtn" />
+                <ImageView
+                    android:id="@+id/btnEliminarTarjeta"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:paddingLeft="4dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:src="@drawable/eliminartarjetabtn"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_weight="0.4"
-        android:orientation="horizontal"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:id="@+id/layout_card_buttons"
-        android:visibility="invisible">
-        <Button
-            android:id="@+id/btnCancelarSuscripcion"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:paddingRight="4dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:text="Cancelar suscripcion"
-            android:textSize="12dp" />
-        <Button
-            android:id="@+id/btnEliminarTarjeta"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:paddingLeft="4dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:text="eliminar tarjeta"
-            android:textSize="12dp" />
-    </LinearLayout>
-
+    </RelativeLayout>
 
 </LinearLayout>

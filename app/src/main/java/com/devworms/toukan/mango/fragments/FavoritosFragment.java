@@ -54,7 +54,7 @@ public class FavoritosFragment extends Fragment {
             public void done(final List<ParseObject> recetasList, ParseException e) {
                 if (e == null) {
 
-                    mAdapterFavoritosList = new AdapterFavoritoList(recetasList);
+                    mAdapterFavoritosList = new AdapterFavoritoList(recetasList, getActivity());
                     recyclerView.setAdapter(mAdapterFavoritosList);
                     mListToDelete = new ArrayList<ParseObject>();
 
@@ -124,6 +124,7 @@ public class FavoritosFragment extends Fragment {
 
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
+
 
 
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
