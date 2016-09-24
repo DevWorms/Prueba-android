@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -27,6 +28,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.devworms.toukan.mango.R;
 import com.devworms.toukan.mango.activities.MyBoardsActivity;
@@ -80,12 +82,20 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         setCancelable(true);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //Aqui haces que tu layout se muestre como dialog
+
+
         //Aqui haces que tu layout se muestre como dialog
         setContentView(R.layout.dialog_compartir);
 
-        ImageButton buttonFb = (ImageButton) findViewById(R.id.bFacebook);
-        ImageButton buttonTw = (ImageButton) findViewById(R.id.bTwitter);
-        ImageButton buttonPin = (ImageButton) findViewById(R.id.bPinterest);
+
+        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
+        ImageView buttonFb = (ImageView) findViewById(R.id.bFacebook);
+        ImageView buttonTw = (ImageView) findViewById(R.id.bTwitter);
+        ImageView buttonPin = (ImageView) findViewById(R.id.bPinterest);
         imgView = (TargetImageView) findViewById(R.id.imgReceta);
 
 
@@ -155,6 +165,10 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
                 .build();
 
         ShareDialog shareDialog = new ShareDialog((Activity) context);
+
+
+
+
         StarterApplication.callbackManager = CallbackManager.Factory.create();
         shareDialog.registerCallback(StarterApplication.callbackManager, new FacebookCallback<Sharer.Result>() {
             @Override

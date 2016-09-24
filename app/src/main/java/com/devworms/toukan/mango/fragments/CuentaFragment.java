@@ -109,6 +109,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
     public void loadFBProfileImage(String userid){
 
 
+        try{
         String url = "http://graph.facebook.com/"+userid+"/picture?type=large";
 
         StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
@@ -120,6 +121,10 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
 
         imgPerfil.loadImage(url, spec.getKey());
+        }
+        catch (Exception ex){
+            imgPerfil.setImageResource(R.drawable.frida);
+        }
 
     }
 

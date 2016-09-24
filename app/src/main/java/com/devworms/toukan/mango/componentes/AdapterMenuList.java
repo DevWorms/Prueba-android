@@ -241,6 +241,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
                     case "viral":
                         CompartirDialog compartirDialog = new CompartirDialog(activity, objMenu, true);
+
                         compartirDialog.show();
                         StarterApplication.dialogoCompartir = compartirDialog;
 

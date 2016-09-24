@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
@@ -347,6 +348,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                     dialog.setCancelable(true);
                                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                                     //Aqui haces que tu layout se muestre como dialog
+
+                                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
                                     dialog.setContentView(R.layout.dialog_producto);
                                     ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
