@@ -66,8 +66,9 @@ public class OpenPayRestApi{
     public static ParseObject crearCliente(String nombre, String email, String telefono, boolean requires_account){
 
         email = "example@gmail.com";
+        telefono ="5555555555";
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n   \"name\": \"" + nombre + "\",\n   \"email\": \"" + email + "\",\n   \"requires_account\": " + requires_account + "\"\n}");
+        RequestBody body = RequestBody.create(mediaType, "{\n   \"name\": \"" + nombre + "\",\n   \"email\": \"" + email + "\",\n   \"requires_account\": " + requires_account + ",\n   \"phone_number\": \"" + telefono + "\"\n}");
         Request request = new Request.Builder()
                 .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers")
                 .post(body)
