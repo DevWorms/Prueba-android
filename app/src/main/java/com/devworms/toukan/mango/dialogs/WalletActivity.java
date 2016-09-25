@@ -2,6 +2,7 @@ package com.devworms.toukan.mango.dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -96,6 +97,8 @@ public class WalletActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //setFinishOnTouchOutside(false);
         setContentView(R.layout.dialog_descripcion_compra);
+        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
         initControls();
 
 

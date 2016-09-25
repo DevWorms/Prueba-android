@@ -372,7 +372,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                         public void onClick(View view) {
 
                                             dialog.cancel();
-                                            continuar();
+                                           // continuar();
+                                            addtarjetacred();
 
                                         }
                                 });
@@ -430,7 +431,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                                         public void onClick(View view) {
 
                                                             dialog.cancel();
-                                                            continuar();
+                                                            //continuar();
+                                                            addtarjetacred();
 
                                                         }
                                                     });
@@ -476,7 +478,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                         public void onClick(View view) {
 
                                             dialog.cancel();
-                                            continuar();
+                                           // continuar();
+                                            addtarjetacred();
 
                                         }
                                     });
@@ -497,7 +500,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                     }
                 }
 
-                public void continuar() {
+              /*  public void continuar() {
                     final Dialog dialog = new Dialog(activity);
                     dialog.setCancelable(true);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -524,7 +527,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                     });
 
                     dialog.show();
-                }
+                }*/
 
                 public void addtarjetacred() {
 
@@ -572,7 +575,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                     public void onClick(View view) {
 
                                         dialog.cancel();
-                                        continuar();
+                                        //continuar();
+                                        addtarjetacred();
 
                                     }
                                 });
