@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -256,7 +258,10 @@ public class Login extends AppCompatActivity {
         //Aqui haces que tu layout se muestre como dialog
 
         dialog.setContentView(R.layout.dialog_recuperar_contrasena);
-        ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
+        ((ImageView) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -265,7 +270,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
             private EditText txtCorreo;
 
             @Override

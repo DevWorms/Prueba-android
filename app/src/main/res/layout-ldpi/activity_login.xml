@@ -84,6 +84,7 @@
             android:layout_height="12dp"
             android:id="@+id/imageView26"
             android:src="@drawable/olvidastetucontrasena"
+            android:onClick="recuperarContrasena"
             android:scaleType="fitXY"
             android:inputType="textPassword"
             android:layout_gravity="center"

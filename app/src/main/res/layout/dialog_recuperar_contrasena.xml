@@ -8,62 +8,83 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@android:color/transparent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/usuariof"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="4"
-            android:src="@drawable/frida"
-            android:scaleType="centerInside" />
 
-        <TextView
+        <ImageView
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Recuperar contraseña"
-            android:id="@+id/textView12"
-            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal" />
-
-        <EditText android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:hint="Correo electrónico"
-            android:id="@+id/txtCorreo"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:layout_weight="1" />
-
-
-        <Button
-            android:id="@+id/btn_con"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/olvdarr"/>
+        <ImageView
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:text="Enviar"
-            android:textColor="#fff"
-            android:textSize="13dp"
-            android:onClick="registrarUsuario"
-            android:background="#13b586"
-            android:layout_weight="1" />
+            android:layout_weight="3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/frida"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
+            <EditText android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="email"
+                android:id="@+id/txtCorreo"
+                android:background="#f3f3f3"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/tw__composer_black"
+                android:paddingLeft="5dp" />
+        </LinearLayout>
 
+        <ImageView
+            android:id="@+id/btn_con"
 
-        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/recuperarc"/>
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bolita"/>
+        <ImageView
             android:id="@+id/btn_can"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:text="Cancelar"
-            android:textColor="#fff"
-            android:textSize="13dp"
-            android:background="#c22e26"
-            android:layout_weight="1" />
+            android:layout_weight="0.2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cancelprod"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
 
