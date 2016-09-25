@@ -349,10 +349,12 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                                     //Aqui haces que tu layout se muestre como dialog
 
+                                    dialog.setContentView(R.layout.dialog_producto);
+
+
                                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-                                    dialog.setContentView(R.layout.dialog_producto);
-                                    ((Button) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+                                    ((ImageView) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
 
                                         @Override
                                         public void onClick(View view) {
@@ -364,7 +366,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                         }
                                     });
 
-                                    ((Button) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+                                    ((ImageView) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
 
                                         @Override
                                         public void onClick(View view) {

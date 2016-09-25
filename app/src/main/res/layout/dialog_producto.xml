@@ -6,93 +6,146 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity"
     android:background="@android:color/transparent">
 
-    <RelativeLayout
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/usuariof"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="@mipmap/logo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NOMBRE DEL PRODUCTO"
-                android:id="@+id/textViewNombreProducto"
-                android:layout_below="@+id/imageView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="30dp"
-                android:textColor="@color/abc_input_method_navigation_guard"
-                android:layout_marginTop="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Descripcion del producto"
-                android:id="@+id/textViewDescripcionProducto"
-                android:textColor="@color/abc_input_method_navigation_guard"
-                android:textSize="20dp"
-                android:layout_below="@+id/textViewNombreProducto"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Presiona &quot;continuar para agregar una forma de pago o canjear un código a fin de completar la compra&quot;"
-                android:id="@+id/textView3"
-                android:layout_below="@+id/textViewDescripcionProducto"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/abc_input_method_navigation_guard"
-                android:textSize="15dp"
-                android:layout_marginTop="10dp" />
-
-            <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cancelar"
-                    android:id="@+id/btn_can"
-
-                    android:layout_below="@+id/textViewDescripcionProducto"
-                    android:layout_alignLeft="@+id/imageView"
-                    android:layout_alignStart="@+id/imageView" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Continuar"
-                    android:id="@+id/btn_con"
-                    android:layout_below="@+id/relativeLayout"
-                    android:layout_alignRight="@+id/relativeLayout"
-                    android:layout_alignEnd="@+id/relativeLayout"
-                    />
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:id="@+id/imageView"
+                android:src="@drawable/sietediasprueba"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp" />
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/frida"
+                android:scaleType="fitCenter" />
 
-    </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <com.devworms.toukan.mango.componentes.TextoNegrita
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¡ACCEDE AL CATÁLOGO"
+                android:textColor="@color/menuItem"
+                android:textSize="@dimen/text_size"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal" />
+
+            <com.devworms.toukan.mango.componentes.TextoNegrita
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GASTRONOMICO"
+                android:gravity="center_horizontal"
+                android:textColor="@color/barraSecundaria"
+                android:textSize="@dimen/text_size"
+                android:layout_gravity="center_horizontal"/>
+
+            <com.devworms.toukan.mango.componentes.TextoNegrita
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MÁS IRRESISTIBLE!"
+                android:gravity="center_horizontal"
+                android:textColor="@color/menuItem"
+                android:textSize="@dimen/text_size"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <com.devworms.toukan.mango.componentes.TextoNormal
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Después de los 7 dias de prueba, la suscripción será mensual y se renovará automáticamene. "
+                android:textColor="@color/menuItem"
+                android:textSize="@dimen/text_pago"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:layout_marginTop="-5dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/bolita"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.2"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:id="@+id/btn_can"
+                    android:src="@drawable/cancelprod"/>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:id="@+id/btn_con"
+                        android:src="@drawable/continuarorod" />
+                </LinearLayout>
 
 
+
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
