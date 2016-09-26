@@ -24,7 +24,8 @@
         android:src="@drawable/bandapaquete"
         android:layout_alignParentEnd="false"
         android:scaleType="fitXY"
-        android:visibility="visible" />
+        android:visibility="invisible"
+        android:accessibilityLiveRegion="assertive" />
 
     <com.devworms.toukan.mango.componentes.TextoNegrita
         android:layout_width="wrap_content"
@@ -42,17 +43,17 @@
         android:paddingBottom="40dp" />
 
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
         android:id="@+id/imageViewTipoPaquete"
         android:src="@drawable/paquetesgratis"
         android:scaleType="fitXY"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="1dp" />
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="1dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
 
     <com.devworms.toukan.mango.componentes.TextoNormal
         android:layout_width="100dp"
@@ -60,11 +61,11 @@
         android:id="@+id/textViewNumeroRecetas"
         android:rotation="-45"
         android:textColor="#ffffff"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="14dp"
         android:textSize="15dp"
-        android:text="2 recetas" />
+        android:text="contando..." />
 
     <com.devworms.toukan.mango.componentes.TextoNormal
         android:layout_width="wrap_content"
@@ -73,12 +74,12 @@
         android:rotation="-45"
         android:textColor="#ffffff"
         android:text="PAQUETE"
-        android:textSize="11dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
         android:layout_marginTop="67dp"
-        android:visibility="visible"
-        android:layout_marginLeft="1dp" />
+        android:visibility="invisible"
+        android:layout_marginLeft="1dp"
+        android:textSize="9sp" />
 
     <ImageView
         android:layout_width="fill_parent"

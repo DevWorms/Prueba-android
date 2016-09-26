@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.devworms.toukan.mango.R;
@@ -393,7 +394,7 @@ public class OpenPayRestApi{
         }
     }
 
-    public static void cancelarSuscripcion(final Activity actividad, final View view){
+    public static void cancelarSuscripcion(final Activity actividad, final TextView txtSubscripcion, final View view){
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -431,7 +432,8 @@ public class OpenPayRestApi{
                                 cliente.saveInBackground();
                                 titulo = "Suscripción cancelada";
                                 mensaje = "su suscripción actual fue cancelada con éxito";
-                                view.setVisibility(View.GONE);
+                                view.setVisibility(View.INVISIBLE);
+                                txtSubscripcion.setText("Sin inscripción actual");
                             }
                             else{
                                 titulo = "Error en cancelación";
@@ -524,8 +526,8 @@ public class OpenPayRestApi{
 
                                                 titulo = "Tarjeta eliminada";
                                                 mensaje = "Esta tarjeta fue eliminada de esta cuenta";
-                                                view.setVisibility(View.GONE);
-                                                linearLayoutCompat.setVisibility(View.GONE);
+                                                view.setVisibility(View.INVISIBLE);
+                                                linearLayoutCompat.setVisibility(View.INVISIBLE);
                                             }
                                             else{
                                                 titulo = "Error en eliminación";
@@ -537,8 +539,8 @@ public class OpenPayRestApi{
 
                                                     titulo = "Tarjeta eliminada";
                                                     mensaje = "Esta tarjeta fue eliminada de esta cuenta";
-                                                    view.setVisibility(View.GONE);
-                                                    linearLayoutCompat.setVisibility(View.GONE);
+                                                    view.setVisibility(View.INVISIBLE);
+                                                    linearLayoutCompat.setVisibility(View.INVISIBLE);
                                                 }
 
                                             }

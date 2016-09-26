@@ -45,6 +45,8 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.pinterest.android.pdk.PDKCallback;
 import com.pinterest.android.pdk.PDKClient;
 import com.pinterest.android.pdk.PDKException;
@@ -62,6 +64,7 @@ import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -139,6 +142,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
     //Para asignar accion a los botones dentro del fragment
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.bFacebook:
                 compartirFb();
@@ -158,7 +162,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         // compartir una imagen
 
         ShareLinkContent content = new ShareLinkContent.Builder()
-                .setContentUrl(Uri.parse("http://appcocina.parseapp.com"))
+                .setContentUrl(Uri.parse("http://newmobage.com/app_cocina/"))
                 .setContentTitle("Frida te invita")
                 .setContentDescription("¡Esta receta me encanta!")
                 .setImageUrl(Uri.parse(objReceta.getString("Url_Imagen")))
@@ -187,20 +191,44 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
                     query.whereEqualTo("Menu", objReceta);
 
                     query.findInBackground(new FindCallback<ParseObject>() {
-                        public void done(List<ParseObject> recetasList, ParseException e) {
+                        public void done(final List<ParseObject> recetasList, ParseException e) {
                             if (e == null) {
 
                                 if (recetasList.size() > 0) {
 
-                                    ParseObject objRecetaLocal = recetasList.get(0);
-                                    RecetaFragment receta = new RecetaFragment();
-                                    receta.setObjReceta(objRecetaLocal);
-                                    receta.setImgReceta(imgReceta);
+                                    Calendar cal = Calendar.getInstance();
+                                    int year = cal.get(cal.YEAR);
+                                    int month = cal.get(cal.MONTH)+1;
+                                    int trimestre = (int)(((month)/3) + 0.7);
 
-                                    ((Activity) context).getFragmentManager().beginTransaction()
-                                            .replace(R.id.actividad, receta)
-                                            .addToBackStack("MenuFragment")
-                                            .commit();
+                                    ParseObject query = new ParseObject("Favoritos");
+                                    query.put("username", ParseUser.getCurrentUser());
+                                    query.put("Anio", year);
+                                    query.put("Mes", month);
+                                    query.put("Mes", month);
+                                    query.put("Trimestre", trimestre);
+                                    query.put("Mes", month);
+                                    query.put("Recetas", recetasList.get(0));
+
+                                    query.saveInBackground(new SaveCallback() {
+                                       @Override
+                                       public void done(ParseException e) {
+
+                                           ParseObject objRecetaLocal = recetasList.get(0);
+                                           RecetaFragment receta = new RecetaFragment();
+                                           receta.setObjReceta(objRecetaLocal);
+                                           receta.setImgReceta(imgReceta);
+
+                                           ((Activity) context).getFragmentManager().beginTransaction()
+                                                   .replace(R.id.actividad, receta)
+                                                   .addToBackStack("MenuFragment")
+                                                   .commit();
+
+
+                                       }
+                                   });
+
+
                                 }
 
                             }
@@ -258,13 +286,13 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             if(!desadeMenuPrincipal){
                 TweetComposer.Builder b= new TweetComposer.Builder(context)
                         .text("¡Me encanta esta receta!")
-                        .url(new URL("http://appcocina.parseapp.com"))
+                        .url(new URL("http://newmobage.com/app_cocina/"))
                         .image(ImageUri);
                 b.show();
             }else {
                 Intent intent = new TweetComposer.Builder(context)
                         .text("¡Me encanta esta receta!")
-                        .url(new URL("http://appcocina.parseapp.com"))
+                        .url(new URL("http://newmobage.com/app_cocina/"))
                         .image(ImageUri).createIntent();
 
                 int TWEET_COMPOSER_REQUEST_CODE = 100;

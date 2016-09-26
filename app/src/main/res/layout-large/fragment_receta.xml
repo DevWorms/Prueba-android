@@ -180,12 +180,12 @@
                 <ImageView
                     android:id="@+id/imageView12"
 
-                    android:src="@drawable/floresdificultadmedia"
+                    android:src="@drawable/florn1"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitCenter"
                     android:layout_gravity="left"
-                    android:layout_marginLeft="475dp"
+                    android:layout_marginLeft="495dp"
                     android:layout_below="@+id/imageView17"
                     android:layout_marginTop="-14dp" />
                 <com.devworms.toukan.mango.componentes.TextoNormal

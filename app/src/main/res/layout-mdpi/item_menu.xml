@@ -42,8 +42,8 @@
         android:paddingBottom="40dp" />
 
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/imageViewTipoPaquete"
         android:src="@drawable/paquetesgratis"
         android:scaleType="fitXY"
@@ -51,7 +51,7 @@
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
-        android:layout_marginLeft="22dp"
+        android:layout_marginLeft="26dp"
         android:layout_marginTop="0dp" />
 
     <com.devworms.toukan.mango.componentes.TextoNormal
@@ -64,7 +64,7 @@
         android:layout_marginLeft="39dp"
         android:layout_marginTop="13dp"
         android:textSize="15dp"
-        android:text="2 recetas" />
+        android:text="contando..." />
 
     <com.devworms.toukan.mango.componentes.TextoNormal
         android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
         android:rotation="-45"
         android:textColor="#ffffff"
         android:text="PAQUETE"
-        android:textSize="10dp"
+        android:textSize="9sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
         android:layout_marginTop="66dp"

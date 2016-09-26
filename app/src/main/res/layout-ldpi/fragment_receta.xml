@@ -193,15 +193,15 @@
                 <ImageView
                     android:id="@+id/imageView12"
 
-                    android:src="@drawable/floresdificultadmedia"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:scaleType="centerCrop"
+                    android:src="@drawable/florn1"
+                    android:scaleType="fitCenter"
                     android:layout_gravity="left"
-                    android:layout_marginLeft="237dp"
+                    android:layout_marginLeft="245dp"
                     android:layout_below="@+id/imageView17"
-                    android:layout_marginTop="-20dp"
-                    android:layout_marginRight="-12dp" />
+                    android:layout_marginTop="-7dp"
+                    android:layout_marginRight="-12dp"
+                    android:layout_height="20dp"
+                    android:layout_width="60dp" />
 
                 <com.devworms.toukan.mango.componentes.TextoNegrita
                     android:layout_width="wrap_content"

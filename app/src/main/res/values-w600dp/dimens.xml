@@ -2,4 +2,5 @@
 <resources>
     <dimen name="text_size">28sp</dimen>
     <dimen name="text_pago">25sp</dimen>
+    <dimen name="text_wallet">30sp</dimen>
 </resources>

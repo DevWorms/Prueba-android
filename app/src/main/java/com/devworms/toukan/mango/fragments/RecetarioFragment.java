@@ -1,12 +1,16 @@
 package com.devworms.toukan.mango.fragments;
 
-import android.app.Fragment;
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -14,12 +18,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devworms.toukan.mango.R;
 import com.devworms.toukan.mango.componentes.AdapterMenuList;
 import com.devworms.toukan.mango.componentes.AdapterRecetarioList;
+import com.devworms.toukan.mango.dialogs.CarruselSlider;
 import com.devworms.toukan.mango.main.StarterApplication;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -70,7 +76,14 @@ public class RecetarioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
         View view= inflater.inflate(R.layout.fragment_recetario, container, false);
+
+
+
+        TextView txtNombreRecetario = (TextView) view.findViewById(R.id.textViewNombreRecetario);
+        String nombreMenu = objParse.getString("NombreMenu");
+        txtNombreRecetario.setText(nombreMenu);
 
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
@@ -81,11 +94,6 @@ public class RecetarioFragment extends Fragment {
 
         ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
         imgTexto.setVisibility(View.INVISIBLE);
-
-
-        TextView txtNombreRecetario = (TextView) view.findViewById(R.id.textViewNombreRecetario);
-        String nombreMenu = objParse.getString("NombreMenu");
-        txtNombreRecetario.setText(nombreMenu);
 
 
         ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
@@ -102,17 +110,45 @@ public class RecetarioFragment extends Fragment {
 
         obtenerObjetosParse(recyclerView);
 
+        /*SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        Boolean slider = true;//preferences.getBoolean("Mostrarcarrusel", true );
+
+        if(slider){
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("Mostrarcarrusel", false);
+            editor.apply();
+            mostrarAnuncioDiasPrueba();
+        }*/
+
+
+
 
         return view;
     }
 
+/*
+
+    public void mostrarAnuncioDiasPrueba(){
+
+        FragmentManager fm = getChildFragmentManager();
+        CarruselSlider cs = new CarruselSlider();
+
+
+
+
+        cs.show(fm, "carrusel");
+
+
+
+    }
+*/
 
 
     //El Fragment ha sido quitado de su Activity y ya no está disponible
     @Override
     public void onDetach() {
         try {
-            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
         }
         catch (Exception ex)
         {

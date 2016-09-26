@@ -67,11 +67,17 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         View view= inflater.inflate(R.layout.fragment_receta, container, false);
 
 
-/*        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
-*/
+
+
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
+
+        ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
+        imgTexto.setVisibility(View.INVISIBLE);
+
 
         ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
@@ -86,6 +92,32 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
         TextView tiempo = (TextView) view.findViewById(R.id.textView14);
         TextView porciones = (TextView) view.findViewById(R.id.textView18);
+
+        ImageView iImageViewDificultad = (ImageView) view.findViewById(R.id.imageView12);
+
+
+        String dificultad = objReceta.getString("Nivel");
+
+
+        int imageresource = 0;
+        switch (dificultad) {
+
+            case "Principiante":
+                imageresource = getActivity().getResources().getIdentifier("@drawable/florn1", "drawable", getActivity().getPackageName());
+
+                iImageViewDificultad.setImageResource(imageresource);
+                break;
+            case "Intermedio":
+                imageresource = getActivity().getResources().getIdentifier("@drawable/florn2", "drawable", getActivity().getPackageName());
+                iImageViewDificultad.setImageResource(imageresource);
+                break;
+            case "Avanzado":
+                imageresource = getActivity().getResources().getIdentifier("@drawable/florn3", "drawable", getActivity().getPackageName());
+                iImageViewDificultad.setImageResource(imageresource);
+                break;
+            default:
+                break;
+        }
 
 
         tiempo.setText("  " + objReceta.getString("Tiempo"));

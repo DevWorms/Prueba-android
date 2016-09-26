@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -9,154 +9,103 @@
 
     android:background="@android:color/transparent">
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/usuariof"/>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="30dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="@mipmap/logo" />
+                android:scaleType="fitCenter"
 
-            <TextView
+                android:src="@drawable/tarjetau" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="1.5">
+            <com.devworms.toukan.mango.componentes.TextoNegrita
+                android:textColor="@color/barraSecundaria"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NOMBRE DEL PRODUCTO"
-                android:id="@+id/textViewNombreProducto"
-                android:layout_below="@+id/imageView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="30dp"
-                android:textColor="@color/abc_input_method_navigation_guard"
-                android:layout_marginTop="10dp" />
+                android:textSize="@dimen/text_wallet"
+                android:text="Nombre usuario de tarjeta"
+                android:id="@+id/txt_nombre_tarje"
+                />
 
-            <TextView
+            <com.devworms.toukan.mango.componentes.TextoNegrita
+                android:textColor="@color/barraSecundaria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descripcion del producto"
-                android:id="@+id/textViewDescripcionProducto"
-                android:textColor="@color/abc_input_method_navigation_guard"
-                android:textSize="20dp"
-                android:layout_below="@+id/textViewNombreProducto"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="10dp" />
+                android:text="Tipo de tarjeta"
+                android:textSize="@dimen/text_wallet"
+                android:id="@+id/txt_tipo_tarje"
+                 />
 
-            <TextView
+            <com.devworms.toukan.mango.componentes.TextoNegrita
+                android:textColor="@color/barraSecundaria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Recarga o compra un producto"
-                android:id="@+id/textViewTipoRecargaCompra"
-                android:layout_below="@+id/textViewDescripcionProducto"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/abc_input_method_navigation_guard"
-                android:textSize="15dp"
-                android:layout_marginTop="10dp" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clickable="true"
-                android:onClick="pagarEnTienda">
-
-                <ImageView
-                    android:layout_width="138dp"
-                    android:layout_height="87dp"
-                    android:id="@+id/imageView8"
-                    android:background="@mipmap/tarjeta"
-                    android:clickable="false" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pagar en tienda"
-                    android:id="@+id/textView7"
-                    android:textColor="@color/abc_input_method_navigation_guard"
-                    android:textSize="20dp"
-                    android:layout_below="@+id/textViewNombreProducto"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_vertical" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="138dp"
-                    android:layout_height="87dp"
-                    android:id="@+id/imageView7"
-                    android:background="@mipmap/tarjeta" />
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nombre usuario de tarjeta"
-                        android:id="@+id/txt_nombre_tarje"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tipo de tarjeta"
-                        android:id="@+id/txt_tipo_tarje"
-                        android:textColor="#000000" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Numero de tarjeta"
-                        android:id="@+id/txt_numero_tarjeta"
-                        android:textColor="#000000" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cancelar"
-                    android:id="@+id/btn_cancelar_compra"
-
-                    android:layout_below="@+id/textViewDescripcionProducto"
-                    android:layout_alignLeft="@+id/imageView"
-                    android:layout_alignStart="@+id/imageView" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pagar"
-                    android:id="@+id/btn_pagar_compra"
-                    android:layout_below="@+id/relativeLayout"
-                    android:layout_alignRight="@+id/relativeLayout"
-                    android:layout_alignEnd="@+id/relativeLayout"
-                    android:onClick="pagarConTarjeta" />
-            </LinearLayout>
+                android:text="Numero de tarjeta"
+                android:textSize="@dimen/text_wallet"
+                android:id="@+id/txt_numero_tarjeta"
+                 />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+
+                android:src="@drawable/bolita"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/suscribirsew"
+                android:id="@+id/btn_pagar_compra"
+                android:onClick="pagarConTarjeta"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp" />
+        </LinearLayout>
+    </LinearLayout>
 
 
-</LinearLayout>
+
+</RelativeLayout>

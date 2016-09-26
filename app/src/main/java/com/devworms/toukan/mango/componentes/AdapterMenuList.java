@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -36,9 +37,11 @@ import com.devworms.toukan.mango.main.StarterApplication;
 import com.devworms.toukan.mango.util.SoporteMultiplesPantallas;
 import com.devworms.toukan.mango.util.Specs;
 import com.parse.CountCallback;
+import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.theartofdev.fastimageloader.FastImageLoader;
 import com.theartofdev.fastimageloader.ImageLoadSpec;
 import com.theartofdev.fastimageloader.target.TargetImageView;
@@ -127,7 +130,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
         public ImageView imageViewDeviderTop;
         public ImageView imageViewDeviderbottom;
 
-        public  Activity activity;
+        public FragmentActivity activity;
 
         ParseObject objMenu;
 
@@ -138,7 +141,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
             mTargetImageView = (TargetImageView) v.findViewById(R.id.image_view);
             mTargetImageView.setOnClickListener(this);
-            this.activity = (Activity) mTargetImageView.getContext();
+            this.activity = (FragmentActivity) mTargetImageView.getContext();
 
             tTextViewNumeroRecetas =(TextView) v.findViewById(R.id.textViewNumeroRecetas);
             tTextViewTipoPaquete = (TextView) v.findViewById(R.id.textViewTipoPaquete);
@@ -218,7 +221,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
         @Override
         public void onClick(View v) {
-            Activity activity = (Activity) mTargetImageView.getContext();
+            final FragmentActivity activity = (FragmentActivity) mTargetImageView.getContext();
             if (activity != null) {
 
                 String tipo = objMenu.getString("TipoMenu").toLowerCase();
@@ -232,7 +235,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                         recetario.setMenuSeleccionado(objMenu);
                         recetario.setTipoMenu(tipo);
 
-                        activity.getFragmentManager().beginTransaction()
+                        activity.getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.actividad,recetario)
                                 .addToBackStack("MenuFragment")
                                 .commit();
@@ -240,10 +243,55 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                         break;
 
                     case "viral":
-                        CompartirDialog compartirDialog = new CompartirDialog(activity, objMenu, true);
 
-                        compartirDialog.show();
-                        StarterApplication.dialogoCompartir = compartirDialog;
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
+                        query.whereEqualTo("Menu", objMenu);
+
+                        query.findInBackground(new FindCallback<ParseObject>() {
+                               public void done(final List<ParseObject> recetasList, ParseException e) {
+                                   if (e == null) {
+
+                                       if (recetasList.size() > 0) {
+
+                                           ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
+                                           query.whereEqualTo("username", ParseUser.getCurrentUser());
+                                           query.whereEqualTo("Recetas", recetasList.get(0));
+
+                                           query.findInBackground(new FindCallback<ParseObject>() {
+                                               public void done(List<ParseObject> recetasList, ParseException e) {
+                                                   if (e == null) {
+                                                       //Si la receta ya esta en favoritos significa que ya fue compartida
+                                                       if (recetasList.size() > 0) {
+
+                                                           RecetarioFragment recetario = new RecetarioFragment();
+                                                           recetario.setMenuSeleccionado(objMenu);
+                                                           recetario.setTipoMenu("gratis");
+
+                                                           activity.getSupportFragmentManager().beginTransaction()
+                                                                   .replace(R.id.actividad,recetario)
+                                                                   .addToBackStack("MenuFragment")
+                                                                   .commit();
+                                                       }
+                                                       else{
+
+                                                           CompartirDialog compartirDialog = new CompartirDialog(activity, objMenu, true);
+
+                                                           compartirDialog.show();
+                                                           StarterApplication.dialogoCompartir = compartirDialog;
+
+                                                       }
+
+
+                                                   }
+                                               }
+                                           });
+
+                                       }
+                                   }
+                               }
+                           });
+
+
 
 
                         break;

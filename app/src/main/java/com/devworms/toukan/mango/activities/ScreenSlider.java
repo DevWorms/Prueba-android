@@ -30,10 +30,29 @@ import java.util.TimerTask;
 public class ScreenSlider extends AppCompatActivity {
     private static Integer[]images =
             {
-                    R.drawable.imagen1,
-                    R.drawable.imagen2,
-                    R.drawable.imagen3,
-                    R.drawable.imagen4,
+                    R.drawable.imagenslider1,
+                    R.drawable.imagenslider2,
+                    R.drawable.imagenslider3
+            };
+
+    private static Integer[]bolitas =
+            {
+                    R.drawable.bolitasslider1,
+                    R.drawable.bolitasslider2,
+                    R.drawable.bolitasslider3
+            };
+
+    private static Integer[]textouno =
+            {
+                    R.drawable.cocinamexicana,
+                    R.drawable.daleprobadita,
+                    R.drawable.veinteanosdeexperiencia
+            };
+    private static Integer[]textodos =
+            {
+                    R.drawable.cocinamexicana2,
+                    R.drawable.cocinatradicional,
+                    R.drawable.todoeltalento
             };
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -83,7 +102,7 @@ public class ScreenSlider extends AppCompatActivity {
             public void run() {
                 handler.post(Update);
             }
-        }, 2000, 2500);
+        }, 4000, 4500);
 
 
     }
@@ -91,6 +110,12 @@ public class ScreenSlider extends AppCompatActivity {
     public void loguearse(View view)
     {
         Intent intent = new Intent(ScreenSlider.this,Login.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void crearcuenta(View view){
+        Intent intent = new Intent(ScreenSlider.this,RegistroActivity.class);
         startActivity(intent);
         finish();
     }
@@ -194,7 +219,16 @@ public class ScreenSlider extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_screen_slider, container, false);
             try {
                 ImageView imageView = (ImageView) rootView.findViewById(R.id.imageSlides);
+                ImageView imageViewTextUno = (ImageView) rootView.findViewById(R.id.textouno);
+                ImageView imageViewBolita = (ImageView) rootView.findViewById(R.id.bolita);
+                ImageView imageViewTextDos = (ImageView) rootView.findViewById(R.id.textodos);
+                ImageView imageViewBolitas = (ImageView) rootView.findViewById(R.id.bolitas);
+
                 imageView.setImageResource(images[getArguments().getInt(ARG_SECTION_NUMBER)]);
+                imageViewTextUno.setImageResource(textouno[getArguments().getInt(ARG_SECTION_NUMBER)]);
+                imageViewBolita.setImageResource(R.drawable.bolita);
+                imageViewTextDos.setImageResource(textodos[getArguments().getInt(ARG_SECTION_NUMBER)]);
+                imageViewBolitas.setImageResource(bolitas[getArguments().getInt(ARG_SECTION_NUMBER)]);
             }
             catch (Exception ex)
             {

@@ -1,8 +1,13 @@
 package com.devworms.toukan.mango.dialogs;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -12,11 +17,14 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 
 import com.devworms.toukan.mango.R;
 import com.devworms.toukan.mango.activities.Login;
 import com.devworms.toukan.mango.activities.MainActivity;
+import com.devworms.toukan.mango.activities.ScreenSlider;
+import com.devworms.toukan.mango.main.StarterApplication;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -24,11 +32,9 @@ import java.util.TimerTask;
 /**
  * Created by sergio on 08/11/15.
  */
-public class CarruselSlider extends AppCompatActivity {
+public class CarruselSlider extends DialogFragment {
     private static Integer[]images =
             {
-                    R.drawable.imagen1,
-                    R.drawable.imagen2,
                     R.drawable.imagen3,
                     R.drawable.imagen4,
             };
@@ -39,20 +45,26 @@ public class CarruselSlider extends AppCompatActivity {
     private ViewPager mViewPager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_slider);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        getDialog().
+                requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        View view = inflater.inflate(R.layout.dialog_carrusel, container);
+
+        getDialog().
+                getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) view.findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         //mViewPager.setPageTransformer(true, new RelaxTransformer());
-       // mViewPager.setPageTransformer(true,  new DepthPageTransformer ());
+        // mViewPager.setPageTransformer(true,  new DepthPageTransformer ());
 
 
         final Handler handler = new Handler();
@@ -82,22 +94,11 @@ public class CarruselSlider extends AppCompatActivity {
             }
         }, 2000, 2500);
 
+        return view;
 
     }
 
-    public void loguearse(View view)
-    {
-        Intent intent = new Intent(CarruselSlider.this,Login.class);
-        startActivity(intent);
-        finish();
-    }
 
-    public void continuar(View view)
-    {
-        Intent intent = new Intent(CarruselSlider.this,MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
 
     @Override
@@ -130,7 +131,7 @@ public class CarruselSlider extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position);
+            return ScreenSlider.PlaceholderFragment.newInstance(position);
         }
 
         @Override
@@ -173,8 +174,8 @@ public class CarruselSlider extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static ScreenSlider.PlaceholderFragment newInstance(int sectionNumber) {
+            ScreenSlider.PlaceholderFragment fragment = new ScreenSlider.PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);

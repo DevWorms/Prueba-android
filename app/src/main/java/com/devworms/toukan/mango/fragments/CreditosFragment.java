@@ -3,9 +3,11 @@ package com.devworms.toukan.mango.fragments;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.devworms.toukan.mango.R;
@@ -36,6 +38,20 @@ public class CreditosFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_creditos, container, false);
 
+
+
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+        imgFrida.setVisibility(View.INVISIBLE);
+
+
+        ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
+        imgFondoBarra.setVisibility(View.INVISIBLE);
+
+        ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
+        imgTexto.setVisibility(View.INVISIBLE);
+
+
+        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
 
         /*//Menu

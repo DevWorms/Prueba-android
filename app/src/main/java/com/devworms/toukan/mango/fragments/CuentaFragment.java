@@ -397,7 +397,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
             {
                 @Override
                 public void onClick(View v) {
-                    OpenPayRestApi.cancelarSuscripcion(activity, v);
+                    OpenPayRestApi.cancelarSuscripcion(activity,txtSubscripcion, v);
                 }
             });
 

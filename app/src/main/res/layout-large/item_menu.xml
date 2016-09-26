@@ -24,7 +24,7 @@
         android:src="@drawable/bandapaquete"
         android:layout_alignParentEnd="false"
         android:scaleType="fitXY"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <com.devworms.toukan.mango.componentes.TextoNegrita
         android:layout_width="wrap_content"
@@ -42,17 +42,17 @@
         android:paddingBottom="40dp" />
 
     <ImageView
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="115dp"
         android:id="@+id/imageViewTipoPaquete"
         android:src="@drawable/paquetesgratis"
         android:scaleType="fitXY"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="0dp"
+        android:layout_height="115dp" />
 
     <com.devworms.toukan.mango.componentes.TextoNormal
         android:layout_width="100dp"
@@ -60,11 +60,11 @@
         android:id="@+id/textViewNumeroRecetas"
         android:rotation="-45"
         android:textColor="#ffffff"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_marginLeft="83dp"
         android:layout_marginTop="45dp"
         android:textSize="27dp"
-        android:text="2 recetas" />
+        android:text="contando..." />
 
     <com.devworms.toukan.mango.componentes.TextoNormal
         android:layout_width="wrap_content"
@@ -73,11 +73,11 @@
         android:rotation="-45"
         android:textColor="#ffffff"
         android:text="PAQUETE"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
         android:layout_marginTop="120dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_marginLeft="0dp" />
 
     <ImageView

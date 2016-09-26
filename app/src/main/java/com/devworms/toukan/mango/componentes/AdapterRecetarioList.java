@@ -16,11 +16,13 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.RecyclerView;
@@ -35,6 +37,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devworms.toukan.mango.R;
+import com.devworms.toukan.mango.activities.Splash;
 import com.devworms.toukan.mango.dialogs.AgregarTarjeta;
 import com.devworms.toukan.mango.dialogs.WalletActivity;
 import com.devworms.toukan.mango.openpay.OpenPayRestApi;
@@ -303,43 +306,21 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                                             } else {
 
-                                                if (dialog == null) {
-                                                    dialog = new Dialog(activity);
-                                                    dialog.setCancelable(true);
-                                                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                                                    //Aqui haces que tu layout se muestre como dialog
+                                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+                                                Boolean slider = preferences.getBoolean("Mostrardiasprueba", true );
+                                                if(slider) {
+                                                    SharedPreferences.Editor editor = preferences.edit();
+                                                    editor.putBoolean("Mostrardiasprueba", false);
+                                                    editor.apply();
 
-                                                    dialog.setContentView(R.layout.dialog_producto);
-                                                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-                                                    ((ImageView) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
-
-                                                        @Override
-                                                        public void onClick(View view) {
-
-                                                            dialog.cancel();
-                                                            dialog.closeOptionsMenu();
+                                                    mostrarAnuncioDiasPrueba();
 
 
-                                                        }
-                                                    });
+                                                }else{
 
-                                                    ((ImageView) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
-
-                                                        @Override
-                                                        public void onClick(View view) {
-
-                                                            dialog.cancel();
-                                                            //continuar();
-                                                            addtarjetacred();
-
-                                                        }
-                                                    });
+                                                    addtarjetacred();
                                                 }
 
-                                                if (!dialog.isShowing()) {
-                                                    dialog.show();
-                                                }
                                             }
                                         }
                                     }
@@ -352,48 +333,69 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                         } else {
                           //////////
 
-                            if (dialog == null) {
-                                dialog = new Dialog(activity);
-                                dialog.setCancelable(true);
-                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                                //Aqui haces que tu layout se muestre como dialog
+                            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+                            Boolean slider = preferences.getBoolean("Mostrardiasprueba", true );
+                            if(slider) {
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putBoolean("Mostrardiasprueba", false);
+                                editor.apply();
 
-                                dialog.setContentView(R.layout.dialog_producto);
-                                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-                                ((ImageView) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(View view) {
-
-                                        dialog.cancel();
-                                        dialog.closeOptionsMenu();
+                                mostrarAnuncioDiasPrueba();
 
 
-                                    }
-                                });
+                                if (!dialog.isShowing()) {
+                                    dialog.show();
+                                }
+                            }
+                            else{
 
-                                ((ImageView) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(View view) {
-
-                                        dialog.cancel();
-                                        //continuar();
-                                        addtarjetacred();
-
-                                    }
-                                });
+                                addtarjetacred();
                             }
 
-                            if (!dialog.isShowing()) {
-                                dialog.show();
-                            }
                             ///////////
                         }
                     }
                 }
 
+                public void mostrarAnuncioDiasPrueba(){
+                    if (dialog == null) {
+                        dialog = new Dialog(activity);
+                        dialog.setCancelable(true);
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        //Aqui haces que tu layout se muestre como dialog
+
+                        dialog.setContentView(R.layout.dialog_producto);
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+                        ((ImageView) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View view) {
+
+                                dialog.cancel();
+                                dialog.closeOptionsMenu();
+
+
+                            }
+                        });
+
+                        ((ImageView) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View view) {
+
+                                dialog.cancel();
+                                //continuar();
+                                addtarjetacred();
+
+                            }
+                        });
+                    }
+
+                    if (!dialog.isShowing()) {
+                        dialog.show();
+                    }
+                }
                 public void addtarjetacred() {
 
                     Intent intent = new Intent(activity.getApplicationContext(), AgregarTarjeta.class);
