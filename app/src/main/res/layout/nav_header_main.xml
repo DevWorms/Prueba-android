@@ -22,7 +22,7 @@
         android:layout_gravity="top" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/globo"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/nav_header_vertical_spacing"

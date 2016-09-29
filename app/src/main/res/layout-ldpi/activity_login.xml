@@ -51,15 +51,14 @@
             android:hint="Mail"
             android:layout_gravity="center"
             android:textSize="10dp"
-            android:textIsSelectable="false" />
+            />
         <EditText
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextContrasena"
             android:hint="Contraseña"
             android:layout_gravity="center"
-            android:textSize="10dp"
-            android:textIsSelectable="false" />
+            android:textSize="10dp" />
 
         <ImageView
             android:layout_width="230dp"

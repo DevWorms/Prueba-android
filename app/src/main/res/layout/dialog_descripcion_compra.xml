@@ -41,7 +41,7 @@
             android:layout_height="0dp"
             android:gravity="center_vertical|center_horizontal"
             android:layout_weight="1.5">
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:textColor="@color/barraSecundaria"
 
                 android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                 android:id="@+id/txt_nombre_tarje"
                 />
 
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:textColor="@color/barraSecundaria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 android:id="@+id/txt_tipo_tarje"
                  />
 
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:textColor="@color/barraSecundaria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

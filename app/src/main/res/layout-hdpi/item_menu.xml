@@ -27,7 +27,7 @@
         android:visibility="invisible"
         android:accessibilityLiveRegion="assertive" />
 
-    <com.devworms.toukan.mango.componentes.TextoNegrita
+    <com.devworms.toukan.mangofrida.componentes.TextoNegrita
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewNombrePlatillo"
@@ -55,7 +55,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp" />
 
-    <com.devworms.toukan.mango.componentes.TextoNormal
+    <com.devworms.toukan.mangofrida.componentes.TextoNormal
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/textViewNumeroRecetas"
@@ -67,7 +67,7 @@
         android:textSize="15dp"
         android:text="contando..." />
 
-    <com.devworms.toukan.mango.componentes.TextoNormal
+    <com.devworms.toukan.mangofrida.componentes.TextoNormal
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewTipoPaquete"

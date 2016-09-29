@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.devworms.toukan.mango" >
+    package="com.devworms.toukan.mangofrida" >
 
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -30,9 +30,9 @@
         android:xlargeScreens="true"
         android:anyDensity="true" />
 
-    <uses-permission android:name="com.devworms.toukan.mango.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.devworms.toukan.mangofrida.permission.C2D_MESSAGE"/>
     <permission
-        android:name="com.devworms.toukan.mango.permission.C2D_MESSAGE"
+        android:name="com.devworms.toukan.mangofrida.permission.C2D_MESSAGE"
         android:protectionLevel="signature"/>
 
 
@@ -164,7 +164,7 @@
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
 
-                <category android:name="com.devworms.toukan.mango" />
+                <category android:name="com.devworms.toukan.mangofrida" />
             </intent-filter>
         </receiver>
 

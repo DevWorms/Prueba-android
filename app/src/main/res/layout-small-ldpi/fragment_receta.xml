@@ -36,7 +36,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_height="60dp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNegrita
+                <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                     android:id="@+id/txtrecetaTitulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     android:layout_toStartOf="@+id/compartir"
                     android:layout_alignEnd="@+id/txtrecetaTitulo" />
 
-                <com.devworms.toukan.mango.componentes.TextoNormal
+                <com.devworms.toukan.mangofrida.componentes.TextoNormal
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -120,7 +120,7 @@
                     android:layout_below="@+id/imageView18"
                     android:layout_marginLeft="140dp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNormal
+                <com.devworms.toukan.mangofrida.componentes.TextoNormal
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -133,7 +133,7 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="12sp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNegrita
+                <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -144,7 +144,7 @@
                     android:layout_marginLeft="45dp"
                     android:textSize="12sp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNormal
+                <com.devworms.toukan.mangofrida.componentes.TextoNormal
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -156,7 +156,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginLeft="135dp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNormal
+                <com.devworms.toukan.mangofrida.componentes.TextoNormal
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -169,7 +169,7 @@
                     android:layout_marginLeft="200dp"
                     android:textSize="12sp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNormal
+                <com.devworms.toukan.mangofrida.componentes.TextoNormal
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -180,7 +180,7 @@
                     android:layout_marginLeft="140dp"
                     android:textSize="12sp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNormal
+                <com.devworms.toukan.mangofrida.componentes.TextoNormal
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DIFICULTAD"
@@ -203,7 +203,7 @@
                     android:layout_marginRight="-12dp"
                     android:layout_width="60dp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNegrita
+                <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6"
@@ -214,7 +214,7 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="193dp" />
 
-                <com.devworms.toukan.mango.componentes.TextoNormal
+                <com.devworms.toukan.mangofrida.componentes.TextoNormal
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -237,7 +237,7 @@
                 android:gravity="center_horizontal"
                 android:paddingBottom="30dp"
                 android:paddingTop="30dp">
-                <com.devworms.toukan.mango.componentes.TextoNormal
+                <com.devworms.toukan.mangofrida.componentes.TextoNormal
                     android:id="@+id/txtreceta"
                     android:layout_height="wrap_content"
                     android:background="#e0e4e6"

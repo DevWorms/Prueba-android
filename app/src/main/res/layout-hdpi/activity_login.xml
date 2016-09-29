@@ -46,22 +46,24 @@
             android:layout_marginTop="10dp" />
 
         <EditText
+            android:layout_marginTop="10dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextMail"
-            android:hint="Mail"
+            android:hint="correo"
             android:layout_gravity="center"
-            android:textSize="10dp"
-            android:textIsSelectable="false" />
+            android:textSize="10dp" />
+
         <EditText
+            android:layout_marginTop="10dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/editTextContrasena"
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:layout_gravity="center"
-            android:textSize="10dp"
-            android:textIsSelectable="false" />
+            android:textSize="10dp" />
+
 
         <ImageView
             android:layout_width="250dp"

@@ -50,7 +50,7 @@
             android:orientation="vertical"
             android:layout_weight="1">
 
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="¡ACCEDE AL CATÁLOGO"
@@ -59,7 +59,7 @@
                 android:gravity="center_horizontal"
                 android:layout_gravity="center_horizontal" />
 
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="GASTRONOMICO"
@@ -68,7 +68,7 @@
                 android:textSize="@dimen/text_size"
                 android:layout_gravity="center_horizontal"/>
 
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="MÁS IRRESISTIBLE!"
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-            <com.devworms.toukan.mango.componentes.TextoNormal
+            <com.devworms.toukan.mangofrida.componentes.TextoNormal
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Después de los 7 dias de prueba, la suscripción será mensual y se renovará automáticamene. "

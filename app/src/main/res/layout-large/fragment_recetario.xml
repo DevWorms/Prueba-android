@@ -17,7 +17,7 @@
             android:scaleType="centerCrop"
             android:layout_height="125dp" />
 
-        <com.devworms.toukan.mango.componentes.TextoNegrita
+        <com.devworms.toukan.mangofrida.componentes.TextoNegrita
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"

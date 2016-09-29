@@ -39,7 +39,7 @@
         android:layout_alignTop="@+id/imageView15">
         <LinearLayout android:layout_height="match_parent"
             android:layout_width="250dp">
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:layout_height="match_parent"
                 android:text="Pastel azteca"
                 android:id="@+id/textViewNombrereceta"
@@ -56,71 +56,6 @@
                 android:textSize="30sp"
                 android:layout_width="240dp" />
 
-            <LinearLayout
-                android:layout_height="match_parent"
-                android:layout_width="match_parent">
-
-                <com.devworms.toukan.mango.componentes.TextoNegrita
-                    android:layout_width="350dp"
-                    android:layout_height="match_parent"
-                    android:text="Pastel azteca"
-                    android:id="@+id/textViewNombrereceta"
-                    android:textColor="#ffffff"
-                    android:shadowColor="#000000"
-                    android:lines="3"
-                    android:maxLines="3"
-                    android:paddingEnd="15dp"
-                    android:paddingStart="8dp"
-                    android:textIsSelectable="true"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:gravity="center_vertical|center_horizontal|left"
-                    android:layout_marginLeft="17dp"
-                    android:textSize="45sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_height="match_parent"
-                android:layout_width="match_parent">
-
-                <com.devworms.toukan.mango.componentes.TextoNegrita
-                    android:layout_width="350dp"
-                    android:layout_height="match_parent"
-                    android:text="Pastel azteca"
-                    android:id="@+id/textViewNombrereceta"
-                    android:textColor="#ffffff"
-                    android:shadowColor="#000000"
-                    android:lines="3"
-                    android:maxLines="3"
-                    android:paddingEnd="15dp"
-                    android:paddingStart="8dp"
-                    android:textIsSelectable="true"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:gravity="center_vertical|center_horizontal|left"
-                    android:layout_marginLeft="17dp"
-                    android:textSize="45sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_height="match_parent"
-                android:layout_width="match_parent">
-
-                <com.devworms.toukan.mango.componentes.TextoNegrita
-                    android:layout_width="350dp"
-                    android:layout_height="match_parent"
-                    android:text="Pastel azteca"
-                    android:id="@+id/textViewNombrereceta"
-                    android:textColor="#ffffff"
-                    android:shadowColor="#000000"
-                    android:lines="3"
-                    android:maxLines="3"
-                    android:paddingEnd="15dp"
-                    android:paddingStart="8dp"
-                    android:textIsSelectable="true"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:gravity="center_vertical|center_horizontal|left"
-                    android:layout_marginLeft="17dp"
-                    android:textSize="45sp" />
-            </LinearLayout>
         </LinearLayout>
 
         <GridLayout
@@ -130,7 +65,7 @@
             android:rowCount="2"
             android:layout_gravity="center_vertical"
             android:layout_columnSpan = "2">
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:text="TIEMPO"
                 android:id="@+id/textView"
                 android:textColor="#ffffff"
@@ -142,7 +77,7 @@
                 android:textSize="25dp"
                 android:paddingEnd="10dp"
                 android:layout_marginTop="6dp" />
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:shadowColor="#000000"
                 android:textColor="#ffffff"
                 android:id="@+id/textViewTiempo"
@@ -150,7 +85,7 @@
                 android:textSize="25dp"
                 android:textIsSelectable="true"
                 android:layout_marginTop="6dp" />
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:text="PORCIONES"
                 android:id="@+id/textView2"
                 android:textColor="#ffffff"
@@ -159,14 +94,14 @@
                 android:textSize="25dp"
                 android:paddingEnd="10dp" />
 
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:id="@+id/textViewPorciones"
                 android:textColor="#ffffff"
                 android:shadowColor="#000000"
                 android:layout_gravity="fill_horizontal"
                 android:textSize="25dp" />
 
-            <com.devworms.toukan.mango.componentes.TextoNegrita
+            <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:text="DIFICULTAD"
                 android:id="@+id/textView8"
                 android:textColor="#ffffff"

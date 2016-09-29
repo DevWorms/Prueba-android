@@ -13,6 +13,11 @@
             android:title="Me gustan" />
 
         <item
+            android:id="@+id/nav_regalos"
+            android:icon="@drawable/ic_menu_me_gustan"
+            android:title="Mis regalos" />
+
+        <item
             android:id="@+id/nav_cuenta"
             android:icon="@drawable/ic_menu_usuario"
             android:title="Usuario" />

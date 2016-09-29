@@ -50,7 +50,7 @@
             android:hint="Mail"
             android:layout_gravity="center"
             android:textSize="20dp"
-            android:textIsSelectable="false" />
+             />
         <EditText
             android:layout_width="430dp"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             android:layout_gravity="center"
             android:inputType="textPassword"
             android:textSize="20dp"
-            android:textIsSelectable="false" />
+            />
 
         <ImageView
             android:layout_width="430dp"
