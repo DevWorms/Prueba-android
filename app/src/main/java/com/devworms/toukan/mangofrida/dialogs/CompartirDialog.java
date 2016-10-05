@@ -126,6 +126,12 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         pdkClient.onConnect(context);
         pdkClient.setDebugMode(true);
 
+        if(desadeMenuPrincipal){
+            ((ImageView)findViewById(R.id.imgComparte)).setImageResource(R.drawable.trofeoc);
+        }else{
+            ((ImageView)findViewById(R.id.imgComparte)).setImageResource(R.drawable.compartec);
+        }
+
         this.objReceta = objReceta;
 
 

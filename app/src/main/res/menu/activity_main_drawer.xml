@@ -14,7 +14,7 @@
 
         <item
             android:id="@+id/nav_regalos"
-            android:icon="@drawable/ic_menu_me_gustan"
+            android:icon="@drawable/regalo"
             android:title="Mis regalos" />
 
         <item

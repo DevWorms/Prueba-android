@@ -125,7 +125,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
 
 
-        porciones.setText("  " + objReceta.getString("Porciones").substring(0,2));
+        porciones.setText("  " + (objReceta.getString("Porciones").length() < 3 ? objReceta.getString("Porciones"):objReceta.getString("Porciones").substring(0,2) ) );
 
 
         pasosTitulo.setText(objReceta.getString("Nombre"));
