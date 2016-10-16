@@ -62,6 +62,7 @@ public class StarterApplication extends Application {
 
   public static boolean bViral = false;
   public static boolean bCompartido = false;
+  public static boolean isDesdeMenuPrincipal = false;
   public static boolean bCompartidoTwitter = false;
   public static ParseObject objReceta = null;
 

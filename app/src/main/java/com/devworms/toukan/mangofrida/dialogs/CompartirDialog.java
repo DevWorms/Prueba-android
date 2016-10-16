@@ -77,13 +77,11 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
     TargetImageView imgView;
     private PDKClient pdkClient;
     private FragmentActivity context;
-    public boolean desadeMenuPrincipal = false;
 
-
-    public CompartirDialog(FragmentActivity context, ParseObject objReceta, boolean desadeMenuPrincipal) {
+    public CompartirDialog(FragmentActivity context, ParseObject objReceta) {
         super(context);
         this.context = context;
-        this.desadeMenuPrincipal = desadeMenuPrincipal;
+
         setCancelable(true);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -126,7 +124,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         pdkClient.onConnect(context);
         pdkClient.setDebugMode(true);
 
-        if(desadeMenuPrincipal){
+        if(StarterApplication.isDesdeMenuPrincipal){
             ((ImageView)findViewById(R.id.imgComparte)).setImageResource(R.drawable.trofeoc);
         }else{
             ((ImageView)findViewById(R.id.imgComparte)).setImageResource(R.drawable.compartec);
@@ -187,12 +185,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             public void onSuccess(Sharer.Result result) {
                 cancel();
 
-                if(desadeMenuPrincipal) {
-
-                    View drawingView = imgView;
-                    drawingView.buildDrawingCache(true);
-                    final Bitmap imgReceta = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
-                    drawingView.destroyDrawingCache();
+                if(StarterApplication.isDesdeMenuPrincipal) {
 
 
                     Calendar cal = Calendar.getInstance();
@@ -281,12 +274,14 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
 
             //  File myImageFile = new File("/path/to/image");
             // Uri myImageUri = Uri.fromFile(myImageFile);
-            if(!desadeMenuPrincipal){
-                TweetComposer.Builder b= new TweetComposer.Builder(context)
+            if(!StarterApplication.isDesdeMenuPrincipal){
+                final Intent intent = new TweetComposer.Builder(context)
                         .text("¡Me encanta esta receta!")
                         .url(new URL("http://newmobage.com/app_cocina/"))
-                        .image(ImageUri);
-                b.show();
+                        .image(ImageUri).createIntent();
+                StarterApplication.bCompartidoTwitter = true;
+                final int TWEET_COMPOSER_REQUEST_CODE = 100;
+                ((Activity) context).startActivityForResult(intent, TWEET_COMPOSER_REQUEST_CODE);
             }else {
                 final Intent intent = new TweetComposer.Builder(context)
                         .text("¡Me encanta esta receta!")
@@ -305,10 +300,6 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
                 query.findInBackground(new FindCallback<ParseObject>() {
                     public void done(final List<ParseObject> recetasList, ParseException e) {
                         if (e == null) {
-                            View drawingView = imgView;
-                            drawingView.buildDrawingCache(true);
-                            final Bitmap imgReceta = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
-                            drawingView.destroyDrawingCache();
 
                             if (recetasList.size() > 0) {
 
@@ -361,39 +352,10 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
 
                 try {
 
-
-
-                    View drawingView = imgView;
-                    drawingView.buildDrawingCache(true);
-                    final Bitmap imgReceta = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
-                    drawingView.destroyDrawingCache();
-
-
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
-                    query.whereEqualTo("Menu", objReceta);
-
-                    query.findInBackground(new FindCallback<ParseObject>() {
-                        public void done(final List<ParseObject> recetasList, ParseException e) {
-                            if (e == null) {
-
-                                if (recetasList.size() > 0) {
-
-
-                                            //Pop intent
-                                            Intent in1 = new Intent(context, MyBoardsActivity.class);
-                                            in1.putExtra("url_imagen", objReceta.getString("Url_Imagen"));
-                                            context.startActivity(in1);
-
-
-                                }
-
-                            }
-
-                        }
-                    });
-
-
-
+                        //Pop intent
+                        Intent in1 = new Intent(context, MyBoardsActivity.class);
+                        in1.putExtra("url_imagen", objReceta.getString("Url_Imagen"));
+                        context.startActivity(in1);
 
                 } catch (Exception e) {
                     Log.e("error", e.getMessage());

@@ -178,8 +178,10 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
     public void compartir()
     {
-        CompartirDialog compartir = new CompartirDialog((FragmentActivity) getActivity(),this.objReceta, false );
+        StarterApplication.isDesdeMenuPrincipal = false;
+        CompartirDialog compartir = new CompartirDialog((FragmentActivity) getActivity(),this.objReceta );
         compartir.show();
+        StarterApplication.dialogoCompartir = compartir;
     }
 
 

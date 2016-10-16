@@ -232,7 +232,7 @@ public class MyBoardsActivity extends AppCompatActivity {
 
         @Override
         public long getItemId(int position) {
-            String pinImageUrl = "http://pruebas.devworms.com/HOME1.png";
+            String pinImageUrl = urlImagen;
 
             String board = _boardList.get(position).getUid();
             String noteText = "prueba";
