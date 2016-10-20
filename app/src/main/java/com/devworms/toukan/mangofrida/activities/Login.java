@@ -60,22 +60,7 @@ public class Login extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-        TextView usuario = ((TextView)findViewById(R.id.editTextMail) );
-        TextView password = ((TextView)findViewById(R.id.editTextContrasena) );
 
-        usuario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                displayKeyboard((TextView) v);
-            }
-        });
-
-        password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                displayKeyboard((TextView) v);
-            }
-        });
 
 
 
@@ -83,8 +68,7 @@ public class Login extends AppCompatActivity {
         try {
 
 
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-            registrar = false;
+             registrar = false;
 
 
 
@@ -106,12 +90,6 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    private void displayKeyboard(TextView textView){
-        if (textView != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInputFromWindow(textView.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
-        }
-    }
 
     public void loguearConMail(View view)
     {

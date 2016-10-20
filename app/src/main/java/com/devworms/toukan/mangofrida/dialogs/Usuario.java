@@ -140,7 +140,9 @@ public class Usuario{
                                 .setCancelable(false)
                                 .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog,int id) {
-                                        ParseUser.logOut();
+                                        Intent intent = new Intent(activity, MainActivity.class);
+                                        activity.startActivity(intent);
+                                        activity.finish();
 
                                     }
                                 });
@@ -153,7 +155,7 @@ public class Usuario{
                         if(e.getCode() == 202)
                             mensaje = "Este correo ya esta registrado, puedes iniciar sesión. \nPuedes recuperar tu contraseña con la opcion \"Olvide mi contraseña\" ";
                         else
-                            mensaje = "Revisa que tu correo y pasword ingresados sean correctos";
+                            mensaje = "Revisa que los datos de Correo electrónico y Contraseña ingresados sean correctos \ncodigo: "+ e.getCode();
 
 
                         // set title
