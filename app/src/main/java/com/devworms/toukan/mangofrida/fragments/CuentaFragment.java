@@ -350,6 +350,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         txtNombreUsuario = (TextView)view.findViewById(R.id.txt_nombreUsuario);
         txtCorreoElectronico = (TextView)view.findViewById(R.id.txt_correoElectronico);
         txtSubscripcion = (TextView)view.findViewById(R.id.txt_subscripcion);
+
         txtReferenciaBarras = (TextView)view.findViewById(R.id.txt_referenciaBarras);
         txt_brand = (TextView)view.findViewById(R.id.txt_brand);
         txt_holder = (TextView)view.findViewById(R.id.txt_holder);
