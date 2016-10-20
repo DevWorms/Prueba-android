@@ -30,6 +30,7 @@ import com.devworms.toukan.mangofrida.fragments.CuentaFragment;
 import com.devworms.toukan.mangofrida.fragments.FavoritosFragment;
 import com.devworms.toukan.mangofrida.fragments.MenuFragment;
 import com.devworms.toukan.mangofrida.fragments.RecetaFragment;
+import com.devworms.toukan.mangofrida.fragments.RecetarioFragment;
 import com.devworms.toukan.mangofrida.fragments.RegalosFragment;
 import com.devworms.toukan.mangofrida.fragments.SearchResultsFragment;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity
 
 
         if(StarterApplication.bViral){
-            CompartirDialog compartirDialog = new CompartirDialog(this, StarterApplication.objReceta, true);
+            CompartirDialog compartirDialog = new CompartirDialog(this, StarterApplication.objReceta);
             compartirDialog.show();
         }
 
@@ -131,57 +132,110 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void abrirReceta(){
-        if(StarterApplication.bCompartido && StarterApplication.objReceta != null)
-        {
-            Calendar cal = Calendar.getInstance();
-            int year = cal.get(cal.YEAR);
-            int month = cal.get(cal.MONTH)+1;
-            int trimestre = (int)(((month)/3) + 0.7);
+        if(StarterApplication.bCompartido && StarterApplication.objReceta != null) {
 
-            ParseObject query = new ParseObject("Regalos");
-            query.put("username", ParseUser.getCurrentUser());
-            query.put("Anio", year);
-            query.put("Mes", month);
-            query.put("Mes", month);
-            query.put("Trimestre", trimestre);
-            query.put("Mes", month);
-            query.put("Recetario", StarterApplication.objReceta);
-
-            query.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(ParseException e) {
+            if (StarterApplication.isDesdeMenuPrincipal) {
+                StarterApplication.bViral = false;
+                StarterApplication.bCompartido = false;
 
 
-                    final RecetaFragment receta = new RecetaFragment();
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(cal.YEAR);
+                int month = cal.get(cal.MONTH)+1;
+                int trimestre = (int)(((month)/3) + 0.7);
 
-                    final ParseObject objParse = StarterApplication.objReceta;
+                ParseObject query = new ParseObject("Regalos");
+                query.put("username", ParseUser.getCurrentUser());
+                query.put("Anio", year);
+                query.put("Mes", month);
+                query.put("Mes", month);
+                query.put("Trimestre", trimestre);
+                query.put("Mes", month);
+                query.put("Recetario", StarterApplication.objReceta);
 
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
-                    query.whereEqualTo("Menu", objParse);
-                    query.whereEqualTo("Activada", true);
-                    query.findInBackground(new FindCallback<ParseObject>() {
-                        public void done(List<ParseObject> menuList, ParseException e) {
-                            if (e == null) {
-                                if (menuList.size() > 0) {
-                                    ParseObject parseObjectTemp = menuList.get(0);
-                                    receta.setObjReceta(parseObjectTemp);
-                                    getFragmentManager().beginTransaction()
-                                            .replace(R.id.actividad, receta).commit();
+                query.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
 
-                                    StarterApplication.bViral = false;
-                                    StarterApplication.objReceta = null;
+
+                        RecetarioFragment recetario = new RecetarioFragment();
+                        recetario.setMenuSeleccionado(StarterApplication.objReceta);
+                        recetario.setTipoMenu("gratis");
+
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.actividad,recetario)
+                                .addToBackStack("MenuFragment")
+                                .commit();
+
+                        StarterApplication.objReceta = null;
+
+
+                    }
+                });
+
+
+/*
+
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(cal.YEAR);
+                int month = cal.get(cal.MONTH) + 1;
+                int trimestre = (int) (((month) / 3) + 0.7);
+
+                ParseObject query = new ParseObject("Regalos");
+                query.put("username", ParseUser.getCurrentUser());
+                query.put("Anio", year);
+                query.put("Mes", month);
+                query.put("Mes", month);
+                query.put("Trimestre", trimestre);
+                query.put("Mes", month);
+                query.put("Recetario", );
+
+                query.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+
+
+
+
+                        final RecetaFragment receta = new RecetaFragment();
+
+                        final ParseObject objParse = StarterApplication.objReceta;
+
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
+                        query.whereEqualTo("Menu", objParse);
+                        query.whereEqualTo("Activada", true);
+                        query.findInBackground(new FindCallback<ParseObject>() {
+                            public void done(List<ParseObject> menuList, ParseException e) {
+                                if (e == null) {
+                                    if (menuList.size() > 0) {
+                                        ParseObject parseObjectTemp = menuList.get(0);
+                                        receta.setObjReceta(parseObjectTemp);
+                                        getFragmentManager().beginTransaction()
+                                                .replace(R.id.actividad, receta).commit();
+
+                                        StarterApplication.bViral = false;
+                                        StarterApplication.objReceta = null;
+                                    }
+                                } else {
+                                    Log.d("score", "Error: " + e.getMessage());
                                 }
-                            } else {
-                                Log.d("score", "Error: " + e.getMessage());
+
+                                StarterApplication.bCompartido = false;
                             }
+                        });
+                    }
+                });
+*/
+            }else{
+                final RecetaFragment receta = new RecetaFragment();
+                ParseObject parseObjectTemp = StarterApplication.objReceta;
+                receta.setObjReceta(parseObjectTemp);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.actividad, receta).commit();
 
-                            StarterApplication.bCompartido = false;
-                        }
-                    });
-                }
-            });
-
+            }
         }
+
 
     }
 
@@ -247,6 +301,7 @@ public class MainActivity extends AppCompatActivity
 
 
         if(StarterApplication.pdkClient != null) {
+
             StarterApplication.pdkClient.onOauthResponse(requestCode, resultCode,
                     data);
         }
@@ -257,17 +312,19 @@ public class MainActivity extends AppCompatActivity
 
         int TWEET_COMPOSER_REQUEST_CODE = 100;
 
-        if(requestCode == TWEET_COMPOSER_REQUEST_CODE && StarterApplication.bCompartidoTwitter && resultCode == 1)
+        if(requestCode == TWEET_COMPOSER_REQUEST_CODE && StarterApplication.bCompartidoTwitter)
         {
             StarterApplication.bCompartidoTwitter = false;
-            if(resultCode == RESULT_OK){
                 final RecetaFragment receta = new RecetaFragment();
 
                 final ParseObject objParse = StarterApplication.objReceta;
 
+                if(StarterApplication.dialogoCompartir != null) {
+                    StarterApplication.dialogoCompartir.cancel();
+                    StarterApplication.dialogoCompartir.invalidateOptionsMenu();
+                }
                 abrirReceta();
 
-            }
         }
         else{
             StarterApplication.bCompartido = false;
@@ -326,9 +383,10 @@ public class MainActivity extends AppCompatActivity
             Intent refresh = new Intent(this, MainActivity.class);
             startActivity(refresh);//Start the same Activity
             finish(); //
-            StarterApplication.dialogoCompartir.cancel();
-            StarterApplication.dialogoCompartir.invalidateOptionsMenu();
-
+            if(StarterApplication.dialogoCompartir != null) {
+                StarterApplication.dialogoCompartir.cancel();
+                StarterApplication.dialogoCompartir.invalidateOptionsMenu();
+            }
         }
     }
 }
