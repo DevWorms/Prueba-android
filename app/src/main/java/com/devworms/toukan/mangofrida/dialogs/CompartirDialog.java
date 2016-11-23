@@ -197,9 +197,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
                     query.put("username", ParseUser.getCurrentUser());
                     query.put("Anio", year);
                     query.put("Mes", month);
-                    query.put("Mes", month);
                     query.put("Trimestre", trimestre);
-                    query.put("Mes", month);
                     query.put("Recetario", objReceta);
 
                     query.saveInBackground(new SaveCallback() {

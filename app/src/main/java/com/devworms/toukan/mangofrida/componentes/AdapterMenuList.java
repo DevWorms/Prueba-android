@@ -174,7 +174,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                 public void done(int count, ParseException e) {
                     if (e == null) {
                         // The count request succeeded. Log the count
-                        if (objMenu.getString("TipoMenu").toLowerCase().equals("gratis")||objMenu.getString("TipoMenu").toLowerCase().equals("pago")){
+                        if (true){//objMenu.getString("TipoMenu").toLowerCase().equals("gratis")||objMenu.getString("TipoMenu").toLowerCase().equals("pago")){
                             tTextViewNumeroRecetas.setText(count + " receta" );
                             if (count > 1){
                                 tTextViewNumeroRecetas.setText(tTextViewNumeroRecetas.getText()+"s");
@@ -197,6 +197,11 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                                     break;
                                 case "pago":
                                     imageresource = activity.getResources().getIdentifier("@drawable/premium", "drawable", activity.getPackageName());
+
+                                    imageViewTipoPaquete.setImageResource(imageresource);
+                                    break;
+                                case "viral":
+                                    imageresource = activity.getResources().getIdentifier("@drawable/viral", "drawable", activity.getPackageName());
 
                                     imageViewTipoPaquete.setImageResource(imageresource);
                                     break;

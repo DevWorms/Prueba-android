@@ -231,23 +231,22 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                     }
 
                 } else {
-                    RecetarioFragment recetario = new RecetarioFragment();
-                    recetario.setMenuSeleccionado(objReceta);
+                    if (objReceta != null) {
+                        RecetarioFragment recetario = new RecetarioFragment();
+                        recetario.setMenuSeleccionado(objReceta);
 
 
-                    View drawingView = imageView;
-                    drawingView.buildDrawingCache(true);
-                    Bitmap imgReceta = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
-                    drawingView.destroyDrawingCache();
+                        View drawingView = imageView;
+                        drawingView.buildDrawingCache(true);
 
-                    RecetaFragment receta = new RecetaFragment();
-                    receta.setObjReceta(objReceta);
-                    receta.setImgReceta(imgReceta);
+                        RecetaFragment receta = new RecetaFragment();
+                        receta.setObjReceta(objReceta);
 
-                    activity.getFragmentManager().beginTransaction()
-                            .replace(R.id.actividad, receta)
-                            .addToBackStack("MenuFragment")
-                            .commit();
+                        activity.getFragmentManager().beginTransaction()
+                                .replace(R.id.actividad, receta)
+                                .addToBackStack("MenuFragment")
+                                .commit();
+                    }
 
                 }
 
@@ -276,12 +275,9 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                 recetario.setMenuSeleccionado(objReceta);
 
 
-                                final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-                                final Bitmap imgReceta = bitmapDrawable.getBitmap();
 
                                 RecetaFragment receta = new RecetaFragment();
                                 receta.setObjReceta(objReceta);
-                                receta.setImgReceta(imgReceta);
 
                                 activity.getFragmentManager().beginTransaction()
                                         .replace(R.id.actividad, receta)

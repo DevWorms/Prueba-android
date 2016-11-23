@@ -40,7 +40,9 @@ import java.util.List;
 public class RecetaFragment extends Fragment implements View.OnClickListener{
 
     private ParseObject objReceta;
-    private Bitmap imgReceta;
+
+
+
 
 
     public ParseObject getObjReceta() {
@@ -52,13 +54,6 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         this.objReceta = objReceta;
     }
 
-    public Bitmap getImgReceta() {
-        return imgReceta;
-    }
-
-    public void setImgReceta(Bitmap imgReceta) {
-        this.imgReceta = imgReceta;
-    }
 
     public TargetImageView imagen;
 

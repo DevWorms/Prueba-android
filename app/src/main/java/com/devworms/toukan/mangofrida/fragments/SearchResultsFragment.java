@@ -60,21 +60,27 @@ public class SearchResultsFragment extends Fragment {
                     if (recetasList.size() > 0) {
                         for (ParseObject parseObject : recetasList) {
 
-                            parseObject.getParseObject("Receta").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
-                                public void done(final ParseObject receta, ParseException e) {
-                                    lItems.add(receta);
-                                    receta.getParseObject("Menu").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
-                                        public void done(ParseObject menu, ParseException e) {
-                                            lTipos.add(menu.getString("TipoMenu").toLowerCase());
 
-                                            if (lTipos.size() == recetasList.size()) {
-                                                mAdapterRecetarioList = new AdapterRecetarioList(lItems, lTipos, getActivity());
-                                                recyclerView.setAdapter(mAdapterRecetarioList);
+                            parseObject.getParseObject("Receta").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
+
+                                public void done(final ParseObject receta, ParseException e) {
+                                    if(receta != null) {
+                                        lItems.add(receta);
+                                        receta.getParseObject("Menu").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
+                                            public void done(ParseObject menu, ParseException e) {
+                                                if(menu != null) {
+                                                    lTipos.add(menu.getString("TipoMenu").toLowerCase());
+
+                                                    if (lTipos.size() == recetasList.size()) {
+                                                        mAdapterRecetarioList = new AdapterRecetarioList(lItems, lTipos, getActivity());
+                                                        recyclerView.setAdapter(mAdapterRecetarioList);
+
+                                                    }
+                                                }
 
                                             }
-
-                                        }
-                                    });
+                                        });
+                                    }
 
                                 }
                             });

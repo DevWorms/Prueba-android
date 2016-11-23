@@ -85,11 +85,13 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
         mItems.get(position).getParseObject("Recetas").fetchIfNeededInBackground(new GetCallback<ParseObject>() {
             public void done(ParseObject receta, ParseException e) {
 
-                holder.objReceta = receta;
+                if (receta != null) {
+                    holder.objReceta = receta;
 
-                holder.setTitulos(receta);
+                    holder.setTitulos(receta);
 
-                holder.mTargetImageView.loadImage(receta.getString("Url_Imagen"), spec.getKey());
+                    holder.mTargetImageView.loadImage(receta.getString("Url_Imagen"), spec.getKey());
+                }
             }
         });
 
@@ -135,6 +137,7 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
 
 
         public void setTitulos(ParseObject objReceta){
+
             tTextViewNombrereceta.setText(objReceta.getString("Nombre"));
             tTextViewTiempo.setText("  " + objReceta.getString("Tiempo"));
             textViewPorciones.setText("  " + objReceta.getString("Porciones"));
@@ -169,16 +172,11 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
             Activity activity = (Activity) mTargetImageView.getContext();
             if (activity != null) {
 
+
                 RecetarioFragment recetario = new RecetarioFragment();
                 recetario.setMenuSeleccionado(objReceta);
 
-                final ImageView imageView = (ImageView) v;
-                final BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
-                final Bitmap imgReceta = bitmapDrawable.getBitmap();
-
                 RecetaFragment receta = new RecetaFragment();
-                receta.setObjReceta(objReceta);
-                receta.setImgReceta(imgReceta);
 
                 activity.getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad, receta)

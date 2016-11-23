@@ -148,9 +148,7 @@ public class MainActivity extends AppCompatActivity
                 query.put("username", ParseUser.getCurrentUser());
                 query.put("Anio", year);
                 query.put("Mes", month);
-                query.put("Mes", month);
                 query.put("Trimestre", trimestre);
-                query.put("Mes", month);
                 query.put("Recetario", StarterApplication.objReceta);
 
                 query.saveInBackground(new SaveCallback() {

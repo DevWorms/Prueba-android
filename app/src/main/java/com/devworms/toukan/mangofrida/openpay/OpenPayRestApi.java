@@ -406,8 +406,9 @@ public class OpenPayRestApi{
                     if (listaClientes.size() > 0) {
                         final ParseObject cliente = listaClientes.get(0);
                         final String clientId = cliente.getString("clientID");
+                        String url = StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/"+clientId+"/subscriptions/"+cliente.getString("idsuscripcion");
                         Request request = new Request.Builder()
-                                .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/"+clientId+"/subscriptions/"+cliente.getString("idsuscripcion"))
+                                .url(url)
                                 .delete(null)
                                 .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
                                 .addHeader("content-type", "application/json")
