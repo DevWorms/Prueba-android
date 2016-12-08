@@ -63,9 +63,9 @@
 
                             android:adjustViewBounds="true"
                             android:orientation="vertical"
-                            android:scaleType="fitXY"
-                            android:layout_height="40dp"
-                            android:layout_marginLeft="-10dp" />
+                            android:scaleType="centerCrop"
+                            android:layout_marginLeft="-5dp"
+                            android:layout_height="38dp" />
                         </LinearLayout>
                     </LinearLayout>
 

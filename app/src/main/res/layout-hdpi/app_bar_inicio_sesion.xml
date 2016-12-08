@@ -38,7 +38,7 @@
 
                     android:adjustViewBounds="true"
                     android:orientation="vertical"
-                    android:scaleType="fitStart" />
+                    android:scaleType="centerCrop" />
 
             </LinearLayout>
 

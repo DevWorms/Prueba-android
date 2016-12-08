@@ -59,6 +59,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static com.devworms.toukan.mangofrida.openpay.OpenPayRestApi.conultarStatusSuscripcion;
+
 
 public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRecetarioList.ViewHolder> {
 
@@ -270,7 +272,9 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                             Calendar cal = sdf.getCalendar();
 
-                            if (clientes.get(0).getBoolean("Suscrito")) {
+                            boolean suscripcion = conultarStatusSuscripcion(clientes.get(0));
+
+                            if (clientes.get(0).getBoolean("Suscrito") && suscripcion) {
                                 RecetarioFragment recetario = new RecetarioFragment();
                                 recetario.setMenuSeleccionado(objReceta);
 

@@ -83,7 +83,7 @@ public class OpenPayRestApi{
         Request request = new Request.Builder()
                 .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers")
                 .post(body)
-                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                .addHeader("authorization", "Basic c2tfMmVkOGNjNTRiMzJiNDZiMTgwMGFjOWYzMGU0OTcyNDc6Og==")
                 .addHeader("content-type", "application/json")
                 .addHeader("cache-control", "no-cache")
                 .addHeader("postman-token", "8e00153d-f547-d459-d7b8-3b7b6c338047")
@@ -160,7 +160,7 @@ public class OpenPayRestApi{
                 Request request = new Request.Builder()
                         .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers/"+parseClient.getString("clientID")+"/cards")
                         .post(body)
-                        .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                        .addHeader("authorization", "Basic c2tfMmVkOGNjNTRiMzJiNDZiMTgwMGFjOWYzMGU0OTcyNDc6Og==")
                         .addHeader("content-type", "application/json")
                         .addHeader("cache-control", "no-cache")
                         .addHeader("postman-token", "51aac3bd-dfad-a02f-ebbb-986b00d47d07")
@@ -312,7 +312,7 @@ public class OpenPayRestApi{
         Request request = new Request.Builder()
                 .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers/"+objCliente.getString("clientID")+"/charges/"+objCliente.getString("transaction_id_tienda"))
                 .get()
-                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                .addHeader("authorization", "Basic c2tfMmVkOGNjNTRiMzJiNDZiMTgwMGFjOWYzMGU0OTcyNDc6Og==")
                 .addHeader("cache-control", "no-cache")
                 .addHeader("postman-token", "fffa7be1-071a-4b41-1de2-b7d0e3988de1")
                 .build();
@@ -374,7 +374,7 @@ public class OpenPayRestApi{
         Request request = new Request.Builder()
                 .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers/"+objCliente.getString("clientID")+"/charges")
                 .post(body)
-                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                .addHeader("authorization", "Basic c2tfMmVkOGNjNTRiMzJiNDZiMTgwMGFjOWYzMGU0OTcyNDc6Og==")
                 .addHeader("content-type", "application/json")
                 .addHeader("cache-control", "no-cache")
                 .addHeader("postman-token", "e91bc385-a147-ec4c-7d06-9d96dcd96698")
@@ -440,7 +440,55 @@ public class OpenPayRestApi{
 
     }
 
-    // suscribirse a plan ( necesario tener tarjeta de credito registrada a un cliente para esto)
+    public static boolean conultarStatusSuscripcion(ParseObject cliente) {
+
+        boolean bandera = true;
+        Request request = new Request.Builder()
+                .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/" + cliente.getString("clientID") + "/subscriptions/" + cliente.getString("idsuscripcion"))
+                .get()
+                .addHeader("authorization", "Basic c2tfMmVkOGNjNTRiMzJiNDZiMTgwMGFjOWYzMGU0OTcyNDc6Og==")
+                .addHeader("cache-control", "no-cache")
+                .addHeader("postman-token", "f3c3406b-330a-bc05-3630-9c5ad994209b")
+                .build();
+
+        try {
+
+
+            JSONObject response = new RequestOpenPay().execute(request).get();
+            String error = null;
+
+            if (response!= null && response.has("error_code")) {
+                error = response == null ? "" : response.getString("error_code");
+            }
+
+            if (error == null || error.equals("")) {
+
+                bandera = true;
+            } else {
+
+
+                if(error.equals("1005") || error.equals("3001")|| error.equals("3002")|| error.equals("3003")|| error.equals("3004")|| error.equals("3005")|| error.equals("3006")|| error.equals("3007")|| error.equals("3008")|| error.equals("3009")|| error.equals("3010")|| error.equals("3011")|| error.equals("3012")) {
+                    cliente.put("Suscrito", false);
+                    cliente.put("idsuscripcion", "");
+                    cliente.put("Caducidad", "");
+                    cliente.saveInBackground();
+                    bandera = false;
+                }
+            }
+
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return bandera;
+    }
+
+        // suscribirse a plan ( necesario tener tarjeta de credito registrada a un cliente para esto)
 
     public static void suscribirsePlan(final Activity actividad){
 
@@ -486,7 +534,7 @@ public class OpenPayRestApi{
                 Request request = new Request.Builder()
                         .url(StarterApplication.URL+StarterApplication.MERCHANT_ID+"/customers/"+client.getString("clientID")+"/subscriptions")
                         .post(body)
-                        .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                        .addHeader("authorization", "Basic c2tfMmVkOGNjNTRiMzJiNDZiMTgwMGFjOWYzMGU0OTcyNDc6Og==")
                         .addHeader("content-type", "application/json")
                         .addHeader("cache-control", "no-cache")
                         .addHeader("postman-token", "feeff8e9-b5d7-880f-9674-9a788a8fe85a")
@@ -556,7 +604,7 @@ public class OpenPayRestApi{
                         Request request = new Request.Builder()
                                 .url(url)
                                 .delete(null)
-                                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                                .addHeader("authorization", "Basic c2tfMmVkOGNjNTRiMzJiNDZiMTgwMGFjOWYzMGU0OTcyNDc6Og==")
                                 .addHeader("content-type", "application/json")
                                 .addHeader("cache-control", "no-cache")
                                 .addHeader("postman-token", "7774140f-d94f-ff76-447c-9b904ab74f6e")
@@ -626,6 +674,7 @@ public class OpenPayRestApi{
         });
     }
 
+
     public static String eliminarTarjeta(final Activity actividad, final View view, final LinearLayout linearLayoutCompat){
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
@@ -656,7 +705,7 @@ public class OpenPayRestApi{
                                         Request request = new Request.Builder()
                                                 .url(StarterApplication.URL + StarterApplication.MERCHANT_ID + "/customers/" + clientId + "/cards/" + tarjetaId)
                                                 .delete(null)
-                                                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                                                .addHeader("authorization", "Basic c2tfMmVkOGNjNTRiMzJiNDZiMTgwMGFjOWYzMGU0OTcyNDc6Og==")
                                                 .addHeader("content-type", "application/json")
                                                 .addHeader("cache-control", "no-cache")
                                                 .addHeader("postman-token", "b7c48f0e-7e92-7617-2ab4-b1d5b3451692")

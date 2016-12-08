@@ -51,14 +51,14 @@ public class StarterApplication extends Application {
   public static boolean mPrefetchImages;
 
   private static Openpay openpay;
-  public static final String MERCHANT_ID = "mom7qomx3rv93zcwv2vk";
-  public static final String PLAN_ID = "prhhst3k5uucmunpl9fr";
-  public static final String API_KEY = "pk_f492b71637e247e4b5a314a1f9366ec9";
-  public static  final String PRIVATE_KEY = "sk_7506b8183bc34e038ee9e849e2e52994";
-  public static  final String URL = "https://sandbox-api.openpay.mx/v1/";
-  public static final Double PRECIO_MEMBRESIA = 5.0;
+  public static final String MERCHANT_ID = "mjwkrerefdmam1vmv6wm";
+  public static final String PLAN_ID = "pnhk33plnuoqwuo9vs1e";
+  public static final String API_KEY = "pk_3668425ba9d34002b1787620ac3709c6";
+  public static  final String PRIVATE_KEY = "sk_2ed8cc54b32b46b1800ac9f30e497247";
+  public static  final String URL = "https://api.openpay.mx/v1/";
+  public static final Double PRECIO_MEMBRESIA = 30.0;
 
-  public static final boolean PRODUCTION_MODE = false;
+  public static final boolean PRODUCTION_MODE = true;
 
   public static boolean bViral = false;
   public static boolean bCompartido = false;
