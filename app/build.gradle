@@ -25,8 +25,8 @@ android {
         applicationId "com.devworms.toukan.mangofrida"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 6
-        versionName "6.0"
+        versionCode 9
+        versionName "9.0"
     }
     buildTypes {
         release {

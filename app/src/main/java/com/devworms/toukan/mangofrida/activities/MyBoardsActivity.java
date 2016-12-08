@@ -235,11 +235,11 @@ public class MyBoardsActivity extends AppCompatActivity {
             String pinImageUrl = urlImagen;
 
             String board = _boardList.get(position).getUid();
-            String noteText = "prueba";
+            String noteText = "Frida te invita";
 
             if (!Utils.isEmpty(noteText) &&!Utils.isEmpty(board) && !Utils.isEmpty(pinImageUrl)) {
                 PDKClient
-                        .getInstance().createPin(noteText, board, pinImageUrl, "www.devworms.com", new PDKCallback() {
+                        .getInstance().createPin(noteText, board, pinImageUrl, "http://recetasmexicanas.mx", new PDKCallback() {
                     @Override
                     public void onSuccess(PDKResponse response) {
                         _botonIzq.setVisibility(View.GONE);

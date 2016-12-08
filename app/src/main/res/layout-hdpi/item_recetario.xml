@@ -15,7 +15,7 @@
         android:adjustViewBounds="true"
         android:layout_centerHorizontal="true"
         android:layout_height="180dp"
-        android:layout_width="312dp" />
+        android:layout_width="718dp" />
 
     <ImageView
         android:layout_width="718dp"

@@ -10,7 +10,7 @@
         android:layout_height="215dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:layout_alignParentStart="false"
         android:layout_alignParentEnd="false" />
 

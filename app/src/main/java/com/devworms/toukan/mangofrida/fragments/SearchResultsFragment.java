@@ -116,6 +116,9 @@ public class SearchResultsFragment extends Fragment {
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
+
+
+
         String []tags = query;
 
         for (int i = 0; i<query.length;i++){
@@ -125,11 +128,16 @@ public class SearchResultsFragment extends Fragment {
         obtenerObjetosParse(recyclerView, tags);
 
 
-      /*  ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
+
+        ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
-*/
+
+
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
+
+        ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
+        imgTexto.setVisibility(View.INVISIBLE);
 
 
         ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));

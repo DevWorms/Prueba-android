@@ -168,7 +168,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         // compartir una imagen
 
         ShareLinkContent content = new ShareLinkContent.Builder()
-                .setContentUrl(Uri.parse("http://newmobage.com/app_cocina/"))
+                .setContentUrl(Uri.parse("http://recetasmexicanas.mx"))
                 .setContentTitle("Frida te invita")
                 .setContentDescription("¡Esta receta me encanta!")
                 .setImageUrl(Uri.parse(objReceta.getString("Url_Imagen")))
@@ -275,7 +275,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             if(!StarterApplication.isDesdeMenuPrincipal){
                 final Intent intent = new TweetComposer.Builder(context)
                         .text("¡Me encanta esta receta!")
-                        .url(new URL("http://newmobage.com/app_cocina/"))
+                        .url(new URL("http://recetasmexicanas.mx"))
                         .image(ImageUri).createIntent();
                 StarterApplication.bCompartidoTwitter = true;
                 final int TWEET_COMPOSER_REQUEST_CODE = 100;
@@ -283,7 +283,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             }else {
                 final Intent intent = new TweetComposer.Builder(context)
                         .text("¡Me encanta esta receta!")
-                        .url(new URL("http://newmobage.com/app_cocina/"))
+                        .url(new URL("http://recetasmexicanas.mx"))
                         .image(ImageUri).createIntent();
 
                 final int TWEET_COMPOSER_REQUEST_CODE = 100;

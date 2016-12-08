@@ -173,10 +173,9 @@ public final class AdapterFavoritoList extends RecyclerView.Adapter<AdapterFavor
             if (activity != null) {
 
 
-                RecetarioFragment recetario = new RecetarioFragment();
-                recetario.setMenuSeleccionado(objReceta);
 
                 RecetaFragment receta = new RecetaFragment();
+                receta.setObjReceta(objReceta);
 
                 activity.getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad, receta)

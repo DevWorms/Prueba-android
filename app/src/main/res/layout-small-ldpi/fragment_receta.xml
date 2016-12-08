@@ -10,7 +10,7 @@
     <com.theartofdev.fastimageloader.target.TargetImageView
         android:id="@+id/imagenreceta"
         android:layout_width="match_parent"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:layout_height="215dp" />
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"

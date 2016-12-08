@@ -17,6 +17,7 @@ import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.componentes.AdapterRecetarioList;
 import com.devworms.toukan.mangofrida.dialogs.WalletActivity;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
+import com.devworms.toukan.mangofrida.util.ErroresOpenpay;
 import com.devworms.toukan.mangofrida.util.ISO8601;
 import com.parse.FindCallback;
 import com.parse.Parse;
@@ -24,6 +25,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +37,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
+import mx.openpay.android.Openpay;
+import mx.openpay.android.OperationCallBack;
+import mx.openpay.android.OperationResult;
+import mx.openpay.android.exceptions.OpenpayServiceException;
+import mx.openpay.android.exceptions.ServiceUnavailableException;
 import mx.openpay.android.model.Card;
+import mx.openpay.android.model.Token;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -50,7 +58,7 @@ public class OpenPayRestApi{
 
 
     // crear clientes y tarjetas
-    public static void crearClienteConTarjeta(final Card card, final String email, final String telefono, final ParseObject cliente, final Activity context) {
+    public static String crearClienteConTarjeta(final Card card, final String email, final String telefono, final ParseObject cliente, final Activity context) {
 
         ParseObject objCliente = null;
         if (cliente == null) {
@@ -60,7 +68,9 @@ public class OpenPayRestApi{
             objCliente = cliente;
         }
 
-        crearTarjeta(card, objCliente, context);
+
+
+        return crearTarjeta(card, objCliente, context);
     }
 
 
@@ -84,15 +94,28 @@ public class OpenPayRestApi{
         try {
 
             response = new RequestOpenPay().execute(request).get();
-            clientes.put("username", ParseUser.getCurrentUser());
-            clientes.put("clientID", response.getString("id"));
-            clientes.put("nombre", response.getString("name"));
-            clientes.put("email", response.getString("email"));
-            clientes.put("numero", response.getString("phone_number"));
-            clientes.put("codigobarras", "");
-            clientes.put("referenciaentienda", "");
-            clientes.put("Suscrito", false);
-            clientes.saveInBackground();
+            String error = null;
+
+            if(response.has("error_code")){
+                error = response == null ? "":response.getString("error_code");
+            }
+
+            if (error == null || error.equals("")) {
+
+                clientes.put("username", ParseUser.getCurrentUser());
+                clientes.put("clientID", response.getString("id"));
+                clientes.put("nombre", response.getString("name"));
+                clientes.put("email", response.getString("email"));
+                clientes.put("numero", response.getString("phone_number"));
+                clientes.put("codigobarras", "");
+                clientes.put("referenciaentienda", "");
+                clientes.put("Suscrito", false);
+                clientes.saveInBackground();
+            } else{
+                Log.i("openpay error",ErroresOpenpay.getError(error));
+                return  null;
+            }
+
 
 
         } catch (InterruptedException e) {
@@ -112,51 +135,174 @@ public class OpenPayRestApi{
 
 
 
-    public static String crearTarjeta(Card card, ParseObject parseClient, Activity context){
+    public static String crearTarjeta(final Card card, final ParseObject parseClient, final Activity context){
 
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, "{\n   \"card_number\":\"" + card.getCardNumber() + "\",\n   \"holder_name\":\"" + card.getHolderName() + "\",\n   \"expiration_year\":\"" + card.getExpirationYear() + "\",\n   \"expiration_month\":\"" + card.getExpirationMonth() + "\",\n   \"cvv2\":\"" + card.getCvv2() + "\"\n }");
-        Request request = new Request.Builder()
-                .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers/"+parseClient.getString("clientID")+"/cards")
-                .post(body)
-                .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
-                .addHeader("content-type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("postman-token", "51aac3bd-dfad-a02f-ebbb-986b00d47d07")
-                .build();
-
-        JSONObject response  = null;
-        String tarjetaId = "";
-
-        try {
-            response = new RequestOpenPay().execute(request).get();
-            tarjetaId = response.getString("id");
-            ParseObject clientes = new ParseObject("Tarjetas");
-
-            clientes.put("cliente", parseClient);
-            clientes.put("tarjetaPrincipal", tarjetaId);
-            clientes.put("brand", response.getString("brand"));
-            clientes.put("numero", response.getString("card_number"));
-            clientes.put("banco", response.getString("bank_name"));
-            clientes.saveInBackground();
-
-
-            Intent intent = new Intent(context.getApplicationContext(), WalletActivity.class);
-
-            context.startActivity(intent);
-
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+        Openpay openpay = ((StarterApplication) context.getApplication()).getOpenpay();
+        final String deviceIdString = openpay.getDeviceCollectorDefaultImpl().setup(context);
+        if (deviceIdString == null) {
+        //    this.printMsg(openpay.getDeviceCollectorDefaultImpl().getErrorMessage());
+        } else {
+         //   this.printMsg(deviceIdString);
         }
 
-        return tarjetaId;
+        openpay.createToken(card, new OperationCallBack() {
+
+            @Override
+            public void onSuccess(OperationResult arg0) {
+                //Handlo in success
+                Token token = (Token) arg0.getResult();
+                String id = token.getId();
+                Log.i("toekn", "hola");
+
+                MediaType mediaType = MediaType.parse("application/json");
+                String params = "{\n   \"token_id\":\"" + id + "\",\n   \"device_session_id\":\"" + deviceIdString + "\"\n }";
+                RequestBody body = RequestBody.create(mediaType, params);
+                Request request = new Request.Builder()
+                        .url(StarterApplication.URL + "" + StarterApplication.MERCHANT_ID + "/customers/"+parseClient.getString("clientID")+"/cards")
+                        .post(body)
+                        .addHeader("authorization", "Basic c2tfNzUwNmI4MTgzYmMzNGUwMzhlZTllODQ5ZTJlNTI5OTQ6Og==")
+                        .addHeader("content-type", "application/json")
+                        .addHeader("cache-control", "no-cache")
+                        .addHeader("postman-token", "51aac3bd-dfad-a02f-ebbb-986b00d47d07")
+                        .build();
+
+                JSONObject response  = null;
+                String tarjetaId = "";
+
+                try {
+                    response = new RequestOpenPay().execute(request).get();
+
+                    String error = null;
+
+
+
+                    if(response.has("error_code")){
+                        error = response == null ? "":response.getString("error_code");
+                    }
+
+
+                    if (error == null || error.equals("")) {
+
+                        tarjetaId = response.getString("id");
+                        ParseObject clientes = new ParseObject("Tarjetas");
+
+                        clientes.put("cliente", parseClient);
+                        clientes.put("tarjetaPrincipal", tarjetaId);
+                        clientes.put("brand", response.getString("brand"));
+                        clientes.put("numero", response.getString("card_number"));
+                        clientes.put("banco", response.getString("bank_name"));
+                        clientes.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                context.finish();
+                                Intent intent = new Intent(context.getApplicationContext(), WalletActivity.class);
+
+                                context.startActivity(intent);
+                            }
+                        });
+                    }
+                    else{
+                        String mensaje = ErroresOpenpay.getError(error);
+
+                        if(!mensaje.equals("")) {
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(context, R.style.myDialog));
+
+                            // set title
+                            alertDialogBuilder.setTitle("Error");
+
+                            // set dialog message
+                            alertDialogBuilder
+                                    .setMessage(mensaje)
+                                    .setCancelable(false)
+                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            //context.finish();
+
+                                        }
+                                    });
+
+                            // create alert dialog
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+
+                            // show it
+                            alertDialog.show();
+                        }else{
+                            context.finish();
+                            Intent intent = new Intent(context.getApplicationContext(), WalletActivity.class);
+
+                            context.startActivity(intent);
+
+                        }
+                    }
+
+
+
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(OpenpayServiceException arg0) {
+                //Handle Error
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(context, R.style.myDialog));
+
+                // set title
+                alertDialogBuilder.setTitle("Error");
+
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage(arg0.getMessage())
+                        .setCancelable(false)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                context.finish();
+                            }
+                        });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+            }
+
+            @Override
+            public void onCommunicationError(ServiceUnavailableException arg0) {
+                //Handle Error
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(context, R.style.myDialog));
+
+                // set title
+                alertDialogBuilder.setTitle("Error");
+
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage(arg0.getMessage())
+                        .setCancelable(false)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                context.finish();
+                            }
+                        });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+            }
+        });
+
+
+
+        return "";
 
     }
 
@@ -422,11 +568,14 @@ public class OpenPayRestApi{
                         try {
 
                             response = new RequestOpenPay().execute(request).get();
-                            String error = response == null ? "":response.getString("error_code");
+                            String error = null;
 
+                            if(response != null && response.has("error_code")){
+                                error = response == null ? "":response.getString("error_code");
+                            }
                             String titulo = "";
                             String mensaje = "";
-                            if (error == null || error.equals("")){
+                            if (error == null || error.equals("") || error.equals("1005")){
                                 cliente.put("Suscrito",false);
                                 cliente.put("idsuscripcion","");
                                 cliente.put("Caducidad","");
@@ -520,7 +669,11 @@ public class OpenPayRestApi{
                                             response = new RequestOpenPay().execute(request).get();
                                             String titulo = "";
                                             String mensaje = "";
-                                            String error = response == null ? "" : response.getString("error_code");
+                                            String error = null;
+
+                                            if(response.has("error_code")){
+                                                error = response == null ? "":response.getString("error_code");
+                                            }
                                             if (error == null || error.equals("")){
 
                                                 tarjeta.deleteInBackground();
