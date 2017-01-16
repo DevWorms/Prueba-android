@@ -310,13 +310,18 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                                 Boolean slider = preferences.getBoolean("Mostrardiasprueba", true );
                                                 if(slider) {
                                                     SharedPreferences.Editor editor = preferences.edit();
-                                                    editor.putBoolean("Mostrardiasprueba", false);
+                                                    //editor.putBoolean("Mostrardiasprueba", false);
+                                                    editor.putBoolean("Mostrardiasprueba", true);
                                                     editor.apply();
 
                                                     mostrarAnuncioDiasPrueba();
 
 
                                                 }else{
+                                                    SharedPreferences.Editor editor = preferences.edit();
+                                                    //editor.putBoolean("Mostrardiasprueba", false);
+                                                    editor.putBoolean("Mostrardiasprueba", true);
+                                                    editor.apply();
 
                                                     addtarjetacred();
                                                 }
@@ -337,7 +342,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                             Boolean slider = preferences.getBoolean("Mostrardiasprueba", true );
                             if(slider) {
                                 SharedPreferences.Editor editor = preferences.edit();
-                                editor.putBoolean("Mostrardiasprueba", false);
+                                //editor.putBoolean("Mostrardiasprueba", false);
+                                editor.putBoolean("Mostrardiasprueba", true);
                                 editor.apply();
 
                                 mostrarAnuncioDiasPrueba();
@@ -348,6 +354,11 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                 }
                             }
                             else{
+
+                                SharedPreferences.Editor editor = preferences.edit();
+                                //editor.putBoolean("Mostrardiasprueba", false);
+                                editor.putBoolean("Mostrardiasprueba", true);
+                                editor.apply();
 
                                 addtarjetacred();
                             }

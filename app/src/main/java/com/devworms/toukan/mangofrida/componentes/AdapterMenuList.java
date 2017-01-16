@@ -126,10 +126,9 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
         public final TargetImageView mTargetImageView;
         public TextView tTextViewNumeroRecetas;
-        public TextView tTextViewTipoPaquete;
+
         public TextView tTextViewNombrePlatillo;
         public ImageView imageViewCinta;
-        public ImageView imageViewTipoPaquete;
         public ImageView imageViewDeviderTop;
         public ImageView imageViewDeviderbottom;
 
@@ -147,12 +146,11 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
             this.activity = (FragmentActivity) mTargetImageView.getContext();
 
             tTextViewNumeroRecetas =(TextView) v.findViewById(R.id.textViewNumeroRecetas);
-            tTextViewTipoPaquete = (TextView) v.findViewById(R.id.textViewTipoPaquete);
+
             tTextViewNombrePlatillo = (TextView) v.findViewById(R.id.textViewNombrePlatillo);
 
 
             imageViewCinta = (ImageView) v.findViewById(R.id.imageViewCinta);
-            imageViewTipoPaquete = (ImageView) v.findViewById(R.id.imageViewTipoPaquete);
 
             imageViewDeviderbottom = (ImageView) v.findViewById(R.id.imageViewDeviderbottom);
             imageViewDeviderTop = (ImageView) v.findViewById(R.id.imageViewDeviderTop);
@@ -163,10 +161,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
         public void contarRecetas(final ParseObject objMenu){
 
-            String tipo = "PAQUETE";
-            if (objMenu.getString("TipoMenu").toLowerCase().equals("gratis")||objMenu.getString("TipoMenu").toLowerCase().equals("pago")){
-                tTextViewTipoPaquete.setText(tipo);
-            }
+
 
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
             query.whereEqualTo("Menu", objMenu);
@@ -180,9 +175,8 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                                 tTextViewNumeroRecetas.setText(tTextViewNumeroRecetas.getText()+"s");
                             }
 
-                            tTextViewTipoPaquete.setVisibility(View.VISIBLE);
+
                             imageViewCinta.setVisibility(View.VISIBLE);
-                            imageViewTipoPaquete.setVisibility(View.VISIBLE);
                             tTextViewNumeroRecetas.setVisibility(View.VISIBLE);
 
 
@@ -190,28 +184,29 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                             int imageresource = 0;
                             switch (tipomenu){
                                 case "gratis":
-                                    imageresource = activity.getResources().getIdentifier("@drawable/paquetesgratis", "drawable", activity.getPackageName());
+                                    imageresource = activity.getResources().getIdentifier("@drawable/gratis", "drawable", activity.getPackageName());
 
-                                    imageViewTipoPaquete.setImageResource(imageresource);
+                                    imageViewCinta.setImageResource(imageresource);
 
                                     break;
                                 case "pago":
                                     imageresource = activity.getResources().getIdentifier("@drawable/premium", "drawable", activity.getPackageName());
 
-                                    imageViewTipoPaquete.setImageResource(imageresource);
+                                    imageViewCinta.setImageResource(imageresource);
+
                                     break;
                                 case "viral":
                                     imageresource = activity.getResources().getIdentifier("@drawable/viral", "drawable", activity.getPackageName());
 
-                                    imageViewTipoPaquete.setImageResource(imageresource);
+                                    imageViewCinta.setImageResource(imageresource);
+
                                     break;
                             }
 
 
                         }else{
-                            tTextViewTipoPaquete.setVisibility(View.GONE);
+
                             imageViewCinta.setVisibility(View.GONE);
-                            imageViewTipoPaquete.setVisibility(View.GONE);
                             tTextViewNumeroRecetas.setVisibility(View.GONE);
                         }
 

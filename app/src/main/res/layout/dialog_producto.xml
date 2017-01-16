@@ -36,7 +36,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_weight="1.38">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,12 +48,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="0.69">
 
             <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="¡ACCEDE AL CATÁLOGO"
+                android:text="¡ACCEDE A"
                 android:textColor="@color/menuItem"
                 android:textSize="@dimen/text_size"
                 android:gravity="center_horizontal"
@@ -62,7 +62,7 @@
             <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="GASTRONOMICO"
+                android:text="TODAS"
                 android:gravity="center_horizontal"
                 android:textColor="@color/barraSecundaria"
                 android:textSize="@dimen/text_size"
@@ -71,7 +71,7 @@
             <com.devworms.toukan.mangofrida.componentes.TextoNegrita
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MÁS IRRESISTIBLE!"
+                android:text="LAS RECETAS!"
                 android:gravity="center_horizontal"
                 android:textColor="@color/menuItem"
                 android:textSize="@dimen/text_size"
@@ -81,10 +81,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.43">
             <com.devworms.toukan.mangofrida.componentes.TextoNormal
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="41dp"
                 android:text="Después de los 7 dias de prueba, la suscripción será mensual y se renovará automáticamene. "
                 android:textColor="@color/menuItem"
                 android:textSize="@dimen/text_pago"
@@ -96,52 +96,69 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.4"
-            android:layout_marginTop="-5dp">
+            android:layout_weight="1"
+            android:layout_marginTop="-5dp"
+            android:orientation="vertical">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
+                android:layout_height="0dp"
+                android:layout_weight="0.63"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/bolita"
                 android:scaleType="fitCenter"/>
+
+            <com.devworms.toukan.mangofrida.componentes.TextoNormal
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="$30 mxn mensuales"
+                android:textColor="@color/menuItem"
+                android:textSize="@dimen/text_pago"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/textoNormal" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
             android:gravity="center_horizontal"
-            android:layout_weight="0.2"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:gravity="center_horizontal"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:weightSum="1">
                 <ImageView
-                    android:layout_width="match_parent"
+                    android:layout_width="59dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:id="@+id/btn_can"
-                    android:src="@drawable/cancelprod"/>
+                    android:src="@drawable/cancelprod"
+                    android:layout_weight="0.16" />
             </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:gravity="center_horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:weightSum="1">
                     <ImageView
-                        android:layout_width="match_parent"
+                        android:layout_width="70dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:id="@+id/btn_con"
-                        android:src="@drawable/continuarorod" />
+                        android:src="@drawable/continuarorod"
+                        android:layout_weight="0.15" />
                 </LinearLayout>
 
 
