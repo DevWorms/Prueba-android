@@ -79,7 +79,11 @@ public class StarterApplication extends Application {
         //Parse.enableLocalDatastore(this);
 
         //Parse.initialize(this, "Rv2InCwEE4RJowtNJVaYqlLw0VpjPLEePcfpHMsw", "oYALR4CrZhDOYlrOk7zCLszZXixJEXsDtOV4e0zt");
-        Parse.initialize(this);
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId(getResources().getString(R.string.parse_app_id))
+                .server(getResources().getString(R.string.parse_server_url))
+                .build());
+        /*
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
         //ParseUser.enableAutomaticUser();

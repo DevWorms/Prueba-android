@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ParseAnalytics.trackAppOpenedInBackground(getIntent());
+        //ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         ///***************Barra***************************************************
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
