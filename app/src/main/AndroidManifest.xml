@@ -145,6 +145,13 @@
             android:name="io.fabric.ApiKey"
             android:value="61e0d9761208fae8cf2b241b23eb83a6ef7d1528" />
 
+        <meta-data
+            android:name="com.parse.SERVER_URL"
+            android:value="@string/parse_server_url" />
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="@string/parse_app_id" />
+
         <!-- Push notification -->
 
         <service android:name="com.parse.PushService" />

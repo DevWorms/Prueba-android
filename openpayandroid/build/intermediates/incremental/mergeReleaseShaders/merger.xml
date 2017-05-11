@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/sergio/Prueba-android/openpayandroid/src/main/shaders"/></dataSet><dataSet config="release"><source path="/Users/sergio/Prueba-android/openpayandroid/src/release/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/rk521/Prueba-android/openpayandroid/src/main/shaders"/></dataSet><dataSet config="release"><source path="/home/rk521/Prueba-android/openpayandroid/src/release/shaders"/></dataSet></merger>

@@ -156,6 +156,7 @@ public class Usuario{
                             mensaje = "Este correo ya esta registrado, puedes iniciar sesión. \nPuedes recuperar tu contraseña con la opcion \"Olvide mi contraseña\" ";
                         else
                             mensaje = "Revisa que los datos de Correo electrónico y Contraseña ingresados sean correctos \ncodigo: "+ e.getCode();
+                            Log.d("parseError:", e.getMessage());
 
 
                         // set title

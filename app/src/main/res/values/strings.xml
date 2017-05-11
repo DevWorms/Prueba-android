@@ -19,4 +19,7 @@
     <string name="title_activity_my_boards">Tus tableros</string>
     <string name="action_delete">Borrar Board</string>
 
+    <string name="parse_server_url">http://app-cocina.herokuapp.com/parse</string>
+    <string name="parse_app_id">frida</string>
+
 </resources>
