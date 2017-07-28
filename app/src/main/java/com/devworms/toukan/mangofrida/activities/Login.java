@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+
+
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -57,7 +59,6 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_login);
 
 
@@ -328,7 +329,6 @@ public class Login extends AppCompatActivity {
         }
 
         List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
-
         ParseFacebookUtils.logInWithReadPermissionsInBackground(this, permissions , new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException err) {

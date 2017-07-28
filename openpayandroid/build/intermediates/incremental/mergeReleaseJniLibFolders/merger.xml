@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/rk521/Prueba-android/openpayandroid/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/home/rk521/Prueba-android/openpayandroid/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\src\release\jniLibs"/></dataSet></merger>

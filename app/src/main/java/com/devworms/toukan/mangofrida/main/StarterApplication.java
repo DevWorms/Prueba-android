@@ -83,6 +83,8 @@ public class StarterApplication extends Application {
                 .applicationId(getResources().getString(R.string.parse_app_id))
                 .server(getResources().getString(R.string.parse_server_url))
                 .build());
+
+        ParseFacebookUtils.initialize(this.getApplicationContext());
         /*
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
@@ -92,7 +94,7 @@ public class StarterApplication extends Application {
         // defaultACL.setPublicReadAccess(true);
         ParseACL.setDefaultACL(defaultACL, true);
 
-        ParseFacebookUtils.initialize(this.getApplicationContext());
+
 
         ParseTwitterUtils.initialize("af09lpCbgHZv0mDHXjJGT1uq4", "Rmj3opgLofx36g41cI3JakAxGHMSwWIruKwN508RwvrMtQXQdr");
 

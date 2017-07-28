@@ -2,121 +2,202 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-android-1.17.0-rc.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\52011d70dcd7a191f8fad8485121f3a5a9c72b49\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="9d3a30f9890c5f6393ffb1f5e6020bef69e569c1">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-android-1.17.0-rc_aec54041c289fb13c7bad670d38250a19c51c278/classes.dex" />
+        sha1="81aa0e8e77d948204aa6754019c6f3c04dd922e3">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_231d78e246a020830a4ce73e77f7cf56f5a716ca.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-asl-1.9.11.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-asl-1.9.11_1726d892208bc16a79c7e6656b3ca6dfc9245ab1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-2.1.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="36d1b5802b2b4c864773367b9717d680616a48d9">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-2.1.3_ae2fa5c13ca29175e9c9148772593d4fe4ea1586/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_50794e815987298eda1414687266168d468865cc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d18323f6940cb67c11ccaf512029a85b534f8445">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f062587418b6f57f0fbca57392231b26700251c3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-jackson2-1.17.0-rc.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fc9a6db1d66e0d635336e1a2d02c3bc86beaef03">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-jackson2-1.17.0-rc_a6d2d37b034fe59f63a3cf689934e0497a74a017/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.7_6b1f6a4dd366dcdcc8e9655dc0db07ddccf6c003/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jsr305-1.3.9.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\libs\jsr305-1.3.9.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="3b61e3b4da9777ed1bca89bc2ade911f2a03f264">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jsr305-1.3.9_21b7453cb5507a6d64f4b6842077976175014916/classes.dex" />
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\jsr305-1.3.9_47ff4d1f327365d54054f7f674ea2e0030435915.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-1.17.0-rc.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\libs\jackson-core-2.1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="36d1b5802b2b4c864773367b9717d680616a48d9">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\jackson-core-2.1.3_42a8e294612e4dc81f13387d82c0cf7d469218f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\5178b12b914447564ff3cebf6ed79a02d6a5dce7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e724073d032731be77fad0f993e2970fb4429e3a">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_d1cd928849d9b9b793107def28acbad8049f903f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\libs\google-http-client-1.17.0-rc.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="7408d78899c34ce036a83ba9f580b5110dcd6c0b">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-1.17.0-rc_3b8e11e7117b2a6bfb1950a958e0147be6568070/classes.dex" />
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\google-http-client-1.17.0-rc_262f0da9159910998cce789488a9d27422303c18.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/devicecollector-sdk-2.5.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\c366165fa9f5f03b84ad4073aaab5197b6c92e58\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8ec69f9e7e18a05a46b4fcaa69368b6d42fa6324">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_99f9fe509a87e86f1ad996924d942f66ffb8c952.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\724c028114fff5635f4e8baeea86ef916a1b849f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3318d37e2378c4982ad6d2635eed93d9e7f7940b">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_df49005a8d1407cd1a2b8ccfb2e234e5acc645d7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\18ac0bd36d7c540401b0be60c47fa1a6d348325d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b727e800debd202a5113d675f024751bc82b2cbf">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_3f8f71f25f80c23b91e3d7534b0fd35f51aa09f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\libs\devicecollector-sdk-2.5.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="90060b693ab97ea90a0ccbb6a430bd7e3b5d0771">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/devicecollector-sdk-2.5_ac963ec69dfd0484eb437cb2f98e64d34a79ec65/classes.dex" />
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\devicecollector-sdk-2.5_a15dbbd26d3b160d297331715cf7a3a55baf4ff7.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\libs\jackson-core-asl-1.9.11.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\jackson-core-asl-1.9.11_242cb053fd3af16a9ba57bd7665056cf1bddbb5e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_3ed7d354d1df36554bdccdee1952613b81dae030.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\eb84f1b648580eb524cad07ba1087fb4db60c97e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0e85a8fb54f04489a01242e7579e7512ef5a28b1">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_9a8041b4596c4b1040bf37cde8f6e4179c60ed40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\2df971a6bf5a78e45dd42b848ded621e692d2cc2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c70dc7e189e45e8a8b07a2cafee76aefdc9822df">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_ed105533331d0612b8b9ad382b2c0c01013e51f5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\libs\google-http-client-android-1.17.0-rc.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9d3a30f9890c5f6393ffb1f5e6020bef69e569c1">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\google-http-client-android-1.17.0-rc_97a7b5e0f8f9866c63371342c0a4d9c78e4f4c1c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\pdk\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3a452d0672b15e691530a1b1e6aa86a7ebb621df">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_cac4256b5f8f83a923c3a7989971ddab3dc50aea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\libs\ParseFacebookUtilsV4-1.10.3.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseFacebookUtilsV4-1.10.3_1be3b3ea7c885af28113f7a91348841e5d5f96b8/classes.dex" />
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\ParseFacebookUtilsV4-1.10.3_eb1bb005c57352ede2dd9500c9f1ff30f2a5a547.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\libs\ParseTwitterUtils-1.10.3.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseTwitterUtils-1.10.3_aae1d01cd2ff90784fe349a4edec038a2b8a5d56/classes.dex" />
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\ParseTwitterUtils-1.10.3_187d6ab0aae9382cd8b9272f9ca2b70161579d78.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/rk521/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/junit-4.10.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="67c52a6f555ed1c02668b958d16232df4e395668">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_3c0731207c7f4f6d6a327aa046a09da7d8ec7753.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\acea44ddc73d28bded2961ad9a48486046581531\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_e8877ae9dbcf866fc1fc3564d5d66263da006bb6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\libs\junit-4.10.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="abb938dd2fca0194776c97c54fdd0b97c56150c2">
-        <dex dex="/home/rk521/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/junit-4.10_81b7a9d53753554b279aae5118b5f13e5a9f1c76/classes.dex" />
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\junit-4.10_16a52545211b749806e5430628be9ffdb7b51365.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\.android\build-cache\36db566d9c3edc1ac714534ae985ae44458bc4f4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e0f6e271147a09c34a8fa0d09e1df8c383ce3f44">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\classes_321397ba91c44d269ba92b0bd0bbe2f31d995f7b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\openpayandroid\build\intermediates\bundles\default\libs\google-http-client-jackson2-1.17.0-rc.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fc9a6db1d66e0d635336e1a2d02c3bc86beaef03">
+        <dex dex="C:\Users\AndrewAlan\Documents\GitHub\Prueba-android\app\build\intermediates\pre-dexed\debug\google-http-client-jackson2-1.17.0-rc_1fb33b32a7b528d15f93deb1ad48df2ef96ed2c5.jar" />
     </item>
 
 </items>
