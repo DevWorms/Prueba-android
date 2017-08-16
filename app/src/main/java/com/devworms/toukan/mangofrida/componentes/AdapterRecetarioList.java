@@ -17,11 +17,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
@@ -31,16 +27,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devworms.toukan.mangofrida.R;
-import com.devworms.toukan.mangofrida.activities.Splash;
 import com.devworms.toukan.mangofrida.dialogs.AgregarTarjeta;
 import com.devworms.toukan.mangofrida.dialogs.WalletActivity;
-import com.devworms.toukan.mangofrida.openpay.OpenPayRestApi;
 import com.devworms.toukan.mangofrida.fragments.RecetaFragment;
 import com.devworms.toukan.mangofrida.fragments.RecetarioFragment;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
@@ -56,7 +48,6 @@ import com.theartofdev.fastimageloader.target.TargetImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import static com.devworms.toukan.mangofrida.openpay.OpenPayRestApi.conultarStatusSuscripcion;
@@ -126,6 +117,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
      * Complex data items may need more than one view per item, and
      * you provide access to all the views for a data item in a view holder
      */
+
     static final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final TargetImageView mTargetImageView;
@@ -136,8 +128,17 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         public TextView textViewPorciones;
         public TextView tTextViewTiempo;
         public ImageView iImageViewDificultad;
-
         private Dialog dialog;
+        String TAG =
+                "InAppBilling";
+        IabHelper mHelper;
+        String base64EncodedPublicKey =
+                "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
+        String ITEM_SKU = "membresia_prueba";
+
+
+
+
 
 
         public ViewHolder(View v) {
@@ -397,10 +398,28 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                                 dialog.cancel();
                                 //continuar();
-                                addtarjetacred();
+                               // addtarjetacred();
+                                mHelper = new IabHelper(dialog.getContext(), base64EncodedPublicKey);
+
+                                mHelper.startSetup(new
+                                                           IabHelper.OnIabSetupFinishedListener() {
+                                                               public void onIabSetupFinished(IabResult result) {
+                                                                   if (!result.isSuccess()) {
+                                                                       Log.d(TAG, "In-app Billing setup failed: " +
+                                                                               result);
+                                                                   } else {
+                                                                       Log.d(TAG, "In-app Billing is set up OK");
+                                                                       mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001,
+                                                                               mPurchaseFinishedListener, "mypurchasetoken");
+                                                                   }
+                                                               }
+                                                           });
+
+
 
                             }
                         });
+
                     }
 
                     if (!dialog.isShowing()) {
@@ -417,10 +436,98 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
             ////////*******
 
+
         }
 
         //pagos
 
 
+        private   IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
+            @Override
+            public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
+                if (result.isFailure()) {
+                    // handle error here
+                    //Toast.makeText(MainActivity.this,"error",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    // does the user have the premium upgrade?
+                    //mIsRemoveAdds = inventory.hasPurchase(SKU_REMOVE_ADDS);
+
+
+                }
+            }
+        };
+        private IabHelper.OnIabPurchaseFinishedListener mPurchasedFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
+            @Override
+            public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+
+            }
+        };
+        IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener
+                = new IabHelper.OnIabPurchaseFinishedListener() {
+            public void onIabPurchaseFinished(IabResult result,
+                                              Purchase purchase)
+            {
+                if (result.isFailure()) {
+                    // Handle error
+                    return;
+                }
+                else if (purchase.getSku().equals(ITEM_SKU)) {
+                    consumeItem();
+                   // buyButton.setEnabled(false);
+                }
+
+            }
+        };
+
+        public void consumeItem() {
+            mHelper.queryInventoryAsync(mReceivedInventoryListener);
+        }
+
+        IabHelper.QueryInventoryFinishedListener mReceivedInventoryListener
+                = new IabHelper.QueryInventoryFinishedListener() {
+            public void onQueryInventoryFinished(IabResult result,
+                                                 Inventory inventory) {
+
+                if (result.isFailure()) {
+                    // Handle failure
+                } else {
+                    mHelper.consumeAsync(inventory.getPurchase(ITEM_SKU),
+                            mConsumeFinishedListener);
+                }
+            }
+        };
+
+        IabHelper.OnConsumeFinishedListener mConsumeFinishedListener =
+                new IabHelper.OnConsumeFinishedListener() {
+                    public void onConsumeFinished(Purchase purchase,
+                                                  IabResult result) {
+
+                        if (result.isSuccess()) {
+                            //clickButton.setEnabled(true);
+                        } else {
+                            // handle error
+                        }
+                    }
+                };
+
+        protected void onActivityResult(int requestCode, int resultCode,
+                                        Intent data)
+        {
+            if (!mHelper.handleActivityResult(requestCode,
+                    resultCode, data)) {
+                onActivityResult(requestCode, resultCode, data);
+            }
+        }
+
+        public void onDestroy() {
+            onDestroy();
+            if (mHelper != null) mHelper.dispose();
+            mHelper = null;
+        }
+
+
     }
+
+
 }

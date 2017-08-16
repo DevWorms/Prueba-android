@@ -20,6 +20,7 @@ import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -228,6 +229,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
             if (activity != null) {
 
                 String tipo = objMenu.getString("TipoMenu").toLowerCase();
+
 
 
 

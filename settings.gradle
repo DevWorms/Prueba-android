@@ -1,2 +1,2 @@
-include ':app', ':pdk'
+include ':app', ':pdk', ':library'
 include ':openpayandroid'
