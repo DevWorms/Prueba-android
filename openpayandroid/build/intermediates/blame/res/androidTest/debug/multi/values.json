@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "outputFile": "C:\\Users\\Alienware\\Documents\\work\\cocina\\cocina copia\\Prueba-android\\openpayandroid\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 103
                 },
                 "from": {
-                    "file": "/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/debug/res/values/values.xml",
+                    "file": "C:\\Users\\Alienware\\Documents\\work\\cocina\\cocina copia\\Prueba-android\\openpayandroid\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

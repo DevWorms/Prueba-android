@@ -250,7 +250,7 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed() {
 
         if(getFragmentManager().getBackStackEntryCount() == 0) {
-            //super.onBackPressed();
+            super.onBackPressed();
         }
         else {
             getFragmentManager().popBackStack();
