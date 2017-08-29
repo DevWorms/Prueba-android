@@ -1,7 +1,5 @@
 package com.devworms.toukan.mangofrida.activities;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,10 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.internal.view.ContextThemeWrapper;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.dialogs.Usuario;
@@ -29,11 +24,7 @@ import com.parse.SaveCallback;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by sergio on 21/08/16.
- */
-public class RegistroActivity extends AppCompatActivity{
-
+public class RegistroActivity extends AppCompatActivity {
     private EditText txtCorreo, txtPass, txtPassConfirm;
 
     @Override
@@ -42,10 +33,8 @@ public class RegistroActivity extends AppCompatActivity{
         setContentView(R.layout.activity_registro);
     }
 
-
-    public void loguearConFacebook(View view)
-    {
-        if(!isNetworkAvailable()){
+    public void loguearConFacebook(View view) {
+        if (!isNetworkAvailable()) {
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
 
@@ -73,7 +62,7 @@ public class RegistroActivity extends AppCompatActivity{
 
         List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
 
-        ParseFacebookUtils.logInWithReadPermissionsInBackground(this, permissions , new LogInCallback() {
+        ParseFacebookUtils.logInWithReadPermissionsInBackground(this, permissions, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException err) {
                 if (user == null) {
@@ -82,13 +71,13 @@ public class RegistroActivity extends AppCompatActivity{
                     Log.d("MyApp", "User signed up and logged in through Facebook!");
 
                     ligarFBconParse(user);
-                    Intent intent = new Intent(RegistroActivity.this,MainActivity.class);
+                    Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
 
                 } else {
                     ligarFBconParse(user);
-                    Intent intent = new Intent(RegistroActivity.this,MainActivity.class);
+                    Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
 
@@ -96,15 +85,9 @@ public class RegistroActivity extends AppCompatActivity{
                 }
             }
         });
-
-
-
     }
 
-
-
-    private void ligarFBconParse(final ParseUser user)
-    {
+    private void ligarFBconParse(final ParseUser user) {
         List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
 
         if (!ParseFacebookUtils.isLinked(user)) {
@@ -120,11 +103,8 @@ public class RegistroActivity extends AppCompatActivity{
 
     }
 
-
-    public void loguearConMail(View view)
-    {
-        if(!isNetworkAvailable()){
-
+    public void loguearConMail(View view) {
+        if (!isNetworkAvailable()) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
 
             // set title
@@ -149,13 +129,12 @@ public class RegistroActivity extends AppCompatActivity{
             return;
         }
 
-        txtCorreo = (EditText)findViewById(R.id.editTextMail);
-        txtPass = (EditText)findViewById(R.id.editTextContrasena);
-        txtPassConfirm = (EditText)findViewById(R.id.editTextConfirmContrasena);
+        txtCorreo = (EditText) findViewById(R.id.editTextMail);
+        txtPass = (EditText) findViewById(R.id.editTextContrasena);
+        txtPassConfirm = (EditText) findViewById(R.id.editTextConfirmContrasena);
 
-        if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("") ) {
+        if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("")) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.myDialog));
-
 
             // set title
             alertDialogBuilder.setTitle("Error");
@@ -175,16 +154,13 @@ public class RegistroActivity extends AppCompatActivity{
 
             // show it
             alertDialog.show();
-        }else {
-
+        } else {
             Usuario usuario = new Usuario(txtCorreo, txtPass, txtPassConfirm);
             usuario.nuevoUsuario(this);
-
         }
     }
 
-    public void conCuenta(View view)
-    {
+    public void conCuenta(View view) {
         Intent intent = new Intent(RegistroActivity.this, Login.class);
         startActivity(intent);
         finish();

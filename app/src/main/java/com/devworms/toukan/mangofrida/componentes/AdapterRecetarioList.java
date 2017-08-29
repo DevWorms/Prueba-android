@@ -1,15 +1,3 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
 package com.devworms.toukan.mangofrida.componentes;
 
 import android.app.Activity;
@@ -54,12 +42,10 @@ import static com.devworms.toukan.mangofrida.openpay.OpenPayRestApi.conultarStat
 
 
 public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRecetarioList.ViewHolder> {
-
     private List<ParseObject> mItems;
     private String tipoMenu;
     private Activity actividad;
     private List<String> lTipos;
-
 
     public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu, Activity actividad) {
         this.mItems = mItems;
@@ -86,7 +72,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         }
     }
 
-
     @Override
     public int getItemCount() {
         return mItems.size();
@@ -110,14 +95,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         holder.setTitulos(mItems.get(position));
     }
 
-    //region: Inner class: ViewHolder
-
-    /**
-     * Provide a reference to the views for each data item
-     * Complex data items may need more than one view per item, and
-     * you provide access to all the views for a data item in a view holder
-     */
-
     static final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final TargetImageView mTargetImageView;
@@ -134,12 +111,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         IabHelper mHelper;
         String base64EncodedPublicKey =
                 "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
-        String ITEM_SKU = "membresia_prueba";
-
-
-
-
-
+        String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
 
         public ViewHolder(View v) {
             super(v);
@@ -154,18 +126,14 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
 
             iImageViewDificultad = (ImageView) v.findViewById(R.id.imageView12);
-
         }
-
 
         public void setTitulos(ParseObject objReceta) {
             tTextViewNombrereceta.setText(objReceta.getString("Nombre"));
             tTextViewTiempo.setText("  " + objReceta.getString("Tiempo"));
             textViewPorciones.setText("  " + objReceta.getString("Porciones"));
 
-
             String dificultad = objReceta.getString("Nivel");
-
 
             int imageresource = 0;
             switch (dificultad) {
@@ -186,8 +154,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                 default:
                     break;
             }
-
-
         }
 
         @Override
@@ -198,18 +164,13 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                 final ImageView imageView = (ImageView) v;
 
                 if (tipoMenu.equals("pago")) {
-
-
                     if (ParseUser.getCurrentUser() != null) {
                         consultarSuscripcion(activity, imageView);
                     } else {
-
                         String titulo = "Inicio de sesión necesario";
                         String mensaje = "Tienes que iniciar sesión para poder suscribirte y acceder a esta receta";
 
-
                         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
-
 
                         // set title
                         alertDialogBuilder.setTitle(titulo);
@@ -232,7 +193,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                         // show it
                         alertDialog.show();
                     }
-
                 } else {
                     if (objReceta != null) {
                         RecetarioFragment recetario = new RecetarioFragment();
@@ -250,12 +210,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                 .addToBackStack("MenuFragment")
                                 .commit();
                     }
-
                 }
-
             }
-
-
         }
 
         public void consultarSuscripcion(final Activity activity, final ImageView imageView) {
@@ -279,8 +235,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                 RecetarioFragment recetario = new RecetarioFragment();
                                 recetario.setMenuSeleccionado(objReceta);
 
-
-
                                 RecetaFragment receta = new RecetaFragment();
                                 receta.setObjReceta(objReceta);
 
@@ -288,88 +242,62 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                         .replace(R.id.actividad, receta)
                                         .addToBackStack("MenuFragment")
                                         .commit();
-                            }
-                            else{
-
-
+                            } else {
                                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
                                 query.whereEqualTo("cliente", clientes.get(0));
                                 query.findInBackground(new FindCallback<ParseObject>() {
 
                                     public void done(List<ParseObject> listaTarjetas, ParseException e) {
                                         if (e == null) {
-
-
                                             if (listaTarjetas.size() > 0) {
-
                                                 Intent intent = new Intent(activity.getApplicationContext(), WalletActivity.class);
                                                 activity.startActivity(intent);
-
                                             } else {
-
                                                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-                                                Boolean slider = preferences.getBoolean("Mostrardiasprueba", true );
-                                                if(slider) {
+                                                Boolean slider = preferences.getBoolean("Mostrardiasprueba", true);
+                                                if (slider) {
                                                     SharedPreferences.Editor editor = preferences.edit();
-                                                    //editor.putBoolean("Mostrardiasprueba", false);
                                                     editor.putBoolean("Mostrardiasprueba", true);
                                                     editor.apply();
 
                                                     mostrarAnuncioDiasPrueba();
-
-
-                                                }else{
+                                                } else {
                                                     SharedPreferences.Editor editor = preferences.edit();
-                                                    //editor.putBoolean("Mostrardiasprueba", false);
                                                     editor.putBoolean("Mostrardiasprueba", true);
                                                     editor.apply();
 
                                                     addtarjetacred();
                                                 }
-
                                             }
                                         }
                                     }
                                 });
-
-
-
                             }
-
                         } else {
-                          //////////
-
                             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-                            Boolean slider = preferences.getBoolean("Mostrardiasprueba", true );
-                            if(slider) {
+                            Boolean slider = preferences.getBoolean("Mostrardiasprueba", true);
+                            if (slider) {
                                 SharedPreferences.Editor editor = preferences.edit();
-                                //editor.putBoolean("Mostrardiasprueba", false);
                                 editor.putBoolean("Mostrardiasprueba", true);
                                 editor.apply();
 
                                 mostrarAnuncioDiasPrueba();
 
-
                                 if (!dialog.isShowing()) {
                                     dialog.show();
                                 }
-                            }
-                            else{
-
+                            } else {
                                 SharedPreferences.Editor editor = preferences.edit();
-                                //editor.putBoolean("Mostrardiasprueba", false);
                                 editor.putBoolean("Mostrardiasprueba", true);
                                 editor.apply();
 
                                 addtarjetacred();
                             }
-
-                            ///////////
                         }
                     }
                 }
 
-                public void mostrarAnuncioDiasPrueba(){
+                public void mostrarAnuncioDiasPrueba() {
                     if (dialog == null) {
                         dialog = new Dialog(activity);
                         dialog.setCancelable(true);
@@ -383,11 +311,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                             @Override
                             public void onClick(View view) {
-
                                 dialog.cancel();
                                 dialog.closeOptionsMenu();
-
-
                             }
                         });
 
@@ -397,26 +322,20 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                             public void onClick(View view) {
 
                                 dialog.cancel();
-                                //continuar();
-                               // addtarjetacred();
                                 mHelper = new IabHelper(dialog.getContext(), base64EncodedPublicKey);
 
-                                mHelper.startSetup(new
-                                                           IabHelper.OnIabSetupFinishedListener() {
-                                                               public void onIabSetupFinished(IabResult result) {
-                                                                   if (!result.isSuccess()) {
-                                                                       Log.d(TAG, "In-app Billing setup failed: " +
-                                                                               result);
-                                                                   } else {
-                                                                       Log.d(TAG, "In-app Billing is set up OK");
-                                                                       mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001,
-                                                                               mPurchaseFinishedListener, "mypurchasetoken");
-                                                                   }
-                                                               }
-                                                           });
-
-
-
+                                mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+                                    public void onIabSetupFinished(IabResult result) {
+                                        if (!result.isSuccess()) {
+                                            Log.d(TAG, "In-app Billing setup failed: " +
+                                                    result);
+                                        } else {
+                                            Log.d(TAG, "In-app Billing is set up OK");
+                                            mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001,
+                                                    mPurchaseFinishedListener, "mypurchasetoken");
+                                        }
+                                    }
+                                });
                             }
                         });
 
@@ -426,37 +345,21 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                         dialog.show();
                     }
                 }
-                public void addtarjetacred() {
 
+                public void addtarjetacred() {
                     Intent intent = new Intent(activity.getApplicationContext(), AgregarTarjeta.class);
                     activity.startActivity(intent);
-
                 }
             });
-
-            ////////*******
-
-
         }
 
-        //pagos
-
-
-        private   IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
+        private IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
             @Override
             public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
-                if (result.isFailure()) {
-                    // handle error here
-                    //Toast.makeText(MainActivity.this,"error",Toast.LENGTH_LONG).show();
-                }
-                else{
-                    // does the user have the premium upgrade?
-                    //mIsRemoveAdds = inventory.hasPurchase(SKU_REMOVE_ADDS);
 
-
-                }
             }
         };
+
         private IabHelper.OnIabPurchaseFinishedListener mPurchasedFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
             @Override
             public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
@@ -466,15 +369,13 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener
                 = new IabHelper.OnIabPurchaseFinishedListener() {
             public void onIabPurchaseFinished(IabResult result,
-                                              Purchase purchase)
-            {
+                                              Purchase purchase) {
                 if (result.isFailure()) {
-                    // Handle error
+                    Log.d("Error", result.getMessage());
                     return;
-                }
-                else if (purchase.getSku().equals(ITEM_SKU)) {
+                } else if (purchase.getSku().equals(ITEM_SKU)) {
                     consumeItem();
-                   // buyButton.setEnabled(false);
+                    // buyButton.setEnabled(false);
                 }
 
             }
@@ -489,43 +390,19 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
             public void onQueryInventoryFinished(IabResult result,
                                                  Inventory inventory) {
 
-                if (result.isFailure()) {
-                    // Handle failure
-                } else {
+                if (!result.isFailure()) {
                     mHelper.consumeAsync(inventory.getPurchase(ITEM_SKU),
                             mConsumeFinishedListener);
                 }
             }
         };
 
-        IabHelper.OnConsumeFinishedListener mConsumeFinishedListener =
-                new IabHelper.OnConsumeFinishedListener() {
-                    public void onConsumeFinished(Purchase purchase,
-                                                  IabResult result) {
+        IabHelper.OnConsumeFinishedListener mConsumeFinishedListener = new IabHelper.OnConsumeFinishedListener() {
+            public void onConsumeFinished(Purchase purchase,
+                                          IabResult result) {
 
-                        if (result.isSuccess()) {
-                            //clickButton.setEnabled(true);
-                        } else {
-                            // handle error
-                        }
-                    }
-                };
-
-        protected void onActivityResult(int requestCode, int resultCode,
-                                        Intent data)
-        {
-            if (!mHelper.handleActivityResult(requestCode,
-                    resultCode, data)) {
-                onActivityResult(requestCode, resultCode, data);
             }
-        }
-
-        public void onDestroy() {
-            onDestroy();
-            if (mHelper != null) mHelper.dispose();
-            mHelper = null;
-        }
-
+        };
 
     }
 

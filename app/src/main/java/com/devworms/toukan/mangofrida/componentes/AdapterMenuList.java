@@ -1,41 +1,17 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
-
 package com.devworms.toukan.mangofrida.componentes;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.graphics.drawable.BitmapDrawable;
+
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.dialogs.CompartirDialog;
 import com.devworms.toukan.mangofrida.fragments.RecetarioFragment;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
-import com.devworms.toukan.mangofrida.util.SoporteMultiplesPantallas;
 import com.devworms.toukan.mangofrida.util.Specs;
 import com.parse.CountCallback;
 import com.parse.FindCallback;
@@ -63,7 +39,6 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
         if (StarterApplication.mPrefetchImages) {
             for (ParseObject parseObject : mItems) {
                 FastImageLoader.prefetchImage(parseObject.getString("Url_Imagen"), Specs.IMG_IX_IMAGE);
-
             }
         }
     }
@@ -91,20 +66,18 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
         holder.mTargetImageView.loadImage(mItems.get(position).getString("Url_Imagen"), spec.getKey());
 
 
-        if(position == 0){
+        if (position == 0) {
             holder.imageViewDeviderbottom.setVisibility(View.INVISIBLE);
-            if(mItems.size()==1)
+            if (mItems.size() == 1)
                 holder.imageViewDeviderTop.setVisibility(View.INVISIBLE);
             else
                 holder.imageViewDeviderTop.setVisibility(View.VISIBLE);
 
-        }
-        else {
-            if( mItems.size()-1 == position){
+        } else {
+            if (mItems.size() - 1 == position) {
                 holder.imageViewDeviderbottom.setVisibility(View.VISIBLE);
                 holder.imageViewDeviderTop.setVisibility(View.INVISIBLE);
-            }
-            else{
+            } else {
                 holder.imageViewDeviderbottom.setVisibility(View.VISIBLE);
                 holder.imageViewDeviderTop.setVisibility(View.VISIBLE);
             }
@@ -112,16 +85,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
     }
 
-    //region: Inner class: ViewHolder
-
-    /**
-     * Provide a reference to the views for each data item
-     * Complex data items may need more than one view per item, and
-     * you provide access to all the views for a data item in a view holder
-     */
     static final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-        //public final TextView mUrlTextView;
 
         public HashMap<ParseObject, Integer> numRecetasPorMenu;
 
@@ -137,8 +101,6 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
         ParseObject objMenu;
 
-
-
         public ViewHolder(View v) {
             super(v);
 
@@ -146,7 +108,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
             mTargetImageView.setOnClickListener(this);
             this.activity = (FragmentActivity) mTargetImageView.getContext();
 
-            tTextViewNumeroRecetas =(TextView) v.findViewById(R.id.textViewNumeroRecetas);
+            tTextViewNumeroRecetas = (TextView) v.findViewById(R.id.textViewNumeroRecetas);
 
             tTextViewNombrePlatillo = (TextView) v.findViewById(R.id.textViewNombrePlatillo);
 
@@ -157,157 +119,122 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
             imageViewDeviderTop = (ImageView) v.findViewById(R.id.imageViewDeviderTop);
 
 
-
         }
 
-        public void contarRecetas(final ParseObject objMenu){
-
-
+        public void contarRecetas(final ParseObject objMenu) {
 
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
             query.whereEqualTo("Menu", objMenu);
             query.countInBackground(new CountCallback() {
                 public void done(int count, ParseException e) {
                     if (e == null) {
-                        // The count request succeeded. Log the count
-                        if (true){//objMenu.getString("TipoMenu").toLowerCase().equals("gratis")||objMenu.getString("TipoMenu").toLowerCase().equals("pago")){
-                            tTextViewNumeroRecetas.setText(count + " receta" );
-                            if (count > 1){
-                                tTextViewNumeroRecetas.setText(tTextViewNumeroRecetas.getText()+"s");
-                            }
-
-
-                            imageViewCinta.setVisibility(View.VISIBLE);
-                            tTextViewNumeroRecetas.setVisibility(View.VISIBLE);
-
-
-                            String tipomenu = objMenu.getString("TipoMenu").toLowerCase();
-                            int imageresource = 0;
-                            switch (tipomenu){
-                                case "gratis":
-                                    imageresource = activity.getResources().getIdentifier("@drawable/gratis", "drawable", activity.getPackageName());
-
-                                    imageViewCinta.setImageResource(imageresource);
-
-                                    break;
-                                case "pago":
-                                    imageresource = activity.getResources().getIdentifier("@drawable/premium", "drawable", activity.getPackageName());
-
-                                    imageViewCinta.setImageResource(imageresource);
-
-                                    break;
-                                case "viral":
-                                    imageresource = activity.getResources().getIdentifier("@drawable/viral", "drawable", activity.getPackageName());
-
-                                    imageViewCinta.setImageResource(imageresource);
-
-                                    break;
-                            }
-
-
-                        }else{
-
-                            imageViewCinta.setVisibility(View.GONE);
-                            tTextViewNumeroRecetas.setVisibility(View.GONE);
+                        tTextViewNumeroRecetas.setText(count + " receta");
+                        if (count > 1) {
+                            tTextViewNumeroRecetas.setText(tTextViewNumeroRecetas.getText() + "s");
                         }
 
-                        String nombre = objMenu.getString("NombreMenu");
-                        tTextViewNombrePlatillo.setText(nombre);
+                        imageViewCinta.setVisibility(View.VISIBLE);
+                        tTextViewNumeroRecetas.setVisibility(View.VISIBLE);
 
+                        String tipomenu = objMenu.getString("TipoMenu").toLowerCase();
+                        int imageresource = 0;
+                        switch (tipomenu) {
+                            case "gratis":
+                                imageresource = activity.getResources().getIdentifier("@drawable/gratis", "drawable", activity.getPackageName());
+                                imageViewCinta.setImageResource(imageresource);
+
+                                break;
+                            case "pago":
+                                imageresource = activity.getResources().getIdentifier("@drawable/premium", "drawable", activity.getPackageName());
+                                imageViewCinta.setImageResource(imageresource);
+
+                                break;
+                            case "viral":
+                                imageresource = activity.getResources().getIdentifier("@drawable/viral", "drawable", activity.getPackageName());
+                                imageViewCinta.setImageResource(imageresource);
+
+                                break;
+                        }
                     } else {
-                        // The request failed
+                        imageViewCinta.setVisibility(View.GONE);
+                        tTextViewNumeroRecetas.setVisibility(View.GONE);
                     }
+
+                    String nombre = objMenu.getString("NombreMenu");
+                    tTextViewNombrePlatillo.setText(nombre);
                 }
             });
-
         }
-
 
         @Override
         public void onClick(View v) {
             final FragmentActivity activity = (FragmentActivity) mTargetImageView.getContext();
             if (activity != null) {
-
                 String tipo = objMenu.getString("TipoMenu").toLowerCase();
 
-
-
-
                 switch (tipo) {
-                    case "gratis": case "pago"://Gratis o de pagoç
+                    case "gratis":
+                    case "pago"://Gratis o de pagoç
 
                         RecetarioFragment recetario = new RecetarioFragment();
                         recetario.setMenuSeleccionado(objMenu);
                         recetario.setTipoMenu(tipo);
 
                         activity.getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.actividad,recetario)
+                                .replace(R.id.actividad, recetario)
                                 .addToBackStack("MenuFragment")
                                 .commit();
 
                         break;
 
                     case "viral":
-
                         ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
                         query.whereEqualTo("Menu", objMenu);
 
                         query.findInBackground(new FindCallback<ParseObject>() {
-                               public void done(final List<ParseObject> recetasList, ParseException e) {
-                                   if (e == null) {
+                            public void done(final List<ParseObject> recetasList, ParseException e) {
+                                if (e == null) {
 
-                                       if (recetasList.size() > 0) {
+                                    if (recetasList.size() > 0) {
 
-                                           ParseQuery<ParseObject> query = ParseQuery.getQuery("Regalos");
-                                           query.whereEqualTo("username", ParseUser.getCurrentUser());
-                                           query.whereEqualTo("Recetario", objMenu);
+                                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Regalos");
+                                        query.whereEqualTo("username", ParseUser.getCurrentUser());
+                                        query.whereEqualTo("Recetario", objMenu);
 
-                                           query.findInBackground(new FindCallback<ParseObject>() {
-                                               public void done(List<ParseObject> recetasList, ParseException e) {
-                                                   if (e == null) {
-                                                       //Si la receta ya esta en favoritos significa que ya fue compartida
-                                                       if (recetasList.size() > 0) {
+                                        query.findInBackground(new FindCallback<ParseObject>() {
+                                            public void done(List<ParseObject> recetasList, ParseException e) {
+                                                if (e == null) {
+                                                    //Si la receta ya esta en favoritos significa que ya fue compartida
+                                                    if (recetasList.size() > 0) {
 
-                                                           RecetarioFragment recetario = new RecetarioFragment();
-                                                           recetario.setMenuSeleccionado(objMenu);
-                                                           recetario.setTipoMenu("gratis");
+                                                        RecetarioFragment recetario = new RecetarioFragment();
+                                                        recetario.setMenuSeleccionado(objMenu);
+                                                        recetario.setTipoMenu("gratis");
 
-                                                           activity.getSupportFragmentManager().beginTransaction()
-                                                                   .replace(R.id.actividad,recetario)
-                                                                   .addToBackStack("MenuFragment")
-                                                                   .commit();
-                                                       }
-                                                       else{
+                                                        activity.getSupportFragmentManager().beginTransaction()
+                                                                .replace(R.id.actividad, recetario)
+                                                                .addToBackStack("MenuFragment")
+                                                                .commit();
+                                                    } else {
 
-                                                           StarterApplication.isDesdeMenuPrincipal = true;
-                                                           CompartirDialog compartirDialog = new CompartirDialog(activity, objMenu);
+                                                        StarterApplication.isDesdeMenuPrincipal = true;
+                                                        CompartirDialog compartirDialog = new CompartirDialog(activity, objMenu);
 
-                                                           compartirDialog.show();
-                                                           StarterApplication.dialogoCompartir = compartirDialog;
+                                                        compartirDialog.show();
+                                                        StarterApplication.dialogoCompartir = compartirDialog;
 
-                                                       }
+                                                    }
+                                                }
+                                            }
+                                        });
 
-
-                                                   }
-                                               }
-                                           });
-
-                                       }
-                                   }
-                               }
-                           });
-
-
-
-
+                                    }
+                                }
+                            }
+                        });
                         break;
                 }
-
             }
         }
-
-
-
     }
-    //endregion
 }

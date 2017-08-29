@@ -34,7 +34,6 @@
         android:fitsSystemWindows="true"
         app:itemTextColor="@color/menuText"
         app:itemIconTint="@color/menuText"
-
         app:menu="@menu/activity_main_drawer" />
 
 

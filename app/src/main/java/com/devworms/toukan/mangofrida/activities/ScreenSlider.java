@@ -1,11 +1,9 @@
 package com.devworms.toukan.mangofrida.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -17,46 +15,36 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.devworms.toukan.mangofrida.R;
-import com.devworms.toukan.mangofrida.efectos.DepthPageTransformer;
-import com.devworms.toukan.mangofrida.efectos.RelaxTransformer;
-import com.devworms.toukan.mangofrida.efectos.ZoomOutPageTransformer;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Created by sergio on 08/11/15.
- */
 public class ScreenSlider extends AppCompatActivity {
-    private static Integer[]images =
-            {
-                    R.drawable.imagenslider1,
-                    R.drawable.imagenslider2,
-                    R.drawable.imagenslider3
-            };
+    private static Integer[] images = {
+            R.drawable.imagenslider1,
+            R.drawable.imagenslider2,
+            R.drawable.imagenslider3
+    };
 
-    private static Integer[]bolitas =
-            {
-                    R.drawable.bolitasslider1,
-                    R.drawable.bolitasslider2,
-                    R.drawable.bolitasslider3
-            };
+    private static Integer[] bolitas = {
+            R.drawable.bolitasslider1,
+            R.drawable.bolitasslider2,
+            R.drawable.bolitasslider3
+    };
 
-    private static Integer[]textouno =
-            {
-                    R.drawable.cocinamexicana,
-                    R.drawable.daleprobadita,
-                    R.drawable.veinteanosdeexperiencia
-            };
-    private static Integer[]textodos =
-            {
-                    R.drawable.cocinamexicana2,
-                    R.drawable.cocinatradicional,
-                    R.drawable.todoeltalento
-            };
+    private static Integer[] textouno = {
+            R.drawable.cocinamexicana,
+            R.drawable.daleprobadita,
+            R.drawable.veinteanosdeexperiencia
+    };
+
+    private static Integer[] textodos = {
+            R.drawable.cocinamexicana2,
+            R.drawable.cocinatradicional,
+            R.drawable.todoeltalento
+    };
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
 
     private ViewPager mViewPager;
 
@@ -65,30 +53,21 @@ public class ScreenSlider extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slider);
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        //mViewPager.setPageTransformer(true, new RelaxTransformer());
-       // mViewPager.setPageTransformer(true,  new DepthPageTransformer ());
-
-
         final Handler handler = new Handler();
-        Timer swipeTimer =null;
+        Timer swipeTimer = null;
         final Runnable Update = new Runnable() {
             public void run() {
-                Integer pos=0;
-                Integer count=mViewPager.getAdapter().getCount();
-                Integer current=mViewPager.getCurrentItem();
+                Integer pos = 0;
+                Integer count = mViewPager.getAdapter().getCount();
+                Integer current = mViewPager.getCurrentItem();
 
-
-
-                if (current < count-1) {
-                    pos=mViewPager.getCurrentItem() + 1;
+                if (current < count - 1) {
+                    pos = mViewPager.getCurrentItem() + 1;
                 }
 
                 mViewPager.setCurrentItem(pos);
@@ -103,39 +82,30 @@ public class ScreenSlider extends AppCompatActivity {
                 handler.post(Update);
             }
         }, 4000, 4500);
-
-
     }
 
-    public void loguearse(View view)
-    {
-        Intent intent = new Intent(ScreenSlider.this,Login.class);
+    public void loguearse(View view) {
+        Intent intent = new Intent(ScreenSlider.this, Login.class);
         startActivity(intent);
         finish();
     }
 
-    public void crearcuenta(View view){
-        Intent intent = new Intent(ScreenSlider.this,RegistroActivity.class);
+    public void crearcuenta(View view) {
+        Intent intent = new Intent(ScreenSlider.this, RegistroActivity.class);
         startActivity(intent);
         finish();
     }
 
-    public void continuar(View view)
-    {
-        Intent intent = new Intent(ScreenSlider.this,MainActivity.class);
+    public void continuar(View view) {
+        Intent intent = new Intent(ScreenSlider.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.menu_search) {
             return true;
         }
@@ -143,11 +113,6 @@ public class ScreenSlider extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -156,14 +121,11 @@ public class ScreenSlider extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
             return PlaceholderFragment.newInstance(position);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
             return images.length;
         }
 
@@ -183,24 +145,10 @@ public class ScreenSlider extends AppCompatActivity {
         }
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-
     public static class PlaceholderFragment extends Fragment {
 
-
-
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -217,6 +165,7 @@ public class ScreenSlider extends AppCompatActivity {
                                  Bundle savedInstanceState) {
 
             View rootView = inflater.inflate(R.layout.fragment_screen_slider, container, false);
+
             try {
                 ImageView imageView = (ImageView) rootView.findViewById(R.id.imageSlides);
                 ImageView imageViewTextUno = (ImageView) rootView.findViewById(R.id.textouno);
@@ -229,11 +178,10 @@ public class ScreenSlider extends AppCompatActivity {
                 imageViewBolita.setImageResource(R.drawable.bolita);
                 imageViewTextDos.setImageResource(textodos[getArguments().getInt(ARG_SECTION_NUMBER)]);
                 imageViewBolitas.setImageResource(bolitas[getArguments().getInt(ARG_SECTION_NUMBER)]);
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 System.err.println(ex.getMessage());
             }
+
             return rootView;
         }
     }
