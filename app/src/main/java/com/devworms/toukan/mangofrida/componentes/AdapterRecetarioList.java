@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
@@ -215,16 +216,13 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         }
 
         public void consultarSuscripcion(final Activity activity, final ImageView imageView) {
-
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
             query.whereEqualTo("username", ParseUser.getCurrentUser());
 
             query.findInBackground(new FindCallback<ParseObject>() {
                 public void done(List<ParseObject> clientes, ParseException e) {
                     if (e == null) {
-
                         if (clientes.size() > 0) {
-
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
                             Calendar cal = sdf.getCalendar();
@@ -305,7 +303,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                         //Aqui haces que tu layout se muestre como dialog
 
                         dialog.setContentView(R.layout.dialog_producto);
-                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
 
                         ((ImageView) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
 
@@ -330,7 +328,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                             Log.d(TAG, "In-app Billing setup failed: " +
                                                     result);
                                         } else {
-                                            Log.d(TAG, "In-app Billing is set up OK");
+                                            Log.d(TAG, "Aquí se da click al comprar");
                                             mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001,
                                                     mPurchaseFinishedListener, "mypurchasetoken");
                                         }

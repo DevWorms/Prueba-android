@@ -9,10 +9,6 @@ import android.widget.ListView;
 
 import com.devworms.toukan.mangofrida.R;
 
-
-/**
- * Created by sergio on 21/10/15.
- */
 public class ConsejosFragment extends Fragment {
     ListView list;
     String[] web = {
@@ -21,7 +17,7 @@ public class ConsejosFragment extends Fragment {
             "Comida 3",
             "Comida 4",
             "Comida 5",
-    } ;
+    };
     Integer[] imageId = {
             R.drawable.fondo,
             R.drawable.fondo,
@@ -30,11 +26,10 @@ public class ConsejosFragment extends Fragment {
             R.drawable.fondo,
     };
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view= inflater.inflate(R.layout.fragment_consejos, container, false);
+        View view = inflater.inflate(R.layout.fragment_consejos, container, false);
 
 
         /*//Menu
@@ -48,7 +43,7 @@ public class ConsejosFragment extends Fragment {
         return view;
     }
 
-    //El Fragment ha sido quitado de su Activity y ya no está disponible
+    // El Fragment ha sido quitado de su Activity y ya no está disponible
     @Override
     public void onDetach() {
         getActivity().getFragmentManager().beginTransaction().remove(this).commit();

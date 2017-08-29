@@ -49,9 +49,11 @@ public class MenuFragment extends Fragment {
         ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
         imgTexto.setVisibility(View.VISIBLE);
 
+        /*
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.VISIBLE);
         imgFondoBarra.setImageResource(R.drawable.fonsobar);
+        */
 
         obtenerObjetosParse(recyclerView);
 

@@ -3,7 +3,6 @@ package com.devworms.toukan.mangofrida.fragments;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -23,9 +22,7 @@ import android.widget.ImageView;
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.componentes.AdapterFavoritoList;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
-
 import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -34,21 +31,15 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * Created by sergio on 21/10/15.
- */
 public class FavoritosFragment extends Fragment {
-
 
     private AdapterFavoritoList mAdapterFavoritosList;
     private List<ParseObject> mListToDelete;
 
-    public void obtenerObjetosParse(final RecyclerView recyclerView){
+    public void obtenerObjetosParse(final RecyclerView recyclerView) {
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
-        //query.include("Receta");
 
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(final List<ParseObject> recetasList, ParseException e) {
@@ -61,8 +52,6 @@ public class FavoritosFragment extends Fragment {
                     ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
                         @Override
                         public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-
-
                             return false;
                         }
 
@@ -86,17 +75,11 @@ public class FavoritosFragment extends Fragment {
                             recetasList.remove(adapterPosition);
                             mAdapterFavoritosList.notifyItemRemoved(adapterPosition);
                             mListToDelete.add(mReceta);
-
                         }
-
-
-
                     };
 
                     ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
                     itemTouchHelper.attachToRecyclerView(recyclerView);
-
-
 
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
@@ -117,29 +100,26 @@ public class FavoritosFragment extends Fragment {
         prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
 
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
 
-
-
+        /*
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
+        */
 
         ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
         imgTexto.setVisibility(View.INVISIBLE);
 
-        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
+        ((Toolbar) getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
 
-        if(ParseUser.getCurrentUser() == null){
+        if (ParseUser.getCurrentUser() == null) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
-
 
             // set title
             alertDialogBuilder.setTitle("Iniciar sesión obligatorio");
@@ -148,8 +128,8 @@ public class FavoritosFragment extends Fragment {
             alertDialogBuilder
                     .setMessage("Inicia sesión para poder añadir recetas a esta sección")
                     .setCancelable(false)
-                    .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int id) {
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
                             // if this button is clicked, close
                             // current activity
                             //MainActivity.this.finish();
@@ -161,7 +141,7 @@ public class FavoritosFragment extends Fragment {
 
             // show it
             alertDialog.show();
-        }else {
+        } else {
             obtenerObjetosParse(recyclerView);
         }
 
@@ -169,7 +149,7 @@ public class FavoritosFragment extends Fragment {
         return view;
     }
 
-    //El Fragment ha sido quitado de su Activity y ya no está disponible
+    // El Fragment ha sido quitado de su Activity y ya no está disponible
     @Override
     public void onDetach() {
         getActivity().getFragmentManager().beginTransaction().remove(this).commit();
@@ -180,7 +160,7 @@ public class FavoritosFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        if(mListToDelete != null) {
+        if (mListToDelete != null) {
             for (ParseObject receta : mListToDelete) {
                 receta.deleteInBackground();
             }

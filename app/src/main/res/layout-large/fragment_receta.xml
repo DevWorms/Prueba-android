@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/fab_margin"
-    android:background="@drawable/fondoreceta">
+    android:background="@color/tw__composer_white">
 
     <com.theartofdev.fastimageloader.target.TargetImageView
         android:id="@+id/imagenreceta"

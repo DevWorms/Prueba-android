@@ -12,9 +12,6 @@ import android.widget.ListView;
 
 import com.devworms.toukan.mangofrida.R;
 
-/**
- * Created by sergio on 21/10/15.
- */
 public class CreditosFragment extends Fragment {
     ListView list;
     String[] web = {
@@ -23,7 +20,7 @@ public class CreditosFragment extends Fragment {
             "Comida 3",
             "Comida 4",
             "Comida 5",
-    } ;
+    };
     Integer[] imageId = {
             R.drawable.fondo,
             R.drawable.fondo,
@@ -35,24 +32,20 @@ public class CreditosFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View view= inflater.inflate(R.layout.fragment_creditos, container, false);
-
-
+        View view = inflater.inflate(R.layout.fragment_creditos, container, false);
 
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
 
-
+        /*
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
+        */
 
         ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
         imgTexto.setVisibility(View.INVISIBLE);
 
-
-        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
-
+        ((Toolbar) getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         /*//Menu
         CustomList adapter = new

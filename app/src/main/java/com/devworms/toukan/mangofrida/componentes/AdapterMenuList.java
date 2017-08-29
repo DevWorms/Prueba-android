@@ -72,7 +72,6 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                 holder.imageViewDeviderTop.setVisibility(View.INVISIBLE);
             else
                 holder.imageViewDeviderTop.setVisibility(View.VISIBLE);
-
         } else {
             if (mItems.size() - 1 == position) {
                 holder.imageViewDeviderbottom.setVisibility(View.VISIBLE);
@@ -117,8 +116,6 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
             imageViewDeviderbottom = (ImageView) v.findViewById(R.id.imageViewDeviderbottom);
             imageViewDeviderTop = (ImageView) v.findViewById(R.id.imageViewDeviderTop);
-
-
         }
 
         public void contarRecetas(final ParseObject objMenu) {

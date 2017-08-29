@@ -71,8 +71,6 @@ import java.util.List;
 
 
 public class CompartirDialog extends Dialog implements View.OnClickListener {
-
-
     public ParseObject objReceta;
     TargetImageView imgView;
     private PDKClient pdkClient;

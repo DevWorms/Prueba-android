@@ -2,7 +2,6 @@ package com.devworms.toukan.mangofrida.fragments;
 
 import android.app.Fragment;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -33,24 +32,14 @@ import com.theartofdev.fastimageloader.target.TargetImageView;
 import java.util.Calendar;
 import java.util.List;
 
-
-/**
- * Created by sergio on 21/10/15.
- */
-public class RecetaFragment extends Fragment implements View.OnClickListener{
-
+public class RecetaFragment extends Fragment implements View.OnClickListener {
     private ParseObject objReceta;
-
-
-
-
 
     public ParseObject getObjReceta() {
         return objReceta;
     }
 
     public void setObjReceta(ParseObject objReceta) {
-
         this.objReceta = objReceta;
     }
 
@@ -60,40 +49,35 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_receta, container, false);
-
-
+        View view = inflater.inflate(R.layout.fragment_receta, container, false);
 
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
 
-
+        /*
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
+        */
 
         ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
         imgTexto.setVisibility(View.INVISIBLE);
 
-
-        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
+        ((Toolbar) getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         imagen = (TargetImageView) view.findViewById(R.id.imagenreceta);
         FastImageLoader.prefetchImage(objReceta.getString("Url_Imagen"), Specs.IMG_IX_IMAGE);
         ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_IMAGE);
         imagen.loadImage(objReceta.getString("Url_Imagen"), spec.getKey());
 
-
-        TextView pasosTitulo=(TextView)view.findViewById(R.id.txtrecetaTitulo);
-        TextView pasos=(TextView)view.findViewById(R.id.txtreceta);
+        TextView pasosTitulo = (TextView) view.findViewById(R.id.txtrecetaTitulo);
+        TextView pasos = (TextView) view.findViewById(R.id.txtreceta);
 
         TextView tiempo = (TextView) view.findViewById(R.id.textView14);
         TextView porciones = (TextView) view.findViewById(R.id.textView18);
 
         ImageView iImageViewDificultad = (ImageView) view.findViewById(R.id.imageView12);
 
-
         String dificultad = objReceta.getString("Nivel");
-
 
         int imageresource = 0;
         switch (dificultad) {
@@ -115,13 +99,9 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                 break;
         }
 
-
         tiempo.setText("  " + objReceta.getString("Tiempo"));
 
-
-
-        porciones.setText("  " + (objReceta.getString("Porciones").length() < 3 ? objReceta.getString("Porciones"):objReceta.getString("Porciones").substring(0,2) ) );
-
+        porciones.setText("  " + (objReceta.getString("Porciones").length() < 3 ? objReceta.getString("Porciones") : objReceta.getString("Porciones").substring(0, 2)));
 
         pasosTitulo.setText(objReceta.getString("Nombre"));
         pasos.setText("Ingredientes \n" + (objReceta.getString("Ingredientes")));
@@ -130,11 +110,8 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         ImageView buttonCompartir = (ImageView) view.findViewById(R.id.compartir);
         ImageView buttonAnadirFavoritos = (ImageView) view.findViewById(R.id.favoritos);
 
-
-
         buttonCompartir.setOnClickListener(this);
         buttonAnadirFavoritos.setOnClickListener(this);
-
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
@@ -146,22 +123,18 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                     //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
                     if (recetasList.size() > 0) {
                         int imageresource = getActivity().getResources().getIdentifier("@drawable/corazon", "drawable", getActivity().getPackageName());
-                        ImageView iImageViewBtnRelease = (ImageView)getActivity().findViewById(R.id.favoritos);
+                        ImageView iImageViewBtnRelease = (ImageView) getActivity().findViewById(R.id.favoritos);
                         iImageViewBtnRelease.setImageResource(imageresource);
                     }
-
                 }
             }
         });
-
-
         return view;
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.compartir:
                 compartir();
                 break;
@@ -171,47 +144,38 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
         }
     }
 
-    public void compartir()
-    {
+    public void compartir() {
         StarterApplication.isDesdeMenuPrincipal = false;
-        CompartirDialog compartir = new CompartirDialog((FragmentActivity) getActivity(),this.objReceta );
+        CompartirDialog compartir = new CompartirDialog((FragmentActivity) getActivity(), this.objReceta);
         compartir.show();
         StarterApplication.dialogoCompartir = compartir;
     }
 
+    public void anadirFavoritos() {
+        if (ParseUser.getCurrentUser() == null) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
 
-    public void anadirFavoritos()
-    {
+            // set title
+            alertDialogBuilder.setTitle("Iniciar sesión obligatorio");
 
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Para poder añadir esta reseta a Me Gustan es necesario iniciar sesión")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, close
+                            // current activity
+                            //MainActivity.this.finish();
+                        }
+                    });
 
-    if(ParseUser.getCurrentUser() == null){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
 
-
-        // set title
-        alertDialogBuilder.setTitle("Iniciar sesión obligatorio");
-
-        // set dialog message
-        alertDialogBuilder
-                .setMessage("Para poder añadir esta reseta a Me Gustan es necesario iniciar sesión")
-                .setCancelable(false)
-                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        // if this button is clicked, close
-                        // current activity
-                        //MainActivity.this.finish();
-                    }
-                });
-
-        // create alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        // show it
-        alertDialog.show();
-
-    }else{
-
-
+            // show it
+            alertDialog.show();
+        } else {
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Favoritos");
             query.whereEqualTo("username", ParseUser.getCurrentUser());
             query.whereEqualTo("Recetas", objReceta);
@@ -220,14 +184,11 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                 public void done(List<ParseObject> recetasList, ParseException e) {
                     if (e == null) {
                         //Revisa si ese cliente tiene esa receta para mandar un mensaje de error al tratar de añadirla de nuevo
-                        if (recetasList.size() > 0 ) {
+                        if (recetasList.size() > 0) {
                             String titulo = "¡Esta receta ya fue añadida!";
                             String mensaje = "Tu receta ya esta en la seccion de Me Gustan";
 
-
-
                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
-
 
                             // set title
                             alertDialogBuilder.setTitle(titulo);
@@ -236,8 +197,8 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                             alertDialogBuilder
                                     .setMessage(mensaje)
                                     .setCancelable(false)
-                                    .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog,int id) {
+                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
                                             // if this button is clicked, close
                                             // current activity
                                             //MainActivity.this.finish();
@@ -249,15 +210,11 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
                             // show it
                             alertDialog.show();
-
-                        }
-                        else{
-
+                        } else {
                             Calendar cal = Calendar.getInstance();
                             int year = cal.get(cal.YEAR);
-                            int month = cal.get(cal.MONTH)+1;
-                            int trimestre = (int)(((month)/3) + 0.7);
-
+                            int month = cal.get(cal.MONTH) + 1;
+                            int trimestre = (int) (((month) / 3) + 0.7);
 
                             ParseObject query = new ParseObject("Favoritos");
                             query.put("username", ParseUser.getCurrentUser());
@@ -299,7 +256,7 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
                                                     //MainActivity.this.finish();
 
                                                     int imageresource = getActivity().getResources().getIdentifier("@drawable/corazon", "drawable", getActivity().getPackageName());
-                                                    ImageView iImageViewBtnRelease = (ImageView)getActivity().findViewById(R.id.favoritos);
+                                                    ImageView iImageViewBtnRelease = (ImageView) getActivity().findViewById(R.id.favoritos);
                                                     iImageViewBtnRelease.setImageResource(imageresource);
                                                 }
                                             });
@@ -309,29 +266,23 @@ public class RecetaFragment extends Fragment implements View.OnClickListener{
 
                                     // show it
                                     alertDialog.show();
-
                                 }
                             });
                         }
-
-
                     } else {
                         Log.d("receta", "Error: " + e.getMessage());
                     }
                 }
             });
-
         }
     }
 
     //El Fragment ha sido quitado de su Activity y ya no está disponible
     @Override
     public void onDetach() {
-
         try {
             getActivity().getFragmentManager().beginTransaction().remove(this).commit();
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             Log.e("error", ex.getMessage());
         }
         super.onDetach();

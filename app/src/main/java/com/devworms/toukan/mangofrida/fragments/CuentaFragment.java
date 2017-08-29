@@ -28,7 +28,6 @@ import android.widget.TextView;
 
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.activities.Login;
-import com.devworms.toukan.mangofrida.activities.MainActivity;
 import com.devworms.toukan.mangofrida.dialogs.Usuario;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
 import com.devworms.toukan.mangofrida.openpay.OpenPayRestApi;
@@ -36,8 +35,6 @@ import com.devworms.toukan.mangofrida.util.Specs;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.appevents.AppEventsLogger;
-import com.google.api.client.util.IOUtils;
 import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.LogOutCallback;
@@ -48,20 +45,9 @@ import com.parse.ParseQuery;
 import com.parse.ParseTwitterUtils;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-import com.parse.SignUpCallback;
-
 import com.theartofdev.fastimageloader.FastImageLoader;
-
 import com.theartofdev.fastimageloader.ImageLoadSpec;
 import com.theartofdev.fastimageloader.target.TargetImageView;
-import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.core.Callback;
-import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterApiClient;
-import com.twitter.sdk.android.core.TwitterException;
-import com.twitter.sdk.android.core.models.Tweet;
-import com.twitter.sdk.android.core.services.StatusesService;
-
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -71,25 +57,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
-//import com.parse.ParseUser;
-
-/**
- * Created by sergio on 21/10/15.
- */
 public class CuentaFragment extends Fragment implements View.OnClickListener {
 
     TargetImageView imgPerfil, imgBarras;
@@ -100,36 +75,31 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
     ImageView btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta;
     Button btnFb, btnMail, btnTwitter;
-    TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number,btnNuevoUsuario, btnForgot;;
+    TextView txtNombreUsuario, txtCorreoElectronico, txtSubscripcion, txtReferenciaBarras, txt_brand, txt_holder, txt_card_number, btnNuevoUsuario, btnForgot;
+    ;
     LinearLayout ly_barras, ly_tarjeta, ly_botones;
 
     String clientId;
 
+    public void loadFBProfileImage(String userid) {
+        try {
+            String url = "http://graph.facebook.com/" + userid + "/picture?type=large";
 
-    public void loadFBProfileImage(String userid){
+            StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+            prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
 
-        try{
-        String url = "http://graph.facebook.com/"+userid+"/picture?type=large";
+            FastImageLoader.prefetchImage(url, Specs.IMG_IX_IMAGE);
+            ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
 
-        StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
-        prefs.edit().putBoolean("prefetch", StarterApplication.mPrefetchImages).apply();
-
-        FastImageLoader.prefetchImage(url, Specs.IMG_IX_IMAGE);
-        ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_UNBOUNDED);
-
-        imgPerfil.loadImage(url, spec.getKey());
-        }
-        catch (Exception ex){
+            imgPerfil.loadImage(url, spec.getKey());
+        } catch (Exception ex) {
             imgPerfil.setImageResource(R.drawable.frida);
         }
-
     }
 
-    public void getFBUserData(){
-
+    public void getFBUserData() {
         GraphRequest request = GraphRequest.newMeRequest(
                 AccessToken.getCurrentAccessToken(),
                 new GraphRequest.GraphJSONObjectCallback() {
@@ -152,13 +122,10 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         parameters.putString("fields", "id,name,link,email");
         request.setParameters(parameters);
         request.executeAsync();
-
     }
 
-    public void getTWUserData(){
-
+    public void getTWUserData() {
         com.parse.twitter.Twitter twitter = ParseTwitterUtils.getTwitter();
-
         try {
             JSONObject response = new RequestTwitter().execute(twitter.getUserId()).get();
 
@@ -169,7 +136,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
             loadTwProfileImage(profileImageUrl);
             txtNombreUsuario.setText(fullName);
-            txtCorreoElectronico.setText("@"+username);
+            txtCorreoElectronico.setText("@" + username);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -177,13 +144,11 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnFb:
                 loguearConFacebook();
                 break;
@@ -202,51 +167,8 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-
-    // conexion a internet
-    private class RequestTwitter extends AsyncTask<String, Void, JSONObject> {
-        @Override
-        protected JSONObject doInBackground(String... params) {
-            try {
-
-
-
-                HttpClient client = new DefaultHttpClient();
-                HttpGet verifyGet = new HttpGet(
-                        "https://api.twitter.com/1.1/users/show.json?user_id=" + params[0]);
-                ParseTwitterUtils.getTwitter().signRequest(verifyGet);
-                HttpResponse response = client.execute(verifyGet);
-                InputStream is = response.getEntity().getContent();
-
-                BufferedReader streamReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-                StringBuilder responseStrBuilder = new StringBuilder();
-
-                String inputStr;
-                while ((inputStr = streamReader.readLine()) != null)
-                    responseStrBuilder.append(inputStr);
-
-                JSONObject responseJson = new JSONObject(responseStrBuilder.toString());
-
-                return responseJson;
-
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-
-        }
-
-
-    }
-
-
-
-    public void loadTwProfileImage(String imageUrl){
-
+    public void loadTwProfileImage(String imageUrl) {
         String url = imageUrl;
-
 
         try {
             imgPerfil.setImageBitmap(new GetBitmapFromURL().execute(url).get());
@@ -258,61 +180,31 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    // conexion a internet
-    private class GetBitmapFromURL extends AsyncTask<String, Void, Bitmap> {
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            try {
-
-
-                URL url = new URL(params[0]);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream input = connection.getInputStream();
-                Bitmap myBitmap = BitmapFactory.decodeStream(input);
-                return myBitmap;
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-
-        }
-
-
-    }
-
-    public void getParseUserData(){
+    public void getParseUserData() {
         imgPerfil.setImageResource(R.drawable.frida);
         txtCorreoElectronico.setText(ParseUser.getCurrentUser().getEmail());
         txtNombreUsuario.setVisibility(View.INVISIBLE);
     }
 
-    public void cargarInformacion(){
-        if(ParseFacebookUtils.isLinked(ParseUser.getCurrentUser())){
+    public void cargarInformacion() {
+        if (ParseFacebookUtils.isLinked(ParseUser.getCurrentUser())) {
             getFBUserData();
-        }else if(ParseTwitterUtils.isLinked(ParseUser.getCurrentUser())){
+        } else if (ParseTwitterUtils.isLinked(ParseUser.getCurrentUser())) {
             getTWUserData();
-        }
-        else{
+        } else {
             getParseUserData();
         }
-
     }
 
-    public void obtenerClienteParse(final View view){
-
+    public void obtenerClienteParse(final View view) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Clientes");
         query.whereEqualTo("username", ParseUser.getCurrentUser());
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> clientList, ParseException e) {
                 if (e == null) {
-
                     if (clientList.size() <= 0) {
                         initControls(view, null, null);
                     } else {
-
                         final ParseObject objCliente = clientList.get(0);
                         final ParseQuery<ParseObject> query = ParseQuery.getQuery("Tarjetas");
                         query.whereEqualTo("cliente", objCliente);
@@ -336,29 +228,28 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    public void initControls(View view, ParseObject objCliente, ParseObject objTarjeta) {
+        imgPerfil = (TargetImageView) view.findViewById(R.id.imagenPerfil);
+        imgBarras = (TargetImageView) view.findViewById(R.id.imagenBarras);
 
-    public void initControls(View view, ParseObject objCliente,ParseObject objTarjeta){
-        imgPerfil = (TargetImageView)view.findViewById(R.id.imagenPerfil);
-        imgBarras = (TargetImageView)view.findViewById(R.id.imagenBarras);
+        imgTarjeta = (ImageView) view.findViewById(R.id.imagenTarjeta);
 
-        imgTarjeta = (ImageView)view.findViewById(R.id.imagenTarjeta);
+        btnCerrarSesion = (ImageView) view.findViewById(R.id.cerrarSesionBtn);
+        btnCancelarSuscripcion = (ImageView) view.findViewById(R.id.btnCancelarSuscripcion);
+        btnEliminarTarjeta = (ImageView) view.findViewById(R.id.btnEliminarTarjeta);
 
-        btnCerrarSesion = (ImageView)view.findViewById(R.id.cerrarSesionBtn);
-        btnCancelarSuscripcion = (ImageView)view.findViewById(R.id.btnCancelarSuscripcion);
-        btnEliminarTarjeta = (ImageView)view.findViewById(R.id.btnEliminarTarjeta);
+        txtNombreUsuario = (TextView) view.findViewById(R.id.txt_nombreUsuario);
+        txtCorreoElectronico = (TextView) view.findViewById(R.id.txt_correoElectronico);
+        txtSubscripcion = (TextView) view.findViewById(R.id.txt_subscripcion);
 
-        txtNombreUsuario = (TextView)view.findViewById(R.id.txt_nombreUsuario);
-        txtCorreoElectronico = (TextView)view.findViewById(R.id.txt_correoElectronico);
-        txtSubscripcion = (TextView)view.findViewById(R.id.txt_subscripcion);
+        txtReferenciaBarras = (TextView) view.findViewById(R.id.txt_referenciaBarras);
+        txt_brand = (TextView) view.findViewById(R.id.txt_brand);
+        txt_holder = (TextView) view.findViewById(R.id.txt_holder);
+        txt_card_number = (TextView) view.findViewById(R.id.txt_card_number);
 
-        txtReferenciaBarras = (TextView)view.findViewById(R.id.txt_referenciaBarras);
-        txt_brand = (TextView)view.findViewById(R.id.txt_brand);
-        txt_holder = (TextView)view.findViewById(R.id.txt_holder);
-        txt_card_number = (TextView)view.findViewById(R.id.txt_card_number);
-
-        ly_barras = (LinearLayout)view.findViewById(R.id.layout_barras);
-        ly_tarjeta = (LinearLayout)view.findViewById(R.id.layout_card);
-        ly_botones = (LinearLayout)view.findViewById(R.id.layout_card_buttons);
+        ly_barras = (LinearLayout) view.findViewById(R.id.layout_barras);
+        ly_tarjeta = (LinearLayout) view.findViewById(R.id.layout_card);
+        ly_botones = (LinearLayout) view.findViewById(R.id.layout_card_buttons);
 
         ly_barras.setVisibility(View.GONE);
         ly_tarjeta.setVisibility(View.INVISIBLE);
@@ -367,11 +258,10 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         imgTarjeta.setImageResource(R.drawable.tarjetau);
         activity = getActivity();
 
-
-        if (objCliente != null){
-            txtSubscripcion.setText(objCliente.getBoolean("Suscrito") ? "Suscrito":"Sin inscripción actual");
+        if (objCliente != null) {
+            txtSubscripcion.setText(objCliente.getBoolean("Suscrito") ? "Suscrito" : "Sin inscripción actual");
             String barras = objCliente.getString("codigobarras");
-            if (barras != null && !barras.equals("")){
+            if (barras != null && !barras.equals("")) {
                 ly_barras.setVisibility(View.VISIBLE);
 
                 clientId = objCliente.getString("clientID");
@@ -380,120 +270,101 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
                 imgBarras.loadImage(barras, spec.getKey());
                 txtReferenciaBarras.setText(objCliente.getString("referenciaentienda"));
-
             }
 
-            if(!objCliente.getBoolean("Suscrito")){
+            if (!objCliente.getBoolean("Suscrito")) {
                 btnCancelarSuscripcion.setVisibility(View.INVISIBLE);
             }
         }
 
-        if (objTarjeta != null){
+        if (objTarjeta != null) {
             ly_tarjeta.setVisibility(View.VISIBLE);
             ly_botones.setVisibility(View.VISIBLE);
             txt_brand.setText(objTarjeta.getString("brand"));
             txt_holder.setText(objCliente.getString("nombre"));
             txt_card_number.setText(objTarjeta.getString("numero"));
-            btnCancelarSuscripcion.setOnClickListener(new View.OnClickListener()
-            {
+            btnCancelarSuscripcion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    OpenPayRestApi.cancelarSuscripcion(activity,txtSubscripcion, v);
+                    OpenPayRestApi.cancelarSuscripcion(activity, txtSubscripcion, v);
                 }
             });
 
-            btnEliminarTarjeta.setOnClickListener(new View.OnClickListener()
-            {
+            btnEliminarTarjeta.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     OpenPayRestApi.eliminarTarjeta(activity, v, ly_tarjeta);
                 }
             });
-
         }
 
-        btnCerrarSesion.setOnClickListener(new View.OnClickListener()
-        {
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 ParseUser.logOutInBackground(new LogOutCallback() {
                     @Override
                     public void done(ParseException e) {
-
                         Intent intent = new Intent(getActivity(), Login.class);
                         startActivity(intent);
 
                         getActivity().finish();
-
-
                     }
                 });
             }
         });
-
-      cargarInformacion();
-
+        cargarInformacion();
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
-
-        View view=null;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = null;
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
-            view=inflater.inflate(R.layout.fragment_contaco_detalles, container, false);
+            view = inflater.inflate(R.layout.fragment_contaco_detalles, container, false);
             obtenerClienteParse(view);
         } else {
-            view=inflater.inflate(R.layout.fragment_contacto, container, false);
-            usuario = ((TextView)view.findViewById(R.id.usuario) );
-            password = ((TextView)view.findViewById(R.id.password) );
+            view = inflater.inflate(R.layout.fragment_contacto, container, false);
+            usuario = ((TextView) view.findViewById(R.id.usuario));
+            password = ((TextView) view.findViewById(R.id.password));
 
-            btnFb = ((Button) view.findViewById(R.id.btnFb) );
-            btnMail = ((Button)view.findViewById(R.id.btnTw) );
-            btnTwitter = ((Button)view.findViewById(R.id.btnMail) );
-            btnNuevoUsuario = ((TextView)view.findViewById(R.id.reg) );
-            btnForgot = ((TextView)view.findViewById(R.id.forgot_password) );
-
+            btnFb = ((Button) view.findViewById(R.id.btnFb));
+            btnMail = ((Button) view.findViewById(R.id.btnTw));
+            btnTwitter = ((Button) view.findViewById(R.id.btnMail));
+            btnNuevoUsuario = ((TextView) view.findViewById(R.id.reg));
+            btnForgot = ((TextView) view.findViewById(R.id.forgot_password));
 
             btnFb.setOnClickListener(this);
             btnMail.setOnClickListener(this);
             btnTwitter.setOnClickListener(this);
             btnNuevoUsuario.setOnClickListener(this);
             btnForgot.setOnClickListener(this);
-
-
         }
 
         ImageView imgFrida = (ImageView) getActivity().findViewById(R.id.img_frida);
         imgFrida.setVisibility(View.INVISIBLE);
 
-
-
+        /*
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
         imgFondoBarra.setVisibility(View.INVISIBLE);
+        */
 
         ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
         imgTexto.setVisibility(View.INVISIBLE);
 
-        ((Toolbar)getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
+        ((Toolbar) getActivity().findViewById(R.id.toolbar)).setBackgroundColor(getResources().getColor(R.color.barraSecundaria));
 
         return view;
     }
 
-
-
-    public void loguearConMail()
-    {
+    public void loguearConMail() {
         final Activity activity = getActivity();
         String userName = "";
         String pass = "";
 
-        if (usuario.getText().toString() == null ||  password.getText() == null ||
-                usuario.getText().toString().toString().equals("") ||  password.getText().toString().equals("")) {
+        if (usuario.getText().toString() == null || password.getText() == null ||
+                usuario.getText().toString().toString().equals("") || password.getText().toString().equals("")) {
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this.getActivity(), R.style.myDialog));
 
@@ -515,7 +386,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
             // show it
             alertDialog.show();
-        }else {
+        } else {
             userName = usuario.getText().toString();
             pass = password.getText().toString();
 
@@ -528,7 +399,6 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                                 .commit();
                     } else {
                         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(activity, R.style.myDialog));
-
 
                         // set title
                         alertDialogBuilder.setTitle("Error");
@@ -551,15 +421,10 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                     }
                 }
             });
-
-
         }
-
-
     }
 
-
-    public void recuperarContrasena(){
+    public void recuperarContrasena() {
         final Activity actividad = this.getActivity();
         final Dialog dialog = new Dialog(actividad);
         dialog.setCancelable(true);
@@ -582,9 +447,9 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
 
-                txtCorreo = (EditText)dialog.findViewById(R.id.txtCorreo);
+                txtCorreo = (EditText) dialog.findViewById(R.id.txtCorreo);
 
-                if (txtCorreo.getText() == null || txtCorreo.getText().toString().equals("") ) {
+                if (txtCorreo.getText() == null || txtCorreo.getText().toString().equals("")) {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
 
                     // set title
@@ -605,11 +470,9 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
                     // show it
                     alertDialog.show();
-                }else {
-
+                } else {
                     Usuario usuario = new Usuario(txtCorreo, null, null);
-                    usuario.recuperarContrasena(actividad,dialog);
-
+                    usuario.recuperarContrasena(actividad, dialog);
                 }
 
             }
@@ -618,8 +481,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         dialog.show();
     }
 
-    public void registrarUsuario()
-    {
+    public void registrarUsuario() {
 
         final Activity actividad = this.getActivity();
         final Dialog dialog = new Dialog(actividad);
@@ -643,13 +505,12 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
 
-                txtCorreo = (EditText)dialog.findViewById(R.id.txtCorreo);
-                txtPass = (EditText)dialog.findViewById(R.id.password);
-                txtPassConfirm = (EditText)dialog.findViewById(R.id.passwordConfirm);
+                txtCorreo = (EditText) dialog.findViewById(R.id.txtCorreo);
+                txtPass = (EditText) dialog.findViewById(R.id.password);
+                txtPassConfirm = (EditText) dialog.findViewById(R.id.passwordConfirm);
 
-                if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("") ) {
+                if (txtCorreo.getText() == null || txtPass.getText() == null || txtCorreo.getText().toString().equals("") || txtPass.getText().toString().equals("")) {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(new ContextThemeWrapper(actividad, R.style.myDialog));
-
 
                     // set title
                     alertDialogBuilder.setTitle("Error");
@@ -669,24 +530,18 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
                     // show it
                     alertDialog.show();
-                }else {
-
+                } else {
                     Usuario usuario = new Usuario(txtCorreo, txtPass, txtPassConfirm);
                     usuario.nuevoUsuario(actividad);
-
                 }
-
             }
         });
 
         dialog.show();
     }
 
-
-    public void loguearConFacebook()
-    {
+    public void loguearConFacebook() {
         List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
-
 
         ParseFacebookUtils.logInWithReadPermissionsInBackground(getActivity(), permissions, new LogInCallback() {
             @Override
@@ -697,7 +552,6 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                     Log.d("MyApp", "User signed up and logged in through Facebook!");
 
                     ligarFBconParse(user);
-
 
                     getFragmentManager().beginTransaction()
                             .replace(R.id.actividad, new CuentaFragment())
@@ -716,16 +570,12 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
             }
 
 
-
         });
-
 
 
     }
 
-
-    private void ligarFBconParse(final ParseUser user)
-    {
+    private void ligarFBconParse(final ParseUser user) {
         List<String> permissions = Arrays.asList("user_birthday", "user_location", "user_friends", "email", "public_profile");
 
         if (!ParseFacebookUtils.isLinked(user)) {
@@ -740,9 +590,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    public void loguearConTwitter()
-    {
-
+    public void loguearConTwitter() {
         ParseTwitterUtils.logIn(getActivity(), new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException err) {
@@ -765,11 +613,9 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                 }
             }
         });
-
     }
 
-    private void ligarConTwitter(final ParseUser user)
-    {
+    private void ligarConTwitter(final ParseUser user) {
         if (!ParseTwitterUtils.isLinked(user)) {
             ParseTwitterUtils.link(user, getActivity(), new SaveCallback() {
                 @Override
@@ -782,7 +628,51 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    // conexion a internet
+    private class RequestTwitter extends AsyncTask<String, Void, JSONObject> {
+        @Override
+        protected JSONObject doInBackground(String... params) {
+            try {
+                HttpClient client = new DefaultHttpClient();
+                HttpGet verifyGet = new HttpGet(
+                        "https://api.twitter.com/1.1/users/show.json?user_id=" + params[0]);
+                ParseTwitterUtils.getTwitter().signRequest(verifyGet);
+                HttpResponse response = client.execute(verifyGet);
+                InputStream is = response.getEntity().getContent();
 
+                BufferedReader streamReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                StringBuilder responseStrBuilder = new StringBuilder();
 
+                String inputStr;
+                while ((inputStr = streamReader.readLine()) != null)
+                    responseStrBuilder.append(inputStr);
 
+                JSONObject responseJson = new JSONObject(responseStrBuilder.toString());
+
+                return responseJson;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+    }
+
+    // conexion a internet
+    private class GetBitmapFromURL extends AsyncTask<String, Void, Bitmap> {
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            try {
+                URL url = new URL(params[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+    }
 }
