@@ -2,6 +2,7 @@ package com.devworms.toukan.mangofrida.componentes;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -328,9 +329,12 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                             Log.d(TAG, "In-app Billing setup failed: " +
                                                     result);
                                         } else {
-                                            Log.d(TAG, "Aquí se da click al comprar");
-                                            mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001,
-                                                    mPurchaseFinishedListener, "mypurchasetoken");
+                                            try {
+                                                mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001,
+                                                        mPurchaseFinishedListener);
+                                            } catch (Exception ex) {
+                                                Log.d("item", ex.getMessage());
+                                            }
                                         }
                                     }
                                 });
