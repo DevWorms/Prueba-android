@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="twitter-1.10.0">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/dd68d8be0a1d93f245a3b847db2d0770319e02ec/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/dd68d8be0a1d93f245a3b847db2d0770319e02ec/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/c9b44ebae8ef25383e9001df973597c9b4f2d63c/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/c9b44ebae8ef25383e9001df973597c9b4f2d63c/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
