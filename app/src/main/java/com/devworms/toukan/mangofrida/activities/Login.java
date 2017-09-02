@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -34,11 +35,18 @@ import java.util.List;
 
 public class Login extends AppCompatActivity {
     private boolean registrar;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sp = getSharedPreferences("user_data", MODE_PRIVATE);
+        SharedPreferences.Editor e = sp.edit();
+
+        e.putBoolean("calificado",false);
+        e.apply();
 
         try {
             registrar = false;

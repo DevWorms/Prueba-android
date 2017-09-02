@@ -3,8 +3,11 @@ package com.devworms.toukan.mangofrida.activities;
 import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -13,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -50,11 +54,45 @@ public class MainActivity extends AppCompatActivity
 
     IInAppBillingService mService;
     private static final long serialVersionUID = 1L;
+    SharedPreferences sp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sp = getSharedPreferences("user_data", MODE_PRIVATE);
+
+        if(!sp.getBoolean("calificado",false)) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+            builder.setMessage("Te gusto?  CALIFICANOS!!");
+
+            builder.setPositiveButton("CALIFICAR", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    SharedPreferences.Editor e = sp.edit();
+
+                    e.putBoolean("calificado",true);
+                    e.apply();
+
+                    String url = "https://play.google.com/store";
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+
+                }
+            });
+            builder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User cancelled the dialog
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+
+
 
         //*************************In-App billing
         Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
