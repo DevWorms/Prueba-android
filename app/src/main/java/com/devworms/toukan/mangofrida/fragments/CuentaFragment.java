@@ -28,6 +28,7 @@ import android.widget.TextView;
 
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.activities.Login;
+import com.devworms.toukan.mangofrida.activities.MainActivity;
 import com.devworms.toukan.mangofrida.dialogs.Usuario;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
 import com.devworms.toukan.mangofrida.openpay.OpenPayRestApi;
@@ -72,6 +73,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
     Activity activity = getActivity();
     TextView usuario;
     TextView password;
+    Boolean isSuscribed;
 
     ImageView btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta;
     Button btnFb, btnMail, btnTwitter;
@@ -184,6 +186,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         imgPerfil.setImageResource(R.drawable.frida);
         txtCorreoElectronico.setText(ParseUser.getCurrentUser().getEmail());
         txtNombreUsuario.setVisibility(View.INVISIBLE);
+        txtSubscripcion.setText(isSuscribed ? "Suscrito" : "Sin inscripción actual");
     }
 
     public void cargarInformacion() {
@@ -321,6 +324,8 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         View view = null;
 
         ParseUser currentUser = ParseUser.getCurrentUser();
+        isSuscribed = getArguments().getBoolean("isSuscribed");
+
         if (currentUser != null) {
             view = inflater.inflate(R.layout.fragment_contaco_detalles, container, false);
             obtenerClienteParse(view);

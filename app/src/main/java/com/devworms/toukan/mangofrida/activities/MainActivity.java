@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
@@ -26,6 +27,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
 import com.devworms.toukan.mangofrida.R;
@@ -46,16 +49,27 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, Serializable {
 
     IInAppBillingService mService;
     private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
     SharedPreferences sp;
 
+=======
+    static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
+>>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -287,8 +301,14 @@ public class MainActivity extends AppCompatActivity
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, new RegalosFragment()).commit();
         } else if (id == R.id.nav_cuenta) {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("isSuscribed", checkSuscription(mService));
+
+            CuentaFragment fragment = new CuentaFragment();
+            fragment.setArguments(bundle);
+
             getFragmentManager().beginTransaction()
-                    .replace(R.id.actividad, new CuentaFragment()).commit();
+                    .replace(R.id.actividad, fragment).commit();
         } else if (id == R.id.nav_creditos) {
             getFragmentManager().beginTransaction()
                     .replace(R.id.actividad, new CreditosFragment()).commit();
@@ -331,6 +351,69 @@ public class MainActivity extends AppCompatActivity
         public void onServiceConnected(ComponentName name,
                                        IBinder service) {
             mService = IInAppBillingService.Stub.asInterface(service);
+            if (!checkSuscription(mService)) {
+                notification("Nalgas");
+            }
         }
     };
+
+    public void notification(String msg) {
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+    }
+
+    public boolean checkSuscription(IInAppBillingService service) {
+        Boolean isSuscribed = false;
+
+        try {
+            Bundle ownedItems = service.getPurchases(3, getPackageName(), "subs", null);
+
+            int response = ownedItems.getInt("RESPONSE_CODE");
+            if (response == 0) {
+                ArrayList<String> ownedSkus = ownedItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
+                ArrayList<String>  purchaseDataList = ownedItems.getStringArrayList("INAPP_PURCHASE_DATA_LIST");
+                ArrayList<String>  signatureList = ownedItems.getStringArrayList("INAPP_DATA_SIGNATURE_LIST");
+                String continuationToken = ownedItems.getString("INAPP_CONTINUATION_TOKEN");
+
+                if (purchaseDataList.size() > 0) {
+                    for (int i = 0; i < purchaseDataList.size(); ++i) {
+                        String purchaseData = purchaseDataList.get(i);
+                        String signature = signatureList.get(i);
+                        String sku = ownedSkus.get(i);
+
+                        if (sku.equals(ITEM_SKU)) { // Si ha adquirido la suscribción
+                            JSONObject data = new JSONObject(purchaseData);
+                            Date fecha = new Date(Long.parseLong(data.getString("purchaseTime")));
+                            Integer status = data.getInt("purchaseState");
+
+                            if (differenceInDays(fecha) > 7) {
+                                if (status.equals(1)) {
+                                    // Ya a adquirido la suscripcion, el tiempo de prueba ya paso, y su suscripcion está activa
+                                    isSuscribed = true;
+                                }
+                            } else {
+                                // Ya a adquirido la suscripción, pero se encuentra en el periodo de prueba
+                                isSuscribed = true;
+                            }
+                            break;
+                        }
+                    }
+                } else { // Nunca ha adquirido ninguna suscripción
+                    Log.e("Subscription", "Sin elementos");
+                }
+            } else { // Código de respuesta != 0
+                Log.e("Subscription", "Respuesta: " + response);
+            }
+        } catch (RemoteException | JSONException e) {
+            Log.e("Subscription", e.getMessage());
+        }
+
+        return isSuscribed;
+    }
+
+    private Integer differenceInDays(Date suscriptionDate) {
+        Long now = new Date().getTime();
+        Long startTime = suscriptionDate.getTime();
+        Long diffDays = (now - startTime) / (1000 * 60 * 60 * 24);
+        return Integer.parseInt(diffDays.toString());
+    }
 }
