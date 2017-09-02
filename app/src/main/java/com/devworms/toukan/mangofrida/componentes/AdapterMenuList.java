@@ -2,6 +2,7 @@ package com.devworms.toukan.mangofrida.componentes;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,11 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
     private List<ParseObject> mItems;
     private HashMap<ParseObject, Integer> numRecetasPorMenu;
+    static Boolean isSuscribe = false;
 
+    public void setSuscribe(Boolean suscribe) {
+        isSuscribe = suscribe;
+    }
 
     public AdapterMenuList(List<ParseObject> mItems) {
         this.mItems = mItems;
@@ -174,10 +179,11 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                     case "pago"://Gratis o de pagoç
 
                         RecetarioFragment recetario = new RecetarioFragment();
+                        recetario.setSuscribed(isSuscribe);
                         recetario.setMenuSeleccionado(objMenu);
                         recetario.setTipoMenu(tipo);
 
-                        activity.getSupportFragmentManager().beginTransaction()
+                        activity.getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad, recetario)
                                 .addToBackStack("MenuFragment")
                                 .commit();
@@ -205,10 +211,11 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
                                                     if (recetasList.size() > 0) {
 
                                                         RecetarioFragment recetario = new RecetarioFragment();
+                                                        recetario.setSuscribed(isSuscribe);
                                                         recetario.setMenuSeleccionado(objMenu);
                                                         recetario.setTipoMenu("gratis");
 
-                                                        activity.getSupportFragmentManager().beginTransaction()
+                                                        activity.getFragmentManager().beginTransaction()
                                                                 .replace(R.id.actividad, recetario)
                                                                 .addToBackStack("MenuFragment")
                                                                 .commit();

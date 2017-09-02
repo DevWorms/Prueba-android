@@ -1,8 +1,14 @@
 package com.devworms.toukan.mangofrida.fragments;
 
 import android.app.Fragment;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.android.vending.billing.IInAppBillingService;
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.componentes.AdapterMenuList;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
@@ -21,16 +28,27 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MenuFragment extends Fragment {
 
     List<ParseObject> lMenus;
     private AdapterMenuList mAdapterMenuList;
+    IInAppBillingService mService;
+    static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
+
+        Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+        serviceIntent.setPackage("com.android.vending");
+        getActivity().bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
         StarterApplication.mPrefetchImages = !StarterApplication.mPrefetchImages;
 
@@ -81,9 +99,79 @@ public class MenuFragment extends Fragment {
                 if (e == null) {
                     lMenus = menuList;
                     mAdapterMenuList = new AdapterMenuList(menuList);
+                    mAdapterMenuList.setSuscribe(checkSuscription(mService));
                     recyclerView.setAdapter(mAdapterMenuList);
                 }
             }
         });
+    }
+
+    ServiceConnection mServiceConn = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name,
+                                       IBinder service) {
+            mService = IInAppBillingService.Stub.asInterface(service);
+        }
+    };
+
+    public boolean checkSuscription(IInAppBillingService service) {
+        Boolean isSuscribed = false;
+
+        try {
+            Bundle ownedItems = service.getPurchases(3, getActivity().getPackageName(), "subs", null);
+
+            int response = ownedItems.getInt("RESPONSE_CODE");
+            if (response == 0) {
+                ArrayList<String> ownedSkus = ownedItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
+                ArrayList<String>  purchaseDataList = ownedItems.getStringArrayList("INAPP_PURCHASE_DATA_LIST");
+                ArrayList<String>  signatureList = ownedItems.getStringArrayList("INAPP_DATA_SIGNATURE_LIST");
+
+                if (purchaseDataList.size() > 0) {
+                    for (int i = 0; i < purchaseDataList.size(); ++i) {
+                        String purchaseData = purchaseDataList.get(i);
+                        String signature = signatureList.get(i);
+                        String sku = ownedSkus.get(i);
+
+                        if (sku.equals(ITEM_SKU)) { // Si ha adquirido la suscribción
+                            JSONObject data = new JSONObject(purchaseData);
+                            Date fecha = new Date(Long.parseLong(data.getString("purchaseTime")));
+                            Integer status = data.getInt("purchaseState");
+
+                            if (differenceInDays(fecha) > 7) {
+                                if (status.equals(1)) {
+                                    // Ya a adquirido la suscripcion, el tiempo de prueba ya paso, y su suscripcion está activa
+                                    isSuscribed = true;
+                                }
+                            } else {
+                                // Ya a adquirido la suscripción, pero se encuentra en el periodo de prueba
+                                isSuscribed = true;
+                            }
+                            break;
+                        }
+                    }
+                } else { // Nunca ha adquirido ninguna suscripción
+                    Log.e("Subscription", "Sin elementos");
+                }
+            } else { // Código de respuesta != 0
+                Log.e("Subscription", "Respuesta: " + response);
+            }
+        } catch (RemoteException | JSONException e) {
+            Log.e("Subscription", e.getMessage());
+        }
+        Log.d("Suscribed 1", isSuscribed.toString());
+
+        return isSuscribed;
+    }
+
+    private Integer differenceInDays(Date suscriptionDate) {
+        Long now = new Date().getTime();
+        Long startTime = suscriptionDate.getTime();
+        Long diffDays = (now - startTime) / (1000 * 60 * 60 * 24);
+        return Integer.parseInt(diffDays.toString());
     }
 }

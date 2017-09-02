@@ -59,8 +59,10 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     static String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
     static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
     Context ctx;
+    static boolean isSuscribed;
 
-    public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu, Activity actividad) {
+    public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu, Activity actividad, Boolean isSuscribed) {
+        this.isSuscribed = isSuscribed;
         this.mItems = mItems;
         this.tipoMenu = tipoMenu;
         this.actividad = actividad;
@@ -126,14 +128,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
     @Override
     public void onBillingInitialized() {
-        //notification(bp.getSubscriptionListingDetails(ITEM_SKU).toString());
-        /*
-        if (bp.getPurchaseListingDetails(ITEM_SKU).isSubscription) {
-            Log.d("Suscripción", "Activa");
-        } else {
-            Log.d("Suscripción", "NO activa");
-        }
-        */
     }
 
 
@@ -370,7 +364,11 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                         } else {
                                             try {
                                                 //mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001, mPurchaseFinishedListener);
-                                                bp.subscribe(activity, ITEM_SKU);
+                                                if (isSuscribed) {
+                                                    Log.d("Compra", "no lo compra");
+                                                } else {
+                                                    bp.subscribe(activity, ITEM_SKU);
+                                                }
                                             } catch (Exception ex) {
                                                 Log.d("item", ex.getMessage());
                                             }

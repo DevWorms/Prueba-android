@@ -140,17 +140,15 @@ public class MainActivity extends AppCompatActivity
                 query.put("Trimestre", trimestre);
                 query.put("Recetario", StarterApplication.objReceta);
 
-                Log.d("Here", "1");
-
                 query.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
                         RecetarioFragment recetario = new RecetarioFragment();
+                        recetario.setSuscribed(checkSuscription(mService));
                         recetario.setMenuSeleccionado(StarterApplication.objReceta);
                         recetario.setTipoMenu("gratis");
-                        Log.d("Here", "2");
 
-                        getSupportFragmentManager().beginTransaction()
+                        getFragmentManager().beginTransaction()
                                 .replace(R.id.actividad, recetario)
                                 .addToBackStack("MenuFragment")
                                 .commit();
@@ -310,9 +308,6 @@ public class MainActivity extends AppCompatActivity
         public void onServiceConnected(ComponentName name,
                                        IBinder service) {
             mService = IInAppBillingService.Stub.asInterface(service);
-            if (!checkSuscription(mService)) {
-                notification("Nalgas");
-            }
         }
     };
 
@@ -320,7 +315,7 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
 
-    public boolean checkSuscription(IInAppBillingService service) {
+    public Boolean checkSuscription(IInAppBillingService service) {
         Boolean isSuscribed = false;
 
         try {

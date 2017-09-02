@@ -1,10 +1,10 @@
 package com.devworms.toukan.mangofrida.fragments;
 
+import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -29,6 +29,7 @@ public class RecetarioFragment extends Fragment {
     private ParseObject objParse;
     private List<ParseObject> lMenusRecetas;
     private AdapterRecetarioList mAdapterMenuList;
+    Boolean isSuscribed = false;
 
     private String tipoMenu;
 
@@ -47,12 +48,9 @@ public class RecetarioFragment extends Fragment {
                 if (e == null) {
                     lMenusRecetas = menuList;
 
-                    mAdapterMenuList = new AdapterRecetarioList(menuList, tipoMenu, getActivity());
+                    mAdapterMenuList = new AdapterRecetarioList(menuList, tipoMenu, getActivity(), isSuscribed);
                     recyclerView.setAdapter(mAdapterMenuList);
 
-                    Log.d("score", "Retrieved " + lMenusRecetas.size() + " scores");
-                } else {
-                    Log.d("score", "Error: " + e.getMessage());
                 }
             }
         });
@@ -104,7 +102,11 @@ public class RecetarioFragment extends Fragment {
         return view;
     }
 
-/*
+    public void setSuscribed(boolean suscribed) {
+        isSuscribed = suscribed;
+    }
+
+    /*
     public void mostrarAnuncioDiasPrueba(){
         FragmentManager fm = getChildFragmentManager();
         CarruselSlider cs = new CarruselSlider();
@@ -117,7 +119,7 @@ public class RecetarioFragment extends Fragment {
     @Override
     public void onDetach() {
         try {
-            getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
         } catch (Exception ex) {
 
         }

@@ -207,7 +207,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
                            recetario.setMenuSeleccionado(objReceta);
                            recetario.setTipoMenu("gratis");
 
-                           context.getSupportFragmentManager().beginTransaction()
+                           context.getFragmentManager().beginTransaction()
                                    .replace(R.id.actividad,recetario)
                                    .addToBackStack("MenuFragment")
                                    .commit();
