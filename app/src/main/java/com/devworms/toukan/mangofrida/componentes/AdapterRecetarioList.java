@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +21,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.anjlab.android.iab.v3.BillingProcessor;
+import com.anjlab.android.iab.v3.TransactionDetails;
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.dialogs.AgregarTarjeta;
 import com.devworms.toukan.mangofrida.dialogs.WalletActivity;
@@ -43,11 +48,17 @@ import java.util.List;
 import static com.devworms.toukan.mangofrida.openpay.OpenPayRestApi.conultarStatusSuscripcion;
 
 
-public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRecetarioList.ViewHolder> {
+public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRecetarioList.ViewHolder> implements BillingProcessor.IBillingHandler  {
     private List<ParseObject> mItems;
     private String tipoMenu;
     private Activity actividad;
     private List<String> lTipos;
+    static BillingProcessor bp;
+    static String TAG = "InAppBilling";
+    static IabHelper mHelper;
+    static String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
+    static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
+    Context ctx;
 
     public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu, Activity actividad) {
         this.mItems = mItems;
@@ -83,6 +94,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     @Override
     public AdapterRecetarioList.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recetario, parent, false);
+        bp = new BillingProcessor(v.getContext(), base64EncodedPublicKey, this);
+        ctx = v.getContext();
         return new ViewHolder(v);
     }
 
@@ -97,6 +110,38 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         holder.setTitulos(mItems.get(position));
     }
 
+    @Override
+    public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
+        notification("comprado");
+    }
+
+    @Override
+    public void onPurchaseHistoryRestored() {
+    }
+
+    @Override
+    public void onBillingError(int errorCode, @Nullable Throwable error) {
+        notification("error");
+    }
+
+    @Override
+    public void onBillingInitialized() {
+        //notification(bp.getSubscriptionListingDetails(ITEM_SKU).toString());
+        /*
+        if (bp.getPurchaseListingDetails(ITEM_SKU).isSubscription) {
+            Log.d("Suscripción", "Activa");
+        } else {
+            Log.d("Suscripción", "NO activa");
+        }
+        */
+    }
+
+
+
+    public void notification(String msg) {
+        Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
+    }
+
     static final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final TargetImageView mTargetImageView;
@@ -108,12 +153,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         public TextView tTextViewTiempo;
         public ImageView iImageViewDificultad;
         private Dialog dialog;
-        String TAG =
-                "InAppBilling";
-        IabHelper mHelper;
-        String base64EncodedPublicKey =
-                "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
-        String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
 
         public ViewHolder(View v) {
             super(v);
@@ -330,8 +369,8 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                                     result);
                                         } else {
                                             try {
-                                                mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001,
-                                                        mPurchaseFinishedListener);
+                                                //mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001, mPurchaseFinishedListener);
+                                                bp.subscribe(activity, ITEM_SKU);
                                             } catch (Exception ex) {
                                                 Log.d("item", ex.getMessage());
                                             }

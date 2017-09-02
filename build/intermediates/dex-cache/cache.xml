@@ -2,74 +2,191 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jsr305-1.3.9.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/2dfac10b31e90cbaa61771de95820b7138feb2b1/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="3b61e3b4da9777ed1bca89bc2ade911f2a03f264">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/jsr305-1.3.9_e209f9646f337a163cef388135be16ae9d7a24c9.jar" />
+        revision="25.0.3"
+        sha1="e724073d032731be77fad0f993e2970fb4429e3a">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dae92b0dad9623d3eba0b060d3930a3c3f6bd267/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jsr305-1.3.9.jar"
-        jumboMode="false"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="3b61e3b4da9777ed1bca89bc2ade911f2a03f264">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/jsr305-1.3.9_e209f9646f337a163cef388135be16ae9d7a24c9/classes.dex" />
+        revision="25.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_2abc25e986daf51590e87e4ebf001273e5f5fec5/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/rk521/AndroidProjects/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
-        jumboMode="false"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/2/ParseFacebookUtilsV4-1.10.3_6480675516bb5561fa170e351c998535b613bea7/classes.dex" />
+        revision="25.0.3"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.11.0_b92148ea52149abb56d57363d0318da9617763db/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
+        is-multidex="true"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_7b400cffb32a8036ec2f6a0db15c9d0c03ce80bf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.7_6b1f6a4dd366dcdcc8e9655dc0db07ddccf6c003/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
-        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/ParseFacebookUtilsV4-1.10.3_6480675516bb5561fa170e351c998535b613bea7.jar" />
+        revision="25.0.3"
+        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/2/ParseTwitterUtils-1.10.3_a750fb2b32b9123a1c407d5e24a2aaaf7344c4fa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-2.2.0_ef31d644c599b50aa1500fd45c00c165069db1c0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-jackson2-1.17.0-rc.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="fc9a6db1d66e0d635336e1a2d02c3bc86beaef03">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-jackson2-1.17.0-rc_31f123b37a91b7556195c050b8a38154c85173ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/041eb84ff5caef5b55d4aa0491f7fb967a8e8958/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c7aecfcfe1090eedbceafa1e58b94403415a655e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-asl-1.9.11.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-asl-1.9.11_ac18b464826ec5325ee9b8e70fa3be854f91604a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/junit-4.10.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="abb938dd2fca0194776c97c54fdd0b97c56150c2">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/junit-4.10_3a25e6e778db28315c273587aef2a7b0fda953e3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-android-1.17.0-rc.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9d3a30f9890c5f6393ffb1f5e6020bef69e569c1">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-android-1.17.0-rc_48923258f148a3d2bcfadd238db2b2eac67f9208/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.theartofdev/fast-image-loader/0.8.4/dbc38870b9506ceef6ffdf73a7bfce864587a4df/fast-image-loader-0.8.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="dbc38870b9506ceef6ffdf73a7bfce864587a4df">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fast-image-loader-0.8.4_25147fc8d0e9b2079dcd2b669347dcbcdf066fee/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-2.1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="36d1b5802b2b4c864773367b9717d680616a48d9">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/jackson-core-2.1.3_f0050b210d7ca62d9d6cfcc5ccd3b7285bb93149/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/2b0b94ab0fb73de9aa56c2cd92845538c842ad37/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a4d096f5a7d53e530a841918cf299c0e08c1a3e2/classes.dex" />
     </item>
     <item
         is-multidex="true"
         jar="/home/rk521/AndroidProjects/Prueba-android/pdk/build/intermediates/bundles/default/classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
+        revision="25.0.3"
         sha1="3cb2de2bae926cb0bd9a021d792505c63707388c">
         <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/4/classes_447b7b31cac077d3ed6c065739e9b356d2cd8dcc/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/devicecollector-sdk-2.5.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
+        revision="25.0.3"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/library-1.0.19_ba4cae293deb8d5ac33a7db72ea750d645f3424d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/3ad5f955066698dbba34f5dabcb3dcdbdbb3a0d4/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b23c1d4424205e22f2fe0fbe4786c44cec57629f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/a8fd2cc86a2710519a7bf34bc05b2c59bb05765a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7752c0f9540b59fbdb9293726cd8472cfcc8422c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/devicecollector-sdk-2.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
         sha1="90060b693ab97ea90a0ccbb6a430bd7e3b5d0771">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/devicecollector-sdk-2.5_7376f636e30bed7699612894f7482d65820729a2.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6891d257b804eacba7a1251f4c347240647f70d1">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/4/classes_abfb20526e7ccd098991fd2b8b5f0d17134f7a4c/classes.dex" />
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/devicecollector-sdk-2.5_7376f636e30bed7699612894f7482d65820729a2/classes.dex" />
     </item>
     <item
         is-multidex="true"
         jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/devicecollector-sdk-2.5.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
+        revision="25.0.3"
         sha1="90060b693ab97ea90a0ccbb6a430bd7e3b5d0771">
         <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/devicecollector-sdk-2.5_7376f636e30bed7699612894f7482d65820729a2/classes.dex" />
     </item>
@@ -78,162 +195,324 @@
         jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-1.17.0-rc.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
+        revision="25.0.3"
         sha1="7408d78899c34ce036a83ba9f580b5110dcd6c0b">
         <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/google-http-client-1.17.0-rc_ffff9a903220307390ad7bdfe727c23ef98d570c/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
-        jumboMode="false"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.14.1/b35bb849e7bda4497fe6dfce4bd9f332087c2e3b/parse-android-1.14.1.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/10/bolts-applinks-1.4.0_f0c48bc4cd0efc5c6bcf7541a99197ff1c197e10/classes.dex" />
+        revision="25.0.3"
+        sha1="b35bb849e7bda4497fe6dfce4bd9f332087c2e3b">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/parse-android-1.14.1_f7efb1d787b781db1ed292b2b6d74436ae68c6c3/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-2.1.3.jar"
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
+        revision="25.0.3"
+        sha1="6891d257b804eacba7a1251f4c347240647f70d1">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/4/classes_abfb20526e7ccd098991fd2b8b5f0d17134f7a4c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.6.0_7a859aa4f429b27f8aca8d81a5c1833b5435b843/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/dd68d8be0a1d93f245a3b847db2d0770319e02ec/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c70dc7e189e45e8a8b07a2cafee76aefdc9822df">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0c6e1399f25cd2a0a2a836ecacde3211dcdc4adb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_f0c48bc4cd0efc5c6bcf7541a99197ff1c197e10/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseFacebookUtilsV4-1.10.3_6480675516bb5561fa170e351c998535b613bea7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jsr305-1.3.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3b61e3b4da9777ed1bca89bc2ade911f2a03f264">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/jsr305-1.3.9_e209f9646f337a163cef388135be16ae9d7a24c9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/f7b94d2aae4f6bd6fd6885e0d9b4b708cd264498/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1cd7128b6fdd9cafdb36787e59279d7f0f107340/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/5929a90d87fbd17b63bc33f8d343e3dc159ae121/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e0f6e271147a09c34a8fa0d09e1df8c383ce3f44">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ea16f52659fac5f97bada8666d1e496f9a4f1706/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-jackson2-1.17.0-rc.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="fc9a6db1d66e0d635336e1a2d02c3bc86beaef03">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/google-http-client-jackson2-1.17.0-rc_31f123b37a91b7556195c050b8a38154c85173ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-2.1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
         sha1="36d1b5802b2b4c864773367b9717d680616a48d9">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/jackson-core-2.1.3_f0050b210d7ca62d9d6cfcc5ccd3b7285bb93149.jar" />
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-2.1.3_f0050b210d7ca62d9d6cfcc5ccd3b7285bb93149/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/c25a8185f370d7fa50c0359673d56b82b5c764c8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_db25d8651f6b471e24da47889bc932e0213b30c1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseTwitterUtils-1.10.3_a750fb2b32b9123a1c407d5e24a2aaaf7344c4fa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/junit-4.10.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="abb938dd2fca0194776c97c54fdd0b97c56150c2">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/junit-4.10_3a25e6e778db28315c273587aef2a7b0fda953e3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/493ff639ad765ee4d780d00276ea9a34edfa98a0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="62f733cc92b1611138da965697f4654cd385e078">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f05679dd476b962cef0d2d6bf3a8d74562b99655/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-asl-1.9.11.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/jackson-core-asl-1.9.11_ac18b464826ec5325ee9b8e70fa3be854f91604a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/1b544b64e5a87df9ec0dee94d634c6bcd01f2532/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8ec69f9e7e18a05a46b4fcaa69368b6d42fa6324">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_be4c26d342b740a6fb45eb40187b2324af01d33b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_20ab1421d9a960dadded742a667bcb33620cb14f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-1.17.0-rc.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7408d78899c34ce036a83ba9f580b5110dcd6c0b">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-1.17.0-rc_ffff9a903220307390ad7bdfe727c23ef98d570c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-1.9.0_2b9bef2abb04155f601480210f5a060b75f46cf9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/137c46f11017b17334b8efaeb39aa2626d31e530/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_74b80e4c7ea7694d12cc2026419a8d1b22a19233/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_55bc32eed6c4de8253a9bcfec569c94c57f01494/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/ddb65dca1e9367d7cab2820f014e16ba4353a48c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="81aa0e8e77d948204aa6754019c6f3c04dd922e3">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1c4db4630044f3f2c3fe5d3c189e5e33c224ced6/classes.dex" />
     </item>
     <item
         is-multidex="true"
         jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-android-1.17.0-rc.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
+        revision="25.0.3"
         sha1="9d3a30f9890c5f6393ffb1f5e6020bef69e569c1">
         <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/google-http-client-android-1.17.0-rc_48923258f148a3d2bcfadd238db2b2eac67f9208/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/junit-4.10.jar"
-        jumboMode="false"
+        jar="/home/rk521/.android/build-cache/f4bd2a4cf17f0cf962315c333d5565c10fa6ef87/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="abb938dd2fca0194776c97c54fdd0b97c56150c2">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/junit-4.10_3a25e6e778db28315c273587aef2a7b0fda953e3/classes.dex" />
+        revision="25.0.3"
+        sha1="3318d37e2378c4982ad6d2635eed93d9e7f7940b">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c496cdbfcf7c13396607f651359ba1585a248c0f/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-2.1.3.jar"
-        jumboMode="false"
+        jar="/home/rk521/.android/build-cache/50b73e41bcaa399b968795812e8e2a6a29b1e218/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="36d1b5802b2b4c864773367b9717d680616a48d9">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/jackson-core-2.1.3_f0050b210d7ca62d9d6cfcc5ccd3b7285bb93149/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-android-1.17.0-rc.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9d3a30f9890c5f6393ffb1f5e6020bef69e569c1">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/google-http-client-android-1.17.0-rc_48923258f148a3d2bcfadd238db2b2eac67f9208.jar" />
+        revision="25.0.3"
+        sha1="b727e800debd202a5113d675f024751bc82b2cbf">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b1e3477a33fddec359a2d44bcaf45495dc2e948d/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-asl-1.9.11.jar"
-        jumboMode="false"
+        jar="/home/rk521/.android/build-cache/f4d3725da2dea615433302b32f863902d8f565d4/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/jackson-core-asl-1.9.11_ac18b464826ec5325ee9b8e70fa3be854f91604a/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-1.17.0-rc.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7408d78899c34ce036a83ba9f580b5110dcd6c0b">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/google-http-client-1.17.0-rc_ffff9a903220307390ad7bdfe727c23ef98d570c.jar" />
+        revision="25.0.3"
+        sha1="0e85a8fb54f04489a01242e7579e7512ef5a28b1">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1293b4993d45b41f1bd20073717f7e04e0a6ce8a/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-jackson2-1.17.0-rc.jar"
-        jumboMode="false"
+        jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.twitter/twitter-text/1.13.0/78415b95ae3184c5926d593feab64bfc0b73b2dd/twitter-text-1.13.0.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="fc9a6db1d66e0d635336e1a2d02c3bc86beaef03">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/8/google-http-client-jackson2-1.17.0-rc_31f123b37a91b7556195c050b8a38154c85173ec/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6891d257b804eacba7a1251f4c347240647f70d1">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/classes_abfb20526e7ccd098991fd2b8b5f0d17134f7a4c.jar" />
+        revision="25.0.3"
+        sha1="78415b95ae3184c5926d593feab64bfc0b73b2dd">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/twitter-text-1.13.0_52a0b6af5eb0bfdfe8cca2cf1c570a2403ba8605/classes.dex" />
     </item>
     <item
         is-multidex="true"
         jar="/home/rk521/.gradle/caches/modules-2/files-2.1/com.anjlab.android.iab.v3/library/1.0.44/add169444f38ac23ffae27326c75e33fedef73ba/library-1.0.44.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
+        revision="25.0.3"
         sha1="add169444f38ac23ffae27326c75e33fedef73ba">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/10/library-1.0.44_bbee5fee1d0daa8949364d8803dde79b7d82f1d1/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-jackson2-1.17.0-rc.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fc9a6db1d66e0d635336e1a2d02c3bc86beaef03">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/google-http-client-jackson2-1.17.0-rc_31f123b37a91b7556195c050b8a38154c85173ec.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/ParseTwitterUtils-1.10.3_a750fb2b32b9123a1c407d5e24a2aaaf7344c4fa.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/pdk/build/intermediates/bundles/default/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3cb2de2bae926cb0bd9a021d792505c63707388c">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/classes_447b7b31cac077d3ed6c065739e9b356d2cd8dcc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-asl-1.9.11.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/jackson-core-asl-1.9.11_ac18b464826ec5325ee9b8e70fa3be854f91604a.jar" />
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/library-1.0.44_bbee5fee1d0daa8949364d8803dde79b7d82f1d1/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/rk521/AndroidProjects/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
+        jar="/home/rk521/AndroidProjects/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.0"
-        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/2/ParseTwitterUtils-1.10.3_a750fb2b32b9123a1c407d5e24a2aaaf7344c4fa/classes.dex" />
+        revision="25.0.3"
+        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/release/folders/1000/2/ParseFacebookUtilsV4-1.10.3_6480675516bb5561fa170e351c998535b613bea7/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/junit-4.10.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/c1f8002b6d6c50abc490fa6162e4926ee0bf4361/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
-        revision="25.0.0"
-        sha1="abb938dd2fca0194776c97c54fdd0b97c56150c2">
-        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/pre-dexed/release/junit-4.10_3a25e6e778db28315c273587aef2a7b0fda953e3.jar" />
+        revision="25.0.3"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_20ca4e63ea919e3d753ed0c49c23a1b6299c6bd2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/343cc4eb1269a259f756ee07e2225213f2646a9b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8f30ff0e3787d6f04e11584ccee2649f0ea5fb8f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="313d4f6ac6585571557cd34edc880c38093ad4a6">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_577dc3d7e8eab9ef2f02c0572605cc9a0a380944/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/AndroidProjects/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jsr305-1.3.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3b61e3b4da9777ed1bca89bc2ade911f2a03f264">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jsr305-1.3.9_e209f9646f337a163cef388135be16ae9d7a24c9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rk521/.android/build-cache/00be5d9bd19b8bb4f43fa0c8c6205ab556ce63a0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
+        <dex dex="/home/rk521/AndroidProjects/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c34b9c3904a5c4c6fd622a12ab6fab80d8d44d09/classes.dex" />
     </item>
 
 </items>
