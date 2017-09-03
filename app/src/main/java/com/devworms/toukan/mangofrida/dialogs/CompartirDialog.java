@@ -1,39 +1,21 @@
 package com.devworms.toukan.mangofrida.dialogs;
 
-
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
-import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.ActionMode;
-import android.view.ContextMenu;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.SearchEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
-import android.view.accessibility.AccessibilityEvent;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.activities.MyBoardsActivity;
-import com.devworms.toukan.mangofrida.fragments.RecetaFragment;
 import com.devworms.toukan.mangofrida.fragments.RecetarioFragment;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
 import com.devworms.toukan.mangofrida.util.Specs;
@@ -62,13 +44,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
 
 public class CompartirDialog extends Dialog implements View.OnClickListener {
     public ParseObject objReceta;
@@ -90,15 +70,12 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         //Aqui haces que tu layout se muestre como dialog
         setContentView(R.layout.dialog_compartir);
 
-
-        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
 
         ImageView buttonFb = (ImageView) findViewById(R.id.bFacebook);
         ImageView buttonTw = (ImageView) findViewById(R.id.bTwitter);
         ImageView buttonPin = (ImageView) findViewById(R.id.bPinterest);
         imgView = (TargetImageView) findViewById(R.id.imgReceta);
-
 
         buttonFb.setImageResource(R.drawable.fb);
         buttonTw.setImageResource(R.drawable.twittert);
@@ -112,7 +89,6 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         ImageLoadSpec spec = FastImageLoader.getSpec(Specs.IMG_IX_IMAGE);
         imgView.loadImage(objReceta.getString("Url_Imagen"), spec.getKey());
 
-
         // mViewPager = (ViewPager) view.findViewById(R.id.containerCompartir);
         // mViewPager.setPageTransformer(true, new RelaxTransformer());
         // mViewPager.setPageTransformer(true,  new DepthPageTransformer ());
@@ -122,31 +98,25 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         pdkClient.onConnect(context);
         pdkClient.setDebugMode(true);
 
-        if(StarterApplication.isDesdeMenuPrincipal){
-            ((ImageView)findViewById(R.id.imgComparte)).setImageResource(R.drawable.trofeoc);
-        }else{
-            ((ImageView)findViewById(R.id.imgComparte)).setImageResource(R.drawable.compartec);
+        if (StarterApplication.isDesdeMenuPrincipal) {
+            ((ImageView) findViewById(R.id.imgComparte)).setImageResource(R.drawable.trofeoc);
+        } else {
+            ((ImageView) findViewById(R.id.imgComparte)).setImageResource(R.drawable.compartec);
         }
 
         this.objReceta = objReceta;
-
-
     }
-
-
 
     @Override
     public void cancel() {
         super.cancel();
 
-        StarterApplication.bViral =  false;
-
+        StarterApplication.bViral = false;
     }
 
     //Para asignar accion a los botones dentro del fragment
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.bFacebook:
                 compartirFb();
@@ -157,14 +127,11 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             case R.id.bPinterest:
                 compartirPin();
                 break;
-
         }
     }
 
-
     private void compartirFb() {
         // compartir una imagen
-
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentUrl(Uri.parse("http://recetasmexicanas.mx"))
                 .setContentTitle("Frida te invita")
@@ -174,22 +141,17 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
 
         ShareDialog shareDialog = new ShareDialog((Activity) context);
 
-
-
-
         StarterApplication.callbackManager = CallbackManager.Factory.create();
         shareDialog.registerCallback(StarterApplication.callbackManager, new FacebookCallback<Sharer.Result>() {
             @Override
             public void onSuccess(Sharer.Result result) {
                 cancel();
 
-                if(StarterApplication.isDesdeMenuPrincipal) {
-
-
+                if (StarterApplication.isDesdeMenuPrincipal) {
                     Calendar cal = Calendar.getInstance();
                     int year = cal.get(cal.YEAR);
-                    int month = cal.get(cal.MONTH)+1;
-                    int trimestre = (int)(((month)/3) + 0.7);
+                    int month = cal.get(cal.MONTH) + 1;
+                    int trimestre = (int) (((month) / 3) + 0.7);
 
                     ParseObject query = new ParseObject("Regalos");
                     query.put("username", ParseUser.getCurrentUser());
@@ -199,32 +161,19 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
                     query.put("Recetario", objReceta);
 
                     query.saveInBackground(new SaveCallback() {
-                       @Override
-                       public void done(ParseException e) {
+                        @Override
+                        public void done(ParseException e) {
+                            RecetarioFragment recetario = new RecetarioFragment();
+                            recetario.setMenuSeleccionado(objReceta);
+                            recetario.setTipoMenu("gratis");
 
-
-                           RecetarioFragment recetario = new RecetarioFragment();
-                           recetario.setMenuSeleccionado(objReceta);
-                           recetario.setTipoMenu("gratis");
-
-                           context.getFragmentManager().beginTransaction()
-                                   .replace(R.id.actividad,recetario)
-                                   .addToBackStack("MenuFragment")
-                                   .commit();
-
-
-
-                       }
-                   });
-
-
-
-
-
-
+                            context.getFragmentManager().beginTransaction()
+                                    .replace(R.id.actividad, recetario)
+                                    .addToBackStack("MenuFragment")
+                                    .commit();
+                        }
+                    });
                 }
-
-
             }
 
             @Override
@@ -238,16 +187,13 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             }
         });
 
-        if(ShareDialog.canShow((ShareLinkContent.class))){
+        if (ShareDialog.canShow((ShareLinkContent.class))) {
             shareDialog.show(content);
         }
-
-
     }
 
     public void compartirTw() {
         try {
-
             View drawingView = imgView;
             drawingView.buildDrawingCache(true);
             Bitmap bitmap = drawingView.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
@@ -265,12 +211,11 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
             outStream.flush();
             outStream.close();
 
-
             Uri ImageUri = Uri.fromFile(file);
 
             //  File myImageFile = new File("/path/to/image");
             // Uri myImageUri = Uri.fromFile(myImageFile);
-            if(!StarterApplication.isDesdeMenuPrincipal){
+            if (!StarterApplication.isDesdeMenuPrincipal) {
                 final Intent intent = new TweetComposer.Builder(context)
                         .text("¡Me encanta esta receta!")
                         .url(new URL("http://recetasmexicanas.mx"))
@@ -278,7 +223,7 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
                 StarterApplication.bCompartidoTwitter = true;
                 final int TWEET_COMPOSER_REQUEST_CODE = 100;
                 ((Activity) context).startActivityForResult(intent, TWEET_COMPOSER_REQUEST_CODE);
-            }else {
+            } else {
                 final Intent intent = new TweetComposer.Builder(context)
                         .text("¡Me encanta esta receta!")
                         .url(new URL("http://recetasmexicanas.mx"))
@@ -289,44 +234,27 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
                 StarterApplication.bCompartido = true;
                 StarterApplication.bCompartidoTwitter = true;
 
-
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
                 query.whereEqualTo("Menu", objReceta);
 
                 query.findInBackground(new FindCallback<ParseObject>() {
                     public void done(final List<ParseObject> recetasList, ParseException e) {
                         if (e == null) {
-
                             if (recetasList.size() > 0) {
-
                                 ((Activity) context).startActivityForResult(intent, TWEET_COMPOSER_REQUEST_CODE);
                             }
-
                         }
-
                     }
                 });
-
-
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
-
         }
     }
 
-
-
     public void compartirPin() {
-
-
         StarterApplication.objReceta = objReceta;
-        StarterApplication.bViral =  true;
-
+        StarterApplication.bViral = true;
 
         List scopes = new ArrayList<String>();
         scopes.add(PDKClient.PDKCLIENT_PERMISSION_READ_PUBLIC);
@@ -336,38 +264,30 @@ public class CompartirDialog extends Dialog implements View.OnClickListener {
         scopes.add(PDKClient.PDKCLIENT_PERMISSION_READ_PRIVATE);
         scopes.add(PDKClient.PDKCLIENT_PERMISSION_WRITE_PRIVATE);
 
-
         pdkClient.login(context, scopes, new PDKCallback() {
             @Override
             public void onSuccess(PDKResponse response) {
                 Log.d(getClass().getName(), response.getData().toString());
-
-
-                StarterApplication.bViral =  false;
-
+                StarterApplication.bViral = false;
 
                 try {
-
-                        //Pop intent
-                        Intent in1 = new Intent(context, MyBoardsActivity.class);
-                        in1.putExtra("url_imagen", objReceta.getString("Url_Imagen"));
-                        context.startActivity(in1);
+                    //Pop intent
+                    Intent in1 = new Intent(context, MyBoardsActivity.class);
+                    in1.putExtra("url_imagen", objReceta.getString("Url_Imagen"));
+                    context.startActivity(in1);
 
                 } catch (Exception e) {
                     Log.e("error", e.getMessage());
-
                 }
-
             }
 
             @Override
             public void onFailure(PDKException exception) {
                 Log.e(getClass().getName(), exception.getDetailMessage());
                 StarterApplication.objReceta = null;
-                StarterApplication.bCompartido =  false;
-                StarterApplication.bViral =  false;
+                StarterApplication.bCompartido = false;
+                StarterApplication.bViral = false;
             }
         });
     }
-
 }

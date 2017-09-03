@@ -48,7 +48,7 @@ import java.util.List;
 import static com.devworms.toukan.mangofrida.openpay.OpenPayRestApi.conultarStatusSuscripcion;
 
 
-public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRecetarioList.ViewHolder> implements BillingProcessor.IBillingHandler  {
+public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRecetarioList.ViewHolder> implements BillingProcessor.IBillingHandler {
     private List<ParseObject> mItems;
     private String tipoMenu;
     private Activity actividad;
@@ -131,24 +131,23 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     }
 
 
-
     public void notification(String msg) {
         Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
     }
 
     static final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public final TargetImageView mTargetImageView;
+        final TargetImageView mTargetImageView;
         ParseObject objReceta;
-        public String tipoMenu;
+        String tipoMenu;
         public Activity actividad;
-        public TextView tTextViewNombrereceta;
+        TextView tTextViewNombrereceta;
         public TextView textViewPorciones;
-        public TextView tTextViewTiempo;
-        public ImageView iImageViewDificultad;
-        private Dialog dialog;
+        TextView tTextViewTiempo;
+        ImageView iImageViewDificultad;
+        Dialog dialog;
 
-        public ViewHolder(View v) {
+        private ViewHolder(View v) {
             super(v);
 
             mTargetImageView = (TargetImageView) v.findViewById(R.id.image_view);
@@ -163,7 +162,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
             iImageViewDificultad = (ImageView) v.findViewById(R.id.imageView12);
         }
 
-        public void setTitulos(ParseObject objReceta) {
+        private void setTitulos(ParseObject objReceta) {
             tTextViewNombrereceta.setText(objReceta.getString("Nombre"));
             tTextViewTiempo.setText("  " + objReceta.getString("Tiempo"));
             textViewPorciones.setText("  " + objReceta.getString("Porciones"));
@@ -288,11 +287,17 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                                                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
                                                 Boolean slider = preferences.getBoolean("Mostrardiasprueba", true);
                                                 if (slider) {
-                                                    SharedPreferences.Editor editor = preferences.edit();
-                                                    editor.putBoolean("Mostrardiasprueba", true);
-                                                    editor.apply();
+                                                    //if (!isSuscribed) {
+                                                        SharedPreferences.Editor editor = preferences.edit();
+                                                        editor.putBoolean("Mostrardiasprueba", true);
+                                                        editor.apply();
 
-                                                    mostrarAnuncioDiasPrueba();
+                                                        mostrarAnuncioDiasPrueba();
+                                                        /*
+                                                    } else {
+                                                        Log.d("Compra", "no lo compra");
+                                                        consumeItem();
+                                                    }*/
                                                 } else {
                                                     SharedPreferences.Editor editor = preferences.edit();
                                                     editor.putBoolean("Mostrardiasprueba", true);
@@ -309,15 +314,22 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
                             Boolean slider = preferences.getBoolean("Mostrardiasprueba", true);
                             if (slider) {
-                                SharedPreferences.Editor editor = preferences.edit();
-                                editor.putBoolean("Mostrardiasprueba", true);
-                                editor.apply();
+                                //if (!isSuscribed) {
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    editor.putBoolean("Mostrardiasprueba", true);
+                                    editor.apply();
 
-                                mostrarAnuncioDiasPrueba();
+                                    mostrarAnuncioDiasPrueba();
 
-                                if (!dialog.isShowing()) {
-                                    dialog.show();
+                                    /*
+                                    if (!dialog.isShowing()) {
+                                        dialog.show();
+                                    }
+                                } else {
+                                    Log.d("Compra", "no lo compra");
+                                    consumeItem();
                                 }
+                                */
                             } else {
                                 SharedPreferences.Editor editor = preferences.edit();
                                 editor.putBoolean("Mostrardiasprueba", true);
@@ -329,63 +341,74 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                     }
                 }
 
-                public void mostrarAnuncioDiasPrueba() {
-                    if (dialog == null) {
-                        dialog = new Dialog(activity);
-                        dialog.setCancelable(true);
-                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                        //Aqui haces que tu layout se muestre como dialog
+                private void mostrarAnuncioDiasPrueba() {
+                    if (!isSuscribed) {
+                        if (dialog == null) {
+                            dialog = new Dialog(activity);
+                            dialog.setCancelable(true);
+                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            //Aqui haces que tu layout se muestre como dialog
 
-                        dialog.setContentView(R.layout.dialog_producto);
-                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                            dialog.setContentView(R.layout.dialog_producto);
+                            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
 
-                        ((ImageView) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
+                            ((ImageView) dialog.findViewById(R.id.btn_can)).setOnClickListener(new View.OnClickListener() {
 
-                            @Override
-                            public void onClick(View view) {
-                                dialog.cancel();
-                                dialog.closeOptionsMenu();
-                            }
-                        });
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.cancel();
+                                    dialog.closeOptionsMenu();
+                                }
+                            });
 
-                        ((ImageView) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
+                            ((ImageView) dialog.findViewById(R.id.btn_con)).setOnClickListener(new View.OnClickListener() {
 
-                            @Override
-                            public void onClick(View view) {
+                                @Override
+                                public void onClick(View view) {
 
-                                dialog.cancel();
-                                mHelper = new IabHelper(dialog.getContext(), base64EncodedPublicKey);
+                                    dialog.cancel();
+                                    mHelper = new IabHelper(dialog.getContext(), base64EncodedPublicKey);
 
-                                mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
-                                    public void onIabSetupFinished(IabResult result) {
-                                        if (!result.isSuccess()) {
-                                            Log.d(TAG, "In-app Billing setup failed: " +
-                                                    result);
-                                        } else {
-                                            try {
-                                                //mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001, mPurchaseFinishedListener);
-                                                if (isSuscribed) {
-                                                    Log.d("Compra", "no lo compra");
-                                                } else {
+                                    mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+                                        public void onIabSetupFinished(IabResult result) {
+                                            if (!result.isSuccess()) {
+                                                Log.d(TAG, "In-app Billing setup failed: " +
+                                                        result);
+                                            } else {
+                                                try {
+                                                    //mHelper.launchPurchaseFlow(activity, ITEM_SKU, 10001, mPurchaseFinishedListener);
                                                     bp.subscribe(activity, ITEM_SKU);
+                                                } catch (Exception ex) {
+                                                    Log.d("item", ex.getMessage());
                                                 }
-                                            } catch (Exception ex) {
-                                                Log.d("item", ex.getMessage());
                                             }
                                         }
-                                    }
-                                });
-                            }
-                        });
+                                    });
+                                }
+                            });
 
-                    }
+                        }
 
-                    if (!dialog.isShowing()) {
-                        dialog.show();
+                        if (!dialog.isShowing()) {
+                            dialog.show();
+                        }
+                    } else {
+                        if (objReceta != null) {
+                            RecetarioFragment recetario = new RecetarioFragment();
+                            recetario.setMenuSeleccionado(objReceta);
+
+                            RecetaFragment receta = new RecetaFragment();
+                            receta.setObjReceta(objReceta);
+
+                            activity.getFragmentManager().beginTransaction()
+                                    .replace(R.id.actividad, receta)
+                                    .addToBackStack("MenuFragment")
+                                    .commit();
+                        }
                     }
                 }
 
-                public void addtarjetacred() {
+                private void addtarjetacred() {
                     Intent intent = new Intent(activity.getApplicationContext(), AgregarTarjeta.class);
                     activity.startActivity(intent);
                 }
@@ -420,7 +443,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
             }
         };
 
-        public void consumeItem() {
+        private void consumeItem() {
             mHelper.queryInventoryAsync(mReceivedInventoryListener);
         }
 
@@ -442,8 +465,5 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
             }
         };
-
     }
-
-
 }

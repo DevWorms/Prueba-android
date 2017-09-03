@@ -91,21 +91,20 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
 
     static final class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public HashMap<ParseObject, Integer> numRecetasPorMenu;
+        HashMap<ParseObject, Integer> numRecetasPorMenu;
+        final TargetImageView mTargetImageView;
+        TextView tTextViewNumeroRecetas;
 
-        public final TargetImageView mTargetImageView;
-        public TextView tTextViewNumeroRecetas;
-
-        public TextView tTextViewNombrePlatillo;
-        public ImageView imageViewCinta;
-        public ImageView imageViewDeviderTop;
-        public ImageView imageViewDeviderbottom;
+        TextView tTextViewNombrePlatillo;
+        ImageView imageViewCinta;
+        ImageView imageViewDeviderTop;
+        ImageView imageViewDeviderbottom;
 
         public FragmentActivity activity;
 
         ParseObject objMenu;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
 
             mTargetImageView = (TargetImageView) v.findViewById(R.id.image_view);
@@ -123,7 +122,7 @@ public final class AdapterMenuList extends RecyclerView.Adapter<AdapterMenuList.
             imageViewDeviderTop = (ImageView) v.findViewById(R.id.imageViewDeviderTop);
         }
 
-        public void contarRecetas(final ParseObject objMenu) {
+        void contarRecetas(final ParseObject objMenu) {
 
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Recetas");
             query.whereEqualTo("Menu", objMenu);

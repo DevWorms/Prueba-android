@@ -64,12 +64,9 @@ public class MainActivity extends AppCompatActivity
 
     IInAppBillingService mService;
     private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
     SharedPreferences sp;
 
-=======
     static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
->>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
