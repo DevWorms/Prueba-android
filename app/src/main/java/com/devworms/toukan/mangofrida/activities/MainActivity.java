@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
 
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-            builder.setMessage("Te gusto?  CALIFICANOS!!");
+            builder.setMessage("¿Te gusto?  Califícanos!!");
 
             builder.setPositiveButton("CALIFICAR", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity
                     e.putBoolean("calificado",true);
                     e.apply();
 
-                    String url = "https://play.google.com/store";
+                    String url = "https://play.google.com/store/apps/details?id=com.devworms.toukan.mangofrida";
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
                     startActivity(i);
@@ -348,10 +348,6 @@ public class MainActivity extends AppCompatActivity
             mService = IInAppBillingService.Stub.asInterface(service);
         }
     };
-
-    public void notification(String msg) {
-        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-    }
 
     public Boolean checkSuscription(IInAppBillingService service) {
         Boolean isSuscribed = false;

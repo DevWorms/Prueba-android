@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.devworms.toukan.mangofrida.R;
+import com.devworms.toukan.mangofrida.activities.BuySliderActivity;
 import com.devworms.toukan.mangofrida.dialogs.AgregarTarjeta;
 import com.devworms.toukan.mangofrida.dialogs.WalletActivity;
 import com.devworms.toukan.mangofrida.fragments.RecetaFragment;
@@ -343,6 +344,9 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
                 private void mostrarAnuncioDiasPrueba() {
                     if (!isSuscribed) {
+                        Intent i = new Intent(activity, BuySliderActivity.class);
+                        activity.startActivity(i);
+                        /*
                         if (dialog == null) {
                             dialog = new Dialog(activity);
                             dialog.setCancelable(true);
@@ -392,6 +396,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                         if (!dialog.isShowing()) {
                             dialog.show();
                         }
+                        */
                     } else {
                         if (objReceta != null) {
                             RecetarioFragment recetario = new RecetarioFragment();

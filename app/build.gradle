@@ -20,7 +20,7 @@ buildscript {
 android {
     compileSdkVersion 23
     buildToolsVersion '25.0.3'
-    useLibrary  'org.apache.http.legacy'
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.devworms.toukan.mangofrida"
         minSdkVersion 21
@@ -49,11 +49,11 @@ dependencies {
 
     compile 'com.parse.bolts:bolts-android:1.+'
 
-    compile ('com.parse:parse-android:1.14.1') {
+    compile('com.parse:parse-android:1.14.1') {
         exclude group: 'com.parse.bolts'
     }
 
-    compile ('com.facebook.android:facebook-android-sdk:4.7.0'){
+    compile('com.facebook.android:facebook-android-sdk:4.7.0') {
         exclude group: 'com.parse.bolts'
     }
 
@@ -73,4 +73,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.0.0'
     compile project(':openpayandroid')
     compile 'com.anjlab.android.iab.v3:library:1.0.44'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }
