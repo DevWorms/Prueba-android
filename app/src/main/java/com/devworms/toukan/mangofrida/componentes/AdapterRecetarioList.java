@@ -2,12 +2,17 @@ package com.devworms.toukan.mangofrida.componentes;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.vending.billing.IInAppBillingService;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.devworms.toukan.mangofrida.R;
@@ -42,7 +48,11 @@ import com.theartofdev.fastimageloader.FastImageLoader;
 import com.theartofdev.fastimageloader.ImageLoadSpec;
 import com.theartofdev.fastimageloader.target.TargetImageView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -52,14 +62,15 @@ import static com.devworms.toukan.mangofrida.openpay.OpenPayRestApi.conultarStat
 public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRecetarioList.ViewHolder> implements BillingProcessor.IBillingHandler {
     private List<ParseObject> mItems;
     private String tipoMenu;
-    private Activity actividad;
+    public static Activity actividad;
     private List<String> lTipos;
     static BillingProcessor bp;
     static String TAG = "InAppBilling";
     static IabHelper mHelper;
     static String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
     static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
-    Context ctx;
+    static Context ctx;
+    static IInAppBillingService mService;
     static boolean isSuscribed;
 
     public AdapterRecetarioList(List<ParseObject> mItems, String tipoMenu, Activity actividad, Boolean isSuscribed) {
@@ -99,6 +110,11 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recetario, parent, false);
         bp = new BillingProcessor(v.getContext(), base64EncodedPublicKey, this);
         ctx = v.getContext();
+
+        Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+        serviceIntent.setPackage("com.android.vending");
+        ctx.bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+
         return new ViewHolder(v);
     }
 
@@ -115,7 +131,6 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
     @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
-        notification("comprado");
     }
 
     @Override
@@ -132,7 +147,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     }
 
 
-    public void notification(String msg) {
+    public static void notification(String msg) {
         Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
     }
 
@@ -343,7 +358,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
                 }
 
                 private void mostrarAnuncioDiasPrueba() {
-                    if (!isSuscribed) {
+                    if (!checkSuscription(mService)) {
                         Intent i = new Intent(activity, BuySliderActivity.class);
                         activity.startActivity(i);
                         /*
@@ -470,5 +485,66 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
 
             }
         };
+    }
+
+    ServiceConnection mServiceConn = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name,
+                                       IBinder service) {
+            mService = IInAppBillingService.Stub.asInterface(service);
+        }
+    };
+
+    public static boolean checkSuscription(IInAppBillingService service) {
+        Boolean isSuscribed = false;
+
+        try {
+            Bundle ownedItems = service.getPurchases(3, actividad.getPackageName(), "subs", null);
+
+            int response = ownedItems.getInt("RESPONSE_CODE");
+            if (response == 0) {
+                ArrayList<String> ownedSkus = ownedItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
+                ArrayList<String>  purchaseDataList = ownedItems.getStringArrayList("INAPP_PURCHASE_DATA_LIST");
+
+                if (purchaseDataList.size() > 0) {
+                    for (int i = 0; i < purchaseDataList.size(); ++i) {
+                        String purchaseData = purchaseDataList.get(i);
+                        String sku = ownedSkus.get(i);
+
+                        if (sku.equals(ITEM_SKU)) { // Si ha adquirido la suscribción
+                            JSONObject data = new JSONObject(purchaseData);
+                            //Date fecha = new Date(Long.parseLong(data.getString("purchaseTime")));
+                            Integer status = data.getInt("purchaseState");
+
+                            //if (differenceInDays(fecha) > 7) {
+                            if (status.equals(0)) {
+                                // Ya a adquirido la suscripcion, el tiempo de prueba ya paso, y su suscripcion está activa
+                                isSuscribed = true;
+                            }
+                            /*} else {
+                                // Ya a adquirido la suscripción, pero se encuentra en el periodo de prueba
+                                isSuscribed = false;
+                            }*/
+                            break;
+                        }
+                    }
+                } else { // Nunca ha adquirido ninguna suscripción
+                    Log.e("Subscription", "Sin elementos");
+                }
+            } else { // Código de respuesta != 0
+                Log.e("Subscription", "Respuesta: " + response);
+            }
+        } catch (RemoteException | JSONException e) {
+            Log.e("Subscription", e.getMessage());
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+        }
+
+        return isSuscribed;
     }
 }

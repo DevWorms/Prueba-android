@@ -59,8 +59,6 @@ public class BuySliderActivity extends AppCompatActivity implements BillingProce
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_buy_slider);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -140,13 +138,10 @@ public class BuySliderActivity extends AppCompatActivity implements BillingProce
 
     @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
-        Log.d("Comprado", "Veamos que pedo");
-        notification("Comprado");
     }
 
     @Override
     public void onPurchaseHistoryRestored() {
-
     }
 
     @Override
@@ -157,10 +152,6 @@ public class BuySliderActivity extends AppCompatActivity implements BillingProce
     @Override
     public void onBillingInitialized() {
 
-    }
-
-    private void notification(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

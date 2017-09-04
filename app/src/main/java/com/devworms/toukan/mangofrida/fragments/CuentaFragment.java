@@ -3,14 +3,20 @@ package com.devworms.toukan.mangofrida.fragments;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.Fragment;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.internal.view.ContextThemeWrapper;
@@ -25,10 +31,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.vending.billing.IInAppBillingService;
+import com.anjlab.android.iab.v3.BillingProcessor;
+import com.anjlab.android.iab.v3.TransactionDetails;
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.activities.Login;
 import com.devworms.toukan.mangofrida.activities.MainActivity;
+import com.devworms.toukan.mangofrida.componentes.IabHelper;
 import com.devworms.toukan.mangofrida.dialogs.Usuario;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
 import com.devworms.toukan.mangofrida.openpay.OpenPayRestApi;
@@ -62,18 +73,28 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class CuentaFragment extends Fragment implements View.OnClickListener {
+public class CuentaFragment extends Fragment implements View.OnClickListener, BillingProcessor.IBillingHandler {
 
     TargetImageView imgPerfil, imgBarras;
     ImageView imgTarjeta;
-    Activity activity = getActivity();
+    static Activity activity;
     TextView usuario;
     TextView password;
-    Boolean isSuscribed;
+
+    static BillingProcessor bp;
+    static String TAG = "InAppBilling";
+    static IabHelper mHelper;
+    static String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
+    static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
+    static Context ctx;
+    static IInAppBillingService mService;
+    static boolean isSuscribed;
+
 
     ImageView btnCerrarSesion, btnCancelarSuscripcion, btnEliminarTarjeta;
     Button btnFb, btnMail, btnTwitter;
@@ -113,6 +134,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                             String id = response.getJSONObject().getString("id");
                             txtNombreUsuario.setText(response.getJSONObject().getString("name"));
                             txtCorreoElectronico.setText(response.getJSONObject().getString("email"));
+                            txtSubscripcion.setText(checkSuscription(mService) ? "Suscrito" : "Sin inscripción actual");
                             loadFBProfileImage(id);
 
                         } catch (JSONException e) {
@@ -186,7 +208,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         imgPerfil.setImageResource(R.drawable.frida);
         txtCorreoElectronico.setText(ParseUser.getCurrentUser().getEmail());
         txtNombreUsuario.setVisibility(View.INVISIBLE);
-        txtSubscripcion.setText(isSuscribed ? "Suscrito" : "Sin inscripción actual");
+        txtSubscripcion.setText(checkSuscription(mService) ? "Suscrito" : "Sin inscripción actual");
     }
 
     public void cargarInformacion() {
@@ -262,7 +284,7 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         activity = getActivity();
 
         if (objCliente != null) {
-            txtSubscripcion.setText(objCliente.getBoolean("Suscrito") ? "Suscrito" : "Sin inscripción actual");
+            txtSubscripcion.setText(checkSuscription(mService) ? "Suscrito" : "Sin inscripción actual");
             String barras = objCliente.getString("codigobarras");
             if (barras != null && !barras.equals("")) {
                 ly_barras.setVisibility(View.VISIBLE);
@@ -325,6 +347,14 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         isSuscribed = getArguments().getBoolean("isSuscribed");
+        activity = getActivity();
+        ctx = activity.getApplicationContext();
+
+        bp = new BillingProcessor(ctx, base64EncodedPublicKey, this);
+
+        Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+        serviceIntent.setPackage("com.android.vending");
+        ctx.bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
         if (currentUser != null) {
             view = inflater.inflate(R.layout.fragment_contaco_detalles, container, false);
@@ -633,6 +663,26 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    @Override
+    public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
+
+    }
+
+    @Override
+    public void onPurchaseHistoryRestored() {
+
+    }
+
+    @Override
+    public void onBillingError(int errorCode, @Nullable Throwable error) {
+
+    }
+
+    @Override
+    public void onBillingInitialized() {
+
+    }
+
     // conexion a internet
     private class RequestTwitter extends AsyncTask<String, Void, JSONObject> {
         @Override
@@ -679,5 +729,70 @@ public class CuentaFragment extends Fragment implements View.OnClickListener {
                 return null;
             }
         }
+    }
+
+    public static void notification(String msg) {
+        Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
+    }
+
+    ServiceConnection mServiceConn = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name,
+                                       IBinder service) {
+            mService = IInAppBillingService.Stub.asInterface(service);
+        }
+    };
+
+    public static boolean checkSuscription(IInAppBillingService service) {
+        Boolean isSuscribed = false;
+
+        try {
+            Bundle ownedItems = service.getPurchases(3, activity.getPackageName(), "subs", null);
+
+            int response = ownedItems.getInt("RESPONSE_CODE");
+            if (response == 0) {
+                ArrayList<String> ownedSkus = ownedItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
+                ArrayList<String>  purchaseDataList = ownedItems.getStringArrayList("INAPP_PURCHASE_DATA_LIST");
+
+                if (purchaseDataList.size() > 0) {
+                    for (int i = 0; i < purchaseDataList.size(); ++i) {
+                        String purchaseData = purchaseDataList.get(i);
+                        String sku = ownedSkus.get(i);
+
+                        if (sku.equals(ITEM_SKU)) { // Si ha adquirido la suscribción
+                            JSONObject data = new JSONObject(purchaseData);
+                            //Date fecha = new Date(Long.parseLong(data.getString("purchaseTime")));
+                            Integer status = data.getInt("purchaseState");
+
+                            //if (differenceInDays(fecha) > 7) {
+                            if (status.equals(0)) {
+                                // Ya a adquirido la suscripcion, el tiempo de prueba ya paso, y su suscripcion está activa
+                                isSuscribed = true;
+                            }
+                            /*} else {
+                                // Ya a adquirido la suscripción, pero se encuentra en el periodo de prueba
+                                isSuscribed = false;
+                            }*/
+                            break;
+                        }
+                    }
+                } else { // Nunca ha adquirido ninguna suscripción
+                    Log.e("Subscription", "Sin elementos");
+                }
+            } else { // Código de respuesta != 0
+                Log.e("Subscription", "Respuesta: " + response);
+            }
+        } catch (RemoteException | JSONException e) {
+            Log.e("Subscription", e.getMessage());
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+        }
+
+        return isSuscribed;
     }
 }

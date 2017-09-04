@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
 import com.devworms.toukan.mangofrida.R;
@@ -41,6 +42,7 @@ public class MenuFragment extends Fragment {
     private AdapterMenuList mAdapterMenuList;
     IInAppBillingService mService;
     static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
+    Context ctx;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,6 +68,8 @@ public class MenuFragment extends Fragment {
 
         ImageView imgTexto = (ImageView) getActivity().findViewById(R.id.img_texto);
         imgTexto.setVisibility(View.VISIBLE);
+
+        ctx = view.getContext();
 
         /*
         ImageView imgFondoBarra = (ImageView) getActivity().findViewById(R.id.img_fondo_barra);
@@ -119,6 +123,10 @@ public class MenuFragment extends Fragment {
         }
     };
 
+    private void notification(String msg) {
+        Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
+    }
+
     public boolean checkSuscription(IInAppBillingService service) {
         Boolean isSuscribed = false;
 
@@ -134,23 +142,24 @@ public class MenuFragment extends Fragment {
                 if (purchaseDataList.size() > 0) {
                     for (int i = 0; i < purchaseDataList.size(); ++i) {
                         String purchaseData = purchaseDataList.get(i);
-                        String signature = signatureList.get(i);
                         String sku = ownedSkus.get(i);
 
                         if (sku.equals(ITEM_SKU)) { // Si ha adquirido la suscribción
                             JSONObject data = new JSONObject(purchaseData);
-                            Date fecha = new Date(Long.parseLong(data.getString("purchaseTime")));
+                            //Date fecha = new Date(Long.parseLong(data.getString("purchaseTime")));
                             Integer status = data.getInt("purchaseState");
 
-                            if (differenceInDays(fecha) > 7) {
-                                if (status.equals(1)) {
-                                    // Ya a adquirido la suscripcion, el tiempo de prueba ya paso, y su suscripcion está activa
-                                    isSuscribed = true;
-                                }
-                            } else {
-                                // Ya a adquirido la suscripción, pero se encuentra en el periodo de prueba
+                            //notification("Status" + status.toString());
+
+                            //if (differenceInDays(fecha) > 7) {
+                            if (status.equals(0)) {
+                                // Ya a adquirido la suscripcion, el tiempo de prueba ya paso, y su suscripcion está activa
                                 isSuscribed = true;
                             }
+                            /*} else {
+                                // Ya a adquirido la suscripción, pero se encuentra en el periodo de prueba
+                                isSuscribed = false;
+                            }*/
                             break;
                         }
                     }
@@ -162,8 +171,9 @@ public class MenuFragment extends Fragment {
             }
         } catch (RemoteException | JSONException e) {
             Log.e("Subscription", e.getMessage());
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
         }
-        Log.d("Suscribed 1", isSuscribed.toString());
 
         return isSuscribed;
     }

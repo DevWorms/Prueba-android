@@ -349,6 +349,10 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
+    private void notification(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
     public Boolean checkSuscription(IInAppBillingService service) {
         Boolean isSuscribed = false;
 
@@ -360,28 +364,28 @@ public class MainActivity extends AppCompatActivity
                 ArrayList<String> ownedSkus = ownedItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
                 ArrayList<String>  purchaseDataList = ownedItems.getStringArrayList("INAPP_PURCHASE_DATA_LIST");
                 ArrayList<String>  signatureList = ownedItems.getStringArrayList("INAPP_DATA_SIGNATURE_LIST");
-                String continuationToken = ownedItems.getString("INAPP_CONTINUATION_TOKEN");
 
                 if (purchaseDataList.size() > 0) {
                     for (int i = 0; i < purchaseDataList.size(); ++i) {
                         String purchaseData = purchaseDataList.get(i);
-                        String signature = signatureList.get(i);
                         String sku = ownedSkus.get(i);
 
                         if (sku.equals(ITEM_SKU)) { // Si ha adquirido la suscribción
                             JSONObject data = new JSONObject(purchaseData);
-                            Date fecha = new Date(Long.parseLong(data.getString("purchaseTime")));
+                            //Date fecha = new Date(Long.parseLong(data.getString("purchaseTime")));
                             Integer status = data.getInt("purchaseState");
 
-                            if (differenceInDays(fecha) > 7) {
-                                if (status.equals(1)) {
+                            //notification("Status" + status.toString());
+
+                            //if (differenceInDays(fecha) > 7) {
+                                if (status.equals(0)) {
                                     // Ya a adquirido la suscripcion, el tiempo de prueba ya paso, y su suscripcion está activa
                                     isSuscribed = true;
                                 }
-                            } else {
+                            /*} else {
                                 // Ya a adquirido la suscripción, pero se encuentra en el periodo de prueba
-                                isSuscribed = true;
-                            }
+                                isSuscribed = false;
+                            }*/
                             break;
                         }
                     }
@@ -393,6 +397,8 @@ public class MainActivity extends AppCompatActivity
             }
         } catch (RemoteException | JSONException e) {
             Log.e("Subscription", e.getMessage());
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
         }
 
         return isSuscribed;
