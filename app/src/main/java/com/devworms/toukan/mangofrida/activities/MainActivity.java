@@ -42,6 +42,7 @@ import com.devworms.toukan.mangofrida.fragments.RecetarioFragment;
 import com.devworms.toukan.mangofrida.fragments.RegalosFragment;
 import com.devworms.toukan.mangofrida.fragments.SearchResultsFragment;
 import com.devworms.toukan.mangofrida.main.StarterApplication;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;

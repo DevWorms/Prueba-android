@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "9297957850",
+    "firebase_url": "https://app-de-cocina-notifications.firebaseio.com",
+    "project_id": "app-de-cocina-notifications",
+    "storage_bucket": "app-de-cocina-notifications.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9297957850:android:9830cbe6b59f93e7",
+        "android_client_info": {
+          "package_name": "com.devworms.toukan.mangofrida"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9297957850-i3j3dq9u3s3r09e7f0u0ngpq9l70gtih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYLhzvNL1Shh55yy_Lq5KFaOK-mYbdgOY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

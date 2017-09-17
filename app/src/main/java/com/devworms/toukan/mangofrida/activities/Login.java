@@ -19,10 +19,12 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.devworms.toukan.mangofrida.R;
 import com.devworms.toukan.mangofrida.dialogs.Usuario;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
@@ -53,9 +55,23 @@ public class Login extends AppCompatActivity {
 
             ParseUser currentUser = ParseUser.getCurrentUser();
             if (currentUser != null && isNetworkAvailable()) {
-                Intent intent = new Intent(Login.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                String token = FirebaseInstanceId.getInstance().getToken();
+                currentUser.put("token_device", token);
+                Log.d("Token", token);
+                currentUser.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        //  dismissLoadingDialog();
+                        if (e == null) {
+                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Ocurrio un error al guardar tu dispositivo"+e,
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
             }
         } catch (Exception ex) {
             Log.d("Error", ex.getMessage());
