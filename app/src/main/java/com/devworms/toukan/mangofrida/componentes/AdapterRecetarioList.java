@@ -68,7 +68,7 @@ public final class AdapterRecetarioList extends RecyclerView.Adapter<AdapterRece
     static String TAG = "InAppBilling";
     static IabHelper mHelper;
     static String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
-    static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
+    static String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion.nueva";
     static Context ctx;
     static IInAppBillingService mService;
     static boolean isSuscribed;

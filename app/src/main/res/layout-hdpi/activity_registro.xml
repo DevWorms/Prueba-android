@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:touchscreenBlocksFocus="false"
-    android:background="@android:color/background_light">
+    android:background="@drawable/fondon">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

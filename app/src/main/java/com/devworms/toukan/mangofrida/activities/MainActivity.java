@@ -32,6 +32,7 @@ import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
 import com.devworms.toukan.mangofrida.R;
+import com.devworms.toukan.mangofrida.dialogs.CalificarApp;
 import com.devworms.toukan.mangofrida.dialogs.CompartirDialog;
 import com.devworms.toukan.mangofrida.fragments.CreditosFragment;
 import com.devworms.toukan.mangofrida.fragments.CuentaFragment;
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity
 
         if(!sp.getBoolean("calificado",false)) {
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+           /* AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
             builder.setMessage("¿Te gusto?  Califícanos!!");
 
@@ -100,7 +101,8 @@ public class MainActivity extends AppCompatActivity
                     // User cancelled the dialog
                 }
             });
-            AlertDialog dialog = builder.create();
+            AlertDialog dialog = builder.create();*/
+            CalificarApp dialog = new CalificarApp(MainActivity.this);
             dialog.show();
         }
 

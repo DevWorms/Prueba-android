@@ -51,7 +51,7 @@ public class BuySliderActivity extends AppCompatActivity implements BillingProce
     ImageView buy;
     IabHelper mHelper;
     String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwMPI5U2E7s8mNJiCTK53UiZ1WE/bSqvfASGu8SbpPrInis56J2pn6uaxIJIPBfleiSCN4fd9O2uK8/Vt6cpztfvvUWHbDZ6MLtMh3hBSFDZjYxpIYsanA2R02kklnD6NDs1ONb3XDXgl0NbYPKFgoIPgoMMa6wH7WLZQjh9oCKl8cOMQxOjVQcJwR7voZHAUU0gSofg463ztFIa2CzW0gbZ80tSq7+vQerDx2rdcs/t28fOt9gRKzK0JTdN/lv5umSBFCsVlIBseiswmdjNCqzYf6hkYIq1KZ5llbUeXctTNWAXKve/3qRfc5LC/oVkuFS69V2I6WrWIBGNDySqp1wIDAQAB";
-    String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion";
+    String ITEM_SKU = "com.devworms.toukan.mangofrida.suscripcion.nueva";
     BillingProcessor bp;
     String TAG = "InAppBilling";
     Activity activity;
