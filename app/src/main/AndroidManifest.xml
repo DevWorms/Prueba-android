@@ -183,7 +183,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".dialogs.CalificarApp"></activity>
+
     </application>
 
 </manifest>

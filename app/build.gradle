@@ -25,7 +25,7 @@ android {
         applicationId "com.devworms.toukan.mangofrida"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 14
+        versionCode 15
         versionName "1.0"
         multiDexEnabled true
     }

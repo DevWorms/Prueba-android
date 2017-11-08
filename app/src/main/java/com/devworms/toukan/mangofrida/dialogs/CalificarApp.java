@@ -20,6 +20,7 @@ public class CalificarApp extends Dialog {
     Button btnCalifica, btnCancelar;
     SharedPreferences sp;
     // Constructor por defecto
+
     public CalificarApp(Context context ) {
         super(context);
         this.context = context;
