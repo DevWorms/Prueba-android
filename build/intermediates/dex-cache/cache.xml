@@ -3,78 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_3c50eeb440e9dd58845524e0d8c6f931a3ddc072/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/6241c0746283dfa12ce17a338b13e4313af46fc8/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3318d37e2378c4982ad6d2635eed93d9e7f7940b">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3252bbcd2c5a692c4608ad6c9b11eef291aa86cb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-asl-1.9.11.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-asl-1.9.11_c826649836cf2cf8ca4372adea0926c82c56abed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-jackson2-1.17.0-rc.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="fc9a6db1d66e0d635336e1a2d02c3bc86beaef03">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-jackson2-1.17.0-rc_7d1fdd088ef4039e74fd86120ea2f85563db4da8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/junit-4.10.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="abb938dd2fca0194776c97c54fdd0b97c56150c2">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/junit-4.10_b21fe28bbd71dd95032f253c7e65fb3f5201c175/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/15f12f89f1ff23cdde2aa4fc779009e97e849e20/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="2430e711762a749feb00b3d64858ca4768251b9d">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a52e21ebeafdb5fde520b0d8c80e9b7835d85858/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/b9cadb1e05ae6a2d964f64bde1169fd68b0fac80/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="9935891f23923f39d002087085d9696568a9f657">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e2a14ff151bf3298c2033ff997f6e9a6866b2fe0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-2.1.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="36d1b5802b2b4c864773367b9717d680616a48d9">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-2.1.3_996f6b204a33efc5fb570ddfd3f54a0cdc6b231c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/mac/proyectos git/AppCosina/Prueba-android/pdk/build/intermediates/bundles/default/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -84,165 +12,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/dfe0b7253853dda20e93cec8352e8de2e7eb6180/output/jars/classes.jar"
+        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-1.17.0-rc.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="0e85a8fb54f04489a01242e7579e7512ef5a28b1">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5c110912522a6c9391b8e37b8a6bb2a027dbd8db/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jsr305-1.3.9.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3b61e3b4da9777ed1bca89bc2ade911f2a03f264">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jsr305-1.3.9_148f97a580878c695ea84042f9b5149cc2435fce/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.twitter/twitter-text/1.13.0/78415b95ae3184c5926d593feab64bfc0b73b2dd/twitter-text-1.13.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="78415b95ae3184c5926d593feab64bfc0b73b2dd">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/twitter-text-1.13.0_05811224c834e0138b61a2906c44f2b3fc308fa4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.7_998ce8c22a1aaaf6287230a79a5099bc0f3e730b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/1651ffe92fbe1bef9c73a9c174cfc8c6334340c4/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="ed87ccdcb70c17d71ba4e6e4ac16afa62d3c49fb">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_346facf914acc997fa166c09b04327a3db76e0ba/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/22ba47031bc20826ae4243c2143e2812aac91025/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="81aa0e8e77d948204aa6754019c6f3c04dd922e3">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5fdfbeea9e07aaab8ace41abb4b9be9dc931c7ed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_421f2ca92565beb18a7cfa79273ea1a0a4d43d0c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/27cd53a5abdc989036df094a511545f60089fdab/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="43e9789bd3240271265ab30ce1be9f224843f5a8">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e4b82a6c0bdc0e368ff079992f980d9b17d06acc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/6264aadfe3cebfcaccb1260e3ff820413651bcfc/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_385a844f8e32b7cb5434391fe738c5c657cfb0a2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/da2d4dd7f7655b70f91a17b54ece6409f2caa88b/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="f47f4d5bdfd7d7bf330945b8a7ccce4ab437a710">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8f479e4f90474bbe634efe5e85bc81b03ba110d5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseTwitterUtils-1.10.3_09b52489b59649385cfc27fcd31961c50b4b27d7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.theartofdev/fast-image-loader/0.8.4/dbc38870b9506ceef6ffdf73a7bfce864587a4df/fast-image-loader-0.8.4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="dbc38870b9506ceef6ffdf73a7bfce864587a4df">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/fast-image-loader-0.8.4_68694191f49de18f0341b7eabcefbd81f9935da8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/725ec201bb8653c18a6306add945940ad3a4aeda/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="e0f6e271147a09c34a8fa0d09e1df8c383ce3f44">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9f50af39286bbb6d69742fb59e666fef760511a2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/85ad80baebab3bd1419f40cd2d3b0519b080ec7f/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="364364bf77b4a71afc5930fc3ae57b3f0eea637c">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_24ff5cff3bec799cf11d360e0df2d06689c21a02/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-2.2.0_4219c559c40a3f4fb8e5a319324e253447772f03/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/83e4dd9242a57b2f5c06ca89e61bdccb28f1c8bb/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_16ed0a4844ef3f5a403a22ccb2f1d60965e44fec/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/ec0675c853f635c0a94060e0b8fff6822044a3fa/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3ecd7acbf64ca3c53bede2c6539a4d61e3aa1901/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.14.1/b35bb849e7bda4497fe6dfce4bd9f332087c2e3b/parse-android-1.14.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="b35bb849e7bda4497fe6dfce4bd9f332087c2e3b">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/parse-android-1.14.1_0e31b88015018111780db78930586b9f91c6b0f0/classes.dex" />
+        sha1="7408d78899c34ce036a83ba9f580b5110dcd6c0b">
+        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-1.17.0-rc_ebb58019a302469e9ad695b9f692c145f2f50a46/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -255,12 +30,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/41afca29314acbcf68ccc61460d199551d52a5e5/output/jars/classes.jar"
-        jumboMode="true"
+        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jsr305-1.3.9.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="e5b429c146094a612134910688d169ec08deeefb">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bbb5d1c18b13469f225f59cec384aea9b21716c3/classes.dex" />
+        sha1="3b61e3b4da9777ed1bca89bc2ade911f2a03f264">
+        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jsr305-1.3.9_148f97a580878c695ea84042f9b5149cc2435fce/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/junit-4.10.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="abb938dd2fca0194776c97c54fdd0b97c56150c2">
+        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/junit-4.10_b21fe28bbd71dd95032f253c7e65fb3f5201c175/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -273,21 +57,30 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/af7cf12ab77acf9dbd700a20e3da4ababafdcfd8/output/jars/classes.jar"
+        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-asl-1.9.11.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="c70dc7e189e45e8a8b07a2cafee76aefdc9822df">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_32cd9250809acb20345fbb32a0b1dec615868898/classes.dex" />
+        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
+        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-asl-1.9.11_c826649836cf2cf8ca4372adea0926c82c56abed/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.anjlab.android.iab.v3/library/1.0.44/add169444f38ac23ffae27326c75e33fedef73ba/library-1.0.44.jar"
+        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="add169444f38ac23ffae27326c75e33fedef73ba">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/library-1.0.44_9f5f8f3c469622ebd76f8a10618935fa9739fc1f/classes.dex" />
+        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
+        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseTwitterUtils-1.10.3_09b52489b59649385cfc27fcd31961c50b4b27d7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-2.1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="36d1b5802b2b4c864773367b9717d680616a48d9">
+        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-2.1.3_996f6b204a33efc5fb570ddfd3f54a0cdc6b231c/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -300,156 +93,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mac/.android/build-cache/13ae0bb69392b7401d08e2fc416253f44326d0f0/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3f64d11697d7670da5ad159a061cada9f6029f16/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/mac/proyectos git/AppCosina/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
         <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseFacebookUtilsV4-1.10.3_4d80dd14059063df44cf1eefa10eda1143e94725/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_e83baf2de4ea4bc9552aa863aa942db3807947bb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-android-1.17.0-rc.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="9d3a30f9890c5f6393ffb1f5e6020bef69e569c1">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-android-1.17.0-rc_1c6c3aa9422e270aefe45987f7c794875be2e7b5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-1.17.0-rc.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="7408d78899c34ce036a83ba9f580b5110dcd6c0b">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-1.17.0-rc_ebb58019a302469e9ad695b9f692c145f2f50a46/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/9f188fbcef7e070cb2b4421b18580e20f6b7502c/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="e724073d032731be77fad0f993e2970fb4429e3a">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9fc1229a5bf01451277be9e1636e54f44298f14b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-asl-1.9.11.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="4d0df1642945c9058ed7222d62242c2fbe745b1e">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-asl-1.9.11_c826649836cf2cf8ca4372adea0926c82c56abed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/6f4fa67a3bb68e96d9ee48619f6519f04be3fbdf/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6441c4ac8b984786873746726f41e9472672ecc9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jackson-core-2.1.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="36d1b5802b2b4c864773367b9717d680616a48d9">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jackson-core-2.1.3_996f6b204a33efc5fb570ddfd3f54a0cdc6b231c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_9499bc38c172538bae06bd65c9f455636cdde92a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/532cc6151b802b5f0f7e08f8bc9237e87e55e596/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="e1625e48a836779b5fa141d22e5d05563aaccc9a">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0403cdecc524dce14cd5e9951f8e5286739fedc3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/66476c8f5b60cf3c43882bbccf8d177c3a1df8c1/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_eda2a851ca20bfcbe369fe5e4afdd8e8787d84e6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/jsr305-1.3.9.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3b61e3b4da9777ed1bca89bc2ade911f2a03f264">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/jsr305-1.3.9_148f97a580878c695ea84042f9b5149cc2435fce/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/45ed8cf07b621852542c15778099028d80f1b145/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="62f733cc92b1611138da965697f4654cd385e078">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_961e3f7d3489a079045fd23d90a391496dee72a4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/85ad80baebab3bd1419f40cd2d3b0519b080ec7f/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="364364bf77b4a71afc5930fc3ae57b3f0eea637c">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_24ff5cff3bec799cf11d360e0df2d06689c21a02/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/junit-4.10.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="abb938dd2fca0194776c97c54fdd0b97c56150c2">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/junit-4.10_b21fe28bbd71dd95032f253c7e65fb3f5201c175/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="a681c044244d9fc375198588297a39ba78028423">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-1.9.0_03bd6a70fd280254804f01b7594d78a497328f95/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -459,186 +108,6 @@
         revision="25.0.3"
         sha1="fc9a6db1d66e0d635336e1a2d02c3bc86beaef03">
         <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-jackson2-1.17.0-rc_7d1fdd088ef4039e74fd86120ea2f85563db4da8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/0b0ba4ab374d4fbede7b01492accf65e2639530e/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_758c950f2668b825a4a04bef18ceeee402a6ce30/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/library-1.0.19_1c744d0c7f573cc104da7cbc13afa4ae9acfbaaf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/1651ffe92fbe1bef9c73a9c174cfc8c6334340c4/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="ed87ccdcb70c17d71ba4e6e4ac16afa62d3c49fb">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_346facf914acc997fa166c09b04327a3db76e0ba/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/27cd53a5abdc989036df094a511545f60089fdab/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="43e9789bd3240271265ab30ce1be9f224843f5a8">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e4b82a6c0bdc0e368ff079992f980d9b17d06acc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/app/libs/ParseTwitterUtils-1.10.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d17681a0abb06bf49061e7859a4c51bae56b95ab">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseTwitterUtils-1.10.3_09b52489b59649385cfc27fcd31961c50b4b27d7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/41afca29314acbcf68ccc61460d199551d52a5e5/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="e5b429c146094a612134910688d169ec08deeefb">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bbb5d1c18b13469f225f59cec384aea9b21716c3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.11.0_328ba32a9783dfc463cf35786fd5835aded7ec71/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/a287f46aef8231d50b93e4f42e91c6b7272e1d73/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="b727e800debd202a5113d675f024751bc82b2cbf">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5bb6b097e8905c5a0688e3463f690d3cac0fd12d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/532cc6151b802b5f0f7e08f8bc9237e87e55e596/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="e1625e48a836779b5fa141d22e5d05563aaccc9a">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0403cdecc524dce14cd5e9951f8e5286739fedc3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/0f9d12f6bf16bf1f1976d3ad98146b9dff10779b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_874be801fe00c2a945247f53e0ab27431f6a11a6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="023ee503b631f69511e335a061ea008f8da60f40">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_36aea58734aa23c0a599a9d52f17961edc02af4f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/01d03ff740a1bfa5e9f93245d283a18f4a5400e4/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_edcb30d4b119abae1d5bd51cb65e6ab74c02efab/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/02338cc5ce70e1598b76733c2f2ebcfb43a7e047/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="8ec69f9e7e18a05a46b4fcaa69368b6d42fa6324">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ac5f1a24e8abb56fcee60414a0723002691011be/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.6.0_0a6b128861e7781a2bf4f70049616c364a95eb97/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/da2d4dd7f7655b70f91a17b54ece6409f2caa88b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="f47f4d5bdfd7d7bf330945b8a7ccce4ab437a710">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8f479e4f90474bbe634efe5e85bc81b03ba110d5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/google-http-client-1.17.0-rc.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="7408d78899c34ce036a83ba9f580b5110dcd6c0b">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/google-http-client-1.17.0-rc_ebb58019a302469e9ad695b9f692c145f2f50a46/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/15f12f89f1ff23cdde2aa4fc779009e97e849e20/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="2430e711762a749feb00b3d64858ca4768251b9d">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a52e21ebeafdb5fde520b0d8c80e9b7835d85858/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/.android/build-cache/46f93fce10a2fd099273ed77b37800c38942bebc/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8535df516a154b1ba68f8b101d8e5b158d01fb49/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/app/libs/ParseFacebookUtilsV4-1.10.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="30f5f2c4ac77cfa3b5584766e3e40503bd927ae9">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/2/ParseFacebookUtilsV4-1.10.3_4d80dd14059063df44cf1eefa10eda1143e94725/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mac/proyectos git/AppCosina/Prueba-android/openpayandroid/build/intermediates/bundles/default/libs/devicecollector-sdk-2.5.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="90060b693ab97ea90a0ccbb6a430bd7e3b5d0771">
-        <dex dex="/Users/mac/proyectos git/AppCosina/Prueba-android/app/build/intermediates/transforms/dex/debug/folders/1000/8/devicecollector-sdk-2.5_83b9922cc3375888fba65125e9d2d6bf4a593e40/classes.dex" />
     </item>
 
 </items>

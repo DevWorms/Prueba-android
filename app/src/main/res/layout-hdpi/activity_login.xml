@@ -83,15 +83,6 @@
             android:layout_marginTop="9dp"
             android:scaleType="fitXY" />
 
-        <ImageView
-            android:layout_width="135dp"
-            android:layout_height="12dp"
-            android:id="@+id/imageView26"
-            android:src="@drawable/olvidastetucontrasena"
-            android:onClick="recuperarContrasena"
-            android:scaleType="fitXY"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp" />
 
         <LinearLayout
             android:orientation="horizontal"

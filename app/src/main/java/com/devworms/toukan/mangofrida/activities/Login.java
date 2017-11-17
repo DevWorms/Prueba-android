@@ -208,7 +208,7 @@ public class Login extends AppCompatActivity {
         this.finish();
     }
 
-    public void recuperarContrasena(View view) {
+   /* public void recuperarContrasena(View view) {
         final Activity actividad = this;
         final Dialog dialog = new Dialog(this);
         dialog.setCancelable(true);
@@ -267,7 +267,7 @@ public class Login extends AppCompatActivity {
         });
 
         dialog.show();
-    }
+    }*/
 
     public void registrarUsuario(View view) {
         Intent intent = new Intent(Login.this, RegistroActivity.class);
